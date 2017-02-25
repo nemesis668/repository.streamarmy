@@ -16,8 +16,8 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">The Home Of Stream Army Add-on  Stream Army Addon Fully Loaded With Great Playlists</summary>
-    <description lang="en">@Nemzzy668  / @_MANC_</description>
+    <summary lang="en">The Home Of Stream Army Add-on</summary>
+    <description lang="en">@Nemzzy668 / @_MANC_</description>
     <platform>all</platform>
   </extension>
 </addon>
