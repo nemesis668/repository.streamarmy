@@ -1,0 +1,8 @@
+v1.0.2
+release bug fixes 
+
+v1.0.1 
+bugs noticed pushing out next updae to rectify
+
+v1.0.0
+Initial Release

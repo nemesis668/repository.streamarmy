@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.StreamArmy" name="Stream Army" version="2.0" provider-name="@Nemzzy668 / @_Manc_">
+	<extension point="xbmc.addon.repository" name="Stream Army">
+		<info compressed="false">http://www.streamarmy.uk/Plugins/addons.xml</info>
+		<checksum>http://www.streamarmy.uk/Plugins/addons.xml.md5</checksum>
+		<datadir zip="true">http://www.streamarmy.uk/Plugins/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Stream Army Repo</summary>
+		<description>Repo For Stream Army, Who Streams Wins bought to you by @Nemzzy668 /  @_MANC_</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+

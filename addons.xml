@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="repository.StreamArmy" name="Stream Army" version="2.0" provider-name="Nemzzy / Manc">
+  <extension point="xbmc.addon.repository" name="Stream Army">
+    <info compressed="false">http://www.streamarmy.co.uk/Plugins/addons.xml</info>
+    <checksum>http://www.streamarmy.co.uk/Plugins/addons.xml.md5</checksum>
+    <datadir zip="true">http://www.streamarmy.co.uk/Plugins/</datadir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Stream Army Repo</summary>
+    <description>Repo For Stream Army, Who Streams Wins bought to you by @Nemzzy668 /  @_MANC_ </description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.streamarmy" name="^[COLOR lime]Stream Army[/COLOR]" version="3.0.0" provider-name="Stream Army">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.urlresolver"  version="3.0.26"/>
+    <import addon="script.module.liveresolver" version="0.1.49"/>
+    <import addon="script.common.plugin.cache" version="2.5.8"/>    
+	<import addon="script.module.metahandler" version="2.9.1"/>
+	<import addon="plugin.video.youtube" version="5.3.6" optional="false" />
+  <import addon="plugin.video.f4mTester" version="2.7.1" optional="false" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">The Home Of Stream Army Add-on  Stream Army Addon Fully Loaded With Great Playlists</summary>
+    <description lang="en">@Nemzzy668  / @_MANC_</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.f4mTester" version="2.7.1" name="f4mTester" provider-name="Shani">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.video.F4mProxy" version="2.8.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    
+
+    <extension point="xbmc.addon.metadata">
+        <summary>f4mTester</summary>
+        <description></description>
+        <platform>all</platform>
+    </extension>
+</addon>
+
+<addon id="plugin.video.youtube" name="YouTube" version="5.3.6" provider-name="jdf76, bromix">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+        <news>
+[add] MPEG-DASH support for Kodi 17 w/ inputstream.adaptive Add-on
+[add] optional History and Watch Later custom playlist to Settings -> Folders, or (My)Playlists context menu to set/remove
+[add] Maintenance section to Settings
+[add] 'Subtitle language(s) to download' selection to Settings -> General
+[add] 'Force SSL Certificate verification' to Settings -> Advanced
+[upd] API key set switching from Settings -> API (this will log you out)
+[upd] Dual login only required if My Subscriptions folder is enabled at sign-in
+[upd] setting content type from episodes, now videos
+[del] override view options
+[upd] Norwegian strings [torstehu]
+[upd] Greek strings [twilight0]
+[upd] Portuguese strings [Wanilton]
+[upd] Dutch strings [flemlion]
+[fix/upd] API tweaking and various other updates
+        </news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <summary lang="en">Plugin for YouTube</summary>
+        <description lang="en">YouTube is one of the biggest video-sharing websites of the world.</description>
+		<summary lang="de">Plugin für YouTube</summary>
+        <description lang="de">YouTube ist eines der größten Video-Sharing-Websites der Welt.</description>
+        <summary lang="pl">Wtyczka YouTube</summary>
+        <description lang="pl">YouTube jest jednym z największych na świecie serwisów udostępniania wideo.</description>
+		<summary lang="hu">Kiegészítő  a YouTube-hoz</summary>
+        <description lang="hu">A YouTube világ egyik legnagyobb videómegosztó weboldala.</description>
+        <summary lang="es">Plugin para YouTube</summary>
+        <description lang="es">YouTube es un uno de los mayores sitios web de intercambio de vídeos del mundo.</description>
+        <summary lang="ru">Видеодополнение YouTube</summary>
+        <description lang="ru">Данное дополнение позволяет находить и смотреть видео на всеми любимом сайте.</description>
+        <summary lang="fr">Plugin pour YouTube</summary>
+        <description lang="fr">YouTube est l'un des plus grands sites de partage vidéos du monde.</description>
+        <summary lang="zh">YouTube附加元件</summary>
+        <description lang="zh">「Youtube」是全世界最大的影片分享網站</description>
+        <summary lang="bg">Добавка за YouTube</summary>
+        <description lang="bg">YouTube е един от най-големите уеб сайтове за споделяне на видео в целия свят.</description>
+		<summary lang="el">Πρόσθετο YouTube</summary>
+        <description lang="el">Το YouTube είναι μία από τις μεγαλύτερες ιστοσελίδες διαμοιρασμού βίντεο στον κόσμο.</description>
+        <summary lang="no">Tillegg for YouTube</summary>
+        <description lang="no">YouTube er en av verdens største nettsider for videodeling.</description>
+        <disclaimer lang="en"></disclaimer>
+		<language></language>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+		<forum>http://forum.kodi.tv/showthread.php?tid=267160</forum>
+		<website>http://www.youtube.com</website>
+		<email>ytplugin at datanet dot ws</email>
+		<source>https://github.com/Kolifanes/plugin.video.youtube</source>
+	</extension>
+</addon>
+
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<addon id="script.common.plugin.cache" name="Common plugin cache" provider-name="TheCollective" version="2.5.8">
+  <requires>
+    <import addon="xbmc.python" version="2.24.0" />
+  </requires>
+  <extension library="default.py" point="xbmc.service" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Common caching api for xbmc plugins.</summary>
+  </extension>
+  <extension library="lib" point="xbmc.python.module" />
+</addon>
+
+<addon id="script.module.addon.common" 
+	     name="Common addon methods" 
+	     version="2.0.0" 
+	     provider-name="Eldorado (original: t0mm0)">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Collection of commonly used addon routines</summary>
+    <description lang="en">Collection of commonly used addon routines to simplify addon development.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>  
+  </extension>
+</addon>
+
+<addon id="script.module.beautifulsoup"
+       name="BeautifulSoup"
+       version="3.2.1"
+       provider-name="Leonard Richardson (leonardr@segfault.org)">
+  <requires>
+    <import addon="xbmc.python" 
+    		version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary>HTML/XML parser for quick-turnaround applications like screen-scraping</summary>
+    <description>Beautiful Soup parses arbitrarily invalid SGML and provides a variety of methods and Pythonic idioms for iterating and searching the parse tree.</description>
+    <license>BSD</license>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="script.module.liveresolver" 
+     name="LiveResolver" 
+     version="0.1.49" 
+     provider-name="natko1412">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.requests"/>
+    <import addon="script.module.addon.common" version="2.0.0" />
+
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Resolve common live video host URL's to be playable in XBMC/Kodi + find links embeded in sites.</summary>
+    <description lang="en"></description>    
+  </extension>
+</addon>
+
+<addon id="script.module.metahandler" 
+     name="metahandler" 
+     version="2.9.1" 
+     provider-name="Eldorado">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.addon.common" version="2.0.0"/>
+    <import addon="script.module.myconnpy" version="1.1.6"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Downloads Artwork for TV shows, Movies and Music videos for addons and stores them in a local SQLITE database</summary>
+    <description lang="en">Queries, stores, and returns metadata for TV shows, Movies and Musicvideos. [CR]Sources:[CR]www.thetvdb.com[CR]www.themoviedb.org[CR]www.imdb.com</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website></website>
+    <email></email>
+    <source></source>
+  </extension>
+</addon>
+
+<addon id="script.module.myconnpy"
+       name="MySQL Connector/Python"
+       version="1.1.7"
+       provider-name="MySQL">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">MySQL Connector/Python</summary>
+        <description lang="en">MySQL Connector/Python is implementing the MySQL Client/Server protocol completely in Python. This means you don't have to compile anything or MySQL (client library) doesn't even have to be installed on the machine.</description>
+        <license>GPLv2</license>
+        <platform>all</platform>
+        <website>http://dev.mysql.com/doc/connector-python/en/index.html</website>
+        <source>http://dev.mysql.com/downloads/connector/python/</source>
+    </extension>
+</addon>
+
+<addon id="script.module.pydevd" name="pydevd" version="4.4.0" provider-name="Fabio Zadrozny, Paul Backhouse">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib"/>
+	<extension point="xbmc.addon.metadata">
+	    <summary lang="en">Kodi support for PyDev remote debugging in Eclipse/Aptana.</summary>
+	    <description lang="en">See here for details: http://pydev.org/manual_adv_remote_debugger.html</description>
+	    <platform>all</platform>
+	    <language></language>
+	    <license>Eclipse Public License</license>
+	    <forum>http://forum.kodi.tv/showthread.php?tid=170715</forum>
+	    <website>http://pydev.org/</website>
+	    <source>https://github.com/powlo/script.module.pydevd</source>
+	    <email></email>
+	    <disclaimer lang="en">Use at your own risk. The authors accept no liability. May cause permanent and/or catastrophic damage. Side effects include, but are not limited to, loss of memory, seizures, sudden fits of rage, sudden fits of melancholy, inability to recall prominent capital cities, lack of respect for authority, fear of cats, temporary and/or permanent black outs. Avoid inhalation. Use in a well ventilated space. Keep away from small children.</disclaimer>	
+	</extension>
+</addon>
+
+<addon id="script.module.requests"
+       name="requests"
+       version="2.9.1"
+       provider-name="kennethreitz, beenje">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary>Python HTTP for Humans</summary>
+    <description>Packed for KODI from https://github.com/kennethreitz/requests</description>
+    <platform>all</platform>
+    <language></language>
+    <license>Apache2</license>
+    <forum></forum>
+    <website>http://python-requests.org</website>
+    <source>https://github.com/beenje/script.module.requests</source>
+    <email>beenje AT gmail.com</email>
+  </extension>
+</addon>
+
+<addon id="script.module.simplejson"
+       name="simplejson"
+       version="3.3.0" 
+       provider-name="Martijn">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language></language>
+    <summary lang="en">Simple, fast, extensible JSON encoder/decoder for Python</summary>
+    <description lang="en">Simple, fast, extensible JSON encoder/decoder for Python</description>
+    <disclaimer lang="en">Code taken from https://pypi.python.org/pypi/simplejson/</disclaimer>
+    <license>MIT License, Academic Free License v. 2.1</license>
+    <website>https://pypi.python.org/pypi/simplejson/</website>
+    <source>https://pypi.python.org/pypi/simplejson/</source>
+  </extension>
+</addon>
+
+<addon id="script.module.six"
+       name="six"
+       version="1.9.0"
+       provider-name="gutworth">
+  <requires>
+    <import addon="xbmc.python" 
+    		version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary>Python 2 and 3 compatibility utilities.</summary>
+    <description>Six is a Python 2 and 3 compatibility library. It provides utility functions for smoothing over the differences between the Python versions with the goal of writing Python code that is compatible on both Python versions. See the documentation for more information on what is provided.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <source>https://pypi.python.org/pypi/six</source>
+    <website>https://pypi.python.org/pypi/six</website>
+  </extension>
+</addon>
+
+<addon id="script.module.urlresolver" name="URLResolver" version="3.0.26" provider-name="tvaddons.ag, Eldorado">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+	</extension>
+</addon>
+
+<addon id="script.video.F4mProxy" 
+	     name="F4mProxy" 
+	     version="2.8.0" 
+	     provider-name="Shani">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+    <import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+  </extension>
+ 
+  
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Proxy for f4m</summary>
+    <description lang="en">Use this addon to play F4m v1 and v2 streams</description>
+  </extension>
+  </addon>
+
+
+</addons>
