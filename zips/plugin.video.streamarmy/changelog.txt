@@ -1,8 +1,5 @@
-v1.0.2
-release bug fixes 
+[B]Version 2.0[/B]
+- Repo update to GitHub
 
-v1.0.1 
-bugs noticed pushing out next updae to rectify
-
-v1.0.0
-Initial Release
+[B]Version 1.0[/B]
+- First Release of the amazing add-on which has all your Kodi Needs catered for
