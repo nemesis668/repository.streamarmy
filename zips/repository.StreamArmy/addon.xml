@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.StreamArmy" name="Stream Army" version="2.0" provider-name="Nemzzy / Manc">
+<addon id="repository.StreamArmy" name="Stream Army" version="2.1" provider-name="Nemzzy / Manc">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<dir>
 			<info compressed="false">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml</info>
