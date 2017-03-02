@@ -1,100 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-
-<addon id="plugin.video.streamarmy" name="[COLOR yellow]S[/COLOR][COLOR lime]tream Army[/COLOR]" version="3.0.2" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]S[/COLOR][COLOR lime]TREAM ARMY[/COLOR]" version="3.0.3" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
     <import addon="script.module.urlresolver"  version="3.0.26"/>
     <import addon="script.module.liveresolver" version="0.1.49"/>
-    <import addon="script.common.plugin.cache" version="2.5.8"/>    
-	<import addon="script.module.metahandler" version="2.9.1"/>
-	<import addon="plugin.video.youtube" version="5.3.6" optional="false" />
-  <import addon="plugin.video.f4mTester" version="2.7.1" optional="false" />
+    <import addon="script.common.plugin.cache" version="2.5.8"/>
+    <import addon="script.module.metahandler" version="2.9.0"/>
+    <import addon="plugin.video.youtube" version="5.3.6" optional="false" />
+    <import addon="plugin.video.f4mTester" version="2.7.1" optional="false" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">The Home Of Stream Army Add-on</summary>
-    <description lang="en">@Nemzzy668 / @_MANC_</description>
+    <summary lang="en">The Home Of Stream Army Add-on  Stream Army Addon Fully Loaded With Great Playlists</summary>
+    <description lang="en">@Nemzzy668  / @_MANC_</description>
     <platform>all</platform>
   </extension>
 </addon>
-
-<addon id="plugin.video.f4mTester" version="2.7.1" name="f4mTester" provider-name="Shani">
-    <requires>
-        <import addon="xbmc.python" version="2.1.0"/>
-        <import addon="script.video.F4mProxy" version="2.8.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-    </extension>
-
-    <extension point="xbmc.addon.metadata">
-        <summary>f4mTester</summary>
-        <description></description>
-        <platform>all</platform>
-    </extension>
-</addon>
-
-<addon id="script.module.liveresolver" 
-     name="LiveResolver" 
-     version="0.1.49" 
-     provider-name="natko1412">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-    <import addon="script.module.beautifulsoup" version="3.2.1"/>
-    <import addon="script.module.requests"/>
-    <import addon="script.module.addon.common" version="2.0.0" />
-
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">Resolve common live video host URL's to be playable in XBMC/Kodi + find links embeded in sites.</summary>
-    <description lang="en"></description>    
-  </extension>
-</addon>
-
-<addon id="script.video.F4mProxy" 
-	     name="F4mProxy" 
-	     version="2.8.0" 
-	     provider-name="Shani">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-    <import addon="script.module.requests" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-    <extension point="xbmc.python.pluginsource" library="addon.py">
-		<provides>executable</provides>
-  </extension>
- 
-  
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">Proxy for f4m</summary>
-    <description lang="en">Use this addon to play F4m v1 and v2 streams</description>
-  </extension>
-  </addon>
-
-<addon id="repository.StreamArmy" name="Stream Army" version="2.0" provider-name="Nemzzy / Manc">
-	<extension point="xbmc.addon.repository" name="Stream Army">
-		<dir>
-			<info compressed="false">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml</info>
-			<checksum>https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml.md5</checksum>
-			<datadir zip="true">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/zips/</datadir>
-		</dir>
-		<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
-        <checksum>https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
-        <datadir zip="true">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/zips/</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary>Stream Army Repo</summary>
-		<description>Repo For Stream Army, Who Streams Wins bought to you by @Nemzzy668 /  @_MANC_</description>
-		<platform>all</platform>
-	</extension>
-</addon>
-
 </addons>
-
