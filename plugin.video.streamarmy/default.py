@@ -1598,21 +1598,21 @@ def OooO0oOo ( url ) :
   if 56 - 56: OoooooooOO % i11iIiiIii * iIii1I11I1II1 . OoO0O00 * O0
  try :
   oOo00oOOOOO = re . compile ( '<a href="([^"]*)" rel="next">' ) . findall ( II1IIIiiI11 ) [ 0 ] . replace ( '&amp;' , '&' )
-  I11 . ok ( "22" , str ( oOo00oOOOOO ) )
+  if 23 - 23: i11iIiiIii
   iiiI1I11i1 ( "[COLOR red]Next Page -->[/COLOR]" , oOo00oOOOOO , 61 , IiII , iI111iI , '' )
  except : pass
- if 23 - 23: i11iIiiIii
  if 39 - 39: o0oOOo0O0Ooo - I1ii11iIi11i % I1iiiiI1iII * OoO0O00 - iI1 / I1iiiiI1iII
  if 29 - 29: I1ii11iIi11i
  if 52 - 52: i11iIiiIii / i1IIi
  if 1 - 1: O0OOooO
  if 78 - 78: I1ii11iIi11i + OoOooOOOO - O0
  if 10 - 10: oO % I1IiiI
-def oo0OoOooo ( url ) :
- if 95 - 95: iIii1 * I1ii11iIi11i % O0OOooO % OoOO - OoOO
+ if 97 - 97: OoooooooOO - oO
+def oooo00 ( url ) :
+ if 96 - 96: I1ii11iIi11i % O0OOooO % OoOO - O0OOooO % OoOoOO00 + I1ii11iIi11i
  o0O0O00 = o000o ( url )
  I11i1I1I = re . compile ( '<a class="site_tag(.+?)/a>' ) . findall ( o0O0O00 )
- if 97 - 97: I1ii11iIi11i + iIii1I11I1II1 . O0
+ if 3 - 3: O0
  for o0O0O00 in I11i1I1I :
   url = re . compile ( 'href="(.+?)"' ) . findall ( o0O0O00 ) [ 0 ]
   oO0o0OOOO = re . compile ( '/i>(.+?)<' ) . findall ( o0O0O00 ) [ 0 ]
@@ -2420,7 +2420,7 @@ elif OO00o0O0O000o == 12 : i11i11 ( )
 elif OO00o0O0O000o == 13 : OO00OO0o0 ( OO00Oo )
 elif OO00o0O0O000o == 14 : o0O0OO0o ( oO0o0OOOO , OO00Oo , O0O0OoOO0 )
 elif OO00o0O0O000o == 15 : Iii ( OO00Oo )
-elif OO00o0O0O000o == 16 : oo0OoOooo ( OO00Oo )
+elif OO00o0O0O000o == 16 : oooo00 ( OO00Oo )
 elif OO00o0O0O000o == 17 : oo00ooOoo ( oO0o0OOOO , OO00Oo , O0O0OoOO0 )
 elif OO00o0O0O000o == 18 : Oo00o0OO ( oO0o0OOOO , OO00Oo , O0O0OoOO0 )
 elif OO00o0O0O000o == 19 : I11I1 ( oO0o0OOOO , OO00Oo , O0O0OoOO0 )
