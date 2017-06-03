@@ -117,8 +117,9 @@ def zipfolder(foldername, target_dir, zips_dir):
     rootlen = len(target_dir) + 1
     for base, dirs, files in os.walk(target_dir):
         for file in files:
-            fn = os.path.join(base, file)
-            zipobj.write(fn, os.path.join(foldername[:-4],fn[rootlen:]))
+            if not ".git" in base:
+                fn = os.path.join(base, file)
+                zipobj.write(fn, os.path.join(foldername[:-4],fn[rootlen:]))
     zipobj.close()
 
                      
