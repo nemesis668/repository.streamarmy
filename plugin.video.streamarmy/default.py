@@ -21,7 +21,7 @@ fanarts             = xbmc.translatePath(os.path.join('special://home/addons/' +
 icon                = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 dp                  = xbmcgui.DialogProgress()
 dialog              = xbmcgui.Dialog()
-baseurl             = base64.b64decode(b'aHR0cDovL3N0cmVhbWFybXkub2Zmc2hvcmVwYXN0ZWJpbi5jb20vTWFpbi9NYWluLnhtbA==') # Live URL
+baseurl             = base64.b64decode(b'aHR0cDovL3N0cmVhbWFybXkuY28udWsvTWFpbi9NYWluLnhtbA==') # Live URL
 #baseurl             = base64.b64decode(b'aHR0cDovLzEyNy4wLjAuMS9NYWluL01haW4ueG1s') # Dev Url
 F4M_TESTER          = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.f4mTester'))
 F4M_PROXY           = xbmc.translatePath(os.path.join('special://home/addons/script.video.F4mProxy'))
