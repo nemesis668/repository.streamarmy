@@ -1,0 +1,7 @@
+Thank you
+To Anrov for making CFSCRAPE , which is used in the addon https://github.com/Anorov/cloudflare-scrape
+
+
+A Special ThankYou to Echo Coder, Without him Nemzzy would not have learned half the stuff I now know.
+
+

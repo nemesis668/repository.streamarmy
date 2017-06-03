@@ -17,7 +17,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.streamarmy" name="S[COLOR yellow]TREAM ARMY[/COLOR]" version="3.1.0" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.0.4" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>
@@ -38,7 +38,7 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="Stream Army" version="3.0" provider-name="Nemzzy / Manc">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="4.0" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<dir>
 			<info compressed="false">https://offshoregit.com/tvaresolvers/tva-common-repository/raw/master/addons.xml</info>
@@ -51,9 +51,54 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Stream Army Repo</summary>
-		<description>Repo For Stream Army, Who Streams Wins bought to you by @Nemzzy668 /  @_MANC_</description>
+		<description>Repo For Stream Army, Bought to you by @Nemzzy668 /  @_MANC_</description>
 		<platform>all</platform>
 	</extension>
+</addon>
+
+<addon id="plugin.program.identify" name="I[COLOR gold]dentify[/COLOR]" version="0.0.1" provider-name="Simtech and @Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.common.plugin.cache" version="2.5.8"/>
+    <import addon="script.module.metahandler" version="2.9.0"/>
+    <import addon="script.module.urlresolver"  version="3.0.26"/>
+    <import addon="script.module.liveresolver" version="0.1.49"/>
+    
+    
+    
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Identify</summary>
+    <description lang="en">Addon which pulls information from Missing Persons Bureau identify bodies which may have been found
+    
+Addon Created By @Nemzzy668 with Simtech</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.audio.beatz" name="B[COLOR red]eatZ By Stream Army[/COLOR]" version="1.0.3" provider-name="Stream Army">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.common.plugin.cache" version="2.5.8"/>
+    <import addon="script.module.metahandler" version="2.9.0"/>
+    <import addon="plugin.video.youtube" version="5.3.6" optional="false" />
+    
+    
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio</provides>
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Beatz By Stream Army</summary>
+    <description lang="en">@Nemzzy668  / @_MANC_ / @EchoCoder</description>
+    <platform>all</platform>
+  </extension>
 </addon>
 
 <addon id="script.module.liveresolver"

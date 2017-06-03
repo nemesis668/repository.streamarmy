@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.identify" name="I[COLOR gold]dentify[/COLOR]" version="0.0.1" provider-name="Simtech and @Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.common.plugin.cache" version="2.5.8"/>
+    <import addon="script.module.metahandler" version="2.9.0"/>
+    <import addon="script.module.urlresolver"  version="3.0.26"/>
+    <import addon="script.module.liveresolver" version="0.1.49"/>
+    
+    
+    
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Identify</summary>
+    <description lang="en">Addon which pulls information from Missing Persons Bureau identify bodies which may have been found
+    
+Addon Created By @Nemzzy668 with Simtech</description>
+    <platform>all</platform>
+  </extension>
+</addon>
