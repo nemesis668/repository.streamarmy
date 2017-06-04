@@ -4,7 +4,7 @@
 #                     Created By @Nemzzy668                     #
 #         Feel Free to use any of this code to learn            #
 
-import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,os,re,sys,base64,json,time,shutil,urlresolver,random,liveresolver,hashlib
+import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,uuid,os,re,sys,base64,json,time,shutil,urlresolver,random,liveresolver,hashlib
 from resources.libs.modules import cfscrape
 from resources.libs.modules import gofetch
 from resources.libs.modules import satools
@@ -12,11 +12,13 @@ from resources.libs.common_addon import Addon
 from metahandler import metahandlers
 from HTMLParser import HTMLParser
 from datetime import datetime
+import GATracker
 
 addon_id            = 'plugin.video.streamarmy'
 addon               = Addon(addon_id, sys.argv)
 selfAddon           = xbmcaddon.Addon(id=addon_id)
 AddonTitle          = '[COLOR yellow]Stream Army[/COLOR]'
+addonPath           = os.path.join(os.path.join(xbmc.translatePath('special://home'), 'addons'),'plugin.video.streamarmy')
 fanarts             = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'fanart.jpg'))
 icon                = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 dp                  = xbmcgui.DialogProgress()
@@ -28,9 +30,29 @@ F4M_PROXY           = xbmc.translatePath(os.path.join('special://home/addons/scr
 SPORTSDEVIL         = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.SportsDevil'))
 
 
+#######################################################################
+#						Google Analytics
+#######################################################################
+global analytics
+
+def setupAnalytics():
+    global analytics
+
+    if(os.path.isfile(os.path.join(addonPath, "uuid.txt")) != True):
+        userID = uuid.uuid1()
+        uuidFile = open(os.path.join(addonPath,"uuid.txt"), "w")
+        uuidFile.write(str(userID))
+        uuidFile.close()
+
+    uuidFile = open(os.path.join(addonPath, "uuid.txt"), "r")
+    userID = uuidFile.readline()
+    uuidFile.close()
+
+    analytics = GATracker.GAconnection("UA-100473975-1", userID)
 
 def GetMenu():
     
+    global analytics
     satools.SOCCERSTREAMS_CHECK()
     gettime = int(datetime.now().strftime('%H%M'))
     if (gettime >= 0000) and (gettime <= 1159): a = "Morning"
@@ -132,7 +154,10 @@ def GetMenu():
         
         
        # except:pass
+    global analytics
+    analytics.sendPageView("StreamArmy","mainmenu","main")
     satools.SET_VIEW()
+    setupAnalytics()
     
 def GetContent(name,url,iconimage,fanart):
         url2=url
@@ -491,7 +516,7 @@ def get_params():
                         if (len(splitparams))==2:
                                 param[splitparams[0]]=splitparams[1]                    
         return param
-    
+setupAnalytics()
 params=get_params(); url=None; name=None; mode=None; site=None; iconimage=None
 try: site=urllib.unquote_plus(params["site"])
 except: pass
@@ -507,6 +532,7 @@ try: fanart=urllib.unquote_plus(params["fanart"])
 except: pass
  
 if mode==None or url==None or len(url)<1: GetMenu()
+
 elif mode==1:GetContent(name,url,iconimage,fanart)
 elif mode==2:satools.PLAYLINK(name,url,iconimage)
 elif mode==3:satools.GETMULTI(name,url,iconimage)
