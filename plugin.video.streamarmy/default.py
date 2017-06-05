@@ -489,7 +489,7 @@ def get_params():
                         if (len(splitparams))==2:
                                 param[splitparams[0]]=splitparams[1]                    
         return param
-setupAnalytics()
+
 params=get_params(); url=None; name=None; mode=None; site=None; iconimage=None
 try: site=urllib.unquote_plus(params["site"])
 except: pass
