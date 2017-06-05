@@ -12,7 +12,7 @@ from resources.libs.common_addon import Addon
 from metahandler import metahandlers
 from HTMLParser import HTMLParser
 from datetime import datetime
-import GATracker
+
 
 addon_id            = 'plugin.video.streamarmy'
 addon               = Addon(addon_id, sys.argv)
@@ -29,26 +29,6 @@ F4M_TESTER          = xbmc.translatePath(os.path.join('special://home/addons/plu
 F4M_PROXY           = xbmc.translatePath(os.path.join('special://home/addons/script.video.F4mProxy'))
 SPORTSDEVIL         = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.SportsDevil'))
 
-
-#######################################################################
-#						Google Analytics
-#######################################################################
-global analytics
-
-def setupAnalytics():
-    global analytics
-
-    if(os.path.isfile(os.path.join(addonPath, "uuid.txt")) != True):
-        userID = uuid.uuid1()
-        uuidFile = open(os.path.join(addonPath,"uuid.txt"), "w")
-        uuidFile.write(str(userID))
-        uuidFile.close()
-
-    uuidFile = open(os.path.join(addonPath, "uuid.txt"), "r")
-    userID = uuidFile.readline()
-    uuidFile.close()
-
-    analytics = GATracker.GAconnection("UA-100473975-1", userID)
 
 def GetMenu():
     
@@ -80,7 +60,6 @@ def GetMenu():
     link=satools.open_url(baseurl)
     match= re.compile('<item>(.+?)</item>').findall(link)
     for item in match:
-        #try:
             if '<m3u>' in item:
                     name=re.compile('<title>(.+?)</title>').findall(item)[0]
                     iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
@@ -153,11 +132,6 @@ def GetMenu():
                         satools.addLink(name,url2,3,iconimage,fanart)
         
         
-       # except:pass
-    global analytics
-    analytics.sendPageView("StreamArmy","mainmenu","main")
-    satools.SET_VIEW()
-    setupAnalytics()
     
 def GetContent(name,url,iconimage,fanart):
         url2=url
@@ -497,7 +471,6 @@ def GetContent(name,url,iconimage,fanart):
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         satools.addLink(name,url2,3,iconimage,fanart)
             except:pass
-        satools.SET_VIEW()
 
     
 def get_params():
