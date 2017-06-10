@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.0.9" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.0" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>
-    <import addon="script.module.urlresolver"  version="3.0.26"/>
+    <import addon="script.module.urlresolver"  version="3.0.31"/>
     <import addon="script.module.liveresolver" version="0.1.49"/>
     <import addon="script.common.plugin.cache" version="2.5.8"/>
     <import addon="script.module.metahandler" version="2.9.0"/>
