@@ -28,6 +28,7 @@ baseurl             = base64.b64decode(b'aHR0cDovL3N0cmVhbWFybXkuY28udWsvTWFpbi9
 F4M_TESTER          = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.f4mTester'))
 F4M_PROXY           = xbmc.translatePath(os.path.join('special://home/addons/script.video.F4mProxy'))
 SPORTSDEVIL         = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.SportsDevil'))
+intro_done          = xbmc.translatePath('special://home/addons/plugin.video.streamarmy/intro')
 
 
 def GetMenu():
@@ -130,7 +131,10 @@ def GetMenu():
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         satools.addLink(name,url2,3,iconimage,fanart)
-        
+    if not os.path.exists(intro_done):
+        intro = 'http://streamarmy.co.uk/intro.mp4'
+        xbmc.Player().play(intro, xbmcgui.ListItem('Welcome to StreamArmy'))
+        os.makedirs(intro_done)
     satools.SET_VIEW()    
     
 def GetContent(name,url,iconimage,fanart):
