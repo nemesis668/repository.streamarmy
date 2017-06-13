@@ -83,7 +83,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.1" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.2" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>

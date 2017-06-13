@@ -51,9 +51,6 @@ def GetMenu():
     else:
         result = ('[COLOR yellow]Real Debrid Active[/COLOR]')
         satools.addLink('[B][COLOR yellow]D[COLOR white]ebrid Status : '+str(result)+'[/COLOR]''[/B]','url',999,icondeb,fanarts)
-    promo = 'http://i.imgur.com/EoGZtf4.png'
-    satools.addLink('[COLOR yellow]VPN INFO READ HERE[/COLOR]',promo,887,icon,fanarts)
-    satools.addLink('[COLOR white]-----------------------------------------------------------------------------------[/COLOR]','url','11',icon,fanarts)
     if baseurl =='http://127.0.0.1/Main/Main.xml':
         satools.addLink("[B][COLOR yellow]" + "YOUR IN DEV MODE" + "[/COLOR][/B]",'url',999,icon,fanarts)
     satools.popup()
