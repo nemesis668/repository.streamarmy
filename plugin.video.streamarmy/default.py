@@ -22,6 +22,7 @@ addonPath           = os.path.join(os.path.join(xbmc.translatePath('special://ho
 fanarts             = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'fanart.jpg'))
 icon                = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 dp                  = xbmcgui.DialogProgress()
+adultpass           = selfAddon.getSetting('pass')
 dialog              = xbmcgui.Dialog()
 baseurl             = base64.b64decode(b'aHR0cDovL3N0cmVhbWFybXkuY28udWsvTWFpbi9NYWluLnhtbA==') # Live URL
 #baseurl             = base64.b64decode(b'aHR0cDovLzEyNy4wLjAuMS9NYWluL01haW4ueG1s') # Dev Url
@@ -39,21 +40,24 @@ def GetMenu():
     elif (gettime >= 1200) and (gettime <= 1759): a = "Afternoon"
     else: a = "Evening"
     satools.addLink ('[COLOR yellow]Good[COLOR red] ' + str(a) + '[COLOR white] From [COLOR yellow]@Nemzzy668[/COLOR][COLOR white] and [COLOR yellow]@_Manc_ [COLOR white] and [COLOR yellow]@LordJD927 [/COLOR]' ,'url','12',icon,fanarts)
-    file = xbmc.translatePath("special://home/userdata/addon_data/script.module.urlresolver/settings.xml")
-    a=open(file).read()
-    real = re.compile ('<setting id="RealDebridResolver_token"(.+?)/').findall(a)[0]
-    real = real.strip()
-    url = 'plugin://script.module.urlresolver/?mode=auth_rd'
-    icondeb = 'http://i.imgur.com/GSKPJuD.png'
-    if 'value=""' in real:
-        result = ('[COLOR red]Real Debrid Not Active Click To Pair[/COLOR]')
-        satools.addLink('[B][COLOR yellow]D[COLOR white]ebrid Status : '+str(result)+'[/COLOR]''[/B]',url,2,icondeb,fanarts)
-    else:
-        result = ('[COLOR yellow]Real Debrid Active[/COLOR]')
-        satools.addLink('[B][COLOR yellow]D[COLOR white]ebrid Status : '+str(result)+'[/COLOR]''[/B]','url',999,icondeb,fanarts)
+    try:
+        file = xbmc.translatePath("special://home/userdata/addon_data/script.module.urlresolver/settings.xml")
+        a=open(file).read()
+        real = re.compile ('<setting id="RealDebridResolver_token"(.+?)/').findall(a)[0]
+        real = real.strip()
+        url = 'plugin://script.module.urlresolver/?mode=auth_rd'
+        icondeb = 'http://i.imgur.com/GSKPJuD.png'
+        if 'value=""' in real:
+            result = ('[COLOR red]Real Debrid Not Active Click To Pair[/COLOR]')
+            satools.addLink('[B][COLOR yellow]D[COLOR white]ebrid Status : '+str(result)+'[/COLOR]''[/B]',url,2,icondeb,fanarts)
+        else:
+            result = ('[COLOR yellow]Real Debrid Active[/COLOR]')
+            satools.addLink('[B][COLOR yellow]D[COLOR white]ebrid Status : '+str(result)+'[/COLOR]''[/B]','url',999,icondeb,fanarts)
+    except:pass
     if baseurl =='http://127.0.0.1/Main/Main.xml':
         satools.addLink("[B][COLOR yellow]" + "YOUR IN DEV MODE" + "[/COLOR][/B]",'url',999,icon,fanarts)
     satools.popup()
+    satools.addLink("[B][COLOR yellow]" + "-------------------------------------------------------------------------" + "[/COLOR][/B]",'url',999,icon,fanarts)
     url = baseurl     
     link=satools.open_url(baseurl)
     match= re.compile('<item>(.+?)</item>').findall(link)
@@ -135,10 +139,16 @@ def GetMenu():
     satools.SET_VIEW()    
     
 def GetContent(name,url,iconimage,fanart):
+    dialog = xbmcgui.Dialog()
     url2=url
     link=satools.open_url(url)
+
     if 'XXX>yes</XXX' in link:
-        if adultpass == '':
+        password = xbmc.translatePath('special://home/userdata/addon_data/plugin.video.streamarmy/settings.xml')
+        a=open(password).read()
+        try:
+            adultpass = re.compile ('<setting id="pass" value="(.+?)" />').findall(a)[0]
+        except IndexError:
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno('Adult Content', 'You have opted to show adult content','','Please set a password to prevent accidental access','Cancel','OK')
             if ret == 1:
@@ -146,10 +156,11 @@ def GetContent(name,url,iconimage,fanart):
                 keyb.doModal()
             if (keyb.isConfirmed()):
                 passw = keyb.getText()
-                selfAddon.setSetting('password',passw)
-            else:quit()
-                
-    if 'XXX>yes</XXX' in link:
+                selfAddon.setSetting('pass',passw)
+                dialog.ok(AddonTitle, "We will now exit, please re select the menu and enter the password you just set")
+                quit()
+
+
         if adultpass <> '':
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno('Adult Content', 'Please enter the password you set','to continue','','Cancel','OK')
@@ -160,31 +171,7 @@ def GetContent(name,url,iconimage,fanart):
                 passw = keyb.getText()
             if passw <> adultpass:
                 quit()
-        else:quit()
-
-    if 'con>yes</con' in link:
-        if conpass == '':
-            dialog = xbmcgui.Dialog()
-            ret = dialog.yesno('Conspiracy Content', 'You have opted to show Conspiracy content','','Due to the Nature of Content ,Please set a password to prevent accidental access','Cancel','OK')
-            if ret == 1:
-                keyb = xbmc.Keyboard('', 'Set Password')
-                keyb.doModal()
-            if (keyb.isConfirmed()):
-                passwo = keyb.getText()
-                selfAddon.setSetting('Conspiracy Password',passwo)
-            else:quit()
-                
-    if 'con>yes</con' in link:
-        if conpass <> '':
-            dialog = xbmcgui.Dialog()
-            ret = dialog.yesno('Conspiracy Content', 'Please enter the password you set','to continue','','Cancel','OK')
-            if ret == 1:    
-                keyb = xbmc.Keyboard('', 'Enter Password')
-                keyb.doModal()
-            if (keyb.isConfirmed()):
-                passwo = keyb.getText()
-            if passwo <> conpass:
-                quit()
+        
         else:quit()
 
     match= re.compile('<item>(.+?)</item>').findall(link)
