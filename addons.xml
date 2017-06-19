@@ -83,7 +83,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.3" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.4" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>
@@ -98,7 +98,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">The Home Of Stream Army Add-on  Stream Army Addon Fully Loaded With Great Playlists</summary>
+    <summary lang="en">The Home Of Stream Army Add-on :: We Do Not Host Any Content, We Only Act As An Advanced Search Engine</summary>
     <description lang="en">@Nemzzy668  / @_MANC_</description>
     <platform>all</platform>
   </extension>

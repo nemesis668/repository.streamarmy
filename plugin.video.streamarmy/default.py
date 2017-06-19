@@ -30,10 +30,18 @@ F4M_TESTER          = xbmc.translatePath(os.path.join('special://home/addons/plu
 F4M_PROXY           = xbmc.translatePath(os.path.join('special://home/addons/script.video.F4mProxy'))
 SPORTSDEVIL         = xbmc.translatePath(os.path.join('special://home/addons/plugin.video.SportsDevil'))
 intro_done          = xbmc.translatePath('special://home/addons/plugin.video.streamarmy/intro')
+settingsfile        = xbmc.translatePath (os.path.join('special://home/userdata/addon_data/' + addon_id))
+adultdata           = xbmc.translatePath(os.path.join('special://home/userdata/addon_data/' + addon_id, 'settings.xml'))
 
 
 def GetMenu():
     
+    if not os.path.exists(settingsfile):
+        os.makedirs(settingsfile)
+        newfile = open(adultdata, 'w')
+        newfile.close()
+        
+        
     satools.SOCCERSTREAMS_CHECK()
     gettime = int(datetime.now().strftime('%H%M'))
     if (gettime >= 0000) and (gettime <= 1159): a = "Morning"
@@ -147,7 +155,7 @@ def GetContent(name,url,iconimage,fanart):
         password = xbmc.translatePath('special://home/userdata/addon_data/plugin.video.streamarmy/settings.xml')
         a=open(password).read()
         try:
-            adultpass = re.compile ('<setting id="pass" value="(.+?)" />').findall(a)[0]
+            adultpass = re.compile ('<password>(.+?)</password>').findall(a)[0]
         except IndexError:
             dialog = xbmcgui.Dialog()
             ret = dialog.yesno('Adult Content', 'You have opted to show adult content','','Please set a password to prevent accidental access','Cancel','OK')
@@ -156,7 +164,10 @@ def GetContent(name,url,iconimage,fanart):
                 keyb.doModal()
             if (keyb.isConfirmed()):
                 passw = keyb.getText()
-                selfAddon.setSetting('pass',passw)
+                writeadult = open(adultdata, 'w')
+                string = "<password>" +passw+ "</password>"
+                writeadult.write(string)
+                writeadult.close()
                 dialog.ok(AddonTitle, "We will now exit, please re select the menu and enter the password you just set")
                 quit()
 
@@ -409,6 +420,12 @@ def GetContent(name,url,iconimage,fanart):
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                     url=re.compile('<eporner>(.+?)</eporner>').findall(item)[0]
                     satools.addDir(name,url,81,iconimage,fanart)
+            elif '<tvbox>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<tvbox>(.+?)</tvbox>').findall(item)[0]
+                    satools.addDir(name,url,84,iconimage,fanart)
             elif '<sportsdevil>' in item:
                     links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                     if len(links)==1:
