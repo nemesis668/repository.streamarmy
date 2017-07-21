@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<setting id="enable_meta" type="bool" label="@Live_Prem_Addon" default="True"/>
+</settings>
