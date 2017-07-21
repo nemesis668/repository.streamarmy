@@ -448,6 +448,7 @@ def ooOOoooooo ( ) :
   i1iIi1iIi1i = 'Football'
   iiIiI ( i1iIi1iIi1i )
  if III1Iiii1I11 == 3 :
+  i1iIi1iIi1i = 'http://www.sportp2p.com/highlights/'
   o00oooO0Oo ( i1iIi1iIi1i )
   if 78 - 78: iiiii11iII1 % OoOoo0 + I1ii11iIi11i
 def o00oooO0Oo ( url ) :
