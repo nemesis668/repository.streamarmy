@@ -63,6 +63,14 @@ def Devil_Checker(url):
         return url
     elif 'vipgoal' in url:
         return url
+    elif 'ripple' in url:
+        link = open_url(url)
+        match = re.compile ('<iframe.+?src="(.+?)"').findall(link)[0]
+        link2 = open_url(match)
+        grab = re.compile ('src=\'(.+?)\'').findall(link2)[0]
+        link3 = open_url(grab)
+        url = re.compile ('<source src="(.+?)"').findall(link3)[0]
+        return url
     elif 'sporttube' in url:
         url = url.replace('no-preload', '')
         link = open_url(url)
@@ -117,7 +125,11 @@ def Devil_Checker(url):
             if embed_id:
                 r = 'http://www.04stream.com/weed.js?stream=%s&width=600&height=460&str=is&link=1&cat=1' % embed_id
                 data = open_url(r)
-                function = re.findall("function\s*([^\(]+)", data)[0]
+                try:
+                    function = re.findall("function\s*([^\(]+)", data)[0]
+                except IndexError:
+                    url = False
+                    return url
                 ret = re.findall('return "([^"]+)', data)[0]
                 src = re.findall("src=([^']+)", data)[0]
                 ids = re.findall("\(\)\+'(.+?)&idom", data)[0]
