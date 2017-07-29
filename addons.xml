@@ -187,7 +187,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.TheRedDevils" name="[COLOR red]The Red Devils[/COLOR]" version="1.0" provider-name="Manc">
+<addon id="plugin.video.TheRedDevils" name="[COLOR red]The Red Devils[/COLOR]" version="1.1" provider-name="Manc">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>

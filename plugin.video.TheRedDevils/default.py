@@ -23,6 +23,7 @@ metaset         = selfAddon.getSetting('enable_meta')
 messagetext     = 'https://pastebin.com/raw/SLRtMGJM'
 RUNNER 			= base64.b64decode(b'aHR0cDovL3NpbXRlY2gubmV0MTYubmV0L3lvdXR1YmUucGhwP2lkPQ==')
 SEARCH_LIST     = base64.b64decode(b'')
+dialog          = xbmcgui.Dialog()
                                                                
 def GetMenu():
         popup()
@@ -39,7 +40,13 @@ def GetMenu():
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         url=re.compile('<channel>(.+?)</channel>').findall(item)[0]
                         addDir(name,url,6,iconimage,fanart)
-                if '<sportsdevil>' in item:
+                elif '<podcast>' in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        url=re.compile('<podcast>(.+?)</podcast>').findall(item)[0]
+                        addDir(name,url,10,iconimage,fanart)
+                elif '<sportsdevil>' in item:
                         links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                         if len(links)==1:
                              name=re.compile('<title>(.+?)</title>').findall(item)[0]
@@ -314,73 +321,77 @@ def PLAYSD(name,url,iconimage):
         xbmc.Player ().play(url, liz, False)
         
 def PLAYLINK(name,url,iconimage):
-        if not'http'in url:url='http://'+url
-        if 'youtube.com/playlist' in url:
-                searchterm = url.split('list=')[1]
-                ytapi = ytpl + searchterm + ytpl2
-                req = urllib2.Request(ytapi)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                link = link.replace('\r','').replace('\n','').replace('  ','')     
-                match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
-                try:
-                        np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
-                        ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
-                        addDir('Next Page >>',ytapi,2,nextpage,fanart)
-                except:pass
-
-
-
+    if not'http'in url:url='http://'+url
+    if 'youtube.com/playlist' in url:
+        searchterm = url.split('list=')[1]
+        ytapi = ytpl + searchterm + ytpl2
+        req = urllib2.Request(ytapi)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        link = link.replace('\r','').replace('\n','').replace('  ','')     
+        match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
+        try:
+            np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
+            ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
+            addDir('Next Page >>',ytapi,2,nextpage,fanart)
+        except:pass
+        for name,ytid in match:
+            url = 'https://www.youtube.com/watch?v='+ytid
+            iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
+            if not 'Private video' in name:
+                if not 'Deleted video' in name:
+                    addLink(name,url,2,iconimage,fanart)
                 
-                for name,ytid in match:
-                        url = 'https://www.youtube.com/watch?v='+ytid
-                        iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
-                        if not 'Private video' in name:
-                                if not 'Deleted video' in name:
-                                        addLink(name,url,2,iconimage,fanart)
-                
-        if 'https://www.googleapis.com/youtube/v3' in url:
-                searchterm = re.compile('playlistId=(.+?)&maxResults').findall(url)[0]
-                req = urllib2.Request(url)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                link = link.replace('\r','').replace('\n','').replace('  ','')     
-                match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
-                try:
-                        np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
-                        ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
-                        addDir('Next Page >>',ytapi,2,nextpage,fanart)
-                except:pass
+    if 'https://www.googleapis.com/youtube/v3' in url:
+            searchterm = re.compile('playlistId=(.+?)&maxResults').findall(url)[0]
+            req = urllib2.Request(url)
+            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+            response = urllib2.urlopen(req)
+            link=response.read()
+            response.close()
+            link = link.replace('\r','').replace('\n','').replace('  ','')     
+            match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
+            try:
+                    np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
+                    ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
+                    addDir('Next Page >>',ytapi,2,nextpage,fanart)
+            except:pass
 
 
-                
-                for name,ytid in match:
-                        url = 'https://www.youtube.com/watch?v='+ytid
-                        iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
-                        if not 'Private video' in name:
-                                if not 'Deleted video' in name:
-                                        addLink(name,url,2,iconimage,fanart)
+            
+            for name,ytid in match:
+                    url = 'https://www.youtube.com/watch?v='+ytid
+                    iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
+                    if not 'Private video' in name:
+                            if not 'Deleted video' in name:
+                                    addLink(name,url,2,iconimage,fanart)
 
-                
-                                     
-        if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
-        elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
-        else: stream_url=url
-        liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
-        liz.setPath(stream_url)
-        xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
-		
+    if "plugin://" in url:
+        url = "PlayMedia("+url+")"
+        xbmc.executebuiltin(url)
+        quit()
+    
+    
+    if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+    elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
+    else: stream_url=url
+    liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
+    liz.setPath(stream_url)
+    xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
+    
+    if not'http'in url:
         if '.ts'in url:
                 url = 'plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&amp;name='+name+'&amp;url='+url
         elif urlresolver.HostedMediaFile(url).valid_url():
                 url = urlresolver.HostedMediaFile(url).resolve()           
         elif liveresolver.isValid(url)==True:
                 url=liveresolver.resolve(url)
-        PLAYLINK(name,url,iconimage)		
+        liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        xbmc.Player ().play(url, liz, False)
+        quit()
+    		
                             
 def PLAYVIDEO(url):
 
@@ -476,6 +487,57 @@ def addItem(name,url,mode,iconimage,fanart, description=''):
 	liz.setProperty( "Fanart_Image", fanart )
 	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
 	return ok
+    
+def addLinkRegex(name, url, mode, iconimage, fanart, description=''):
+    u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&description="+str(description)+"&fanart="+urllib.quote_plus(fanart)
+    ok=True
+    liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
+    liz.setProperty('fanart_image', fanart)
+    if 'plugin://' in url:u=url
+    ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
+    return ok
+    
+def CLEANUP(text):
+
+    text = str(text)
+    text = text.replace('\\r','')
+    text = text.replace('\\n','')
+    text = text.replace('\\t','')
+    text = text.replace('\\','')
+    text = text.replace('<br />','\n')
+    text = text.replace('<hr />','')
+    text = text.replace('&#039;',"'")
+    text = text.replace('&#39;',"'")
+    text = text.replace('&quot;','"')
+    text = text.replace('&rsquo;',"'")
+    text = text.replace('&amp;',"&")
+    text = text.replace('&#8211;',"&")
+    text = text.replace('&#8217;',"'")
+    text = text.replace('&#038;',"&")
+    text = text.lstrip(' ')
+    text = text.lstrip('	')
+
+    return text
+    
+def PODCAST(url):
+    
+    
+    if 'noop' in url:
+        url = 'http://www.unitedrant.co.uk/category/rant-cast/'
+    link = open_url(url)
+    match = re.compile ('<h2 class="small-screen-center">(.+?)</article>').findall(link)
+    for links in match:
+        url = re.compile ('<audio id=.+?src="(.+?)">').findall(links)[0]
+        title = re.compile ('<a href=.+?>(.+?)</a>').findall(links)[0].strip()
+        title = CLEANUP(title)
+        icon = 'http://www.unitedrant.co.uk/wp-content/uploads/2016/11/Rant-Cast-Image-Nov-16.jpg'
+        addLink(title,url,2,icon,fanarts,'')
+        
+    try:
+        np = re.compile ('<link rel=\'next\' href=\'(.+?)\' />').findall(link)[0]
+        npimg = 'http://i.imgur.com/FyVmmGO.png'
+        addDir("[COLOR red]NEXT PAGE ---->[/COLOR]",np,10,npimg,fanarts,'')
+    except:pass
 
 def SHOW_PICTURE(url):
 
@@ -541,4 +603,5 @@ elif mode==6:YOUTUBE_CHANNEL(url)
 elif mode==7:PLAYVIDEO(url)
 elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
+elif mode==10:PODCAST(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
