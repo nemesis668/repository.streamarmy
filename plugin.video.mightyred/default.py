@@ -23,6 +23,7 @@ metaset         = selfAddon.getSetting('enable_meta')
 messagetext     = 'https://pastebin.com/raw/KhDD9Czc'
 RUNNER 			= base64.b64decode(b'aHR0cDovL3NpbXRlY2gubmV0MTYubmV0L3lvdXR1YmUucGhwP2lkPQ==')
 SEARCH_LIST     = base64.b64decode(b'')
+dialog          = xbmcgui.Dialog()
                                                                
 def GetMenu():
         popup()
@@ -39,6 +40,12 @@ def GetMenu():
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         url=re.compile('<channel>(.+?)</channel>').findall(item)[0]
                         addDir(name,url,6,iconimage,fanart)
+                elif '<anfield>' in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        url=re.compile('<anfield>(.+?)</anfield>').findall(item)[0]
+                        addDir(name,url,11,iconimage,fanart)
                 if '<sportsdevil>' in item:
                         links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                         if len(links)==1:
@@ -177,6 +184,35 @@ def YOUTUBE_CHANNEL(url):
 		
 		addLink('[COLOR white]' + item["name"] + ' - on ' + item["date"] + '[/COLOR]',item["url"],7,item["iconimage"],fanart)
 
+def anfield_menu():
+
+    url = 'http://anfieldindex.com/podcasts'
+    result = open_url(url)
+    match = re.compile('<main class="container podcasts">(.+?)<main class="container">',re.DOTALL).findall(result)[0]
+    match2 = re.compile('<a(.+?)</a>',re.DOTALL).findall(match)
+    for item in match2:
+        try:
+            name = re.compile('title="(.+?)"',re.DOTALL).findall(item)[0]
+            url = re.compile('href="(.+?)"',re.DOTALL).findall(item)[0]
+            iconimage = re.compile('data-src="(.+?)"',re.DOTALL).findall(item)[0]
+            url = "http://anfieldindex.com" + url
+            addDir('[COLOR red][B]' + name + '[/B][/COLOR]',url,10,iconimage,fanarts)
+        except: pass
+    xbmc.executebuiltin('Container.SetViewMode(55)')
+        
+def anfield_index(url):
+
+    result = open_url(url)
+    match = re.compile('<article class="card podcast">(.+?)</article>',re.DOTALL).findall(result)
+    for item in match:
+        try:
+            name = re.compile('<h3 class="title primary-color">(.+?)</h3>',re.DOTALL).findall(item)[0]
+            url = re.compile('<a target="_blank" href="(.+?)">',re.DOTALL).findall(item)[0]
+            iconimage = re.compile('data-src="(.+?)"',re.DOTALL).findall(item)[0]
+            name = name.replace('&amp;','&')
+            addLink('[COLOR red][B]' + name + '[/B][/COLOR]',url,2,iconimage,fanarts)
+        except: pass
+    xbmc.executebuiltin('Container.SetViewMode(55)')
 	
 def SEARCH():
 	keyb = xbmc.Keyboard('', '[B][COLOR red]@Live_Prem_Addon[/COLOR][/B]')
@@ -314,73 +350,76 @@ def PLAYSD(name,url,iconimage):
         xbmc.Player ().play(url, liz, False)
         
 def PLAYLINK(name,url,iconimage):
-        if not'http'in url:url='http://'+url
-        if 'youtube.com/playlist' in url:
-                searchterm = url.split('list=')[1]
-                ytapi = ytpl + searchterm + ytpl2
-                req = urllib2.Request(ytapi)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                link = link.replace('\r','').replace('\n','').replace('  ','')     
-                match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
-                try:
-                        np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
-                        ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
-                        addDir('Next Page >>',ytapi,2,nextpage,fanart)
-                except:pass
-
-
-
+    if not'http'in url:url='http://'+url
+    if 'youtube.com/playlist' in url:
+        searchterm = url.split('list=')[1]
+        ytapi = ytpl + searchterm + ytpl2
+        req = urllib2.Request(ytapi)
+        req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+        link = link.replace('\r','').replace('\n','').replace('  ','')     
+        match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
+        try:
+            np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
+            ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
+            addDir('Next Page >>',ytapi,2,nextpage,fanart)
+        except:pass
+        for name,ytid in match:
+            url = 'https://www.youtube.com/watch?v='+ytid
+            iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
+            if not 'Private video' in name:
+                if not 'Deleted video' in name:
+                    addLink(name,url,2,iconimage,fanart)
                 
-                for name,ytid in match:
-                        url = 'https://www.youtube.com/watch?v='+ytid
-                        iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
-                        if not 'Private video' in name:
-                                if not 'Deleted video' in name:
-                                        addLink(name,url,2,iconimage,fanart)
-                
-        if 'https://www.googleapis.com/youtube/v3' in url:
-                searchterm = re.compile('playlistId=(.+?)&maxResults').findall(url)[0]
-                req = urllib2.Request(url)
-                req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
-                response = urllib2.urlopen(req)
-                link=response.read()
-                response.close()
-                link = link.replace('\r','').replace('\n','').replace('  ','')     
-                match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
-                try:
-                        np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
-                        ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
-                        addDir('Next Page >>',ytapi,2,nextpage,fanart)
-                except:pass
+    if 'https://www.googleapis.com/youtube/v3' in url:
+            searchterm = re.compile('playlistId=(.+?)&maxResults').findall(url)[0]
+            req = urllib2.Request(url)
+            req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+            response = urllib2.urlopen(req)
+            link=response.read()
+            response.close()
+            link = link.replace('\r','').replace('\n','').replace('  ','')     
+            match=re.compile('"title": "(.+?)".+?"videoId": "(.+?)"',re.DOTALL).findall(link)
+            try:
+                    np=re.compile('"nextPageToken": "(.+?)"').findall(link)[0]
+                    ytapi = ytplpg1 + np + ytplpg2 + searchterm + ytplpg3
+                    addDir('Next Page >>',ytapi,2,nextpage,fanart)
+            except:pass
 
 
-                
-                for name,ytid in match:
-                        url = 'https://www.youtube.com/watch?v='+ytid
-                        iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
-                        if not 'Private video' in name:
-                                if not 'Deleted video' in name:
-                                        addLink(name,url,2,iconimage,fanart)
+            
+            for name,ytid in match:
+                    url = 'https://www.youtube.com/watch?v='+ytid
+                    iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
+                    if not 'Private video' in name:
+                            if not 'Deleted video' in name:
+                                    addLink(name,url,2,iconimage,fanart)
 
-                
-                                     
-        if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
-        elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
-        else: stream_url=url
-        liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
-        liz.setPath(stream_url)
-        xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
-		
+    if "plugin://" in url:
+        url = "PlayMedia("+url+")"
+        xbmc.executebuiltin(url)
+        quit()
+    
+    
+    if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+    elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
+    else: stream_url=url
+    liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
+    liz.setPath(stream_url)
+    xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
+    
+    if not'http'in url:
         if '.ts'in url:
                 url = 'plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&amp;name='+name+'&amp;url='+url
         elif urlresolver.HostedMediaFile(url).valid_url():
                 url = urlresolver.HostedMediaFile(url).resolve()           
         elif liveresolver.isValid(url)==True:
                 url=liveresolver.resolve(url)
-        PLAYLINK(name,url,iconimage)		
+        liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
+        xbmc.Player ().play(url, liz, False)
+        quit()		
                             
 def PLAYVIDEO(url):
 
@@ -541,4 +580,6 @@ elif mode==6:YOUTUBE_CHANNEL(url)
 elif mode==7:PLAYVIDEO(url)
 elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
+elif mode==10:anfield_index(url)
+elif mode==11:anfield_menu()
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
