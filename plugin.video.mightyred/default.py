@@ -24,70 +24,79 @@ messagetext     = 'https://pastebin.com/raw/KhDD9Czc'
 RUNNER 			= base64.b64decode(b'aHR0cDovL3NpbXRlY2gubmV0MTYubmV0L3lvdXR1YmUucGhwP2lkPQ==')
 SEARCH_LIST     = base64.b64decode(b'')
 dialog          = xbmcgui.Dialog()
+intro_done      = xbmc.translatePath('special://home/addons/plugin.video.mightyred/intro')
                                                                
 def GetMenu():
-        popup()
-        xbmc.executebuiltin('Container.SetViewMode(500)')
-        url = baseurl
-        addDir('[B][COLOR yellow]@Live_Prem_Addon[/COLOR][/B]',url,5,searchicon,fanarts)
-        link=open_url(baseurl)
-        match= re.compile('<item>(.+?)</item>').findall(link)
-        for item in match:
-            try:
-                if '<channel>' in item:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
-                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                        url=re.compile('<channel>(.+?)</channel>').findall(item)[0]
-                        addDir(name,url,6,iconimage,fanart)
-                elif '<anfield>' in item:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
-                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                        url=re.compile('<anfield>(.+?)</anfield>').findall(item)[0]
-                        addDir(name,url,11,iconimage,fanart)
-                if '<sportsdevil>' in item:
-                        links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
-                        if len(links)==1:
-                             name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                             iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
-                             url=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)[0]
-                             referer=re.compile('<referer>(.+?)</referer>').findall(item)[0]
-                             check = referer
-                             suffix = "/"
-                             if not check.endswith(suffix):
-                                 refer = check + "/"
-                             else:
-                                 refer = check
-                             link = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26url=' +url
-                             url = link + '%26referer=' +refer
-                             addItem(name,url,4,iconimage,fanart)   
-                        elif len(links)>1:
-                             name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                             iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
-                             fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                             addItem(name,url2,8,iconimage,fanart)       
-                elif '<folder>'in item:
-                                data=re.compile('<title>(.+?)</title>.+?folder>(.+?)</folder>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
-                                for name,url,iconimage,fanart in data:
-                                        addDir(name,url,1,iconimage,fanart)
-                else:
-                                links=re.compile('<link>(.+?)</link>').findall(item)
-                                if len(links)==1:
-                                        data=re.compile('<title>(.+?)</title>.+?link>(.+?)</link>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
-                                        lcount=len(match)
-                                        for name,url,iconimage,fanart in data:
-                                                if 'youtube.com/playlist' in url:
-                                                        addDir(name,url,2,iconimage,fanart)
-                                                else:
-                                                        addLink(name,url,2,iconimage,fanart)
-                                elif len(links)>1:
-                                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
-                                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                                        addLink(name,url2,3,iconimage,fanart)
-            except:pass
-            view(link)
+    popup()
+    xbmc.executebuiltin('Container.SetViewMode(500)')
+    url = baseurl
+    addDir('[B][COLOR yellow]@Live_Prem_Addon[/COLOR][/B]',url,5,searchicon,fanarts)
+    link=open_url(baseurl)
+    match= re.compile('<item>(.+?)</item>').findall(link)
+    for item in match:
+        try:
+            if '<channel>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<channel>(.+?)</channel>').findall(item)[0]
+                    addDir(name,url,6,iconimage,fanart)
+            elif '<anfield>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<anfield>(.+?)</anfield>').findall(item)[0]
+                    addDir(name,url,11,iconimage,fanart)
+            if '<sportsdevil>' in item:
+                    links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
+                    if len(links)==1:
+                         name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                         url=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)[0]
+                         referer=re.compile('<referer>(.+?)</referer>').findall(item)[0]
+                         check = referer
+                         suffix = "/"
+                         if not check.endswith(suffix):
+                             refer = check + "/"
+                         else:
+                             refer = check
+                         link = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26url=' +url
+                         url = link + '%26referer=' +refer
+                         addItem(name,url,4,iconimage,fanart)   
+                    elif len(links)>1:
+                         name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                         addItem(name,url2,8,iconimage,fanart)       
+            elif '<folder>'in item:
+                            data=re.compile('<title>(.+?)</title>.+?folder>(.+?)</folder>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
+                            for name,url,iconimage,fanart in data:
+                                    addDir(name,url,1,iconimage,fanart)
+            else:
+                            links=re.compile('<link>(.+?)</link>').findall(item)
+                            if len(links)==1:
+                                    data=re.compile('<title>(.+?)</title>.+?link>(.+?)</link>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
+                                    lcount=len(match)
+                                    for name,url,iconimage,fanart in data:
+                                            if 'youtube.com/playlist' in url:
+                                                    addDir(name,url,2,iconimage,fanart)
+                                            else:
+                                                    addLink(name,url,2,iconimage,fanart)
+                            elif len(links)>1:
+                                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                                    addLink(name,url2,3,iconimage,fanart)
+        except:pass
+    
+    if not os.path.exists(intro_done):
+        intro = 'http://streamarmy.co.uk/liverpoolintro.mp4'
+        xbmc.Player().play(intro, xbmcgui.ListItem('Welcome to Mighty Reds'))
+        os.makedirs(intro_done)
+        
+        
+        
+    #view(link)
 
 def popup():
         message=open_url2(messagetext)
