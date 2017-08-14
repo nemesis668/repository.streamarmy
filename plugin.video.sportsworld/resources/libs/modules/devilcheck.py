@@ -25,6 +25,10 @@ def Devil_Checker(url):
         return url
     elif 'atdee' in url:
         return url
+    elif 'acestream://' in url:
+        return url
+    elif 'goolsport' in url:
+        return url
     elif 'buffstream' in url:
         return url
     elif 'dimsports' in url:
@@ -88,7 +92,11 @@ def Devil_Checker(url):
         except:
             url = 'NOTSUPPORTED'
             return url
-        grab2 = re.compile ('<iframe(.+?)</iframe>').findall(link)[0]
+        try:
+            grab2 = re.compile ('<iframe(.+?)</iframe>').findall(link)[0]
+        except IndexError:
+            url = 'NOTSUPPORTED'
+            return url
         result = re.compile ('src="(.+?)"').findall(grab2)[0]
         if not 'http' in result:
             result = 'http:' + result
