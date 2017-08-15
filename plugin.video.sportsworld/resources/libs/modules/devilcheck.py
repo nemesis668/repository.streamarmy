@@ -67,25 +67,32 @@ def Devil_Checker(url):
         return url
     elif 'vipgoal' in url:
         return url
+    
     elif 'ripple' in url:
-        link = open_url(url)
-        match = re.compile ('<iframe.+?src="(.+?)"').findall(link)[0]
-        link2 = open_url(match)
-        grab = re.compile ('src=\'(.+?)\'').findall(link2)[0]
-        link3 = open_url(grab)
-        url = re.compile ('<source src="(.+?)"').findall(link3)[0]
-        return url
+        try:
+            link = open_url(url)
+            match = re.compile ('<iframe.+?src="(.+?)"').findall(link)[0]
+            link2 = open_url(match)
+            grab = re.compile ('src=\'(.+?)\'').findall(link2)[0]
+            link3 = open_url(grab)
+            url = re.compile ('<source src="(.+?)"').findall(link3)[0]
+            return url
+        except : return url
     elif 'sporttube' in url:
-        url = url.replace('no-preload', '')
-        link = open_url(url)
-        url = re.compile ('<source src="(.+?)"').findall(link)[0]
-        return url
+        try:
+            url = url.replace('no-preload', '')
+            link = open_url(url)
+            url = re.compile ('<source src="(.+?)"').findall(link)[0]
+            return url
+        except : return url
     elif 'playwire' in url:
-        link2 = open_url(url)
-        get = re.compile ('{"f4m":"(.+?)"').findall(link2)[0]
-        link3 = open_url(get)
-        url = re.compile ('<media url="(.+?)"').findall(link3)[2]
-        return url
+        try:
+            link2 = open_url(url)
+            get = re.compile ('{"f4m":"(.+?)"').findall(link2)[0]
+            link3 = open_url(get)
+            url = re.compile ('<media url="(.+?)"').findall(link3)[2]
+            return url
+        except : return url
     elif 'yalla' in url:
         try:
             link = open_url(url)
@@ -94,10 +101,10 @@ def Devil_Checker(url):
             return url
         try:
             grab2 = re.compile ('<iframe(.+?)</iframe>').findall(link)[0]
+            result = re.compile ('src="(.+?)"').findall(grab2)[0]
         except IndexError:
             url = 'NOTSUPPORTED'
             return url
-        result = re.compile ('src="(.+?)"').findall(grab2)[0]
         if not 'http' in result:
             result = 'http:' + result
         link3 = open_url(result)
