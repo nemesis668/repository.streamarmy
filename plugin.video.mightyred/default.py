@@ -47,6 +47,12 @@ def GetMenu():
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                     url=re.compile('<anfield>(.+?)</anfield>').findall(item)[0]
                     addDir(name,url,11,iconimage,fanart)
+            elif '<playlist>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<playlist>(.+?)</playlist>').findall(item)[0]
+                    addDir(name,url,43,iconimage,fanart)
             if '<sportsdevil>' in item:
                     links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                     if len(links)==1:
@@ -97,6 +103,28 @@ def GetMenu():
         
         
     #view(link)
+def CLEANUP(text):
+
+    text = str(text)
+    text = text.replace('\\r','')
+    text = text.replace('\\n','')
+    text = text.replace('\\t','')
+    text = text.replace('\\','')
+    text = text.replace('<br />','\n')
+    text = text.replace('<hr />','')
+    text = text.replace('&#039;',"'")
+    text = text.replace('&#39;',"'")
+    text = text.replace('&quot;','"')
+    text = text.replace('&rsquo;',"'")
+    text = text.replace('&amp;',"&")
+    text = text.replace('&#8211;',"&")
+    text = text.replace('&#8217;',"'")
+    text = text.replace('&#038;',"&")
+    text = text.replace('&#8211;',"-")
+    text = text.lstrip(' ')
+    text = text.lstrip('	')
+
+    return text
 
 def popup():
         message=open_url2(messagetext)
@@ -131,6 +159,12 @@ def GetContent(name,url,iconimage,fanart):
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         url=re.compile('<image>(.+?)</image>').findall(item)[0]
                         addDir(name,iconimage,9,iconimage,fanart)
+                elif '<playlist>' in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        url=re.compile('<playlist>(.+?)</playlist>').findall(item)[0]
+                        addDir(name,url,43,iconimage,fanart)
                 if '<sportsdevil>' in item:
                         links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                         if len(links)==1:
@@ -359,7 +393,7 @@ def PLAYSD(name,url,iconimage):
         xbmc.Player ().play(url, liz, False)
         
 def PLAYLINK(name,url,iconimage):
-    if not'http'in url:url='http://'+url
+    
     if 'youtube.com/playlist' in url:
         searchterm = url.split('list=')[1]
         ytapi = ytpl + searchterm + ytpl2
@@ -381,7 +415,7 @@ def PLAYLINK(name,url,iconimage):
             if not 'Private video' in name:
                 if not 'Deleted video' in name:
                     addLink(name,url,2,iconimage,fanart)
-                
+
     if 'https://www.googleapis.com/youtube/v3' in url:
             searchterm = re.compile('playlistId=(.+?)&maxResults').findall(url)[0]
             req = urllib2.Request(url)
@@ -398,7 +432,7 @@ def PLAYLINK(name,url,iconimage):
             except:pass
 
 
-            
+   
             for name,ytid in match:
                     url = 'https://www.youtube.com/watch?v='+ytid
                     iconimage = 'https://i.ytimg.com/vi/'+ytid+'/hqdefault.jpg'
@@ -406,29 +440,29 @@ def PLAYLINK(name,url,iconimage):
                             if not 'Deleted video' in name:
                                     addLink(name,url,2,iconimage,fanart)
 
-    if "plugin://" in url:
-        url = "PlayMedia("+url+")"
-        xbmc.executebuiltin(url)
-        quit()
     
-    
-    if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
-    elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
-    else: stream_url=url
-    liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
-    liz.setPath(stream_url)
-    xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
-    
-    if not'http'in url:
+    # if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+    # elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
+    # else: stream_url=url
+    # dialog.ok("Debug","I'm Here2")
+    # liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
+    # liz.setPath(stream_url)
+    # xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
+
+    if 'http' not in url:
         if '.ts'in url:
-                url = 'plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&amp;name='+name+'&amp;url='+url
+            url = 'plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&amp;name='+name+'&amp;url='+url
+        elif 'acestream' in url:
+            url = "plugin://program.plexus/?url=" + url + "&mode=1&name=acestream+"
+            xbmc.Player ().play(url)
+            #quit()
         elif urlresolver.HostedMediaFile(url).valid_url():
-                url = urlresolver.HostedMediaFile(url).resolve()           
+            url = urlresolver.HostedMediaFile(url).resolve()           
         elif liveresolver.isValid(url)==True:
                 url=liveresolver.resolve(url)
         liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
         xbmc.Player ().play(url, liz, False)
-        quit()		
+        quit()
                             
 def PLAYVIDEO(url):
 
@@ -515,6 +549,66 @@ def addLink(name, url, mode, iconimage, fanart, description=''):
     if 'plugin://' in url:u=url
     ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=False)
     return ok
+    
+def strip_non_ascii(string):
+    ''' Returns the string without non ASCII characters'''
+    stripped = (c for c in string if 0 < ord(c) < 127)
+    return ''.join(stripped)
+    
+def YOUTUBE_PLAYLIST(url):
+
+    link = open_url(url)
+    match = re.compile('yt-lockup-playlist yt-lockup-grid"(.+?)<div class="yt-lockup-meta">').findall(link)
+    for links in match:
+        url = re.compile ('<a href="(.+?)"').findall(links)[0]
+        icon = re.compile ('data-thumb="(.+?)"').findall(links)[0].replace('&amp;', '&')
+        title = re.compile ('<div class="yt-lockup-content">.+?title="(.+?)"').findall(links)[0]
+        title = CLEANUP(title)
+        if not 'http' in url:
+            url1 = 'https://www.youtube.com/' + url
+            addDir("[COLOR skyblue][B]" + title + "[/B][/COLOR]",url1,43,icon,fanart)
+    SET_VIEW()
+
+def YOUTUBE_PLAYLIST_PLAY(url):
+
+    link = open_url(url)
+    match = re.compile('<li class="yt-uix-scroller-scroll-unit(.+?)<span class="vertical-align">').findall(link)
+    for links in match:
+        title = re.compile ('video-title="(.+?)"',re.DOTALL).findall(links)[0]
+        title = CLEANUP(title)
+        icon = re.compile ('url="(.+?)"',re.DOTALL).findall(links)[0].replace('&amp;', '&')
+        fanart = re.compile ('url="(.+?)"',re.DOTALL).findall(links)[0].replace('&amp;', '&')
+        url = re.compile ('<a href="(.+?)"').findall(links)[0]
+        if not 'http' in url:
+            if not 'Deleted video' in title:
+                url1 = 'https://www.youtube.com' + url
+                addLink("[COLOR yellow][B]" + title + "[/B][/COLOR]",url1,2,icon,fanart)
+                
+# def YOUTUBE_CHANNEL(url):
+
+    # link = open_url(url)
+    # match = re.compile ('<div class="yt-lockup-content">(.+?)<div class="yt-lockup-meta">').findall(link)
+    # for links in match:
+        # title = re.compile ('title="(.+?)"').findall(links)[0]
+        # title = CLEANUP(title)
+        # title = strip_non_ascii(title)
+        # url1 = re.compile ('href="(.+?)"').findall(links)[0]
+        # url = 'https://www.youtube.com' + url1
+        # icon = 'http://i.imgur.com/P5HLzGl.png'
+        # addDir(title,url,72,icon,fanart)
+        
+# def YOUTUBE_CHANNEL_PART2(url):
+
+    # link = open_url(url)
+    # match = re.compile('<tr class="pl-video yt-uix-tile "(.+?)<span class="vertical-align">').findall(link)
+    # for links in match:
+        # title = re.compile ('title="(.+?)">').findall(links)[0]
+        # title = CLEANUP(title)
+        # title = strip_non_ascii(title)
+        # url1 = re.compile ('<a href="(.+?)"').findall(links)[0]
+        # url = 'https://www.youtube.com' + url1
+        # icon = re.compile ('data-thumb="(.+?)"').findall(links)[0].replace('&amp;', '&')
+        # addLink(title,url,2,icon,fanart)
 
 def addItem(name,url,mode,iconimage,fanart, description=''):
 	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&fanart="+urllib.quote_plus(fanart)
@@ -591,4 +685,11 @@ elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
 elif mode==10:anfield_index(url)
 elif mode==11:anfield_menu()
+
+
+elif mode==42:YOUTUBE_PLAYLIST(url)
+elif mode==43:YOUTUBE_PLAYLIST_PLAY(url)
+
+elif mode==71:YOUTUBE_CHANNEL(url)
+elif mode==72:YOUTUBE_CHANNEL_PART2(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
