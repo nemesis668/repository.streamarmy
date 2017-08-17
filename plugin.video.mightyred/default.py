@@ -441,13 +441,12 @@ def PLAYLINK(name,url,iconimage):
                                     addLink(name,url,2,iconimage,fanart)
 
     
-    # if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
-    # elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
-    # else: stream_url=url
-    # dialog.ok("Debug","I'm Here2")
-    # liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
-    # liz.setPath(stream_url)
-    # xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
+    if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+    elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
+    else: stream_url=url
+    liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
+    liz.setPath(stream_url)
+    xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, liz)
 
     if 'http' not in url:
         if '.ts'in url:
@@ -455,7 +454,6 @@ def PLAYLINK(name,url,iconimage):
         elif 'acestream' in url:
             url = "plugin://program.plexus/?url=" + url + "&mode=1&name=acestream+"
             xbmc.Player ().play(url)
-            #quit()
         elif urlresolver.HostedMediaFile(url).valid_url():
             url = urlresolver.HostedMediaFile(url).resolve()           
         elif liveresolver.isValid(url)==True:
