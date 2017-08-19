@@ -146,7 +146,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.sportsworld" name="[COLOR orange][B]Sports World[/B][/COLOR]" version="1.4" provider-name="Nemzzy">
+<addon id="plugin.video.sportsworld" name="[COLOR orange][B]Sports World[/B][/COLOR]" version="1.5" provider-name="Nemzzy">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
