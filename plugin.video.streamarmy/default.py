@@ -122,24 +122,34 @@ def GetMenu():
                 url2=re.compile('<folder>(.+?)</folder>').findall(item)[0]
                 iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                 fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                satools.addDir(name,url2,1,iconimage,fanart)
+                try:
+                    description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                except IndexError:
+                    description = ''
+                satools.addDir(name,url2,1,iconimage,fanart,description)
                 
             else:
                 
                 links=re.compile('<link>(.+?)</link>').findall(item)
                 if len(links)==1:
-                    data=re.compile('<title>(.+?)</title>.+?link>(.+?)</link>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
-                    lcount=len(match)
-                    for name,url,iconimage,fanart in data:
-                        if 'youtube.com/playlist' in url:
-                            satools.addDir(name,url,2,iconimage,fanart)
-                        else:
-                            satools.addLink(name,url,2,iconimage,fanart)
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    url = re.compile('<link>(.+?)</link>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    try:
+                        description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                    except IndexError:
+                        description = ''
+                    satools.addLink(name,url,2,iconimage,fanart,description)
                 elif len(links)>1:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
-                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
-                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                        satools.addLink(name,url2,3,iconimage,fanart)
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    try:
+                        description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                    except IndexError:
+                        description = ''
+                    satools.addLink(name,url2,3,iconimage,fanart,description)
     if not os.path.exists(intro_done):
         intro = 'http://streamarmy.co.uk/intro.mp4'
         xbmc.Player().play(intro, xbmcgui.ListItem('Welcome to StreamArmy'))
@@ -456,25 +466,38 @@ def GetContent(name,url,iconimage,fanart):
                          satools.addItem(name,url2,8,iconimage,fanart)
 
             elif '<folder>'in item:
-                data=re.compile('<title>(.+?)</title>.+?folder>(.+?)</folder>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
-                for name,url,iconimage,fanart in data:
-                        satools.addDir(name,url,1,iconimage,fanart)
+                
+                name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                url2=re.compile('<folder>(.+?)</folder>').findall(item)[0]
+                iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                try:
+                    description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                except IndexError:
+                    description = ''
+                satools.addDir(name,url2,1,iconimage,fanart,description)
 
             else:
                 links=re.compile('<link>(.+?)</link>').findall(item)
                 if len(links)==1:
-                    data=re.compile('<title>(.+?)</title>.+?link>(.+?)</link>.+?thumbnail>(.+?)</thumbnail>.+?fanart>(.+?)</fanart>').findall(item)
-                    lcount=len(match)
-                    for name,url,iconimage,fanart in data:
-                        if 'youtube.com/playlist' in url:
-                            satools.addDir(name,url,2,iconimage,fanart)
-                        else:
-                            satools.addLink(name,url,2,iconimage,fanart)
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    url = re.compile('<link>(.+?)</link>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    try:
+                        description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                    except IndexError:
+                        description = ''
+                    satools.addLink(name,url,2,iconimage,fanart,description)
                 elif len(links)>1:
                     name=re.compile('<title>(.+?)</title>').findall(item)[0]
                     iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
-                    satools.addLink(name,url2,3,iconimage,fanart)
+                    try:
+                        description=re.compile('<description>(.+?)</description>').findall(item)[0]
+                    except IndexError:
+                        description = ''
+                    satools.addLink(name,url2,3,iconimage,fanart,description)
         except:pass
     satools.SET_VIEW()
     
@@ -507,6 +530,8 @@ except: pass
 try: iconimage=urllib.unquote_plus(params["iconimage"])
 except: pass
 try: fanart=urllib.unquote_plus(params["fanart"])
+except: pass
+try: description=urllib.unquote_plus(params["description"])
 except: pass
  
 if mode==None or url==None or len(url)<1: GetMenu()
