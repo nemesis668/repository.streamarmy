@@ -559,7 +559,7 @@ def O0OO0O ( url ) :
  if 81 - 81: O0Oo0oO0o . o0oOOo0O0Ooo % O0 / I1IiiI - O0Oo0oO0o
  Ii1I1i = cfscrape . create_scraper ( )
  OOooOO000 = Ii1I1i . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- I1I1iIiII1 = re . compile ( '<div class="stream_block clickable-row(.+?)</i>' ) . findall ( OOooOO000 )
+ I1I1iIiII1 = re . compile ( '<div class="stream_block"(.+?)</i>' ) . findall ( OOooOO000 )
  if len ( I1I1iIiII1 ) <= 1 :
   iiIIIII1i1iI . ok ( Iii1ii1II11i , "[COLOR red]Links Will Only Be Live 1 Hour Before Kick Off[/COLOR]" )
   quit ( )
