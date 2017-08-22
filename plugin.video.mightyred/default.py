@@ -6,6 +6,7 @@ from metahandler import metahandlers
 addon_id        = 'plugin.video.mightyred'
 addon           = Addon(addon_id, sys.argv)
 selfAddon       = xbmcaddon.Addon(id=addon_id)
+AddonTitle      = '[COLOR yellow]Mighty Red[/COLOR]'
 fanart          = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 fanarts         = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
 icon            = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
@@ -53,6 +54,12 @@ def GetMenu():
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                     url=re.compile('<playlist>(.+?)</playlist>').findall(item)[0]
                     addDir(name,url,43,iconimage,fanart)
+            elif '<LFCNEWS>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<LFCNEWS>(.+?)</LFCNEWS>').findall(item)[0]
+                    addDir(name,url,18,iconimage,fanart)
             if '<sportsdevil>' in item:
                     links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                     if len(links)==1:
@@ -613,6 +620,41 @@ def YOUTUBE_PLAYLIST_PLAY(url):
         # url = 'https://www.youtube.com' + url1
         # icon = re.compile ('data-thumb="(.+?)"').findall(links)[0].replace('&amp;', '&')
         # addLink(title,url,2,icon,fanart)
+        
+def TEAMNEWS():
+
+    url = 'http://www.worldfootball.net/teams/liverpool-fc/'
+    link = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
+    match = re.compile('<div class="wfb-news-medium">(.+?)<script type="text/javascript">').findall(link)[0]
+    grab = re.compile ('<img src="(.+?)".+?<a href="(.+?)" title="(.+?)"').findall(match)
+    for icon,url,title in grab:
+        if not 'http' in url:
+            url = 'http://www.worldfootball.net' + url
+            addLink("[COLOR yellow][B]" + title + "[/B][/COLOR]",url,19,icon,fanarts)
+
+def READNEWS(url):
+
+    link = open_url(url)
+    match = re.compile('<div class="wfb-news-content">(.+?)</div>').findall(link)[0].replace('<p>', '').replace('</p>', '').replace('"', '')
+    heading = AddonTitle
+    showText(heading,match)
+    
+def showText(heading, text):
+
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(500)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+        try:
+            xbmc.sleep(10)
+            retry -= 1
+            win.getControl(1).setLabel(heading)
+            win.getControl(5).setText(text)
+            quit()
+            return
+        except: pass
 
 def addItem(name,url,mode,iconimage,fanart, description=''):
 	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&fanart="+urllib.quote_plus(fanart)
@@ -690,6 +732,8 @@ elif mode==9:SHOW_PICTURE(url)
 elif mode==10:anfield_index(url)
 elif mode==11:anfield_menu()
 elif mode==17:resolver_settings()
+elif mode==18:TEAMNEWS()
+elif mode==19:READNEWS(url)
 
 elif mode==42:YOUTUBE_PLAYLIST(url)
 elif mode==43:YOUTUBE_PLAYLIST_PLAY(url)

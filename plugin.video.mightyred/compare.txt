@@ -1,13 +1,17 @@
 [COLOR gold]MIGHTY RED ADDON[/COLOR] 
 
-ADDON UPDATED TO V1.3 GET FROM STREAM ARMY REPO OR SIMTECH REPO ONLY 
+ADDON UPDATED TO V1.5 GET FROM STREAMARMY REPO OR SIMTECH REPO ONLY 
 
-Now Has ACESTREAM SUPPORT
+ACESTREAM SUPPORT
+DEBRID LOGIN ADDED - LOGIN TO REAL DEBRID TO AVOID PAIRING LINKS
 
-GET THE LFC BUILD BY @dazzawm From Ares Wizard 
+GET THE LFC BUILD BY @dazzawm From Dazzawms Wizard Also In Simtech Repo Complete With Maintenance Tools
 Every LFC Fan Needs This & Give Him A Follow On Twitter 
 
-Flags & Banners Added 
+Flags & Banners Added
+Goals Goals Goals Added
+More Rival Matches Added
+Lots Of Other Content Added Too 
  
 Welcome To The Formerly Known Everyone's Liverpool Addon
  
