@@ -94,7 +94,10 @@ def GetMenu():
                                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                                     addLink(name,url2,3,iconimage,fanart)
         except:pass
-    
+        view(link)
+    icon = 'http://i.imgur.com/8rqgk8R.png'
+    addItem('[B][COLOR yellow]'+'Real Debrid Login'+'[/COLOR]''[/B]','url',17,icon,fanarts)
+		
     if not os.path.exists(intro_done):
         intro = 'http://streamarmy.co.uk/liverpoolintro.mp4'
         xbmc.Player().play(intro, xbmcgui.ListItem('Welcome to Mighty Reds'))
@@ -139,6 +142,9 @@ def popup():
                         text_file = open(comparefile, "w")
                         text_file.write(message)
                         text_file.close()
+
+def resolver_settings():
+    urlresolver.display_settings()
                         
 def GetContent(name,url,iconimage,fanart):
         url2=url
@@ -683,7 +689,7 @@ elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
 elif mode==10:anfield_index(url)
 elif mode==11:anfield_menu()
-
+elif mode==17:resolver_settings()
 
 elif mode==42:YOUTUBE_PLAYLIST(url)
 elif mode==43:YOUTUBE_PLAYLIST_PLAY(url)
