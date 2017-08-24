@@ -1,4 +1,4 @@
-import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,os,re,sys,datetime,shutil,urlresolver,random,liveresolver
+import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,os,re,sys,datetime,shutil,urlresolver,random,liveresolver,time
 from resources.libs.common_addon import Addon
 import base64
 from metahandler import metahandlers
@@ -60,6 +60,12 @@ def GetMenu():
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                     url=re.compile('<LFCNEWS>(.+?)</LFCNEWS>').findall(item)[0]
                     addDir(name,url,18,iconimage,fanart)
+            elif '<shighlights>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<shighlights>(.+?)</shighlights>').findall(item)[0]
+                    addDir(name,url,68,iconimage,fanart)
             if '<sportsdevil>' in item:
                     links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                     if len(links)==1:
@@ -106,7 +112,7 @@ def GetMenu():
     addItem('[B][COLOR yellow]'+'Real Debrid Login'+'[/COLOR]''[/B]','url',17,icon,fanarts)
 		
     if not os.path.exists(intro_done):
-        intro = 'http://streamarmy.co.uk/liverpoolintro.mp4'
+        intro = 'http://simtechaddons.com/intro/MightyRedIntro.mp4'
         xbmc.Player().play(intro, xbmcgui.ListItem('Welcome to Mighty Reds'))
         os.makedirs(intro_done)
         
@@ -269,6 +275,66 @@ def anfield_index(url):
             addLink('[COLOR red][B]' + name + '[/B][/COLOR]',url,2,iconimage,fanarts)
         except: pass
     xbmc.executebuiltin('Container.SetViewMode(55)')
+	
+def SCRAPE_SPORTSHIGHLIGHTS_GAMES():
+
+    url = 'http://www.goalsarena.org/en/'
+    link = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
+    match = re.compile ('<div class="videos"(.+?)<div class="moduletable-none">').findall(link)[0]
+    grab = re.compile('<a title=".+?" href="(.+?)">(.+?)</a>').findall(match)
+    
+    for link1,game in grab:
+        addDir("[COLOR yellow]" + game + "[/COLOR]",link1,69,icon,fanarts,'')
+        
+def SCRAPE_SPORTSHIGHLIGHTS_LINKS(url):
+
+    
+    link = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
+    source = dialog.select('[COLOR yellow]Choose Normal Or Extended Highlights[/COLOR]', ['[COLOR yellow]Normal[/COLOR]','[COLOR yellow]Extended[/COLOR]'])
+    if source == 0:
+        match = re.compile ('<iframe src="(.+?)"').findall(link)[0]
+        link2 = open_url(match)
+        url = re.compile ('<source src="(.+?)"').findall(link2)[0]
+        url = 'https:' + url
+        liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
+        xbmc.Player ().play(url, liz, False)
+        quit(0)
+    if source == 1:
+        try:
+            match = re.compile ('<iframe src="(.+?)"').findall(link)[1]
+        except IndexError:
+            dialog.notification("[COLOR yellow]Mighty Red[/COLOR]", 'Sorry This Game Doesn\'t Have Extended Highlight Available', icon, 9000)
+            time.sleep(2)
+            SCRAPE_SPORTSHIGHLIGHTS_LINKS(url)
+        link2 = open_url(match)
+        url = re.compile ('<source src="(.+?)"').findall(link2)[0]
+        url = 'https:' + url
+        liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
+        xbmc.Player ().play(url, liz, False)
+        quit(0)
+	
+def CLEANUP(text):
+
+    text = str(text)
+    text = text.replace('\\r','')
+    text = text.replace('\\n','')
+    text = text.replace('\\t','')
+    text = text.replace('\\','')
+    text = text.replace('<br />','\n')
+    text = text.replace('<hr />','')
+    text = text.replace('&#039;',"'")
+    text = text.replace('&#39;',"'")
+    text = text.replace('&quot;','"')
+    text = text.replace('&rsquo;',"'")
+    text = text.replace('&amp;',"&")
+    text = text.replace('&#8211;',"&")
+    text = text.replace('&#8217;',"'")
+    text = text.replace('&#038;',"&")
+    text = text.replace('&nbsp;'," ")
+    text = text.lstrip(' ')
+    text = text.lstrip('    ')
+    
+    return text
 	
 def SEARCH():
 	keyb = xbmc.Keyboard('', '[B][COLOR red]@Live_Prem_Addon[/COLOR][/B]')
@@ -577,7 +643,7 @@ def YOUTUBE_PLAYLIST(url):
         title = CLEANUP(title)
         if not 'http' in url:
             url1 = 'https://www.youtube.com/' + url
-            addDir("[COLOR skyblue][B]" + title + "[/B][/COLOR]",url1,43,icon,fanart)
+            addDir("[COLOR yellow][B]" + title + "[/B][/COLOR]",url1,43,icon,fanart)
     SET_VIEW()
 
 def YOUTUBE_PLAYLIST_PLAY(url):
@@ -595,31 +661,6 @@ def YOUTUBE_PLAYLIST_PLAY(url):
                 url1 = 'https://www.youtube.com' + url
                 addLink("[COLOR yellow][B]" + title + "[/B][/COLOR]",url1,2,icon,fanart)
                 
-# def YOUTUBE_CHANNEL(url):
-
-    # link = open_url(url)
-    # match = re.compile ('<div class="yt-lockup-content">(.+?)<div class="yt-lockup-meta">').findall(link)
-    # for links in match:
-        # title = re.compile ('title="(.+?)"').findall(links)[0]
-        # title = CLEANUP(title)
-        # title = strip_non_ascii(title)
-        # url1 = re.compile ('href="(.+?)"').findall(links)[0]
-        # url = 'https://www.youtube.com' + url1
-        # icon = 'http://i.imgur.com/P5HLzGl.png'
-        # addDir(title,url,72,icon,fanart)
-        
-# def YOUTUBE_CHANNEL_PART2(url):
-
-    # link = open_url(url)
-    # match = re.compile('<tr class="pl-video yt-uix-tile "(.+?)<span class="vertical-align">').findall(link)
-    # for links in match:
-        # title = re.compile ('title="(.+?)">').findall(links)[0]
-        # title = CLEANUP(title)
-        # title = strip_non_ascii(title)
-        # url1 = re.compile ('<a href="(.+?)"').findall(links)[0]
-        # url = 'https://www.youtube.com' + url1
-        # icon = re.compile ('data-thumb="(.+?)"').findall(links)[0].replace('&amp;', '&')
-        # addLink(title,url,2,icon,fanart)
         
 def TEAMNEWS():
 
@@ -737,7 +778,8 @@ elif mode==19:READNEWS(url)
 
 elif mode==42:YOUTUBE_PLAYLIST(url)
 elif mode==43:YOUTUBE_PLAYLIST_PLAY(url)
-
+elif mode==68:SCRAPE_SPORTSHIGHLIGHTS_GAMES()
+elif mode==69:SCRAPE_SPORTSHIGHLIGHTS_LINKS(url)
 elif mode==71:YOUTUBE_CHANNEL(url)
 elif mode==72:YOUTUBE_CHANNEL_PART2(url)
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

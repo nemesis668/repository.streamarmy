@@ -1,18 +1,49 @@
 [COLOR gold]MIGHTY RED ADDON[/COLOR] 
 
-ADDON UPDATED TO V1.5 GET FROM STREAMARMY REPO OR SIMTECH REPO ONLY 
+[COLOR lime]ADDON UPDATED TO V1.8[/COLOR] GET FROM SIMTECH REPO ONLY 
 
+FOOTBALL HIGHLIGHTS ADDED
 ACESTREAM SUPPORT
 DEBRID LOGIN ADDED - LOGIN TO REAL DEBRID TO AVOID PAIRING LINKS
+
+Thanks To @Nemzzy668 For Help With New Features
 
 GET THE LFC BUILD BY @dazzawm From Dazzawms Wizard Also In Simtech Repo Complete With Maintenance Tools
 Every LFC Fan Needs This & Give Him A Follow On Twitter 
 
-Flags & Banners Added
-Goals Goals Goals Added
-More Rival Matches Added
-Lots Of Other Content Added Too 
+LFC NEWS ADDED 
  
 Welcome To The Formerly Known Everyone's Liverpool Addon
  
-Any Issues Contact @Live_Prem_Addon For Support & Give Me A Follow On Twitter.
+Any Issues Contact @Live_Prem_Addon For Support & Give Me A Follow On Twitter.
+
+CHANGELOG :
+
+V1.8
+Added Extended Highlights To Highlights Section
+
+V1.7
+Added Football Highlights Scraper
+
+v1.6
+Added LFC NEWS Scraper
+
+v1.5
+Added Real Debrid Login Icon
+No Pairing Required With Debrid 
+
+v1.4
+Added Code To Make ACESTREAM Compatible 
+Plexus Needed
+
+v1.3
+Added Anfield Index Podcast Scraper
+
+v1.2
+Scrapped Old Code
+
+v1.1
+Fixed Youtube Problem
+
+v1.0
+Initial Release
