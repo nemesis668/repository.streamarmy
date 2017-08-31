@@ -1,3 +1,4 @@
+#!/usr/bin/env python2.7
 # *
 # *  Copyright (C) 2012-2013 Garrett Brown
 # *  Copyright (C) 2010      j48antialias
@@ -121,7 +122,6 @@ def zipfolder(foldername, target_dir, zips_dir):
                 fn = os.path.join(base, file)
                 zipobj.write(fn, os.path.join(foldername[:-4],fn[rootlen:]))
     zipobj.close()
-
                      
 if ( __name__ == "__main__" ):
     # start
@@ -131,14 +131,23 @@ if ( __name__ == "__main__" ):
     rootdir = sys.path[0]
     zipsdir = rootdir + '\zips'
     #remove all pyo file from addons.
-    for root, dirs, files in os.walk(rootdir):               
+    for root, dirs, files in os.walk(rootdir):            
+        rem_folder = ['_MACOSX']
+        rem_files  = ['.pyo','DS_Store']    
         for f in files:
             try:
-                if not (f.endswith(".pyo")): continue
-                os.unlink(os.path.join(root, f))
-                print 'Removing: ' + os.path.join(root, f)
-            except:
-                pass
+                if any(x in f for x in rem_files):
+                    os.unlink(os.path.join(root, f))
+                    print 'Removing: ' + os.path.join(root, f)
+                else: continue
+            except: pass
+        for d in dirs:
+            try:
+                if any(x in d for x in rem_folder):
+                    shutil.rmtree(os.path.join(root, d))
+                    print 'Removing: ' + os.path.join(root, d)
+                else: continue
+            except: pass
     print 'Starting zip file creation...'
     filesinrootdir = os.listdir(rootdir)
     for x in filesinrootdir:
