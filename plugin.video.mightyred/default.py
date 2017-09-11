@@ -3,6 +3,8 @@ from resources.libs.common_addon import Addon
 import base64
 from metahandler import metahandlers
 
+
+
 addon_id        = 'plugin.video.mightyred'
 addon           = Addon(addon_id, sys.argv)
 selfAddon       = xbmcaddon.Addon(id=addon_id)
@@ -60,6 +62,12 @@ def GetMenu():
                     fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                     url=re.compile('<LFCNEWS>(.+?)</LFCNEWS>').findall(item)[0]
                     addDir(name,url,18,iconimage,fanart)
+            elif '<fullhigh>' in item:
+                    name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                    iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                    fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                    url=re.compile('<fullhigh>(.+?)</fullhigh>').findall(item)[0]
+                    addDir(name,url,15,iconimage,fanart)					
             elif '<shighlights>' in item:
                     name=re.compile('<title>(.+?)</title>').findall(item)[0]
                     iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
@@ -184,6 +192,12 @@ def GetContent(name,url,iconimage,fanart):
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         url=re.compile('<playlist>(.+?)</playlist>').findall(item)[0]
                         addDir(name,url,43,iconimage,fanart)
+                elif '<shighlights>' in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        url=re.compile('<shighlights>(.+?)</shighlights>').findall(item)[0]
+                        addDir(name,url,68,iconimage,fanart)
                 if '<sportsdevil>' in item:
                         links=re.compile('<sportsdevil>(.+?)</sportsdevil>').findall(item)
                         if len(links)==1:
@@ -472,7 +486,7 @@ def PLAYSD(name,url,iconimage):
         xbmc.Player ().play(url, liz, False)
         
 def PLAYLINK(name,url,iconimage):
-    
+
     if 'youtube.com/playlist' in url:
         searchterm = url.split('list=')[1]
         ytapi = ytpl + searchterm + ytpl2
@@ -661,7 +675,41 @@ def YOUTUBE_PLAYLIST_PLAY(url):
                 url1 = 'https://www.youtube.com' + url
                 addLink("[COLOR yellow][B]" + title + "[/B][/COLOR]",url1,2,icon,fanart)
                 
+ 
+def SCRAPE_FULLHIGH(url):
+
+    
+    link=open_url(url).replace('\n','').replace('\t','')
+    match = re.compile('<div class="cover">(.+?)</div>').findall(link)
+    for links in match:
+        url = re.compile ('<a href="(.+?)"').findall(links)[0]
+        title = re.compile ('title="(.+?)"').findall(links)[0]
+        icon = re.compile ('src="(.+?)"').findall(links)[0]
+        if 'premier-league' in url:
+            addDir(title,url,16,icon,fanarts,'')
+            
+    try:
+        nextpage = re.compile ('rel="next" href="(.+?)">').findall(link)[0]
+        icon = 'http://i.imgur.com/MQJh4ad.jpg'
+        addDir("[COLOR yellow]" + "Next Page" + "[/COLOR]",nextpage,15,icon,fanarts,'')
+    except:pass
+    
+def SCRAPE_FULLHIGH_GET(url,icon,fanart):
+
+    addItem("[COLOR yellow]" + "Please Pair Openload or Use Real Debrid" + "[/COLOR]",'url',999,icon,fanart,'')
+    link=open_url(url).replace('\n','').replace('\t','')
+    match = re.compile ('<p style="text-align:center"><iframe(.+?)</p>').findall(link)
+    
+    for links in match:
+        url = re.compile ('src="(.+?)"',re.DOTALL).findall(links)[0]
+        url1 = str.lower(url)
+        if '1e' in url1:
+            title = '1st Half'
+        else:
+            title = '2nd Half'
         
+        addLink(title,url,2,icon,fanart,'')
+ 
 def TEAMNEWS():
 
     url = 'http://www.worldfootball.net/teams/liverpool-fc/'
@@ -772,6 +820,8 @@ elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
 elif mode==10:anfield_index(url)
 elif mode==11:anfield_menu()
+elif mode==15:SCRAPE_FULLHIGH(url)
+elif mode==16:SCRAPE_FULLHIGH_GET(url,icon,fanart)
 elif mode==17:resolver_settings()
 elif mode==18:TEAMNEWS()
 elif mode==19:READNEWS(url)
