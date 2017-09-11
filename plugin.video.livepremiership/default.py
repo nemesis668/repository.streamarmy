@@ -711,22 +711,28 @@ def SCRAPE_SPORTSHIGHLIGHTS_LINKS(url):
 
     
     link = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
-    
-    try:
-        match = re.compile ('<div id="videodetailsarea"(.+?)</div>').findall(link)[0]
-        match2 = re.compile ('<script data-config="(.+?)"').findall(match)[0]
-        if not 'http' in match2:
-            rl = 'http:' + (match2)
-            link4 = open_url(rl)
-            grab2= re.compile('"f4m":"(.+?)"').findall(link4)[0]
-            link5 = open_url(grab2)
-            playme = re.compile('<media url="(.+?)"').findall(link5)[2]
-            liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
-            xbmc.Player ().play(playme, liz, False)
-    
-        
-    except: pass
-    quit(0)
+    source = dialog.select('[COLOR yellow]Choose Normal Or Extended Highlights[/COLOR]', ['[COLOR yellow]Normal[/COLOR]','[COLOR yellow]Extended[/COLOR]'])
+    if source == 0:
+        match = re.compile ('<iframe src="(.+?)"').findall(link)[0]
+        link2 = open_url(match)
+        url = re.compile ('<source src="(.+?)"').findall(link2)[0]
+        url = 'https:' + url
+        liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
+        xbmc.Player ().play(url, liz, False)
+        quit(0)
+    if source == 1:
+        try:
+            match = re.compile ('<iframe src="(.+?)"').findall(link)[1]
+        except IndexError:
+            dialog.notification("[COLOR yellow]Mighty Red[/COLOR]", 'Sorry This Game Doesn\'t Have Extended Highlight Available', icon, 9000)
+            time.sleep(2)
+            SCRAPE_SPORTSHIGHLIGHTS_LINKS(url)
+        link2 = open_url(match)
+        url = re.compile ('<source src="(.+?)"').findall(link2)[0]
+        url = 'https:' + url
+        liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
+        xbmc.Player ().play(url, liz, False)
+        quit(0)
 
 def CLEANUP(text):
 
