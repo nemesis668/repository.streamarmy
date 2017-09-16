@@ -34,7 +34,7 @@
   <extension library="lib" point="xbmc.python.module" />
 </addon>
 
-<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="4.1.6" provider-name="Stream Army">
+<addon id="plugin.video.streamarmy" name="[COLOR yellow]STREAM ARMY[/COLOR]" version="5.0" provider-name="Stream Army">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>
@@ -122,7 +122,7 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="5.4" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="6.0" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
@@ -174,6 +174,27 @@
     <summary lang="en">Real-Movies</summary>
     <description lang="en">Movies To Watch For Non Real-Debrid Users.And It Works Even Better For Real Debrid Users. </description>
     <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="[COLOR aqua]1.0[/COLOR]" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson"/>
+    <import addon="script.module.urlresolver"/>
+    <import addon="script.module.liveresolver"/>
+    <import addon="script.common.plugin.cache"/>
+    <import addon="script.module.metahandler"/>
+    <import addon="program.plexus"/>
+    <import addon="plugin.video.youtube" optional="false" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="nemesis.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR aqua]Nemesis Addon[/COLOR]</summary>
+    <description lang="en">[COLOR aqua]Nemesis Addon, We Do not host any streams or content, all information available in this addon is obtained using scrappers[/COLOR]</description>
     <platform>all</platform>
   </extension>
 </addon>
