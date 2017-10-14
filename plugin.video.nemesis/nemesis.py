@@ -946,7 +946,7 @@ def iII1ii1 ( ) :
  if 12 - 12: OOoOoo00oo - i1Ii . OoooooooOO / o000o0o00o0Oo . i1IIi * i1
  iI = 'http://www.genti.stream/'
  iIo00O = OOO0OOO00oo ( iI ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
- Iii111II = re . compile ( '<div class="date">(.+?)<div class="match-list-item"' ) . findall ( iIo00O )
+ Iii111II = re . compile ( '<div class="date">(.+?)<!-- Table.+?finish-->' ) . findall ( iIo00O )
  for i1I1iI in Iii111II :
   IiIiII1 = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( i1I1iI ) [ 0 ] . strip ( )
   Iii1iiIi1II = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( i1I1iI ) [ 1 ] . strip ( )
@@ -965,16 +965,25 @@ def ooo ( url ) :
  oOO0O00oO0Ooo = OOO0OOO00oo ( ii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  try :
   url = re . compile ( 'src : "(.+?)"' ) . findall ( oOO0O00oO0Ooo ) [ 0 ]
- except IndexError :
+ except : IndexError
+ try :
   url = re . compile ( "src : '(.+?)'" ) . findall ( oOO0O00oO0Ooo ) [ 0 ]
+ except : IndexError
+ try :
+  url = re . compile ( 'source: "(.+?)"' ) . findall ( oOO0O00oO0Ooo ) [ 0 ]
+ except : IndexError
+ try :
+  url = re . compile ( "source: '(.+?)'" ) . findall ( oOO0O00oO0Ooo ) [ 0 ]
+ except : pass
+ if 82 - 82: Oooo0000 - i1 % Oooo0000 * i11iIiiIii . i11Ii11I1Ii1i % i11Ii11I1Ii1i
  if 'http' not in url :
   Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR aqua]Sorry, No Link Avilable At The Moment![/COLOR]" , ii11i1 , 5000 )
   quit ( )
  OOo0oO00ooO00 ( Ooo0OO0oOO , url , ii11i1 )
- if 82 - 82: Oooo0000 - i1 % Oooo0000 * i11iIiiIii . i11Ii11I1Ii1i % i11Ii11I1Ii1i
  if 54 - 54: iI1 + OOooO
-def o00I1 ( url ) :
- if 55 - 55: OOoO00o . i11Ii11I1Ii1i % i1 * OOoO00o + i1Ii + OOooO
+ if 55 - 55: iIii1I11I1II1
+def O0o0O0 ( url ) :
+ if 11 - 11: i11Ii11I1Ii1i % i1 * OOoO00o + i1Ii + OOooO
  II1Iiiiii = cfscrape . create_scraper ( )
  I1i1I1II = II1Iiiiii . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  Iii111II = re . compile ( '<div class="alphabet">(.+?)</div>' ) . findall ( I1i1I1II ) [ 0 ]
@@ -2081,7 +2090,7 @@ elif o00o0oOo0O0O == 25 : iiIiIIIiiI ( iI , ii11i1 )
 elif o00o0oOo0O0O == 26 : o0O0o ( iI )
 elif o00o0oOo0O0O == 27 : i1II1i ( iI , ii11i1 )
 elif o00o0oOo0O0O == 28 : iII1ii1 ( )
-elif o00o0oOo0O0O == 29 : o00I1 ( iI )
+elif o00o0oOo0O0O == 29 : O0o0O0 ( iI )
 elif o00o0oOo0O0O == 30 : i11i11111i1i ( iI )
 elif o00o0oOo0O0O == 31 : ii1 ( iI )
 elif o00o0oOo0O0O == 32 : ooOoOO0OoO00o ( iI )
