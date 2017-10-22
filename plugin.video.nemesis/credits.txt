@@ -3,3 +3,4 @@ Credits ::
 Thank you to Echo coder for creating a scraper for WiziHD and also for helping Nemzzy develop as a coder
 Thank you to Jsergio for teaching me a better way to filter results and for maintaing URLResolver, Without this most kodi addons would not work
 Thank you to _PYDEV_ for helping me with the php and mysql to provide the download counter
+Thank you to LuciferOnKodi for helping to point me in the right direction to fix m4u movies
