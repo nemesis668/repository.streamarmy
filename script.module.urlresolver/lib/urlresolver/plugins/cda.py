@@ -49,7 +49,8 @@ class CdaResolver(UrlResolver):
             mylinks = sorted(match, key=lambda x: x[2])
             html = self.net.http_GET(mylinks[-1][1], headers=headers).content
             
-        match = re.search('''['"]file['"]:['"](.*?\.mp4)['"]''', html)
+        from HTMLParser import HTMLParser
+        match = re.search('''['"]file['"]:\s*['"](.+?)['"]''', HTMLParser().unescape(html))
         if match:
             mylink = match.group(1).replace("\\", "")
             return self.__check_vid(mylink) + helpers.append_headers(player_headers)

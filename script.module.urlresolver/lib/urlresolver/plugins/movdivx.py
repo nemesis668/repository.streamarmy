@@ -23,8 +23,8 @@ from urlresolver.resolver import UrlResolver, ResolverError
 
 class MovDivxResolver(UrlResolver):
     name = "movdivx"
-    domains = ["movdivx.com", "divxme.com"]
-    pattern = '(?://|\.)(movdivx\.com|divxme\.com)/([0-9a-zA-Z]+)'
+    domains = ["movdivx.com", "divxme.com", "streamflv.com"]
+    pattern = '(?://|\.)((?:movdivx|divxme|streamflv)\.com)/([0-9a-zA-Z]+)'
 
     def __init__(self):
         self.net = common.Net()
@@ -33,12 +33,20 @@ class MovDivxResolver(UrlResolver):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.FF_USER_AGENT}
         response = self.net.http_GET(web_url, headers=headers)
+        cookie = response.get_headers(as_dict=True).get('Set-Cookie', '')
+        if cookie:
+            headers.update({'Cookie': cookie})
         html = response.content
-        data = helpers.get_hidden(html)
-        headers['Cookie'] = response.get_headers(as_dict=True).get('Set-Cookie', '')
-        html = self.net.http_POST(web_url, headers=headers, form_data=data).content
-        sources = helpers.scrape_sources(html)
-        return helpers.pick_source(sources) + helpers.append_headers(headers)
+        
+        if html:
+            data = helpers.get_hidden(html)
+            if not "method_free" in data: data.update({'method_free': 'Submit Query'})
+            _html = self.net.http_POST(web_url, headers=headers, form_data=data).content
+            if _html:
+                sources = helpers.scrape_sources(_html, patterns=['''file:\s*["'](?P<url>[^"']+)'''])
+                if sources: return helpers.pick_source(sources) + helpers.append_headers(headers)
+                
+        raise ResolverError("Video not found")
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='http://{host}/{media_id}.html')
+        return self._default_get_url(host, media_id, template='http://streamflv.com/{media_id}')

@@ -26,7 +26,6 @@ import sys
 import os
 import re
 import time
-import log_utils
 import strings
 import CustomProgressDialog
 import urlresolver
@@ -35,6 +34,7 @@ addon = xbmcaddon.Addon('script.module.urlresolver')
 get_setting = addon.getSetting
 show_settings = addon.openSettings
 sleep = xbmc.sleep
+_log = xbmc.log
 
 def get_path():
     return addon.getAddonInfo('path').decode('utf-8')
@@ -75,7 +75,7 @@ def i18n(string_id):
     try:
         return addon.getLocalizedString(strings.STRINGS[string_id]).encode('utf-8', 'ignore')
     except Exception as e:
-        log_utils.log('Failed String Lookup: %s (%s)' % (string_id, e))
+        _log('Failed String Lookup: %s (%s)' % (string_id, e))
         return string_id
  
 def get_plugin_url(queries):
@@ -265,7 +265,8 @@ class CountdownDialog(object):
             while time_left > 0:
                 for _ in range(CountdownDialog.__INTERVALS):
                     sleep(interval * 1000 / CountdownDialog.__INTERVALS)
-                    if self.is_canceled(): return
+                    if self.is_canceled():
+                        raise urlresolver.resolver.ResolverError('CountdownDialog Cancelled')
                     time_left = expires - int(time.time() - start)
                     if time_left < 0: time_left = 0
                     progress = time_left * 100 / expires
@@ -275,6 +276,8 @@ class CountdownDialog(object):
                 result = func(*args, **kwargs)
                 if result:
                     return result
+                
+            raise urlresolver.resolver.ResolverError('CountdownDialog Expired')
     
     def is_canceled(self):
         if self.pd is None:

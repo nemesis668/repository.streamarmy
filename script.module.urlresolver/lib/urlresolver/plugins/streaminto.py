@@ -35,7 +35,7 @@ class StreamintoResolver(UrlResolver):
         headers = {'Referer': web_url}
         headers.update(self.headers)
         html = self.net.http_GET(web_url, headers=headers).content
-        sources = helpers.scrape_sources(html)
+        sources = helpers.scrape_sources(html, patterns=["""file:\s*["'](?P<url>[^"']+)"""])
         if sources:
             auth = self.__check_auth(media_id)
             if not auth:
@@ -57,11 +57,11 @@ class StreamintoResolver(UrlResolver):
             return cd.start(self.__check_auth, [media_id])
         
     def __check_auth(self, media_id):
-        common.log_utils.log('Checking Auth: %s' % (media_id))
+        common.logger.log('Checking Auth: %s' % (media_id))
         url = 'http://api.streamin.to/pair/check.php'
         try: js_result = json.loads(self.net.http_GET(url, headers=self.headers).content)
         except ValueError: raise ResolverError('Unusable Authorization Response')
-        common.log_utils.log('Auth Result: %s' % (js_result))
+        common.logger.log('Auth Result: %s' % (js_result))
         return js_result.get('status') == 200
         
     def get_url(self, host, media_id):

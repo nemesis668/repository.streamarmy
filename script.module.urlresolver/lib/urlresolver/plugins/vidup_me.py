@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import re
 import json
 import urllib
 import urllib2
@@ -42,6 +43,9 @@ class VidUpMeResolver(UrlResolver):
         html = self.net.http_GET(web_url, headers=headers).content
         sources = helpers.parse_sources_list(html)
         if sources:
+            if len(sources) > 1:
+                try: sources.sort(key=lambda x: int(re.sub("\D", '', x[0])), reverse=True)
+                except: common.logger.log_debug('Scrape sources sort failed |int(re.sub(r"""\D""", '', x[0])|')
             try:
                 vt = self.__auth_ip(media_id)
                 if vt:
@@ -62,7 +66,7 @@ class VidUpMeResolver(UrlResolver):
             return cd.start(self.__check_auth, [media_id])
         
     def __check_auth(self, media_id):
-        common.log_utils.log('Checking Auth: %s' % (media_id))
+        common.logger.log('Checking Auth: %s' % (media_id))
         url = 'https://vidup.me/pair?file_code=%s&check' % (media_id)
         try: js_result = json.loads(self.net.http_GET(url, headers=self.headers).content)
         except ValueError:
@@ -73,7 +77,7 @@ class VidUpMeResolver(UrlResolver):
             else:
                 raise
             
-        common.log_utils.log('Auth Result: %s' % (js_result))
+        common.logger.log('Auth Result: %s' % (js_result))
         if js_result.get('status'):
             return js_result.get('response', {}).get('vt')
         else:

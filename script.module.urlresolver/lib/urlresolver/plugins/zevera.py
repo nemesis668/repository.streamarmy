@@ -24,6 +24,9 @@ from urlresolver import common
 from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 MAX_REDIR = 10
 TIMEOUT = 2
 class NoRedirection(urllib2.HTTPErrorProcessor):
@@ -58,17 +61,17 @@ class ZeveraResolver(UrlResolver):
             try:
                 response = urllib2.urlopen(request, timeout=TIMEOUT)
                 if response.getcode() == 200:
-                    common.log_utils.log_debug('Zevera: Resolved to %s' % (url))
+                    logger.log_debug('Zevera: Resolved to %s' % (url))
                     return url
                 elif response.getcode() == 302:
                     url = response.info().getheader('Location')
                     redirs += 1
-                    common.log_utils.log_debug('Zevera Redir #%d: %s' % (redirs, url))
+                    logger.log_debug('Zevera Redir #%d: %s' % (redirs, url))
                 else:
-                    common.log_utils.log_warning('Unexpected Zevera Response (%s): %s' % (response.getcode(), response.read()))
+                    common.logger.log_warning('Unexpected Zevera Response (%s): %s' % (response.getcode(), response.read()))
                     raise ResolverError('Zevera: Unexpected Response Received')
             except socket.timeout:
-                common.log_utils.log_warning('Zevera timeout: %s' % (url))
+                common.logger.log_warning('Zevera timeout: %s' % (url))
                 raise ResolverError('Zevera: Timeout')
 
         raise ResolverError('Zevera: Redirect beyond max allowed (%s)' % (MAX_REDIR))
@@ -93,8 +96,8 @@ class ZeveraResolver(UrlResolver):
                 if is_active is not None and hostername is not None and is_active.text.lower() == 'true':
                     hosts.append(hostername.text)
         except Exception as e:
-            common.log_utils.log_error('Error getting Zevera hosts: %s' % (e))
-        common.log_utils.log_debug('Zevera Hosts: %s' % (hosts))
+            logger.log_error('Error getting Zevera hosts: %s' % (e))
+        logger.log_debug('Zevera Hosts: %s' % (hosts))
         return hosts
 
     def valid_url(self, url, host):
@@ -112,7 +115,7 @@ class ZeveraResolver(UrlResolver):
 
     @classmethod
     def get_settings_xml(cls):
-        xml = super(cls, cls).get_settings_xml()
+        xml = super(cls, cls).get_settings_xml(include_login=False)
         xml.append('<setting id="%s_login" type="bool" label="%s" default="false"/>' % (cls.__name__, i18n('login')))
         xml.append('<setting id="%s_username" enable="eq(-1,true)" type="text" label="%s" default=""/>' % (cls.__name__, i18n('username')))
         xml.append('<setting id="%s_password" enable="eq(-2,true)" type="text" label="%s" option="hidden" default=""/>' % (cls.__name__, i18n('password')))

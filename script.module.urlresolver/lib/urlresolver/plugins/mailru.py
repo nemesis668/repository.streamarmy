@@ -21,7 +21,6 @@
 
 import re
 import json
-import urllib
 from lib import helpers
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
@@ -29,7 +28,8 @@ from urlresolver.resolver import UrlResolver, ResolverError
 class MailRuResolver(UrlResolver):
     name = "mail.ru"
     domains = ['mail.ru', 'my.mail.ru', 'm.my.mail.ru', 'videoapi.my.mail.ru', 'api.video.mail.ru']
-    pattern = '(?://|\.)(mail\.ru)/(?:\w+/)?(inbox|mail|embed|mailua|list)/(?:([^/]+)/[^.]+/)?(\d+)'
+    # This pattern is starting to becoming unreliable and we may have to rethink it to support all the current urls 
+    pattern = '(?://|\.)(mail\.ru)/(?:\w+/)?(?:videos/embed/)?(inbox|mail|embed|mailua|list|bk|v)/(?:([^/]+)/[^.]+/)?(\d+)'
 
     def __init__(self):
         self.net = common.Net()
@@ -44,7 +44,8 @@ class MailRuResolver(UrlResolver):
             try:
                 js_data = json.loads(html)
                 sources = [(video['key'], video['url']) for video in js_data['videos']]
-                sources = sources[::-1]
+                #sources = sources[::-1]
+                sorted(sources)
                 source = helpers.pick_source(sources)
                 source = source.encode('utf-8')
                 if source.startswith("//"): source = 'http:%s' % source

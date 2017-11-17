@@ -24,6 +24,9 @@ from urlresolver import common
 from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 CLIENT_ID = 'MUQMIQX6YWDSU'
 USER_AGENT = 'URLResolver for Kodi/%s' % (common.addon_version)
 INTERVALS = 5
@@ -94,7 +97,7 @@ class RealDebridResolver(UrlResolver):
         client_id = self.get_setting('client_id')
         client_secret = self.get_setting('client_secret')
         refresh_token = self.get_setting('refresh')
-        common.log_utils.log_debug('Refreshing Expired Real Debrid Token: |%s|%s|' % (client_id, refresh_token))
+        logger.log_debug('Refreshing Expired Real Debrid Token: |%s|%s|' % (client_id, refresh_token))
         if not self.__get_token(client_id, client_secret, refresh_token):
             # empty all auth settings to force a re-auth on next use
             self.reset_authorization()
@@ -118,14 +121,14 @@ class RealDebridResolver(UrlResolver):
             data = {'client_id': client_id, 'client_secret': client_secret, 'code': code, 'grant_type': 'http://oauth.net/grant_type/device/1.0'}
             self.set_setting('client_id', client_id)
             self.set_setting('client_secret', client_secret)
-            common.log_utils.log_debug('Authorizing Real Debrid: %s' % (client_id))
+            logger.log_debug('Authorizing Real Debrid: %s' % (client_id))
             js_result = json.loads(self.net.http_POST(url, data, headers=self.headers).content)
-            common.log_utils.log_debug('Authorizing Real Debrid Result: |%s|' % (js_result))
+            logger.log_debug('Authorizing Real Debrid Result: |%s|' % (js_result))
             self.set_setting('token', js_result['access_token'])
             self.set_setting('refresh', js_result['refresh_token'])
             return True
         except Exception as e:
-            common.log_utils.log_debug('Real Debrid Authorization Failed: %s' % (e))
+            logger.log_debug('Real Debrid Authorization Failed: %s' % (e))
             return False
 
     def __check_auth(self, device_code):
@@ -133,7 +136,7 @@ class RealDebridResolver(UrlResolver):
             url = 'https://api.real-debrid.com/oauth/v2/device/credentials?client_id=%s&code=%s' % (CLIENT_ID, device_code)
             js_result = json.loads(self.net.http_GET(url, headers=self.headers).content)
         except Exception as e:
-            common.log_utils.log_debug('Exception during RD auth: %s' % (e))
+            logger.log_debug('Exception during RD auth: %s' % (e))
         else:
             return js_result
 
@@ -156,10 +159,10 @@ class RealDebridResolver(UrlResolver):
             url = 'https://api.real-debrid.com/rest/1.0/hosts/regex'
             js_result = json.loads(self.net.http_GET(url, headers=self.headers).content)
             regexes = [regex.lstrip('/').rstrip('/').replace('\/', '/') for regex in js_result]
-            common.log_utils.log_debug('RealDebrid hosters : %s' % (regexes))
+            logger.log_debug('RealDebrid hosters : %s' % (regexes))
             hosters = [re.compile(regex) for regex in regexes]
         except Exception as e:
-            common.log_utils.log_error('Error getting RD regexes: %s' % (e))
+            logger.log_error('Error getting RD regexes: %s' % (e))
         return hosters
 
     @common.cache.cache_method(cache_limit=8)
@@ -169,8 +172,8 @@ class RealDebridResolver(UrlResolver):
             url = 'https://api.real-debrid.com/rest/1.0/hosts/domains'
             hosts = json.loads(self.net.http_GET(url, headers=self.headers).content)
         except Exception as e:
-            common.log_utils.log_error('Error getting RD hosts: %s' % (e))
-        common.log_utils.log_debug('RealDebrid hosts : %s' % (hosts))
+            logger.log_error('Error getting RD hosts: %s' % (e))
+        logger.log_debug('RealDebrid hosts : %s' % (hosts))
         return hosts
 
     @classmethod
@@ -178,15 +181,15 @@ class RealDebridResolver(UrlResolver):
         return cls.get_setting('enabled') == 'true' and cls.get_setting('token')
 
     def valid_url(self, url, host):
-        common.log_utils.log_debug('in valid_url %s : %s' % (url, host))
+        logger.log_debug('in valid_url %s : %s' % (url, host))
         if url:
             if self.hosters is None:
                 self.hosters = self.get_all_hosters()
                 
             for host in self.hosters:
-                # common.log_utils.log_debug('RealDebrid checking host : %s' %str(host))
+                # logger.log_debug('RealDebrid checking host : %s' %str(host))
                 if re.search(host, url):
-                    common.log_utils.log_debug('RealDebrid Match found')
+                    logger.log_debug('RealDebrid Match found')
                     return True
         elif host:
             if self.hosts is None:

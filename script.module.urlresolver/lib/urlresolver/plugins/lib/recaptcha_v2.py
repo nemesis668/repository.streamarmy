@@ -24,6 +24,9 @@ import os
 import xbmcgui
 from urlresolver import common
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 class cInputWindow(xbmcgui.WindowDialog):
 
     def __init__(self, *args, **kwargs):
@@ -145,9 +148,9 @@ class UnCaptchaReCaptcha:
             if not message:
                 token = re.findall('"this\.select\(\)">(.*?)</textarea>', html)[0]
                 if token:
-                    common.log_utils.log_debug('Captcha Success: %s' % (token))
+                    logger.log_debug('Captcha Success: %s' % (token))
                 else:
-                    common.log_utils.log_debug('Captcha Failed: %s')
+                    logger.log_debug('Captcha Failed: %s')
                 break
             else:
                 message = message[0]

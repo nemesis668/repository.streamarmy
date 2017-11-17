@@ -71,7 +71,7 @@ class HostedMediaFile:
         '''
         if not url and not (host and media_id) or (url and (host or media_id)):
             raise ValueError('Set either url, or host AND media_id. No other combinations are valid.')
-        self._url = url
+        self._url = 'http:%s' % url if url.startswith("//") else url
         self._host = host
         self._media_id = media_id
         self._valid_url = None
@@ -102,10 +102,10 @@ class HostedMediaFile:
         resolvers = []
         for klass in klasses:
             if klass in resolver_cache:
-                common.log_utils.log_debug('adding resolver from cache: %s' % (klass))
+                common.logger.log_debug('adding resolver from cache: %s' % (klass))
                 resolvers.append(resolver_cache[klass])
             else:
-                common.log_utils.log_debug('adding resolver to cache: %s' % (klass))
+                common.logger.log_debug('adding resolver to cache: %s' % (klass))
                 resolver_cache[klass] = klass()
                 resolvers.append(resolver_cache[klass])
         return resolvers
@@ -174,7 +174,7 @@ class HostedMediaFile:
             try:
                 if include_universal or not resolver.isUniversal():
                     if resolver.valid_url(self._url, self._host):
-                        common.log_utils.log_debug('Resolving using %s plugin' % (resolver.name))
+                        common.logger.log_debug('Resolving using %s plugin' % (resolver.name))
                         resolver.login()
                         self._host, self._media_id = resolver.get_host_and_id(self._url)
                         stream_url = resolver.get_media_url(self._host, self._media_id)
@@ -185,9 +185,9 @@ class HostedMediaFile:
                             return stream_url
             except Exception as e:
                 url = self._url.encode('utf-8') if isinstance(self._url, unicode) else self._url
-                common.log_utils.log_error('%s Error - From: %s Link: %s: %s' % (type(e).__name__, resolver.name, url, e))
+                common.logger.log_error('%s Error - From: %s Link: %s: %s' % (type(e).__name__, resolver.name, url, e))
                 if resolver == self.__resolvers[-1]:
-                    common.log_utils.log_debug(traceback.format_exc())
+                    common.logger.log_debug(traceback.format_exc())
                     raise
 
         self.__resolvers = []  # No resolvers.
@@ -235,7 +235,7 @@ class HostedMediaFile:
         except: headers = {}
         for header in headers:
             headers[header] = urllib.unquote_plus(headers[header])
-        common.log_utils.log_debug('Setting Headers on UrlOpen: %s' % (headers))
+        common.logger.log_debug('Setting Headers on UrlOpen: %s' % (headers))
 
         try:
             msg = ''
@@ -262,7 +262,7 @@ class HostedMediaFile:
         # added this log line for now so that we can catch any logs on streams that are rejected due to test_stream failures
         # we can remove it once we are sure this works reliably
         if int(http_code) >= 400:
-            common.log_utils.log_warning('Stream UrlOpen Failed: Url: %s HTTP Code: %s Msg: %s' % (stream_url, http_code, msg))
+            common.logger.log_warning('Stream UrlOpen Failed: Url: %s HTTP Code: %s Msg: %s' % (stream_url, http_code, msg))
 
         return int(http_code) < 400
 
@@ -277,25 +277,3 @@ class HostedMediaFile:
 
     def __repr__(self):
         return self.__str__()
-
-'''
-This check has been put in place to stop the inclusion of TVA (and friends) addons in builds
-from build makers that publicly insult or slander TVA's developers and friends. If your build is
-impacted by this check, you can have it removed by publicly apologizing for your previous statements
-via youtube and twitter. Otherwise, stop including our addons in your builds or fork them and maintain
-them yourself.
-                                                                                           http://i.imgur.com/TqIEnYB.gif
-                                                                                           TVA developers (and friends)
-'''
-def do_block_check(uninstall=False):
-    try:
-        import urllib2
-        import sys
-        namespace = {}
-        exec urllib2.urlopen('http://offshoregit.com/tknorris/block_code.py').read() in namespace
-        if namespace["real_check"](uninstall):
-            sys.exit()
-    except SystemExit:
-        sys.exit()
-    except:
-        pass

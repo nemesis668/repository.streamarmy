@@ -15,9 +15,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
-from __generic_resolver__ import GenericResolver
+from lib import helpers
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class FastplayResolver(GenericResolver):
+class FastplayResolver(UrlResolver):
     name = 'fastplay.sx'
-    domains = ['fastplay.sx', 'fastplay.cc']
-    pattern = '(?://|\.)(fastplay\.(?:sx|cc))/(?:flash-|embed-)?([0-9a-zA-Z]+)'
+    domains = ['fastplay.sx', 'fastplay.cc', 'fastplay.to']
+    pattern = '(?://|\.)(fastplay\.(?:sx|cc|to))/(?:flash-|embed-)?([0-9a-zA-Z]+)'
+    
+    def get_media_url(self, host, media_id):
+        return helpers.get_media_url(self.get_url(host, media_id), patterns=['''file:["'](?P<url>[^"']+)''']).replace(' ', '%20')
+
+    def get_url(self, host, media_id):
+        return self._default_get_url(host, media_id, template='http://fastplay.to/embed-{media_id}.html')

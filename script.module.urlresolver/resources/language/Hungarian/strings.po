@@ -1,15 +1,15 @@
 # Addon Name: URLResolver
 # Addon id: script.module.urlresolver
-# Addon Provider: TV Addons
+# Addon Provider:
 # Translators:
 # Kis Pista, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: TV Addons Addons\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kis Pista, 2016\n"
-"Language-Team: Hungarian (https://www.transifex.com/tv-addons/teams/41608/hu/)\n"
+"Language-Team: Hungarian ()\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -176,3 +176,10 @@ msgctxt "#33039"
 msgid "OK"
 msgstr "OK"
 
+msgctxt "#33043"
+msgid "Vshare.eu Stream Authorization"
+msgstr "Vshare.eu Stream autorizáció"
+
+msgctxt "#33044"
+msgid "Flashx Stream Authorization"
+msgstr "Flashx Stream autorizáció"

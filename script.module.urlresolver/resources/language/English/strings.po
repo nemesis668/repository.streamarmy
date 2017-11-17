@@ -1,9 +1,9 @@
 # Addon Name: URLResolver
 # Addon id: script.module.urlresolver
-# Addon Provider: TV Addons
+# Addon Provider:
 msgid ""
 msgstr ""
-"Project-Id-Version: TV Addons Addons\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: English\n"
@@ -181,4 +181,14 @@ msgctxt "#33041"
 msgid "No IP Authorization"
 msgstr ""
 
+msgctxt "#33042"
+msgid "Client ID"
+msgstr ""
 
+msgctxt "#33043"
+msgid "Vshare.eu Stream Authorization"
+msgstr "Vshare.eu Stream Authorization"
+
+msgctxt "#33044"
+msgid "Flashx Stream Authorization"
+msgstr "Flashx Stream Authorization"

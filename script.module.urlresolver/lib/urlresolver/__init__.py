@@ -31,6 +31,8 @@ import re
 import urlparse
 import sys
 import os
+import xbmc
+import xbmcvfs
 import xbmcgui
 import common
 from hmf import HostedMediaFile
@@ -38,7 +40,7 @@ from urlresolver.resolver import UrlResolver
 from urlresolver.plugins.__generic_resolver__ import GenericResolver
 from plugins import *
 
-common.log_utils.log_notice('Initializing URLResolver version: %s' % (common.addon_version))
+common.logger.log_notice('Initializing URLResolver version: %s' % (common.addon_version))
 MAX_SETTINGS = 75
 
 PLUGIN_DIRS = []
@@ -56,14 +58,14 @@ def add_plugin_dirs(dirs):
 
 def load_external_plugins():
     for d in PLUGIN_DIRS:
-        common.log_utils.log_debug('Adding plugin path: %s' % (d))
+        common.logger.log_debug('Adding plugin path: %s' % (d))
         sys.path.insert(0, d)
         for filename in os.listdir(d):
             if not filename.startswith('__') and filename.endswith('.py'):
                 mod_name = filename[:-3]
                 imp = __import__(mod_name, globals(), locals())
                 sys.modules[mod_name] = imp
-                common.log_utils.log_debug('Loaded %s as %s from %s' % (imp, mod_name, filename))
+                common.logger.log_debug('Loaded %s as %s from %s' % (imp, mod_name, filename))
 
 def relevant_resolvers(domain=None, include_universal=None, include_external=False, include_disabled=False, order_matters=False):
     if include_external:
@@ -86,7 +88,7 @@ def relevant_resolvers(domain=None, include_universal=None, include_external=Fal
     if order_matters:
         relevant.sort(key=lambda x: x._get_priority())
 
-    common.log_utils.log_debug('Relevant Resolvers: %s' % (relevant))
+    common.logger.log_debug('Relevant Resolvers: %s' % (relevant))
     return relevant
 
 def resolve(web_url):
@@ -171,7 +173,7 @@ def choose_source(sources):
     '''
     sources = filter_source_list(sources)
     if not sources:
-        common.log_utils.log_warning('no playable streams found')
+        common.logger.log_warning('no playable streams found')
         return False
     elif len(sources) == 1:
         return sources[0]
@@ -254,7 +256,10 @@ def _update_settings_xml():
         '\t\t<setting default="true" id="auto_pick" label="%s" type="bool"/>' % (common.i18n('auto_pick')),
         '\t\t<setting default="true" id="use_cache" label="%s" type="bool"/>' % (common.i18n('use_function_cache')),
         '\t\t<setting id="reset_cache" type="action" label="%s" action="RunPlugin(plugin://script.module.urlresolver/?mode=reset_cache)"/>' % (common.i18n('reset_function_cache')),
-        '\t\t<setting id="personal_nid" label="Your NID" type="text" visible="false"/>',
+        '\t\t<setting id="personal_nid" label="Your NID" type="text" visible="false" default=""/>',
+        '\t\t<setting id="last_ua_create" label="last_ua_create" type="number" visible="false" default="0"/>',
+        '\t\t<setting id="current_ua" label="current_ua" type="text" visible="false" default=""/>',
+        '\t\t<setting id="addon_debug" label="addon_debug" type="bool" visible="false" default="false"/>',
         '\t</category>',
         '\t<category label="%s">' % (common.i18n('universal_resolvers'))]
 
@@ -292,13 +297,13 @@ def _update_settings_xml():
 
     new_xml = '\n'.join(new_xml)
     if old_xml != new_xml:
-        common.log_utils.log_debug('Updating Settings XML')
+        common.logger.log_debug('Updating Settings XML')
         try:
             with open(common.settings_file, 'w') as f:
                 f.write(new_xml)
         except:
             raise
     else:
-        common.log_utils.log_debug('No Settings Update Needed')
+        common.logger.log_debug('No Settings Update Needed')
 
 _update_settings_xml()

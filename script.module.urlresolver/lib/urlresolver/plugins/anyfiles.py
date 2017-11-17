@@ -15,7 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 from lib import helpers
 from urlresolver import common
@@ -57,7 +56,7 @@ class AnyFilesResolver(UrlResolver):
         
         if hostname in js_url:
             js_url = js_url.replace('&amp;', '&')
-            common.log_utils.log('Getting JS: |%s| - |%s|' % (js_url, headers))
+            common.logger.log('Getting JS: |%s| - |%s|' % (js_url, headers))
             js = self.net.http_GET(js_url, headers=headers).content
         return js
     

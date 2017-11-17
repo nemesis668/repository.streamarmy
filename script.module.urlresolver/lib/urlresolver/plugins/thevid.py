@@ -14,32 +14,39 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import re
-from lib import helpers
+import os, thevid_gmu
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+VID_SOURCE = 'https://raw.githubusercontent.com/jsergio123/script.module.urlresolver/master/lib/urlresolver/plugins/thevid_gmu.py'
+VID_PATH = os.path.join(common.plugins_path, 'thevid_gmu.py')
 
 class TheVidResolver(UrlResolver):
     name = "TheVid"
     domains = ["thevid.net"]
     pattern = '(?://|\.)(thevid\.net)/(?:video|e|v)/([A-Za-z0-9]+)'
-
+    
     def __init__(self):
         self.net = common.Net()
-        self.user_agent = common.IE_USER_AGENT
-        self.headers = {'User-Agent': self.user_agent}
-
+    
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        self.headers['Referer'] = web_url
-        html = self.net.http_GET(web_url, headers=self.headers).content
-        html = helpers.add_packed_data(html)
-        match = re.search('vurl_\d+="([^"]+)', html)
-        if match:
-            self.headers.update({'Referer': web_url})
-            return match.group(1) + helpers.append_headers(self.headers)
-        else:
-            raise ResolverError('File not found')
+        try:
+            self._auto_update(VID_SOURCE, VID_PATH)
+            reload(thevid_gmu)
+            web_url = self.get_url(host, media_id)
+            return thevid_gmu.get_media_url(web_url)
+        except Exception as e:
+            logger.log_debug('Exception during thevid.net resolve parse: %s' % e)
+            raise
 
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id, template='http://{host}/e/{media_id}/')
+        
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
+        return xml

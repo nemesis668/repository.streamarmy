@@ -37,8 +37,8 @@ class CastampResolver(UrlResolver):
         flashplayer = ""
         file = ""
 
-        common.log_utils.log("*******************************************")
-        common.log_utils.log("web_url: " + web_url)
+        common.logger.log("*******************************************")
+        common.logger.log("web_url: " + web_url)
 
         pattern_flashplayer = r"""'flashplayer': \"(.*?)\""""
         r = re.search(pattern_flashplayer, html)

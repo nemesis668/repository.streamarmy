@@ -32,7 +32,7 @@ class NosvideoResolver(UrlResolver):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.FF_USER_AGENT, 'Referer': web_url}
         html = self.net.http_GET(web_url, headers=headers).content
-        html = helpers.add_packed_data(html)
+        html += helpers.get_packed_data(html)
         match = re.search('playlist\s*:\s*"([^"]+)', html)
         if match:
             xml = self.net.http_GET(match.group(1), headers=headers).content

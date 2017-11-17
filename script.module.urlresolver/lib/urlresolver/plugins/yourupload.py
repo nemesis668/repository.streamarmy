@@ -39,8 +39,7 @@ class YourUploadResolver(UrlResolver):
 
         if not url: raise ResolverError('No video found')
 
-        headers = {'User-Agent': common.FF_USER_AGENT,
-                'Referer': web_url}
+        headers = {'User-Agent': common.FF_USER_AGENT, 'Referer': web_url}
 
         url = urlparse.urljoin(web_url, url[0])
         url = self.net.http_HEAD(url, headers=headers).get_url()

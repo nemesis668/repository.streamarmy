@@ -22,6 +22,9 @@ from urlresolver import common
 from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 class MegaDebridResolver(UrlResolver):
     name = "MegaDebrid"
     domains = ['*']
@@ -38,7 +41,7 @@ class MegaDebridResolver(UrlResolver):
 
     # UrlResolver methods
     def get_media_url(self, host, media_id):
-        common.log_utils.log('in get_media_url %s : %s' % (host, media_id))
+        common.logger.log('in get_media_url %s : %s' % (host, media_id))
         if self.token is None:
             raise ResolverError('No MD Token Available')
         
@@ -58,7 +61,7 @@ class MegaDebridResolver(UrlResolver):
         else:
             msg = js_data.get('response_text', 'Unknown MD Error during resolve')
         
-        common.log_utils.log_warning(msg)
+        logger.log_warning(msg)
         if isinstance(msg, unicode): msg = msg.encode('utf-8')
         raise ResolverError(msg)
 
@@ -76,7 +79,7 @@ class MegaDebridResolver(UrlResolver):
             js_data = json.loads(html)
             return [host.lower() for item in js_data['hosters'] for host in item]
         except Exception as e:
-            common.log_utils.log_error('Error getting Meg-Debrid hosts: %s' % (e))
+            logger.log_error('Error getting Meg-Debrid hosts: %s' % (e))
             return []
 
     def valid_url(self, url, host):
@@ -91,7 +94,7 @@ class MegaDebridResolver(UrlResolver):
                 return False
 
         if host.startswith('www.'): host = host.replace('www.', '')
-        common.log_utils.log_debug('in valid_url %s : %s' % (url, host))
+        logger.log_debug('in valid_url %s : %s' % (url, host))
         if host and any(host in item for item in self.hosters):
             return True
 
@@ -100,7 +103,7 @@ class MegaDebridResolver(UrlResolver):
     # SiteAuth methods
     def login(self):
         try:
-            common.log_utils.log('Mega-debrid - Logging In')
+            common.logger.log('Mega-debrid - Logging In')
             username = self.get_setting('username')
             password = self.get_setting('password')
             if username and password:
@@ -121,7 +124,7 @@ class MegaDebridResolver(UrlResolver):
 
     @classmethod
     def get_settings_xml(cls):
-        xml = super(cls, cls).get_settings_xml()
+        xml = super(cls, cls).get_settings_xml(include_login=False)
         xml.append('<setting id="%s_use_https" type="bool" label="%s" default="true"/>' % (cls.__name__, i18n('use_https')))
         xml.append('<setting id="%s_login" type="bool" label="%s" default="false"/>' % (cls.__name__, i18n('login')))
         xml.append('<setting id="%s_username" enable="eq(-1,true)" type="text" label="%s" default=""/>' % (cls.__name__, i18n('username')))

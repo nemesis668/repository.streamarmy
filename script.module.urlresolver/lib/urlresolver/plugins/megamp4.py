@@ -1,5 +1,5 @@
 '''
-    urlresolver XBMC Addon
+    UrlResolver Plugin
     Copyright (C) 2016 Gujal
 
     This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,6 @@
 from __generic_resolver__ import GenericResolver
 
 class MegaMP4Resolver(GenericResolver):
-    name = "megamp4.net"
-    domains = ["megamp4.net"]
-    pattern = '(?://|\.)(megamp4\.net)/(?:embed-|emb\.html\?|)([0-9a-zA-Z]+)'
+    name = "megamp4"
+    domains = ["megamp4.net", "megamp4.us"]
+    pattern = '(?://|\.)(megamp4\.(?:us|net))/(?:embed-|emb\.html\?|)([0-9a-zA-Z]+)'

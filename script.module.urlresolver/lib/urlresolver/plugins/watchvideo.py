@@ -22,7 +22,10 @@ class WatchVideoResolver(GenericResolver):
     domains = ["watchvideo.us", "watchvideo2.us", "watchvideo3.us",
                "watchvideo4.us", "watchvideo5.us", "watchvideo6.us",
                "watchvideo7.us", "watchvideo8.us", "watchvideo9.us",
-               "watchvideo10.us", "watchvideo11.us", "watchvideo12.us"]
+               "watchvideo10.us", "watchvideo11.us", "watchvideo12.us",
+               "watchvideo13.us", "watchvideo14.us", "watchvideo15.us",
+               "watchvideo16.us", "watchvideo17.us", "watchvideo18.us",
+               "watchvideo19.us", "watchvideo20.us", "watchvideo21.us"]
     pattern = '(?://|\.)(watchvideo[0-9]?[0-9]?\.us)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def get_url(self, host, media_id):

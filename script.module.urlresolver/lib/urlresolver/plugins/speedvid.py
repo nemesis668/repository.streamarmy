@@ -18,9 +18,40 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-from __generic_resolver__ import GenericResolver
 
-class SpeedVidResolver(GenericResolver):
+import os, speedvid_gmu
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
+
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+SV_SOURCE = 'https://raw.githubusercontent.com/jsergio123/script.module.urlresolver/master/lib/urlresolver/plugins/speedvid_gmu.py'
+SV_PATH = os.path.join(common.plugins_path, 'speedvid_gmu.py')
+
+class SpeedVidResolver(UrlResolver):
     name = "SpeedVid"
     domains = ['speedvid.net']
-    pattern = '(?://|\.)(speedvid\.net)/(?:embed-)?([0-9a-zA-Z-]+)'
+    pattern = '(?://|\.)(speedvid\.net)/(?:embed-|p-)?([0-9a-zA-Z]+)'
+    
+    def __init__(self):
+        self.net = common.Net()
+    
+    def get_media_url(self, host, media_id):
+        try:
+            self._auto_update(SV_SOURCE, SV_PATH)
+            reload(speedvid_gmu)
+            web_url = self.get_url(host, media_id)
+            return speedvid_gmu.get_media_url(web_url, media_id)
+        except Exception as e:
+            logger.log_debug('Exception during %s resolve parse: %s' % (self.name, e))
+            raise
+        
+    def get_url(self, host, media_id):
+        return self._default_get_url(host, media_id, 'http://www.{host}/embed-{media_id}.html')
+        
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
+        return xml

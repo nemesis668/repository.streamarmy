@@ -23,7 +23,7 @@ from urlresolver.resolver import UrlResolver, ResolverError
 class VideaResolver(UrlResolver):
     name = "videa"
     domains = ["videa.hu", "videakid.hu"]
-    pattern = '(?://|\.)((?:videa|videakid)\.hu)/(?:flvplayer\.swf\?v=|player\?v=|videok/.*-|videok/)([0-9a-zA-Z]+)'
+    pattern = '(?://|\.)((?:videa|videakid)\.hu)/(?:player/?\?v=|videok/)(?:.*-|)([0-9a-zA-Z]+)'
 
     def __init__(self):
         self.net = common.Net()

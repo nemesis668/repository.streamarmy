@@ -22,5 +22,5 @@ from __generic_resolver__ import GenericResolver
 
 class VidwatchResolver(GenericResolver):
     name = "vidwatch.me"
-    domains = ['vidwatch3.me']
-    pattern = '(?://|\.)(vidwatch3\.me)/(?:embed-)?([a-zA-Z0-9]+)'
+    domains = ['vidwatch3.me', 'vidwatch.me']
+    pattern = '(?://|\.)(vidwatch3?\.me)/(?:embed-)?([a-zA-Z0-9]+)'

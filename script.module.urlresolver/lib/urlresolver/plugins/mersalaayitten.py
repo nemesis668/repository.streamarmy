@@ -40,7 +40,7 @@ class MersalaResolver(UrlResolver):
 
         if r:
             stream_xml = r.group(1)
-            headers['Referer'] = 'http://mersalaayitten.us/media/nuevo/player.swf?config=%s'%stream_xml
+            headers['Referer'] = 'http://mersalaayitten.us/media/nuevo/player.swf?config=%s' % stream_xml
             response = self.net.http_GET(stream_xml, headers=headers)
             xmlhtml = response.content
 
@@ -54,4 +54,3 @@ class MersalaResolver(UrlResolver):
 
     def get_url(self, host, media_id):
         return 'http://mersalaayitten.us/embed/%s' % media_id
-

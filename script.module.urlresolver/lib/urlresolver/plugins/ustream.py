@@ -1,6 +1,6 @@
-"""
-    urlresolver XBMC Addon
-    Copyright (C) 2016 lambda
+'''
+    urlresolver Kodi plugin
+    Copyright (C) 2016
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,22 +14,18 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""
-import re
+'''
+
 from lib import helpers
-from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
 
-class UstreamResolver(UrlResolver):
-    name = 'ustream.tv'
-    domains = ['ustream.tv']
-    pattern = '(?://|\.)(ustream\.tv)/embed/([^/?="]+)'
-    
-    def __init__(self):
-        self.net = common.Net()
-        
+class uStreamResolver(UrlResolver):
+    name = "uStream"
+    domains = ["ustream.tv"]
+    pattern = '(?://|\.)(ustream\.tv)/(?:embed/)?recorded/(\d+)'
+
     def get_media_url(self, host, media_id):
-        return self.get_url(host, media_id)
+        return helpers.get_media_url(self.get_url(host, media_id), patterns=['''"media_urls":\s*{"(?P<label>[^"]+)":\s*"(?P<url>.+?/%s\?[^"]+)''' % media_id], generic_patterns=False).replace(' ', '%20')
 
     def get_url(self, host, media_id):
-        return 'http://iphone-streaming.ustream.tv/uhls/%s/streams/live/iphone/playlist.m3u8' % media_id
+        return self._default_get_url(host, media_id, 'http://www.{host}/recorded/{media_id}')

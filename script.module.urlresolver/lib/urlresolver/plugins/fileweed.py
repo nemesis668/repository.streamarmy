@@ -16,11 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 from lib import helpers
 from lib import captcha_lib
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
 
 MAX_TRIES = 3
 
@@ -40,7 +42,7 @@ class FileWeedResolver(UrlResolver):
         while tries < MAX_TRIES:
             data = helpers.get_hidden(html, index=1)
             data.update(captcha_lib.do_captcha(html))
-            common.log_utils.log_debug(data)
+            logger.log_debug(data)
             html = self.net.http_POST(web_url, data, headers=headers).content
 
             if 'downloadbtn222' in html:

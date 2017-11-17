@@ -42,7 +42,7 @@ class KingFilesResolver(UrlResolver):
             data.update(captcha_lib.do_captcha(html))
 
             html = self.net.http_POST(web_url, form_data=data).content
-            html = helpers.add_packed_data(html)
+            html += helpers.get_packed_data(html)
             match = re.search('name="src"\s*value="([^"]+)', html)
             if match:
                 return match.group(1)

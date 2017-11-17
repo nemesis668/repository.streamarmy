@@ -34,12 +34,12 @@ class GorillavidResolver(UrlResolver):
         headers = {'User-Agent': common.FF_USER_AGENT}
         response = self.net.http_GET(web_url, headers=headers)
         html = response.content
-        sources = helpers.scrape_sources(html)
+        sources = helpers.scrape_sources(html, patterns=['''["']?(?:file|url)["']?\s*[:=]\s*["'](?P<url>[^"']+)'''])
         if not sources:
             data = helpers.get_hidden(html)
             headers['Cookie'] = response.get_headers(as_dict=True).get('Set-Cookie', '')
             html = self.net.http_POST(response.get_url(), headers=headers, form_data=data).content
-            sources = helpers.scrape_sources(html)
+            sources = helpers.scrape_sources(html, patterns=['''["']?(?:file|url)["']?\s*[:=]\s*["'](?P<url>[^"']+)'''])
         return helpers.pick_source(sources) + helpers.append_headers(headers)
 
     def get_url(self, host, media_id):

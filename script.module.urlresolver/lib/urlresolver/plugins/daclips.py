@@ -16,9 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re
 from lib import helpers
-from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
 
 class DaclipsResolver(UrlResolver):
@@ -26,25 +24,8 @@ class DaclipsResolver(UrlResolver):
     domains = ["daclips.in", "daclips.com"]
     pattern = '(?://|\.)(daclips\.(?:in|com))/(?:embed-)?([0-9a-zA-Z]+)'
 
-    def __init__(self):
-        self.net = common.Net()
-
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        """ Human Verification """
-        resp = self.net.http_GET(web_url)
-        html = resp.content
-        r = re.findall(r'<span class="t" id="head_title">404 - File Not Found</span>', html)
-        if r:
-            raise ResolverError('File Not Found or removed')
-        post_url = resp.get_url()
-        form_values = helpers.get_hidden(html)
-        html = self.net.http_POST(post_url, form_data=form_values).content
-        r = re.search('file: "http(.+?)"', html)
-        if r:
-            return "http" + r.group(1)
-        else:
-            raise ResolverError('Unable to resolve Daclips link')
+        return helpers.get_media_url(self.get_url(host, media_id), patterns=['''file:\s*["'](?P<url>[^"']+)''']).replace(' ', '%20')
 
     def get_url(self, host, media_id):
-        return 'http://daclips.in/%s' % (media_id)
+        return self._default_get_url(host, media_id)

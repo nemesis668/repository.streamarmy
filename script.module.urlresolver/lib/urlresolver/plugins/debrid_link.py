@@ -24,6 +24,9 @@ from urlresolver import common
 from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 class DebridLinkResolver(UrlResolver):
     name = "Debrid-Link.fr"
     domains = ["*"]
@@ -39,7 +42,7 @@ class DebridLinkResolver(UrlResolver):
         token = self.get_setting('token')
         api_key = self.get_setting('key')
         if not offset or not token or not api_key:
-            common.log_utils.log_debug('offset: %s, token: %s, key: %s' % (offset, token, api_key))
+            logger.log_debug('offset: %s, token: %s, key: %s' % (offset, token, api_key))
             raise ResolverError('Insufficent Information to make API call')
         
         url = '/downloader/add'
@@ -47,7 +50,7 @@ class DebridLinkResolver(UrlResolver):
         signature = hashlib.sha1(str(server_ts) + url + api_key).hexdigest()
         url = self.base_url + url
         headers = {'X-DL-SIGN': signature, 'X-DL-TOKEN': token, 'X-DL-TS': server_ts}
-        common.log_utils.log_debug('Debrid-Link Headers: %s' % (headers))
+        logger.log_debug('Debrid-Link Headers: %s' % (headers))
         js_data = self.net.http_POST(url, form_data={'link': media_id}, headers=headers).content
         js_data = json.loads(js_data)
         self.__store_offset(js_data)
@@ -56,7 +59,7 @@ class DebridLinkResolver(UrlResolver):
             if stream_url is None:
                 raise ResolverError('No usable link returned from Debrid-Link.fr')
             
-            common.log_utils.log_debug('Debrid-Link.fr Resolved to %s' % (stream_url))
+            logger.log_debug('Debrid-Link.fr Resolved to %s' % (stream_url))
             return stream_url
         else:
             raise ResolverError('Debrid-Link.fr Link failed: %s' % (js_data.get('ERR', '')))
@@ -78,7 +81,7 @@ class DebridLinkResolver(UrlResolver):
             hosts = [host for status in host_list for host in status.get('hosts', [])]
             return hosts
         except Exception as e:
-            common.log_utils.log_error('Error getting debrid-link hosts: %s' % (e))
+            logger.log_error('Error getting debrid-link hosts: %s' % (e))
         return []
 
     def __store_offset(self, js_data):
@@ -90,7 +93,7 @@ class DebridLinkResolver(UrlResolver):
         if self.hosts is None:
             self.hosts = self.get_all_hosters()
             
-        common.log_utils.log_debug('in valid_url %s : %s' % (url, host))
+        logger.log_debug('in valid_url %s : %s' % (url, host))
         if url:
             match = re.search('//(.*?)/', url)
             if match:
@@ -122,11 +125,11 @@ class DebridLinkResolver(UrlResolver):
 
     @classmethod
     def get_settings_xml(cls):
-        xml = super(cls, cls).get_settings_xml()
+        xml = super(cls, cls).get_settings_xml(include_login=False)
         xml.append('<setting id="%s_login" type="bool" label="%s" default="false"/>' % (cls.__name__, i18n('login')))
         xml.append('<setting id="%s_username" enable="eq(-1,true)" type="text" label="%s" default=""/>' % (cls.__name__, i18n('username')))
         xml.append('<setting id="%s_password" enable="eq(-2,true)" type="text" label="%s" option="hidden" default=""/>' % (cls.__name__, i18n('password')))
-        xml.append('<setting id="%s_ts_offset" type="int" visible="false" enable="false"/>' % (cls.__name__))
+        xml.append('<setting id="%s_ts_offset" type="number" visible="false" enable="false" default="0"/>' % (cls.__name__))
         xml.append('<setting id="%s_token" type="text" visible="false" enable="false"/>' % (cls.__name__))
         xml.append('<setting id="%s_key" type="text" visible="false" enable="false"/>' % (cls.__name__))
         return xml

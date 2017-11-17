@@ -18,8 +18,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
-import re
 import json
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
@@ -42,7 +40,7 @@ class RuTubeResolver(UrlResolver):
         json_data = self.net.http_GET(json_url, headers=headers).content
         json_data = json.loads(json_data)['video_balancer']
         url = json_data.get('m3u8')
-        if not url == None: return url
+        if url is not None: return url
 
         json_url = json_data.get('json')
         json_data = self.net.http_GET(json_url, headers=headers).content
@@ -53,5 +51,3 @@ class RuTubeResolver(UrlResolver):
 
     def get_url(self, host, media_id):
         return 'http://rutube.ru/play/embed/%s' % media_id
-
-

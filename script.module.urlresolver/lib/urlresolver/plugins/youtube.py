@@ -20,10 +20,9 @@ from urlresolver.lib import kodi
 from lib import helpers
 
 try:
-    from youtube_plugin.youtube.provider import Provider
-    from youtube_plugin.kodion.impl import Context
+    import youtube_resolver
 except ImportError:
-    Provider = Context = None
+    youtube_resolver = None
 
 
 class YoutubeResolver(UrlResolver):
@@ -32,17 +31,13 @@ class YoutubeResolver(UrlResolver):
     pattern = '''https?://(?:[0-9A-Z-]+\.)?(?:(youtu\.be|youtube(?:-nocookie)?\.com)/?\S*?[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|</a>))[?=&+%\w.-]*'''
 
     def get_media_url(self, host, media_id):
-        if Provider is None or Context is None:
+        if youtube_resolver is None:
             return 'plugin://plugin.video.youtube/play/?video_id=' + media_id
         else:
-            provider = Provider()
-            context = Context(plugin_id='plugin.video.youtube')
-            client = provider.get_client(context=context)
-            streams = client.get_video_streams(context=context, video_id=media_id)
+            streams = youtube_resolver.resolve(media_id)
             streams_no_dash = [item for item in streams if item['container'] != 'mpd']
-            sorted_streams = sorted(streams_no_dash, key=lambda x: x.get('sort', 0), reverse=True)
-            sorted_streams = [(item['title'], item['url']) for item in sorted_streams]
-            return helpers.pick_source(sorted_streams)
+            stream_tuples = [(item['title'], item['url']) for item in streams_no_dash]
+            return helpers.pick_source(stream_tuples)
 
     def get_url(self, host, media_id):
         return 'http://youtube.com/watch?v=%s' % media_id
@@ -54,6 +49,6 @@ class YoutubeResolver(UrlResolver):
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()
-        if Provider is None or Context is None:
+        if youtube_resolver is None:
             xml.append('<setting label="This plugin calls the youtube addon -change settings there." type="lsep" />')
         return xml

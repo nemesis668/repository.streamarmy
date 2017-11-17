@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+*.cookies
+doc/build
+doc/resources
+.project
+.pydevproject
+/.settings
+/.idea
+Thumbs.db

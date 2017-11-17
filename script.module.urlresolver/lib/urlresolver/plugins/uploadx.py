@@ -22,35 +22,37 @@ from lib import helpers
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
 
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+
 MAX_TRIES = 3
 
 class UploadXResolver(UrlResolver):
     name = "uploadx"
-    domains = ["uploadx.org"]
-    pattern = '(?://|\.)(uploadx\.org)/([0-9a-zA-Z/]+)'
+    domains = ["uploadx.link", "uploadx.org"]
+    pattern = '(?://|\.)(uploadx\.(?:link|org))/([0-9a-zA-Z/]+)'
 
     def __init__(self):
         self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        headers = {'User-Agent': common.FF_USER_AGENT, 'Referer': web_url}
+        headers = {'User-Agent': common.RAND_UA}
         html = self.net.http_GET(web_url, headers=headers).content
         tries = 0
         while tries < MAX_TRIES:
             data = helpers.get_hidden(html, index=0)
             data.update(captcha_lib.do_captcha(html))
-            common.log_utils.log_debug(data)
+            headers.update({'Referer': web_url})
             html = self.net.http_POST(web_url, data, headers=headers).content
 
-            if 'File Download Link Generated' in html:
-                r = re.search('href="([^"]+)[^>]>Download<', html, re.I)
-                if r:
-                    return r.group(1) + helpers.append_headers({'User-Agent': common.IE_USER_AGENT})
+            r = re.search('href="([^"]+)[^>]+>Click here to download<', html, re.DOTALL | re.I)
+            if r:
+                return r.group(1) + helpers.append_headers(headers)
 
             tries = tries + 1
 
         raise ResolverError('Unable to locate link')
 
     def get_url(self, host, media_id):
-        return 'https://uploadx.org/%s' % media_id
+        return 'https://uploadx.link/%s' % media_id

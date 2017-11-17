@@ -27,8 +27,8 @@ import urllib2
 class GoogleResolver(UrlResolver):
     name = "googlevideo"
     domains = ["googlevideo.com", "googleusercontent.com", "get.google.com",
-               "plus.google.com", "googledrive.com", "drive.google.com", "docs.google.com"]
-    pattern = 'https?://(.*?(?:\.googlevideo|(?:plus|drive|get|docs)\.google|google(?:usercontent|drive))\.com)/(.*?(?:videoplayback\?|[\?&]authkey|host/)*.+)'
+               "plus.google.com", "googledrive.com", "drive.google.com", "docs.google.com", "youtube.googleapis.com"]
+    pattern = 'https?://(.*?(?:\.googlevideo|(?:plus|drive|get|docs)\.google|google(?:usercontent|drive|apis))\.com)/(.*?(?:videoplayback\?|[\?&]authkey|host/)*.+)'
 
     def __init__(self):
         self.net = common.Net()
@@ -43,10 +43,15 @@ class GoogleResolver(UrlResolver):
                          '245': '480', '246': '480', '247': '720', '248': '1080', '271': '1440', '272': '2160',
                          '302': '2160', '303': '1080', '308': '1440', '313': '2160', '315': '2160', '59': '480'}
 
+    def __key(self, item):
+        try: return int(re.search('(\d+)', item[0]).group(1))
+        except: return 0
+        
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         response, video_urls = self._parse_google(web_url)
         if video_urls:
+            video_urls.sort(key=self.__key, reverse=True)
             video = helpers.pick_source(video_urls)
         else:
             video = None
@@ -59,12 +64,36 @@ class GoogleResolver(UrlResolver):
 
         if not video:
             if ('redirector.' in web_url) or ('googleusercontent' in web_url):
-                video = urllib2.urlopen(web_url).geturl()
+                class NoRedirection(urllib2.HTTPErrorProcessor):
+                    def http_response(self, request, response):
+                        return response
+                    https_response = http_response
+                opener = urllib2.build_opener(NoRedirection)
+                opener = urllib2.install_opener(opener)
+                request = urllib2.Request(web_url, headers=headers)
+                response = urllib2.urlopen(request)
+                response_headers = dict([(item[0].title(), item[1]) for item in response.info().items()])
+                cookie = response_headers.get('Set-Cookie', None)
+                if cookie:
+                    headers.update({'Cookie': cookie})
+                video = response.geturl()
             elif 'googlevideo.' in web_url:
                 video = web_url + helpers.append_headers(headers)
         else:
             if ('redirector.' in video) or ('googleusercontent' in video):
-                video = urllib2.urlopen(video).geturl()
+                class NoRedirection(urllib2.HTTPErrorProcessor):
+                    def http_response(self, request, response):
+                        return response
+                    https_response = http_response
+                opener = urllib2.build_opener(NoRedirection)
+                opener = urllib2.install_opener(opener)
+                request = urllib2.Request(video, headers=headers)
+                response = urllib2.urlopen(request)
+                response_headers = dict([(item[0].title(), item[1]) for item in response.info().items()])
+                cookie = response_headers.get('Set-Cookie', None)
+                if cookie:
+                    headers.update({'Cookie': cookie})
+                video = response.geturl()
 
         if video:
             if 'plugin://' in video:  # google plus embedded videos may result in this
@@ -89,6 +118,13 @@ class GoogleResolver(UrlResolver):
             response = self.net.http_GET(link)
             sources = self.__parse_gplus(response.content)
         elif 'drive.google' in link or 'docs.google' in link:
+            link = link.replace("/preview", "/edit")
+            response = self.net.http_GET(link)
+            sources = self._parse_gdocs(response.content)
+        elif 'youtube.googleapis.com' in link:
+            cid = re.search('cid=([\w]+)', link)
+            try: link = 'https://drive.google.com/file/d/%s/edit' % cid.groups(1)
+            except: raise ResolverError('ID not found')
             response = self.net.http_GET(link)
             sources = self._parse_gdocs(response.content)
         return response, sources

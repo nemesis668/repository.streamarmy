@@ -14,8 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
-import re, json
+import json
+import re
 from lib import helpers
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
@@ -34,7 +34,7 @@ class IndavideoResolver(UrlResolver):
         html = self.net.http_GET(web_url, headers=headers).content
         data = json.loads(html)
 
-        if data['success'] == '0': 
+        if data['success'] == '0':
             html = self.net.http_GET('http://indavideo.hu/video/%s' % media_id).content
         
             hash = re.search('emb_hash.+?value\s*=\s*"([^"]+)', html)
@@ -53,7 +53,11 @@ class IndavideoResolver(UrlResolver):
 
             tokens = data['data']['filesh']
 
-            sources = [(re.search('\.(\d+)\.mp4', i).group(1), i) for i in video_files]
+            sources = []
+            if isinstance(video_files, dict): video_files = video_files.values()
+            for i in video_files:
+                match = re.search('\.(\d+)\.mp4', i)
+                if match: sources.append((match.group(1), i))	
             sources = [(i[0], i[1] + '&token=%s' % tokens[i[0]]) for i in sources]
             try: sources = list(set(sources))
             except: pass

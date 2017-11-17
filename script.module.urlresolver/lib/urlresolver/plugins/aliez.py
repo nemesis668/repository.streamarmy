@@ -19,12 +19,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
+from lib import helpers
 from __generic_resolver__ import GenericResolver
 
 class AliezResolver(GenericResolver):
     name = "aliez"
     domains = ['aliez.me']
     pattern = '(?://|\.)(aliez\.me)/(?:(?:player/video\.php\?id=([0-9]+)&s=([A-Za-z0-9]+))|(?:video/([0-9]+)/([A-Za-z0-9]+)))'
+    
+    def get_media_url(self, host, media_id):
+        return helpers.get_media_url(self.get_url(host, media_id), patterns=['''file:\s*['"](?P<url>[^'"]+)''']).replace(' ', '%20')
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url, re.I)

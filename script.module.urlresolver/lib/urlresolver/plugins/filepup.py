@@ -18,7 +18,7 @@
 
 import re
 from urlresolver import common
-from urlresolver.resolver import UrlResolver, ResolverError
+from urlresolver.resolver import UrlResolver, ResolverError  # @UnusedImport
 from lib import helpers
 
 class FilePupResolver(UrlResolver):

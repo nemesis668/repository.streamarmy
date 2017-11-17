@@ -20,6 +20,8 @@ from urlresolver.lib import kodi
 from urlresolver.lib import log_utils
 from urlresolver.lib import cache
 from urlresolver.lib.url_dispatcher import URL_Dispatcher
+
+logger = log_utils.Logger.get_logger()
 url_dispatcher = URL_Dispatcher()
 
 def __enum(**enums):
@@ -54,8 +56,8 @@ def reset_cache():
 def main(argv=None):
     if sys.argv: argv = sys.argv
     queries = kodi.parse_query(sys.argv[2])
-    log_utils.log('Version: |%s| Queries: |%s|' % (kodi.get_version(), queries))
-    log_utils.log('Args: |%s|' % (argv))
+    logger.log('Version: |%s| Queries: |%s|' % (kodi.get_version(), queries))
+    logger.log('Args: |%s|' % (argv))
 
     # don't process params that don't match our url exactly. (e.g. plugin://plugin.video.1channel/extrafanart)
     plugin_url = 'plugin://%s/' % (kodi.get_id())

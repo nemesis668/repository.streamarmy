@@ -26,8 +26,8 @@ MAX_TRIES = 3
 
 class UploadAfResolver(UrlResolver):
     name = "upload.af"
-    domains = ["upload.af"]
-    pattern = '(?://|\.)(upload\.af)/([0-9a-zA-Z/]+)'
+    domains = ["upload.af", "upload.mn"]
+    pattern = '(?://|\.)(upload\.(?:af|mn))/([0-9a-zA-Z/]+)'
 
     def __init__(self):
         self.net = common.Net()
@@ -35,19 +35,20 @@ class UploadAfResolver(UrlResolver):
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
+        headers = {'User-Agent': common.RAND_UA, 'Referer': web_url}
 
         tries = 0
         while tries < MAX_TRIES:
-            data = helpers.get_hidden(html)
+            data = helpers.get_hidden(html, index=0)
             data.update(captcha_lib.do_captcha(html))
 
-            html = self.net.http_POST(web_url, form_data=data).content
-            match = re.search('href="([^"]+)[^>]*>Download<', html, re.DOTALL)
+            html = self.net.http_POST(web_url, headers=headers, form_data=data).content
+            match = re.search('href="([^"]+)[^>]*>Click here to download<', html, re.DOTALL | re.I)
             if match:
-                return match.group(1)
+                return match.group(1) + helpers.append_headers(headers)
             tries += 1
 
-        raise ResolverError('Unable to resolve upload.af link. Filelink not found.')
+        raise ResolverError('Unable to resolve uploadz.co link. Filelink not found.')
 
     def get_url(self, host, media_id):
-        return 'https://upload.af/%s' % (media_id)
+        return 'https://upload.mn/%s' % (media_id)

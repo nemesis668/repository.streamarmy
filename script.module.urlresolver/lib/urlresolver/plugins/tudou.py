@@ -20,17 +20,13 @@ import urllib
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
 
-
-
 class TudouResolver(UrlResolver):
     name = 'Tudou'
     domains = ['tudou.com']
     pattern = '(?://|\.)(tudou\.com)/programs/view/([0-9a-zA-Z]+)'
 
-
     def __init__(self):
         self.net = common.Net()
-
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -60,8 +56,5 @@ class TudouResolver(UrlResolver):
 
         raise ResolverError('Unable to locate link')
 
-
     def get_url(self, host, media_id):
         return 'http://www.tudou.com/programs/view/%s/' % media_id
-
-

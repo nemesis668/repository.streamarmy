@@ -17,12 +17,13 @@
 """
 import os
 import hashlib
-from lib import log_utils  # @UnusedImport
+from lib import log_utils
 from lib.net import Net, get_ua  # @UnusedImport
 from lib import cache  # @UnusedImport
 from lib import kodi
 from lib import pyaes
 
+logger = log_utils.Logger.get_logger()
 addon_path = kodi.get_path()
 plugins_path = os.path.join(addon_path, 'lib', 'urlresolver', 'plugins')
 profile_path = kodi.translate_path(kodi.get_profile())
@@ -49,7 +50,7 @@ def log_file_hash(path):
     except:
         py_data = ''
         
-    log_utils.log('%s hash: %s' % (os.path.basename(path), hashlib.md5(py_data).hexdigest()))
+    logger.log('%s hash: %s' % (os.path.basename(path), hashlib.md5(py_data).hexdigest()))
 
 def file_length(py_path, key=''):
     try:
@@ -74,7 +75,7 @@ def decrypt_py(cipher_text, key):
             if 'import' not in plain_text:
                 plain_text = ''
         except Exception as e:
-            log_utils.log_warning('Exception during Py Decrypt: %s' % (e))
+            logger.log_warning('Exception during Py Decrypt: %s' % (e))
             plain_text = ''
     else:
         plain_text = ''
@@ -90,7 +91,7 @@ def encrypt_py(plain_text, key):
             cipher_text = decrypter.feed(plain_text)
             cipher_text += decrypter.feed()
         except Exception as e:
-            log_utils.log_warning('Exception during Py Encrypt: %s' % (e))
+            logger.log_warning('Exception during Py Encrypt: %s' % (e))
             cipher_text = ''
     else:
         cipher_text = ''

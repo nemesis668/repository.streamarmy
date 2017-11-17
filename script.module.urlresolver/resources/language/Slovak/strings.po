@@ -1,16 +1,16 @@
 # Addon Name: URLResolver
 # Addon id: script.module.urlresolver
-# Addon Provider: TV Addons
+# Addon Provider:
 # Translators:
 # tknorris, 2017
 # Jose Riha, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: TV Addons Addons\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jose Riha, 2017\n"
-"Language-Team: Slovak (https://www.transifex.com/tv-addons/teams/41608/sk/)\n"
+"Language-Team: Slovak ()\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -185,3 +185,10 @@ msgctxt "#33041"
 msgid "No IP Authorization"
 msgstr "Chýba IP autorizácia"
 
+msgctxt "#33043"
+msgid "Vshare.eu Stream Authorization"
+msgstr "Vshare.eu autorizácia streamu"
+
+msgctxt "#33044"
+msgid "Flashx Stream Authorization"
+msgstr "Flashx autorizácia streamu"

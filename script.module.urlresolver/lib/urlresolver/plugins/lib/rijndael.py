@@ -27,7 +27,6 @@ If any strings are of the wrong length a ValueError is thrown
 # deleting all the comments and renaming all the variables
 
 import copy
-import string
 
 shifts = [[[0, 0], [1, 3], [2, 2], [3, 1]],
           [[0, 0], [1, 5], [2, 4], [3, 3]],
@@ -233,9 +232,9 @@ class rijndael:
             # extrapolate using phi (the round key evolution function)
             tt = tk[KC - 1]
             tk[0] ^= (S[(tt >> 16) & 0xFF] & 0xFF) << 24 ^  \
-                     (S[(tt >>  8) & 0xFF] & 0xFF) << 16 ^  \
-                     (S[ tt        & 0xFF] & 0xFF) <<  8 ^  \
-                     (S[(tt >> 24) & 0xFF] & 0xFF)       ^  \
+                     (S[(tt >> 8) & 0xFF] & 0xFF) << 16 ^  \
+                     (S[tt & 0xFF] & 0xFF) << 8 ^  \
+                     (S[(tt >> 24) & 0xFF] & 0xFF) ^  \
                      (rcon[rconpointer] & 0xFF) << 24
             rconpointer += 1
             if KC != 8:
@@ -245,8 +244,8 @@ class rijndael:
                 for i in range(1, KC // 2):
                     tk[i] ^= tk[i - 1]
                 tt = tk[KC // 2 - 1]
-                tk[KC // 2] ^= (S[ tt        & 0xFF] & 0xFF)       ^ \
-                               (S[(tt >>  8) & 0xFF] & 0xFF) <<  8 ^ \
+                tk[KC // 2] ^= (S[tt & 0xFF] & 0xFF) ^ \
+                               (S[(tt >> 8) & 0xFF] & 0xFF) << 8 ^ \
                                (S[(tt >> 16) & 0xFF] & 0xFF) << 16 ^ \
                                (S[(tt >> 24) & 0xFF] & 0xFF) << 24
                 for i in range(KC // 2 + 1, KC):
@@ -264,7 +263,7 @@ class rijndael:
                 tt = Kd[r][j]
                 Kd[r][j] = U1[(tt >> 24) & 0xFF] ^ \
                     U2[(tt >> 16) & 0xFF] ^ \
-                    U3[(tt >>  8) & 0xFF] ^ \
+                    U3[(tt >> 8) & 0xFF] ^ \
                     U4[tt & 0xFF]
         self.Ke = Ke
         self.Kd = Kd

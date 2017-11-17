@@ -57,9 +57,9 @@ class UpToBoxResolver(UrlResolver):
         if 'not available in your country' in html:
             raise ResolverError('Unavailable in your country')
         
-        r = re.search('You have to wait (\d+ minutes?,\s*)?\d+ seconds?', html, re.I)
+        r = re.search('or you can wait ((?:\d hour,\s*)?(?:\d+ minutes?,\s*)?\d+ seconds?)', html, re.I)
         if r:
-            raise ResolverError('Cooldown in effect')
+            raise ResolverError('Cooldown in effect | %s remaining' % r.group(1))
         
         data = helpers.get_hidden(html)
         for _ in range(0, 3):

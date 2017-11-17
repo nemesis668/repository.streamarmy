@@ -187,7 +187,7 @@ class AADecoder(object):
         pattern = (r"\(ﾟДﾟ\)\[ﾟoﾟ\]\+ (.+?)\(ﾟДﾟ\)\[ﾟoﾟ\]\)")
         result = re.search(pattern, self.encoded_str, re.DOTALL)
         if result is None:
-            common.log_utils.log_debug("AADecoder: data not found")
+            common.logger.log_debug("AADecoder: data not found")
             return False
 
         data = result.group(1)
@@ -201,7 +201,7 @@ class AADecoder(object):
         while data != '':
             # Check new char
             if data.find(begin_char) != 0:
-                common.log_utils.log_debug("AADecoder: data not found")
+                common.logger.log_debug("AADecoder: data not found")
                 return False
 
             data = data[len(begin_char):]
@@ -228,8 +228,8 @@ class AADecoder(object):
             str_char = self.decode_char(enc_char, radix)
 
             if str_char == "":
-                common.log_utils.log_debug("no match :  ")
-                common.log_utils.log_debug(data + "\nout = " + out + "\n")
+                common.logger.log_debug("no match :  ")
+                common.logger.log_debug(data + "\nout = " + out + "\n")
                 return False
             # print 'sofar', str_char, radix,out
 
@@ -237,7 +237,7 @@ class AADecoder(object):
             # print 'sfar', chr(int(str_char, radix)), out
 
         if out == "":
-            common.log_utils.log_debug("no match : " + data)
+            common.logger.log_debug("no match : " + data)
             return False
 
         return out

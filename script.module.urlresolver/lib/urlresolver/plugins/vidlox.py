@@ -26,7 +26,7 @@ from urlresolver.resolver import UrlResolver, ResolverError
 class VidloxResolver(UrlResolver):
     name = "vidlox"
     domains = ['vidlox.tv']
-    pattern = '(?://|\.)(vidlox\.tv)/(?:embed-|)([0-9a-zA-Z]+)'
+    pattern = '(?://|\.)(vidlox\.tv)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):
         self.net = common.Net()
@@ -35,14 +35,14 @@ class VidloxResolver(UrlResolver):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.IE_USER_AGENT, 'Referer': web_url}
         html = self.net.http_GET(web_url, headers=headers).content
-        url = re.findall('sources\s*:\s*\[(.+?)\]', html)[0]
-        url = re.findall('(?:\"|\')(http.+?)(?:\"|\')', url)
-        url = [i for i in url if '.mp4' in i] + [i for i in url if '.m3u8' in i]
+        try: sources = re.search(r'sources\s*:\s*\[(.+?)\]', html).groups()[0]
+        except: raise ResolverError('Unable to locate link')
 
-        if url:
-            return url[0] + helpers.append_headers(headers)
-        else:
-            raise ResolverError('File not found')
+        if sources:
+            sources = helpers.scrape_sources(sources, patterns=['''["'](?P<url>http[^"']+)'''])
+            if sources: return helpers.pick_source(sources) + helpers.append_headers(headers)
+            
+        raise ResolverError('Unable to locate link')
 
     def get_url(self, host, media_id):
-        return 'http://%s/embed-%s.html' % (host, media_id)
+        return self._default_get_url(host, media_id)

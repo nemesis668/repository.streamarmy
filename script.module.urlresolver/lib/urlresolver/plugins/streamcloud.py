@@ -46,9 +46,9 @@ class StreamcloudResolver(UrlResolver):
 
         data = helpers.get_hidden(html)
         headers.update({'Referer': web_url})
-        common.kodi.sleep(cnt*1000)
+        common.kodi.sleep(cnt * 1000)
         html = self.net.http_POST(response.get_url(), form_data=data, headers=headers).content
-        sources = helpers.scrape_sources(html)
+        sources = helpers.scrape_sources(html, patterns=['''file\s*:\s*["'](?P<url>[^"']+)'''])
         return helpers.pick_source(sources) + helpers.append_headers(headers)
 
     def get_url(self, host, media_id):

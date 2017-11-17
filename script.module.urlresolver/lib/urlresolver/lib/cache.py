@@ -24,12 +24,14 @@ import os
 import shutil
 import kodi
 
+logger = log_utils.Logger.get_logger(__name__)
+
 try:
     cache_path = kodi.translate_path(os.path.join(kodi.get_profile(), 'cache'))
     if not os.path.exists(cache_path):
         os.makedirs(cache_path)
 except Exception as e:
-    log_utils.log('Failed to create cache: %s: %s' % (cache_path, e), log_utils.LOGWARNING)
+    logger.log('Failed to create cache: %s: %s' % (cache_path, e), log_utils.LOGWARNING)
     
 cache_enabled = kodi.get_setting('use_cache') == 'true'
     
@@ -38,7 +40,7 @@ def reset_cache():
         shutil.rmtree(cache_path)
         return True
     except Exception as e:
-        log_utils.log('Failed to Reset Cache: %s' % (e), log_utils.LOGWARNING)
+        logger.log('Failed to Reset Cache: %s' % (e), log_utils.LOGWARNING)
         return False
     
 def _get_func(name, args=None, kwargs=None, cache_limit=1):
@@ -53,7 +55,7 @@ def _get_func(name, args=None, kwargs=None, cache_limit=1):
         if mtime >= max_age:
             with open(full_path, 'r') as f:
                 pickled_result = f.read()
-            # log_utils.log('Returning cached result: |%s|%s|%s| - modtime: %s max_age: %s age: %ss' % (name, args, kwargs, mtime, max_age, now - mtime), log_utils.LOGDEBUG)
+            # logger.log('Returning cached result: |%s|%s|%s| - modtime: %s max_age: %s age: %ss' % (name, args, kwargs, mtime, max_age, now - mtime), log_utils.LOGDEBUG)
             return True, pickle.loads(pickled_result)
     
     return False, None
@@ -67,7 +69,7 @@ def _save_func(name, args=None, kwargs=None, result=None):
         with open(full_path, 'w') as f:
             f.write(pickled_result)
     except Exception as e:
-        log_utils.log('Failure during cache write: %s' % (e), log_utils.LOGWARNING)
+        logger.log('Failure during cache write: %s' % (e), log_utils.LOGWARNING)
 
 def _get_filename(name, args, kwargs):
     arg_hash = hashlib.md5(name).hexdigest() + hashlib.md5(str(args)).hexdigest() + hashlib.md5(str(kwargs)).hexdigest()
@@ -85,10 +87,10 @@ def cache_method(cache_limit):
                 real_args = args
             in_cache, result = _get_func(full_name, real_args, kwargs, cache_limit=cache_limit)
             if in_cache:
-                log_utils.log('Using method cache for: |%s|%s|%s| -> |%d|' % (full_name, args, kwargs, len(pickle.dumps(result))), log_utils.LOGDEBUG)
+                logger.log('Using method cache for: |%s|%s|%s| -> |%d|' % (full_name, args, kwargs, len(pickle.dumps(result))), log_utils.LOGDEBUG)
                 return result
             else:
-                log_utils.log('Calling cached method: |%s|%s|%s|' % (full_name, args, kwargs), log_utils.LOGDEBUG)
+                logger.log('Calling cached method: |%s|%s|%s|' % (full_name, args, kwargs), log_utils.LOGDEBUG)
                 result = func(*args, **kwargs)
                 _save_func(full_name, real_args, kwargs, result)
                 return result
@@ -103,10 +105,10 @@ def cache_function(cache_limit):
             name = func.__name__
             in_cache, result = _get_func(name, args, kwargs, cache_limit=cache_limit)
             if in_cache:
-                log_utils.log('Using function cache for: |%s|%s|%s| -> |%d|' % (name, args, kwargs, len(pickle.dumps(result))), log_utils.LOGDEBUG)
+                logger.log('Using function cache for: |%s|%s|%s| -> |%d|' % (name, args, kwargs, len(pickle.dumps(result))), log_utils.LOGDEBUG)
                 return result
             else:
-                log_utils.log('Calling cached function: |%s|%s|%s|' % (name, args, kwargs), log_utils.LOGDEBUG)
+                logger.log('Calling cached function: |%s|%s|%s|' % (name, args, kwargs), log_utils.LOGDEBUG)
                 result = func(*args, **kwargs)
                 _save_func(name, args, kwargs, result)
                 return result

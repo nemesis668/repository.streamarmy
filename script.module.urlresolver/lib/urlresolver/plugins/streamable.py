@@ -24,7 +24,7 @@ from urlresolver.resolver import UrlResolver, ResolverError
 class StreamableResolver(UrlResolver):
     name = "Streamable"
     domains = ['streamable.com']
-    pattern = '(?://|\.)(streamable\.com)/(?:s/)([a-zA-Z0-9]+/[a-zA-Z0-9])'
+    pattern = '(?://|\.)(streamable\.com)/(?:s/)?([a-zA-Z0-9]+(?:/[a-zA-Z0-9]+)?)'
 
     def __init__(self):
         self.net = common.Net()

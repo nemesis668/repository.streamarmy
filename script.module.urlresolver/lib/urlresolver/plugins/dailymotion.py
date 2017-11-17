@@ -34,12 +34,12 @@ class DailymotionResolver(UrlResolver):
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url, headers=self.headers).content
-        if '"reason":"video attribute|explicit"' in html:
+        """if '"reason":"video attribute|explicit"' in html:
             headers = {'Referer': web_url}
             headers.update(self.headers)
             url_back = '/embed/video/%s' % (media_id)
             web_url = 'http://www.dailymotion.com/family_filter?enable=false&urlback=%s' % (urllib.quote_plus(url_back))
-            html = self.net.http_GET(url=web_url, headers=headers).content
+            html = self.net.http_GET(url=web_url, headers=headers).content"""
             
         match = re.search('var\s+config\s*=\s*(.*?}});', html)
         if not match: raise ResolverError('Unable to locate config')
@@ -50,7 +50,7 @@ class DailymotionResolver(UrlResolver):
         streams = js_data.get('metadata', {}).get('qualities', {})
         for quality, links in streams.iteritems():
             for link in links:
-                if not quality.isdigit() or link.get('type', '').startswith('video'):
+                if quality.isdigit() and link.get('type', '').startswith('video'):
                     sources.append((quality, link['url']))
                 
         sources.sort(key=lambda x: self.__key(x), reverse=True)
