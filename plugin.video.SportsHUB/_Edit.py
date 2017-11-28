@@ -1,4 +1,4 @@
 import xbmcaddon
 
-MainBase = 'https://nsportshub.000webhostapp.com/new/home.txt'
+MainBase = 'https://pastebin.com/raw/AahrVnVw'
 addon = xbmcaddon.Addon('plugin.video.SportsHUB')

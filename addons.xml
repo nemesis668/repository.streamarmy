@@ -126,7 +126,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
 
 <addon id="plugin.video.SportsHUB"
        name="NetStreams SportsHUB"
-       version="1.5"
+       version="1.6"
        provider-name="Kodinity">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
