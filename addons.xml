@@ -124,6 +124,22 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
+<addon id="plugin.video.neverwalkalone" name="[COLOR red]You'll Never Walk Alone[/COLOR]" version="1.0" provider-name="@Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0" />
+    <import addon="script.module.urlresolver"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">You'll Never Walk Alone, LFC Addon</summary>
+    <description lang="en">Liverpool FC Unofficial Addon</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.SportsHUB"
        name="NetStreams SportsHUB"
        version="1.6"
@@ -155,7 +171,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="6.3" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="6.4" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
