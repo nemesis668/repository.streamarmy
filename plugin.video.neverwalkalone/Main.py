@@ -100,7 +100,7 @@ class Main(pyxbmct.AddonFullWindow):
 
     xbmc.executebuiltin("Dialog.Close(busydialog)")
 
-    def __init__(self, title='guit'):
+    def __init__(self, title='neverwalkalone'):
         xbmc.executebuiltin("Dialog.Close(busydialog)")
         super(Main, self).__init__(title)
 

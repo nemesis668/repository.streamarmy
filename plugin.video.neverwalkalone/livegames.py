@@ -83,7 +83,7 @@ class nfl_window(pyxbmct.AddonFullWindow):
 
     xbmc.executebuiltin("Dialog.Close(busydialog)")
 
-    def __init__(self, title='guit'):
+    def __init__(self, title='neverwalkalone'):
         super(nfl_window, self).__init__(title)
 
         self.setGeometry(1280, 720, 100, 50)
