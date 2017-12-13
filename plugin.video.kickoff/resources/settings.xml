@@ -1,0 +1,6 @@
+<settings>
+<category label="Settings">
+    <setting label="Addon Theme" type="text" id="Theme" values="kong" default="kickoff" visible="false"/>
+    <setting id="Username" type="text" label="User Name : " default="" visible="true"/>    <setting id="Password" type="text" label="Password : " default="" visible="true"/>
+</category>
+</settings>
