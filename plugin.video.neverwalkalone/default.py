@@ -13,9 +13,12 @@ import Main
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
+from resources.libs import dateimport
 
 dp = xbmcgui.DialogProgress()
 dialog = xbmcgui.Dialog()
+addon_id            = 'plugin.video.neverwalkalone'
+settingsxml = xbmc.translatePath(os.path.join('special://home/userdata/addon_data/' + addon_id, 'settings.xml'))
 
 #############################################################
 #################### SET ADDON ID ###########################
@@ -42,6 +45,8 @@ def clearup():
 def START():
 
     clearup()
+    dateimport.CHECKDIRS()
+    dateimport.DateCheck()
     try:
         Main.MainWindow()
     except (RuntimeError, SystemError):
