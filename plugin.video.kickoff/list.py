@@ -265,6 +265,22 @@ def List_Selected(self):
             Item_Title.append(title)
             self.List.addItem(title)
             
+    elif 'channels' in Media_Link:
+        global Item_Title
+        global Item_Link
+        global Item_Desc
+        global Item_Icon
+
+        Item_Title =  []
+        Item_Link  =  []
+        Item_Desc  =  []
+        Item_Icon  =  []
+        link = Get_Data(Media_Link).replace('\n', '').replace('\r','')
+        url = re.compile('<div class="uk-text-center"><a href="(.+?)"').findall(link)[0]
+        url1 = "plugin://program.plexus/?url=" + url + "&mode=1&name=acestream+"
+        Show_List  =  xbmcgui.ListItem(Media_Title)
+        xbmc.Player ().play(url1, Show_List, False)
+            
     elif 'reddit' in Media_Link:
         self.List.reset()
         self.List.setVisible(True)
