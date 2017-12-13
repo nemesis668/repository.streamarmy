@@ -66,7 +66,7 @@ def DateCheck():
                 else: quit()
         if not 'EXPIRED' in checkpin:
             currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
-            pinurlcheck = ('http://www.streamarmy.co.uk/service.php?code=%s&plugin=a2lja29mZg' % currentpin)
+            pinurlcheck = ('http://www.streamarmy.co.uk/service.php?code=%s&plugin=bmV2ZXJ3YWxrYWxvbmU' % currentpin)
             link = Get_Data(pinurlcheck)
             if 'Pin Verified' in link:
                 pass
