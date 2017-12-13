@@ -15,7 +15,7 @@ import xbmc
 import xbmcgui
 from xbmcaddon import Addon
 
-_images = os.path.join(Addon('plugin.video.area51x').getAddonInfo('path'),'resources', 'area51x')
+_images = os.path.join(Addon('plugin.video.kickoff').getAddonInfo('path'),'resources', 'kickoff')
 
 # Text alighnment constants. Mixed variants are obtained by bit OR (|)
 ALIGN_LEFT = 0

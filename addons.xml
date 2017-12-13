@@ -83,7 +83,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
     </extension>
 </addon>
 
-<addon id="plugin.video.kickoff" name="[COLOR blue]Kick Off[/COLOR]" version="1.0.0" provider-name="@Nemzzy668">
+<addon id="plugin.video.kickoff" name="[COLOR blue]Kick Off[/COLOR]" version="1.0.1" provider-name="@Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" version="2.0.0" />
