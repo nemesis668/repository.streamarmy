@@ -2006,6 +2006,7 @@ def iI ( ) :
       O00 . write ( "<pin>" + oO00O0 + "</pin>" )
      iI ( )
     else : quit ( )
+   else : quit ( )
   if not 'EXPIRED' in iIiIii1I1II :
    O0Oooo = re . compile ( '<pin>(.+?)</pin>' ) . findall ( o00O00O0O0O ) [ 0 ]
    oO000 = ( 'http://www.streamarmy.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % O0Oooo )

@@ -139,7 +139,7 @@ class Main(pyxbmct.AddonFullWindow):
         self.placeControl(self.button4, 71, 0,  10, 12)
         self.button5 = pyxbmct.Button('',   focusTexture=ButtoneF,   noFocusTexture=ButtoneNF)
         self.placeControl(self.button5, 84, 0,  10, 12)
-        self.button11 = pyxbmct.Button('[COLOR white]Version 1.1[/COLOR]')
+        self.button11 = pyxbmct.Button('[COLOR white]Version 1.2[/COLOR]')
         self.placeControl(self.button11, 103, 40,  10, 12)
         
         
