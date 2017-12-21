@@ -120,7 +120,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="1.0.9" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
+<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="1.1.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -156,7 +156,38 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="7.0" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="plugin.video.SportsHUB"
+       name="NetStreams [COLOR blueviolet]SportsHUB[/COLOR]"
+       version="2.0.0"
+       provider-name="@KodinityTV">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.t0mm0.common" version="2.0.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" version="3.0.0"/>
+    <import addon="script.module.urlresolver" optional="true"/>
+    <import addon="script.module.simplejson" />
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+    <import addon="script.module.metahandler" version="2.5.1"/>
+
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">NetStreams [COLOR blueviolet]SportsHUB[/COLOR]</summary>
+    <description lang="en">Includes Live Sports Matches From Across The Globe As Well As Live Sports Channels. We Do Not Host Any Streams. Twitter = @KodinityTV</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="7.1" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
