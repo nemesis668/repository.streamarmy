@@ -15,7 +15,7 @@ import xbmc
 import xbmcgui
 from xbmcaddon import Addon
 
-_images = os.path.join(Addon('plugin.video.guit').getAddonInfo('path'),'resources', 'kong')
+_images = os.path.join(Addon('plugin.video.fapzone').getAddonInfo('path'),'resources', 'fap')
 
 # Text alighnment constants. Mixed variants are obtained by bit OR (|)
 ALIGN_LEFT = 0
