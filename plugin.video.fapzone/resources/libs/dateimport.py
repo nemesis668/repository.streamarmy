@@ -52,7 +52,7 @@ def DateCheck():
     try:
         checkpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
         if checkpin == 'EXPIRED':
-            dialog.ok("[COLOR blue]Kick Off[/COLOR]","[COLOR red]Please visit [COLOR yellow]http://streamarmy.co.uk[COLOR red] to generate a Pin to access FapZone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
+            dialog.ok("[COLOR gold]FapZone[/COLOR]","[COLOR red]Please visit [COLOR yellow]http://streamarmy.co.uk[COLOR red] to generate a Pin to access FapZone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
             string =''
             keyboard = xbmc.Keyboard(string, '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]')
             keyboard.doModal()
