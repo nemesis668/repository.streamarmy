@@ -665,67 +665,67 @@ def OOOOo0 ( url ) :
   except :
    O000oo0O ( "[COLOR yellow]Sorry Stream Down At The Moment, Try Others[/COLOR]" , 'url' , 999 , I1IiI , Oo , '' )
    if 72 - 72: IiIi1Iii1I1 * ooo0Oo0 . iiI1iIiI - i11Ii11I1Ii1i + i1IIi
-   if 10 - 10: i1iII1I1i1i1 + i1IIi
-   if 87 - 87: iiI1iIiI
-   if 58 - 58: Oooo0000 % i1IIi11111i
-   if 50 - 50: i1iIIi1 . i1IIi11111i
-   if 97 - 97: O0 + Oooo0000
-   if 89 - 89: i1IIi11111i + i1 * O00OoOoo00 * iiiI11
-   if 37 - 37: OoooooooOO - O0 - i1IIi11111i
-   if 77 - 77: i1iIIII * iIii1I11I1II1
-   if 98 - 98: iiI1iIiI % iiiI11 * OoooooooOO
-   if 51 - 51: iIii1I11I1II1 . Oooo0000 / i1iII1I1i1i1 + i1IIi11111i
-   if 33 - 33: IiIi1Iii1I1 . i11Ii11I1Ii1i % oooOOOOO + i1IIi11111i
-   if 71 - 71: ooo0Oo0 % i1iIIII
-   if 98 - 98: O00OoOoo00 % i11iIiiIii % IiIi1Iii1I1 + iiiI11
-   if 78 - 78: o000o0o00o0Oo % i1iII1I1i1i1 / oooOOOOO - iIii1I11I1II1
-   if 69 - 69: i1iIIi1
-   if 11 - 11: iiI1iIiI
-   if 16 - 16: iiiI11 + IiiIII111ii * O0 % i1IIi . iiI1iIiI
-   if 67 - 67: OoooooooOO / iiI1iIiI * iiiI11 + O00OoOoo00
-   if 65 - 65: OoooooooOO - o000o0o00o0Oo / IiIi1Iii1I1 / i11Ii11I1Ii1i / i1IIi
-   if 71 - 71: i1iIIi1 + iiiI11
-   if 28 - 28: i1iIIII
-   if 38 - 38: IiIi1Iii1I1 % i11Ii11I1Ii1i % O00OoOoo00 / i1 + Oooo0000 / i1IIi
-   if 54 - 54: iIii1I11I1II1 % o000o0o00o0Oo - i1iIIII / i1iII1I1i1i1 - i1 . O00OoOoo00
-   if 11 - 11: o000o0o00o0Oo . i1 * IiiIII111ii * OoooooooOO + IiIi1Iii1I1
-   if 33 - 33: O0 * i1IIi11111i - i1iIIi1 % i1iIIi1
-   if 18 - 18: i1iIIi1 / ooo0Oo0 * i1iIIi1 + i1iIIi1 * i11iIiiIii * o000o0o00o0Oo
-   if 11 - 11: IiIi1Iii1I1 / Oooo0000 - IiiIII111ii * OoooooooOO + OoooooooOO . Oooo0000
-   if 26 - 26: iiiI11 % o000o0o00o0Oo
-   if 76 - 76: IiiIII111ii * oooOOOOO
-   if 52 - 52: i1iIIII
-   if 19 - 19: iiI1iIiI
-   if 25 - 25: iiiI11 / IiIi1Iii1I1
-   if 31 - 31: i1iIIII . O0 % iiI1iIiI . i1IIi11111i + IiiIII111ii
-   if 71 - 71: i1iIIi1 . i11Ii11I1Ii1i
-   if 62 - 62: OoooooooOO . O00OoOoo00
-   if 61 - 61: Oooo0000 - i1iIIII - i1IIi
-   if 25 - 25: O0 * O00OoOoo00 + o000o0o00o0Oo . i1IIi11111i . i1IIi11111i
-   if 58 - 58: iiI1iIiI
-   if 53 - 53: i1IIi
-   if 59 - 59: i1IIi11111i
-   if 81 - 81: Oooo0000 - Oooo0000 . oooOOOOO
-   if 73 - 73: O00OoOoo00 % i11iIiiIii - iiI1iIiI
-   if 7 - 7: O0 * i11iIiiIii * iiiI11 + IiIi1Iii1I1 % i1 - IiIi1Iii1I1
-   if 39 - 39: ooo0Oo0 * i1iIIII % i1iIIII - OoooooooOO + i1IIi11111i - O00OoOoo00
-   if 23 - 23: i11iIiiIii
-   if 30 - 30: i1IIi11111i - i1IIi % i11Ii11I1Ii1i + O00OoOoo00 * iIii1I11I1II1
-   if 81 - 81: IiiIII111ii % i1IIi . iIii1I11I1II1
-   if 4 - 4: i11iIiiIii % i1 % i1IIi / IiiIII111ii
-   if 6 - 6: oooOOOOO / iiI1iIiI % i1iIIII - iiI1iIiI
-   if 31 - 31: i1iIIII
-   if 23 - 23: i1iIIi1 . IiiIII111ii
-   if 92 - 92: Oooo0000 + i1iIIi1 * iiiI11 % iiI1iIiI
-   if 42 - 42: ooo0Oo0
-   if 76 - 76: iiI1iIiI * oooOOOOO % i1iIIi1
-def OoooO00o ( url ) :
- if 73 - 73: i1iIIII / i1iII1I1i1i1
+def iIi1ii ( ) :
+ if 58 - 58: Oooo0000 % i1IIi11111i
+ O00oO ( "[COLOR yellow]TOP 25 FEEDS[/COLOR]" , 'url' , 15 , I1IiI , Oo , '' )
+ iiiiiIIii = 'http://m.broadcastify.com/?a=la&coid=1'
+ OOOO = i1i ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ IIIii1II1II = re . compile ( '<li class="arrow">(.+?)</li>' ) . findall ( OOOO )
+ for oO0Oo in IIIii1II1II :
+  III1iII1I1ii = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 0 ]
+  iiiiiIIii = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
+  iiiiiIIii = 'http://m.broadcastify.com' + iiiiiIIii
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , iiiiiIIii , 12 , I1IiI , Oo , '' )
+  if 50 - 50: i1iIIi1 . i1IIi11111i
+def ooO0OO ( url ) :
+ if 54 - 54: IiiIII111ii + iiiI11 % i1 + OoooooooOO - O0 - i1IIi11111i
+ OOOO = i1i ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ IIIii1II1II = re . compile ( '<li class="arrow">(.+?)</li>' ) . findall ( OOOO )
+ for oO0Oo in IIIii1II1II :
+  III1iII1I1ii = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 0 ]
+  url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
+  url = 'http://m.broadcastify.com' + url
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 13 , I1IiI , Oo , '' )
+  if 77 - 77: i1iIIII * iIii1I11I1II1
+def oO00oOOoooO ( url ) :
+ if 46 - 46: iiI1iIiI - OoooooooOO - O00OoOoo00 * i11Ii11I1Ii1i
+ OOOO = i1i ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ IIIii1II1II = re . compile ( '<li class="arrow">(.+?)</li>' ) . findall ( OOOO )
+ for oO0Oo in IIIii1II1II :
+  III1iII1I1ii = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 0 ]
+  url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
+  url = 'http://m.broadcastify.com' + url
+  O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 14 , I1IiI , Oo , '' )
+  if 34 - 34: O00OoOoo00 - oooOOOOO / i1iIIII + o000o0o00o0Oo * iiiI11
+def OOOO0OoOO0o0o ( url ) :
+ if 95 - 95: i11iIiiIii
+ OOOO = i1i ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ try :
+  IIIii1II1II = re . compile ( '<audio width=.+?src="(.+?)"' ) . findall ( OOOO ) [ 0 ]
+ except :
+  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR aqua]Sorry Link Down At The Moment[/COLOR]' , I1IiI , 5000 )
+ iI1111iiii ( IIIii1II1II )
+ if 67 - 67: OoooooooOO / iiI1iIiI * iiiI11 + O00OoOoo00
+def OooOo0ooo ( ) :
+ if 71 - 71: i1iIIi1 + iiiI11
+ iiiiiIIii = 'http://m.broadcastify.com/?a=top25'
+ OOOO = i1i ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ IIIii1II1II = re . compile ( '<li class="arrow">(.+?)</li>' ) . findall ( OOOO )
+ for oO0Oo in IIIii1II1II :
+  III1iII1I1ii = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 0 ]
+  iI1111ii1I = III1iII1I1ii . split ( ')' ) [ 0 ] . replace ( '(' , '' )
+  III1iII1I1ii = III1iII1I1ii . split ( ')' ) [ - 1 ] . strip ( )
+  iiiiiIIii = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
+  iiiiiIIii = 'http://m.broadcastify.com' + iiiiiIIii
+  O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "[COLOR yellow] :: " + iI1111ii1I + " Listening" + "[/COLOR]" , iiiiiIIii , 14 , I1IiI , Oo , '' )
+  if 45 - 45: i1IIi + i1IIi11111i
+def OOO ( url ) :
+ if 25 - 25: i1iII1I1i1i1 - i1 . iIii1I11I1II1 % i11iIiiIii % o000o0o00o0Oo
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<li class="yt-uix-scroller-scroll-unit(.+?)<span class="vertical-align">' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( 'video-title="(.+?)"' , re . DOTALL ) . findall ( oO0Oo ) [ 0 ]
-  III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
+  III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
   I1IiI = re . compile ( 'url="(.+?)"' , re . DOTALL ) . findall ( oO0Oo ) [ 0 ] . replace ( '&amp;' , '&' )
   I1ii11iIi11i = re . compile ( 'url="(.+?)"' , re . DOTALL ) . findall ( oO0Oo ) [ 0 ] . replace ( '&amp;' , '&' )
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
@@ -733,18 +733,18 @@ def OoooO00o ( url ) :
    if not 'Deleted video' in III1iII1I1ii :
     OOOo00oo0oO = 'https://www.youtube.com' + url
     O000oo0O ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , OOOo00oo0oO , 2 , I1IiI , I1ii11iIi11i )
-    if 100 - 100: i1iII1I1i1i1 / i1iIIi1 / o000o0o00o0Oo
-def oOoOOo0O ( ) :
- if 84 - 84: i1 + i1IIi - i11Ii11I1Ii1i . o000o0o00o0Oo * OoooooooOO + iiI1iIiI
+    if 92 - 92: OoooooooOO * i1iIIi1
+def o0000oO ( ) :
+ if 11 - 11: IiIi1Iii1I1 / Oooo0000 - IiiIII111ii * OoooooooOO + OoooooooOO . Oooo0000
  iiiiiIIii = 'http://burningwhee1s.blogspot.co.uk/'
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '<div class=\'clearfix\' id=\'content\'>(.+?)<div id=\'main-wrapper\'>' ) . findall ( OOOO ) [ 0 ]
  OoO0o = re . compile ( '<a dir=\'ltr\' href=\'(.+?)\'>(.+?)</a>' ) . findall ( IIIii1II1II )
  for OOOO , III1iII1I1ii in OoO0o :
   O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , OOOO , 24 , I1IiI , Oo , '' )
-  if 38 - 38: i1iIIII + i11Ii11I1Ii1i % IiIi1Iii1I1 % Oooo0000 - iiiI11 / OoooooooOO
-def oOOoo0000O0o0 ( url ) :
- if 1 - 1: i1iII1I1i1i1 + i1iII1I1i1i1 % Oooo0000 + i11iIiiIii
+  if 26 - 26: iiiI11 % o000o0o00o0Oo
+def o00Oo0oooooo ( url ) :
+ if 76 - 76: O00OoOoo00 / i1iIIII . O0 % iiI1iIiI . i1IIi11111i + IiiIII111ii
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<h3 class=\'post-title entry-title\'>(.+?)<div class=\'jump-link\'>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
@@ -752,9 +752,9 @@ def oOOoo0000O0o0 ( url ) :
   I1IiI = re . compile ( '<img border=".+?" src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   url = re . compile ( '<a href=\'(.+?)\'' ) . findall ( oO0Oo ) [ 0 ]
   O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 25 , I1IiI , Oo , '' )
-  if 56 - 56: i1IIi11111i
-def I1 ( url , iconimage ) :
- if 68 - 68: iIii1I11I1II1 * iIii1I11I1II1 . i1IIi11111i / i11Ii11I1Ii1i % ooo0Oo0
+  if 71 - 71: i1iIIi1 . i11Ii11I1Ii1i
+def oo0 ( url , iconimage ) :
+ if 61 - 61: Oooo0000 - i1iIIII - i1IIi
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class=\'post-header\'>(.+?)<div class=\'post-footer\'>' ) . findall ( OOOO ) [ 0 ]
  OoO0o = re . compile ( '<div class=".+?" style=".+?">(.+?)</select>' ) . findall ( IIIii1II1II )
@@ -762,40 +762,40 @@ def I1 ( url , iconimage ) :
   for oO0Oo in OoO0o :
    III1iII1I1ii = re . compile ( '<b>(.+?)</b>' ) . findall ( oO0Oo ) [ 0 ] . replace ( '<span style="font-size: large;">' , '' ) . replace ( '</span>' , '' )
    try :
-    i1i11I11 = re . compile ( '<b>(.+?)</b>' ) . findall ( oO0Oo ) [ 3 ] . replace ( '<span style="font-size: large;">' , '' ) . replace ( '</span>' , '' )
+    IiI1iIiIIIii = re . compile ( '<b>(.+?)</b>' ) . findall ( oO0Oo ) [ 3 ] . replace ( '<span style="font-size: large;">' , '' ) . replace ( '</span>' , '' )
    except IndexError :
     try :
-     i1i11I11 = re . compile ( '<b>(.+?)</b>' ) . findall ( oO0Oo ) [ 2 ] . replace ( '<span style="font-size: large;">' , '' ) . replace ( '</span>' , '' )
+     IiI1iIiIIIii = re . compile ( '<b>(.+?)</b>' ) . findall ( oO0Oo ) [ 2 ] . replace ( '<span style="font-size: large;">' , '' ) . replace ( '</span>' , '' )
     except IndexError :
-     i1i11I11 = ''
-   III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
-   i1i11I11 = o0OO0o0o00o ( i1i11I11 )
-   iiiiII1I = re . compile ( '<option value="(.+?)"' ) . findall ( oO0Oo ) [ 1 ]
-   O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "  " + i1i11I11 + "[/COLOR]" , iiiiII1I , 2 , I1IiI , Oo , '' )
+     IiI1iIiIIIii = ''
+   III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
+   IiI1iIiIIIii = o0Oo0oO0oOO00 ( IiI1iIiIIIii )
+   oOoO = re . compile ( '<option value="(.+?)"' ) . findall ( oO0Oo ) [ 1 ]
+   O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "  " + IiI1iIiIIIii + "[/COLOR]" , oOoO , 2 , I1IiI , Oo , '' )
  except :
   O000oo0O ( "[COLOR yellow]Sorry No Links Available[/COLOR]" , 'video' , 999 , I1IiI , Oo , '' )
-  if 86 - 86: i1IIi11111i
-def i1Iii11Ii1i1 ( ) :
- if 59 - 59: ooo0Oo0 % OoooooooOO . oooOOOOO / IiiIII111ii + iiI1iIiI
- if 76 - 76: IiIi1Iii1I1
+  if 81 - 81: Oooo0000 - Oooo0000 . oooOOOOO
+def o0OoOo00o0o ( ) :
+ if 41 - 41: IiIi1Iii1I1 % i1 - ooo0Oo0 * i1iIIi1 * ooo0Oo0
+ if 69 - 69: i1iIIII - OoooooooOO + i1IIi11111i - O00OoOoo00
  iiiiiIIii = 'https://api.themoviedb.org/3/movie/popular?api_key=' + I1i1iiI1 + '&language=en-US&page=1'
  OOOO = i11i1 ( iiiiiIIii )
  I11i1I1I = json . loads ( OOOO )
- OoO0O00O0oo0O = I11i1I1I [ 'results' ]
- for I1IiI11 in OoO0O00O0oo0O :
-  iI1iiiiIii = 'https://image.tmdb.org/t/p/w640'
-  III1iII1I1ii = I1IiI11 [ 'title' ]
-  I1IiI = I1IiI11 [ 'poster_path' ]
-  iIiIiIiI = I1IiI11 [ 'id' ]
-  I1IiI = iI1iiiiIii + I1IiI
-  I1ii11iIi11i = I1IiI11 [ 'backdrop_path' ]
-  I1ii11iIi11i = iI1iiiiIii + I1ii11iIi11i
-  i11 = I1IiI11 [ 'overview' ]
-  iIiIiIiI = str ( iIiIiIiI )
-  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , III1iII1I1ii , 33 , I1IiI , I1ii11iIi11i , i11 )
-  if 98 - 98: ooo0Oo0 / iiI1iIiI . O0 + i1
-def ii ( url ) :
- if 25 - 25: OoooooooOO - iiI1iIiI . iiI1iIiI * i1iII1I1i1i1
+ ii = I11i1I1I [ 'results' ]
+ for O0oOo00o in ii :
+  o0ooooO0o0O = 'https://image.tmdb.org/t/p/w640'
+  III1iII1I1ii = O0oOo00o [ 'title' ]
+  I1IiI = O0oOo00o [ 'poster_path' ]
+  iiIi11iI1iii = O0oOo00o [ 'id' ]
+  I1IiI = o0ooooO0o0O + I1IiI
+  I1ii11iIi11i = O0oOo00o [ 'backdrop_path' ]
+  I1ii11iIi11i = o0ooooO0o0O + I1ii11iIi11i
+  oo000 = O0oOo00o [ 'overview' ]
+  iiIi11iI1iii = str ( iiIi11iI1iii )
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , III1iII1I1ii , 33 , I1IiI , I1ii11iIi11i , oo000 )
+  if 63 - 63: IiIi1Iii1I1 + i1iIIII * iiiI11
+def iI1I111I ( url ) :
+ if 97 - 97: i1IIi . i1iII1I1i1i1 / oooOOOOO * O0
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div id="movie-featured"(.+?)</span>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
@@ -806,154 +806,154 @@ def ii ( url ) :
   III1iII1I1ii = III1iII1I1ii . strip ( )
   O00oO ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 27 , I1IiI , I1ii11iIi11i , '' )
  try :
-  o000oo = re . compile ( '<a class=\"pagecurrent\".+?pagelink\"\s.+?href=([^ ]+)' ) . findall ( OOOO ) [ 0 ]
-  o00o0 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'nextpage.png' ) )
-  O00oO ( '[COLOR yellow]Next Page >>[/COLOR]' , o000oo , 26 , o00o0 , I1ii11iIi11i )
+  o0O0o = re . compile ( '<a class=\"pagecurrent\".+?pagelink\"\s.+?href=([^ ]+)' ) . findall ( OOOO ) [ 0 ]
+  OO0o0o00 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'nextpage.png' ) )
+  O00oO ( '[COLOR yellow]Next Page >>[/COLOR]' , o0O0o , 26 , OO0o0o00 , I1ii11iIi11i )
  except : pass
- if 50 - 50: ooo0Oo0 / ooo0Oo0 % o000o0o00o0Oo . o000o0o00o0Oo
-def O0O0Oo00 ( url , iconimage ) :
- if 80 - 80: i1iII1I1i1i1 + i1iIIII / O00OoOoo00
+ if 12 - 12: i1IIi + i1IIi - o000o0o00o0Oo * ooo0Oo0 % ooo0Oo0 - i11Ii11I1Ii1i
+def o0OOOOooo ( url , iconimage ) :
+ if 94 - 94: OoooooooOO + ooo0Oo0 / Oooo0000 * i1iIIII
  OOOO = i11i1 ( url )
  I1IiI = re . compile ( '<div class="thumb mvic-thumb".+?url(.+?);">' ) . findall ( OOOO ) [ 0 ] . replace ( '(' , '' ) . replace ( ')' , '' )
  IIIii1II1II = re . compile ( '<p class="server_servername">(.+?)</a>' ) . findall ( OOOO )
  iIiiiI . create ( o0OoOoOO00 , '[COLOR aqua]' + "Searching Links" + "[/COLOR]" )
  iIiiiI . update ( 0 )
  iiIiI = 1
- oOOO00O0O0OOo = [ ]
+ o0OOo0o0O0O = [ ]
  for oO0Oo in IIIii1II1II :
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
-  oOOO00O0O0OOo . append ( url )
+  o0OOo0o0O0O . append ( url )
   iIiiiI . update ( 100 , '[COLOR aqua]Generating links  [COLOR aqua][COLOR yellow]Found - %s Links' "[/COLOR]" % str ( iiIiI ) )
   time . sleep ( 0.02 )
   iiIiI += 1
   III1iII1I1ii = re . compile ( '(.+?)</p>' ) . findall ( oO0Oo ) [ 0 ] . replace ( 'Server' , '' )
   III1iII1I1ii = III1iII1I1ii . strip ( )
- OOo00O = 1
+ o0OO0o0oOOO0O = 1
  I1IIiiIiii = 0
- OooOOOO = 0
+ iI = 0
  while not xbmc . Player ( ) . isPlaying ( ) :
-  if 45 - 45: o000o0o00o0Oo % iiI1iIiI - i11iIiiIii
+  if 2 - 2: IiIi1Iii1I1 / oooOOOOO . oooOOOOO % i1iIIi1
   if iIiiiI . iscanceled ( ) :
    iIiiiI . close ( )
    quit ( )
-  if I1IIiiIiii > len ( oOOO00O0O0OOo ) :
+  if I1IIiiIiii > len ( o0OOo0o0O0O ) :
    Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR yellow]None of the links played![/COLOR]" , I1IiI , 50 )
    quit ( )
-   if 11 - 11: iIii1I11I1II1 * iIii1I11I1II1 * iiI1iIiI
-  if OooOOOO == 0 :
+   if 11 - 11: iIii1I11I1II1
+  if iI == 0 :
    I1IIiiIiii += 1
    iIiiiI . update ( 100 , "[COLOR aqua]Attempting to play link :: [COLOR yellow]" + str ( I1IIiiIiii ) + "[/COLOR]" , '' )
    try :
-    OOOO = i11i1 ( oOOO00O0O0OOo [ I1IIiiIiii ] )
+    OOOO = i11i1 ( o0OOo0o0O0O [ I1IIiiIiii ] )
     OoO0o = re . compile ( 'Base64.decode.+?"(.+?)"' ) . findall ( OOOO ) [ 0 ]
-    iII1ii1 = base64 . b64decode ( OoO0o )
-    url = re . compile ( 'src="(.+?)"' ) . findall ( iII1ii1 ) [ 0 ]
-    I1i1iiiI1 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'blacklist.txt' ) )
-    iIIi = open ( I1i1iiiI1 ) . read ( )
-    oO0o00oo0 = re . compile ( '<url>(.+?)</url>' ) . findall ( iIIi )
-    for ii1IIII in oO0o00oo0 :
-     oO00oOooooo0 = re . compile ( '<bad>(.+?)<bad>' ) . findall ( ii1IIII ) [ 0 ]
-     if url == oO00oOooooo0 :
+    IiIIII1i11I = base64 . b64decode ( OoO0o )
+    url = re . compile ( 'src="(.+?)"' ) . findall ( IiIIII1i11I ) [ 0 ]
+    OOOiII1 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'blacklist.txt' ) )
+    OOo = open ( OOOiII1 ) . read ( )
+    IIii11Ii1i1I = re . compile ( '<url>(.+?)</url>' ) . findall ( OOo )
+    for Oooo0O in IIii11Ii1i1I :
+     oo00O0oO0O0 = re . compile ( '<bad>(.+?)<bad>' ) . findall ( Oooo0O ) [ 0 ]
+     if url == oo00O0oO0O0 :
       url = 'bad'
       iIiiiI . update ( 100 , '' , "[COLOR aqua]Link [COLOR yellow] %s [COLOR aqua] is blacklisted![/COLOR]" % str ( I1IIiiIiii ) )
       time . sleep ( 0.5 )
-      OooOOOO = 5
+      iI = 5
       pass
     import urlresolver
     if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-     oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+     ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
     elif liveresolver . isValid ( url ) == True :
-     oOo = liveresolver . resolve ( url )
-    else : oOo = url
+     ooo0OO0O0Oo = liveresolver . resolve ( url )
+    else : ooo0OO0O0Oo = url
     O0O0OOOOoo = xbmcgui . ListItem ( oo0OooOOo0 , iconImage = 'DefaultVideo.png' , thumbnailImage = iconimage )
-    xbmc . Player ( ) . play ( oOo , O0O0OOOOoo , False )
+    xbmc . Player ( ) . play ( ooo0OO0O0Oo , O0O0OOOOoo , False )
    except :
     iIiiiI . update ( 100 , '' , "[COLOR aqua]Link [COLOR yellow] %s [COLOR aqua] failed![/COLOR]" % str ( I1IIiiIiii ) )
     time . sleep ( 0.5 )
-    OooOOOO = 5
+    iI = 5
     pass
-  if OooOOOO == 5 :
-   OooOOOO = 0
+  if iI == 5 :
+   iI = 0
    xbmc . Player ( ) . stop ( )
   else :
    time . sleep ( 1 )
-   OooOOOO += 1
-   if 64 - 64: IiIi1Iii1I1 - Oooo0000 - iiI1iIiI . O0 + ooo0Oo0
+   iI += 1
+   if 62 - 62: O0 % O00OoOoo00 . O00OoOoo00 - iIii1I11I1II1 / i11iIiiIii
  try : iIiiiI . close ( )
  except : pass
  time . sleep ( 15 )
- I1i1iiiI1 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'blacklist.txt' ) )
+ OOOiII1 = xbmc . translatePath ( os . path . join ( 'special://home/addons/' + o0OO00 , 'blacklist.txt' ) )
  OOO00O = xbmcgui . Dialog ( ) . yesno ( o0OoOoOO00 , '[COLOR aqua]Is The Movie Playing For You?[/COLOR]' , '' , yeslabel = 'Yes' , nolabel = 'No' )
  if OOO00O :
   Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR aqua]Enjoy Your Content![/COLOR]" , I1IiI , 500 )
   quit ( )
  else :
-  with open ( I1i1iiiI1 , "a" ) as i1II1I1Iii1 :
-   i1II1I1Iii1 . write ( '<url><bad>' + url + '<bad></url>\n' )
+  with open ( OOOiII1 , "a" ) as iiiII :
+   iiiII . write ( '<url><bad>' + url + '<bad></url>\n' )
    Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR yellow]Ok we blacklisted the link Please try the movie again![/COLOR]" , I1IiI , 5000 )
    time . sleep ( 2 )
    xbmc . Player ( ) . stop ( )
    quit ( )
-   if 30 - 30: OoooooooOO - Oooo0000
-def Ooo00O0o ( url ) :
- if 72 - 72: iIii1I11I1II1 * iiiI11 % IiIi1Iii1I1 / i1
- if 35 - 35: IiIi1Iii1I1 + i1IIi % o000o0o00o0Oo % O00OoOoo00 + i1iII1I1i1i1
+   if 41 - 41: ooo0Oo0
+def IIiIi ( url ) :
+ if 91 - 91: o000o0o00o0Oo * ooo0Oo0 / iiI1iIiI . O0 + i1 + Oooo0000
+ if 8 - 8: i1iII1I1i1i1 / o000o0o00o0Oo
  if url == 'search' :
-  iiiI = ''
-  I1ii1 = xbmc . Keyboard ( iiiI , 'Enter Search Term' )
-  I1ii1 . doModal ( )
-  if I1ii1 . isConfirmed ( ) :
-   iiiI = I1ii1 . getText ( )
-   if len ( iiiI ) > 1 :
-    O00 = iiiI . lower ( )
-    if 92 - 92: iIii1I11I1II1 * i1IIi * oooOOOOO % i1iIIII % o000o0o00o0Oo + i11Ii11I1Ii1i
+  i1iI1 = ''
+  i11ii1ii11i = xbmc . Keyboard ( i1iI1 , 'Enter Search Term' )
+  i11ii1ii11i . doModal ( )
+  if i11ii1ii11i . isConfirmed ( ) :
+   i1iI1 = i11ii1ii11i . getText ( )
+   if len ( i1iI1 ) > 1 :
+    ooO0OoOO = i1iI1 . lower ( )
+    if 55 - 55: IiIi1Iii1I1 - O00OoOoo00 + i11Ii11I1Ii1i + oooOOOOO % iiiI11
    else :
     Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR aqua]Sorry, No Search Term Was Entered![/COLOR]" , o0O , 5000 )
     quit ( )
   else :
    Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR aqua]Sorry, No Search Term Was Entered![/COLOR]" , o0O , 5000 )
    quit ( )
-  O00 = O00 . replace ( ' ' , '+' )
-  url = 'http://123movies.net/search-movies/' + O00 + '.html'
-  i1iIi1I1i ( url , I1IiI )
-  if 1 - 1: O00OoOoo00 % i1iIIII + O0 + i1IIi - i1
+  ooO0OoOO = ooO0OoOO . replace ( ' ' , '+' )
+  url = 'http://123movies.net/search-movies/' + ooO0OoOO + '.html'
+  iiI11i1II ( url , I1IiI )
+  if 51 - 51: i1IIi11111i % ooo0Oo0 % i1IIi11111i * O0 - i1iIIII % ooo0Oo0
  else :
   url = url . replace ( ' ' , '+' )
   url = 'http://123movies.net/search-movies/' + url + '.html'
-  i1iIi1I1i ( url , I1IiI )
-  if 22 - 22: iiI1iIiI % o000o0o00o0Oo
-def i1iIi1I1i ( url , icon ) :
- if 57 - 57: i1iIIII + O0 . iiiI11
+  iiI11i1II ( url , I1IiI )
+  if 65 - 65: IiIi1Iii1I1
+def iiI11i1II ( url , icon ) :
+ if 68 - 68: IiIi1Iii1I1 % i11iIiiIii + i11Ii11I1Ii1i
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class="ml-item">(.+?)</span>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   III1iII1I1ii = re . compile ( '<i>(.+?)</i>' ) . findall ( oO0Oo ) [ 0 ]
-  III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
+  III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
   icon = re . compile ( '<img src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   O00oO ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 27 , icon , I1ii11iIi11i )
-  if 46 - 46: IiiIII111ii
-def ii1iIi1iIiI1i ( ) :
- if 40 - 40: i1IIi % i1iIIII
+  if 52 - 52: o000o0o00o0Oo - ooo0Oo0 + o000o0o00o0Oo % i1IIi11111i
+def iI1IiI ( ) :
+ if 21 - 21: i1 + iiI1iIiI % iiI1iIiI
  iiiiiIIii = 'http://www.genti.stream/'
  OOOO = i11i1 ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  IIIii1II1II = re . compile ( '<div class="date">(.+?)<!-- Table.+?finish-->' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
-  ooo0o00 = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ] . strip ( )
-  ooO = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( oO0Oo ) [ 1 ] . strip ( )
+  oO0o0oooO0oO = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ] . strip ( )
+  IiIiII1 = re . compile ( '<div class="team-name">(.+?)</div>' ) . findall ( oO0Oo ) [ 1 ] . strip ( )
   iiiiiIIii = re . compile ( 'href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   iiiiiIIii = 'http://www.genti.stream/' + iiiiiIIii
-  O000oo0O ( "[COLOR aqua]" + ooo0o00 + "[COLOR yellow] vs [COLOR aqua]" + ooO + "[/COLOR]" , iiiiiIIii , 39 , I1IiI , I1ii11iIi11i )
-  if 74 - 74: iiI1iIiI
-def o0o0oOoOO0O ( url ) :
- if 16 - 16: IiiIII111ii % iIii1I11I1II1 . iiiI11
+  O000oo0O ( "[COLOR aqua]" + oO0o0oooO0oO + "[COLOR yellow] vs [COLOR aqua]" + IiIiII1 + "[/COLOR]" , iiiiiIIii , 39 , I1IiI , I1ii11iIi11i )
+  if 21 - 21: O0 % IiiIII111ii . iiI1iIiI / i11Ii11I1Ii1i + IiiIII111ii
+def OOOO0O00o ( url ) :
+ if 62 - 62: iIii1I11I1II1
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
- oooooOOO000Oo = re . compile ( '<iframe.+?src="(.+?)"' ) . findall ( OOOO ) [ 0 ]
- if not 'http' in oooooOOO000Oo :
-  oooooOOO000Oo = 'http://www.genti.stream' + oooooOOO000Oo
- oO0o0Ooooo = i11i1 ( oooooOOO000Oo ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
- Ooo00OoOOO = re . compile ( '<iframe.+?src="(.+?)"' ) . findall ( oO0o0Ooooo ) [ 0 ]
- I1iI1ii1II = i11i1 ( Ooo00OoOOO ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ i1II = re . compile ( '<iframe.+?src="(.+?)"' ) . findall ( OOOO ) [ 0 ]
+ if not 'http' in i1II :
+  i1II = 'http://www.genti.stream' + i1II
+ oO0o0Ooooo = i11i1 ( i1II ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
+ iI1I = re . compile ( '<iframe.+?src="(.+?)"' ) . findall ( oO0o0Ooooo ) [ 0 ]
+ I1iI1ii1II = i11i1 ( iI1I ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  try :
   url = re . compile ( 'src : "(.+?)"' ) . findall ( I1iI1ii1II ) [ 0 ]
  except : IndexError
@@ -966,52 +966,52 @@ def o0o0oOoOO0O ( url ) :
  try :
   url = re . compile ( "source: '(.+?)'" ) . findall ( I1iI1ii1II ) [ 0 ]
  except : pass
- if 98 - 98: iIii1I11I1II1 * o000o0o00o0Oo * i1iIIII + IiIi1Iii1I1 % i11iIiiIii % O0
+ if 100 - 100: iIii1I11I1II1 + Oooo0000 / ooo0Oo0 . i11iIiiIii
  if 'http' not in url :
   Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR aqua]Sorry, No Link Avilable At The Moment![/COLOR]" , o0O , 5000 )
   quit ( )
  I11iI ( oo0OooOOo0 , url , o0O )
- if 27 - 27: O0
- if 79 - 79: i1IIi11111i - O00OoOoo00 + i1IIi11111i . i1iII1I1i1i1
-def ii1III11 ( url ) :
- if 7 - 7: oooOOOOO % O0 . Oooo0000 + iiI1iIiI - O00OoOoo00
- o0o0O00oo0 = cfscrape . create_scraper ( )
- O000OO0 = o0o0O00oo0 . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ if 14 - 14: i1IIi11111i * i1iIIII + oooOOOOO + O0 + i11iIiiIii
+ if 77 - 77: i1IIi11111i / OoooooooOO
+def IIii11I1i1I ( url ) :
+ if 99 - 99: oooOOOOO
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ O000OO0 = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  IIIii1II1II = re . compile ( '<div class="alphabet">(.+?)</div>' ) . findall ( O000OO0 ) [ 0 ]
  OoO0o = re . compile ( '<a href="(.+?)">(.+?)</a>' ) . findall ( IIIii1II1II )
  for url , III1iII1I1ii in OoO0o :
   url = 'http://kimcartoon.me/CartoonList' + url
   O00oO ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 30 , I1IiI , I1ii11iIi11i , '' )
-  if 27 - 27: i11iIiiIii % i11Ii11I1Ii1i % O00OoOoo00 . O0 - ooo0Oo0 + Oooo0000
-def ooO0o ( url ) :
- if 51 - 51: IiiIII111ii
- o0o0O00oo0 = cfscrape . create_scraper ( )
- O000OO0 = o0o0O00oo0 . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  if 17 - 17: i1IIi
+def iiIi1i ( url ) :
+ if 27 - 27: i1iIIII * IiIi1Iii1I1 . i1iIIi1 % IiiIII111ii * IiiIII111ii . i1IIi
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ O000OO0 = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  IIIii1II1II = re . compile ( '<div class="item.+?"(.+?)</a>' ) . findall ( O000OO0 )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( '<span class="title">(.+?)</span>' ) . findall ( oO0Oo ) [ 0 ]
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   url = 'http://kimcartoon.me' + url
   try :
-   ii11I1 = re . compile ( 'description&quot;>(.+?)</p>' ) . findall ( oO0Oo ) [ 0 ]
-   ii11I1 = o0OO0o0o00o ( ii11I1 )
+   O0OOoOOO0oO = re . compile ( 'description&quot;>(.+?)</p>' ) . findall ( oO0Oo ) [ 0 ]
+   O0OOoOOO0oO = o0Oo0oO0oOO00 ( O0OOoOOO0oO )
   except IndexError :
-   ii11I1 = ''
-  O00oO ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 31 , I1IiI , I1ii11iIi11i , ii11I1 )
-  if 75 - 75: i1 / i11Ii11I1Ii1i % O0
+   O0OOoOOO0oO = ''
+  O00oO ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 31 , I1IiI , I1ii11iIi11i , O0OOoOOO0oO )
+  if 28 - 28: IiIi1Iii1I1 + i11iIiiIii / O00OoOoo00 % Oooo0000 % ooo0Oo0 - O0
  try :
-  Ii111iIi1iIi = re . compile ( '<li>(.+?)Next' ) . findall ( O000OO0 )
-  for oO0Oo in Ii111iIi1iIi :
-   o000oo = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ - 1 ]
-   IIIIIo0ooOoO000oO = 'http://kimcartoon.me' + o000oo
-   OOo = 'https://i.imgur.com/mjCRjXT.png'
-   O00oO ( "[COLOR yellow][B]Next Page ===>[/B][/COLOR]" , IIIIIo0ooOoO000oO , 30 , OOo , I1ii11iIi11i )
+  ooo0OOO = re . compile ( '<li>(.+?)Next' ) . findall ( O000OO0 )
+  for oO0Oo in ooo0OOO :
+   o0O0o = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ - 1 ]
+   iii1Ii1Ii1 = 'http://kimcartoon.me' + o0O0o
+   IIi = 'https://i.imgur.com/mjCRjXT.png'
+   O00oO ( "[COLOR yellow][B]Next Page ===>[/B][/COLOR]" , iii1Ii1Ii1 , 30 , IIi , I1ii11iIi11i )
  except : pass
- if 50 - 50: IiIi1Iii1I1
-def o0O0O0ooo0oOO ( url ) :
- if 97 - 97: iiI1iIiI / oooOOOOO
- o0o0O00oo0 = cfscrape . create_scraper ( )
- O000OO0 = o0o0O00oo0 . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ if 94 - 94: i11Ii11I1Ii1i - ooo0Oo0
+def oo0oO0 ( url ) :
+ if 1 - 1: i1IIi . i11iIiiIii % i1iIIII
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ O000OO0 = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  IIIii1II1II = re . compile ( '<td>(.+?)</td>' ) . findall ( O000OO0 )
  for oO0Oo in IIIii1II1II :
   try :
@@ -1020,14 +1020,14 @@ def o0O0O0ooo0oOO ( url ) :
    url = 'http://kimcartoon.me' + url
    O000oo0O ( "[COLOR aqua][B]" + III1iII1I1ii + "[/B][/COLOR]" , url , 32 , I1IiI , I1ii11iIi11i )
   except : pass
-  if 71 - 71: i11Ii11I1Ii1i / i1IIi . o000o0o00o0Oo % OoooooooOO . Oooo0000
-def Iiiiii111i1ii ( url ) :
- if 25 - 25: i1iIIII - IiIi1Iii1I1 / i11iIiiIii
+  if 82 - 82: iIii1I11I1II1 + ooo0Oo0 . iIii1I11I1II1 % IiiIII111ii / iiiI11 . iiiI11
+def IIioOoO00oo0O ( url ) :
+ if 39 - 39: iIii1I11I1II1 / O0 / i1iII1I1i1i1 - iiiI11 - oooOOOOO % i1iIIII
  o0 = Iii1ii1II11i . select ( '[COLOR aqua]Choose A Source[/COLOR]' , [ '[COLOR yellow]Rapid Video[/COLOR]' , '[COLOR yellow]Openload [COLOR aqua](Requires Pairing)[/COLOR]' ] )
  if o0 == 0 :
   url = url + '&s=rapidvideo'
-  o0o0O00oo0 = cfscrape . create_scraper ( )
-  O000OO0 = o0o0O00oo0 . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  oOO0O00o0OO0O = cfscrape . create_scraper ( )
+  O000OO0 = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
   try :
    OoO0o = re . compile ( '<div id="divContentVideo"(.+?)</iframe>' ) . findall ( O000OO0 )
    for OOOO in OoO0o :
@@ -1040,8 +1040,8 @@ def Iiiiii111i1ii ( url ) :
    Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR yellow]No Links For This Source, Try Another[/COLOR]" , I1IiI , 5000 )
  if o0 == 1 :
   url = url + '&s=openload'
-  o0o0O00oo0 = cfscrape . create_scraper ( )
-  O000OO0 = o0o0O00oo0 . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  oOO0O00o0OO0O = cfscrape . create_scraper ( )
+  O000OO0 = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
   try :
    OoO0o = re . compile ( '<div id="divContentVideo"(.+?)</iframe>' ) . findall ( O000OO0 )
    for OOOO in OoO0o :
@@ -1049,10 +1049,10 @@ def Iiiiii111i1ii ( url ) :
     I11iI ( oo0OooOOo0 , url , o0O )
   except IndexError :
    Iii1ii1II11i . notification ( o0OoOoOO00 , "[COLOR yellow]No Links For This Source, Try Another[/COLOR]" , I1IiI , 5000 )
-   if 41 - 41: i1IIi % oooOOOOO + iIii1I11I1II1
-   if 2 - 2: iIii1I11I1II1 * ooo0Oo0 % i1iII1I1i1i1 - i11Ii11I1Ii1i - oooOOOOO
-def iIi11iiIiI1I ( ) :
- if 3 - 3: i1IIi / i11Ii11I1Ii1i / i11iIiiIii * i1IIi - i11Ii11I1Ii1i
+   if 31 - 31: O00OoOoo00 - O0 / IiIi1Iii1I1 * Oooo0000
+   if 12 - 12: i1IIi11111i - IiIi1Iii1I1 * i1iIIi1
+def II1111ii ( ) :
+ if 27 - 27: O0
  iiiiiIIii = "http://www.loyalbooks.com/genre-menu"
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '<td class="link menu">(.+?)</a>' , re . DOTALL ) . findall ( OOOO )
@@ -1062,13 +1062,13 @@ def iIi11iiIiI1I ( ) :
    I1iI1ii1II = "http://www.loyalbooks.com" + oO0o0Ooooo
    oo0OooOOo0 = re . compile ( 'id="(.+?)"' , re . DOTALL ) . findall ( i1I1iI ) [ 0 ]
    O00oO ( "[COLOR aqua]" + oo0OooOOo0 + "[/COLOR]" , I1iI1ii1II , 60 , I1IiI , Oo , '' )
-   if 42 - 42: i11Ii11I1Ii1i . OoooooooOO . i1IIi11111i * i1iII1I1i1i1
-def O0OOO0OOooo00 ( url ) :
- if 6 - 6: iiiI11 - IiIi1Iii1I1 * i1iIIII . oooOOOOO / O0 * IiIi1Iii1I1
+   if 79 - 79: i1IIi11111i - O00OoOoo00 + i1IIi11111i . i1iII1I1i1i1
+def ii1III11 ( url ) :
+ if 7 - 7: oooOOOOO % O0 . Oooo0000 + iiI1iIiI - O00OoOoo00
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '</table><br>(.+?)data-ad-format="horizontal' , re . DOTALL ) . findall ( OOOO ) [ 0 ]
- II11iI111i1 = re . compile ( '<td(.+?)</td>' , re . DOTALL ) . findall ( IIIii1II1II )
- for i1I1iI in II11iI111i1 :
+ o0o0O00oo0 = re . compile ( '<td(.+?)</td>' , re . DOTALL ) . findall ( IIIii1II1II )
+ for i1I1iI in o0o0O00oo0 :
   OOOo00oo0oO = re . compile ( '<a href="(.+?)">' , re . DOTALL ) . findall ( i1I1iI ) [ 0 ]
   I1iI1ii1II = "http://www.loyalbooks.com" + OOOo00oo0oO
   I1IiI = re . compile ( 'src="(.+?)"' , re . DOTALL ) . findall ( i1I1iI ) [ 0 ]
@@ -1081,31 +1081,31 @@ def O0OOO0OOooo00 ( url ) :
   I1IiI = 'https://i.imgur.com/mjCRjXT.png'
   O00oO ( "[COLOR yellow]Next Page -->[/COLOR]" , ooO0oOOooOo0 , 60 , I1IiI , Oo , '' )
  except : pass
- if 95 - 95: OoooooooOO - IiiIII111ii * iiI1iIiI + Oooo0000
- if 10 - 10: i1IIi11111i / i11iIiiIii
-def o00 ( name , url , iconimage ) :
- if 85 - 85: o000o0o00o0Oo . i1iIIi1
+ if 27 - 27: i11iIiiIii % i11Ii11I1Ii1i % O00OoOoo00 . O0 - ooo0Oo0 + Oooo0000
+ if 57 - 57: iIii1I11I1II1 / O00OoOoo00 - i1IIi
+def ooOOo00O00Oo ( name , url , iconimage ) :
+ if 42 - 42: O0 / i1IIi11111i + OoooooooOO * IiIi1Iii1I1 % IiIi1Iii1I1
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '{name:(.+?)}' , re . DOTALL ) . findall ( OOOO )
  for i1I1iI in IIIii1II1II :
   III1iII1I1ii = re . compile ( '"(.+?)"' , re . DOTALL ) . findall ( i1I1iI ) [ 0 ]
   OOOo00oo0oO = re . compile ( 'mp3:"(.+?)"' , re . DOTALL ) . findall ( i1I1iI ) [ 0 ]
   O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , OOOo00oo0oO , 10 , iconimage , Oo , '' )
-  if 78 - 78: IiIi1Iii1I1 * i1iIIi1 + iIii1I11I1II1 + iIii1I11I1II1 / i1iIIi1 . iiiI11
-def O000 ( ) :
- if 79 - 79: OoooooooOO - iiI1iIiI
+  if 7 - 7: oooOOOOO / o000o0o00o0Oo / i11iIiiIii
+def IIIIIo0ooOoO000oO ( ) :
+ if 85 - 85: i1IIi11111i . Oooo0000 / IiIi1Iii1I1 . O0 % i1iIIi1
  iiiiiIIii = 'http://www.shadownet.me/'
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( "<div class=\"SideCategoryListClassic\">(.+?)</div>" ) . findall ( OOOO ) [ 0 ]
  OoO0o = re . compile ( '<a href="(.+?)">(.+?)</a>' ) . findall ( IIIii1II1II )
  for iiiiiIIii , III1iII1I1ii in OoO0o :
-  III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
+  III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
   if 'P2P' not in III1iII1I1ii :
    O00oO ( "[COLOR skyblue]" + III1iII1I1ii + "[/COLOR]" , iiiiiIIii , 49 , I1IiI , Oo , '' )
-   if 69 - 69: O00OoOoo00
-   if 95 - 95: IiIi1Iii1I1 + i11iIiiIii * i1iIIi1 - i1IIi * i1iIIi1 - iIii1I11I1II1
-def oo0o0O0Oooooo ( url ) :
- if 1 - 1: IiIi1Iii1I1 % Oooo0000 * ooo0Oo0
+   if 90 - 90: ooo0Oo0 % O0 * iIii1I11I1II1 . oooOOOOO
+   if 8 - 8: IiIi1Iii1I1 + i11Ii11I1Ii1i / oooOOOOO / O00OoOoo00
+def ooo0O ( url ) :
+ if 16 - 16: Oooo0000
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( "<div class=\"CategoryDescription\">(.+?)<br class=\"Clear\" />" ) . findall ( OOOO ) [ 0 ]
  OoO0o = re . compile ( '<div class="ProductImage">(.+?)</a>' ) . findall ( IIIii1II1II )
@@ -1115,23 +1115,23 @@ def oo0o0O0Oooooo ( url ) :
   I1IiI = re . compile ( '<img src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   O000oo0O ( "[COLOR skyblue]" + III1iII1I1ii + "[/COLOR]" , url , 50 , I1IiI , Oo , '' )
  try :
-  o000oo = re . compile ( '<a href=\"([^"]*)\">Next &raquo;</a>' , re . DOTALL ) . findall ( OOOO ) [ 0 ]
+  o0O0o = re . compile ( '<a href=\"([^"]*)\">Next &raquo;</a>' , re . DOTALL ) . findall ( OOOO ) [ 0 ]
   I1IiI = 'http://i.imgur.com/CIZ8oYV.png'
-  O00oO ( "[COLOR orange]Next Page --->[/COLOR]" , o000oo , 49 , I1IiI , Oo , '' )
+  O00oO ( "[COLOR orange]Next Page --->[/COLOR]" , o0O0o , 49 , I1IiI , Oo , '' )
  except : pass
- if 55 - 55: Oooo0000
-def Ooo0oo0ooO ( url ) :
- if 74 - 74: O0 * i1iII1I1i1i1 - i11iIiiIii + i1iIIi1
- def Iii ( url ) :
-  I1iiiiI1iI = urllib2 . Request ( url )
-  I1iiiiI1iI . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
-  I1iiiiI1iI . add_header ( 'Referer' , url )
-  iIiiiii1i = urllib2 . urlopen ( I1iiiiI1iI , timeout = 5 )
-  OOOO = iIiiiii1i . read ( )
-  iIiiiii1i . close ( )
+ if 41 - 41: i1IIi * i11Ii11I1Ii1i / OoooooooOO . i1iIIII
+def O0iII1 ( url ) :
+ if 27 - 27: i1 . O00OoOoo00 + Oooo0000 / iIii1I11I1II1 % oooOOOOO . IiIi1Iii1I1
+ def IIIIi1 ( url ) :
+  iIi11iiIiI1I = urllib2 . Request ( url )
+  iIi11iiIiI1I . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
+  iIi11iiIiI1I . add_header ( 'Referer' , url )
+  IiiioooOOoooo = urllib2 . urlopen ( iIi11iiIiI1I , timeout = 5 )
+  OOOO = IiiioooOOoooo . read ( )
+  IiiioooOOoooo . close ( )
   return OOOO
-  if 40 - 40: O0 - OoooooooOO - IiiIII111ii
- OOOO = Iii ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  if 89 - 89: oooOOOOO - IiIi1Iii1I1 % ooo0Oo0 % i1IIi11111i
+ OOOO = IIIIi1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  try :
   IIIii1II1II = re . compile ( '<iframe src=\'(.+?)\'' ) . findall ( OOOO ) [ 0 ]
  except IndexError :
@@ -1140,25 +1140,25 @@ def Ooo0oo0ooO ( url ) :
  if 'youtube' in IIIii1II1II :
   url = IIIii1II1II
   I11iI ( oo0OooOOo0 , url , o0O )
- I1iI1ii1II = Iii ( IIIii1II1II )
+ I1iI1ii1II = IIIIi1 ( IIIii1II1II )
  url = re . compile ( 'source: "(.+?)"' ) . findall ( I1iI1ii1II ) [ 0 ]
  if 'http://thepk.co' in url :
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Sorry Channel Offline At The Moment[/COLOR]' , I1IiI , 5000 )
   quit ( )
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
- if 37 - 37: Oooo0000 / i11Ii11I1Ii1i / O0
+ if 49 - 49: ooo0Oo0 - iiI1iIiI / IiiIII111ii / O0 % i1IIi11111i * iiiI11
  import liveresolver
  import urlresolver
  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-  oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+  ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
   O0O0OOOOoo = xbmcgui . ListItem ( oo0OooOOo0 , iconImage = o0O , thumbnailImage = o0O )
-  O0O0OOOOoo . setPath ( oOo )
-  xbmc . Player ( ) . play ( oOo , O0O0OOOOoo , False )
+  O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
+  xbmc . Player ( ) . play ( ooo0OO0O0Oo , O0O0OOOOoo , False )
  elif liveresolver . isValid ( url ) == True :
   url = liveresolver . resolve ( url )
   O0O0OOOOoo = xbmcgui . ListItem ( oo0OooOOo0 , iconImage = o0O , thumbnailImage = o0O )
-  O0O0OOOOoo . setPath ( oOo )
-  xbmc . Player ( ) . play ( oOo , O0O0OOOOoo , False )
+  O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
+  xbmc . Player ( ) . play ( ooo0OO0O0Oo , O0O0OOOOoo , False )
  else :
   if '.m3u8' in url :
    OOOo00oo0oO = 'plugin://plugin.video.f4mTester/?streamtype=HLSRETRY&amp;name=' + oo0OooOOo0 + '&amp;url=' + url + '&amp;iconImage=' + o0O
@@ -1166,26 +1166,26 @@ def Ooo0oo0ooO ( url ) :
    OOOo00oo0oO = 'plugin://plugin.video.f4mTester/?streamtype=TSDOWNLOADER&amp;name=' + oo0OooOOo0 + '&amp;url=' + url + '&amp;iconImage=' + o0O
   else :
    OOOo00oo0oO = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26title=%26url=' + url + '%26referer=https://soccerstreams.net'
-   if 76 - 76: iiI1iIiI . IiIi1Iii1I1 - o000o0o00o0Oo - oooOOOOO * i1
+   if 100 - 100: i1iIIII . oooOOOOO / O0 * i1IIi * iiiI11 * ooo0Oo0
   O0O0OOOOoo = xbmcgui . ListItem ( oo0OooOOo0 , iconImage = o0O , thumbnailImage = o0O )
   O0O0OOOOoo . setPath ( url )
-  if 54 - 54: IiiIII111ii + O0 + O00OoOoo00 * i1iIIi1 - i1iIIII % i1iII1I1i1i1
+  if 84 - 84: o000o0o00o0Oo / i1iIIII % i11iIiiIii * i1iIIi1 % o000o0o00o0Oo - OoooooooOO
   xbmc . Player ( ) . play ( OOOo00oo0oO , O0O0OOOOoo , False )
-  if 13 - 13: IiIi1Iii1I1 / oooOOOOO * i1 . i1 * IiIi1Iii1I1
-  if 63 - 63: i1iIIi1 / O0 * ooo0Oo0 + i11Ii11I1Ii1i / IiiIII111ii + iiiI11
-def OOoO000 ( ) :
- if 57 - 57: i11Ii11I1Ii1i
+  if 99 - 99: iiI1iIiI + O0 + i1IIi / i11iIiiIii - i1IIi * iIii1I11I1II1
+  if 72 - 72: iiI1iIiI * o000o0o00o0Oo . iiiI11 * IiiIII111ii * ooo0Oo0 * i1iIIi1
+def iii11 ( ) :
+ if 97 - 97: IiIi1Iii1I1 / i1iIIi1 % i1IIi % o000o0o00o0Oo
  iiiiiIIii = 'https://m.skylinewebcams.com/en/webcam'
  OOOO = i11i1 ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  OoO0o = re . compile ( '<div id="list-menu">(.+?)</div>' ) . findall ( OOOO ) [ 0 ]
- oOOOoo = re . compile ( '<a href="(.+?)">(.+?)</a>' ) . findall ( OoO0o )
- for iiiiiIIii , III1iII1I1ii in oOOOoo :
+ ii111I11iI = re . compile ( '<a href="(.+?)">(.+?)</a>' ) . findall ( OoO0o )
+ for iiiiiIIii , III1iII1I1ii in ii111I11iI :
   if 'http|https' not in iiiiiIIii :
    iiiiiIIii = 'https://m.skylinewebcams.com' + iiiiiIIii
    O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , iiiiiIIii , 46 , I1IiI , Oo , '' )
-   if 15 - 15: i11iIiiIii % iiI1iIiI * O00OoOoo00 / i1iIIi1
-def oooO0o0o0O0 ( url ) :
- if 27 - 27: OoooooooOO - oooOOOOO / O00OoOoo00
+   if 93 - 93: o000o0o00o0Oo / iIii1I11I1II1 * i1IIi % OoooooooOO * O0 * O00OoOoo00
+def Ooooooo ( url ) :
+ if 39 - 39: IiiIII111ii * ooo0Oo0 + iIii1I11I1II1 - IiiIII111ii + i1iIIII
  OOOO = i11i1 ( url )
  OoO0o = re . compile ( '<div class="cam"><a href="(.+?)"><amp-img src="(.+?)" alt="(.+?)"' ) . findall ( OOOO )
  for url , I1IiI , III1iII1I1ii in OoO0o :
@@ -1194,10 +1194,10 @@ def oooO0o0o0O0 ( url ) :
   if 'https' not in url :
    url = 'https://m.skylinewebcams.com' + url
   O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 47 , I1IiI , Oo , '' )
-  if 76 - 76: i1IIi11111i % iiI1iIiI . iIii1I11I1II1 - IiiIII111ii * OoooooooOO . oooOOOOO
-  if 84 - 84: i1iIIi1 + O00OoOoo00
-def IIiiIIi1 ( name , url , iconimage ) :
- if 59 - 59: IiiIII111ii . i1iIIII % i11Ii11I1Ii1i
+  if 69 - 69: O0
+  if 85 - 85: IiIi1Iii1I1 / O0
+def iI1iIIIi1i ( name , url , iconimage ) :
+ if 89 - 89: iIii1I11I1II1
  OOOO = i11i1 ( url )
  try :
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
@@ -1205,38 +1205,38 @@ def IIiiIIi1 ( name , url , iconimage ) :
   url = 'https:' + IIIii1II1II
   O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = iconimage , thumbnailImage = iconimage )
   xbmc . Player ( ) . play ( url , O0O0OOOOoo , False )
-  if 39 - 39: o000o0o00o0Oo
+  if 21 - 21: O00OoOoo00 % O00OoOoo00
  except : pass
  quit ( 0 )
- if 97 - 97: i1iIIII - i1 / iiiI11 . i11iIiiIii % i1iII1I1i1i1 * i1iII1I1i1i1
-def ii1IIIIiI11 ( ) :
- if 40 - 40: i1IIi11111i
- iiiiiIIii = 'https://watchepisodeseries.immunicity.st/home/schedule'
+ if 27 - 27: i11iIiiIii / o000o0o00o0Oo
+def oOoOOo ( ) :
+ if 3 - 3: O0 / oooOOOOO
+ iiiiiIIii = 'http://www.watchepisodeseries.com/home/schedule'
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '<div class="schedule-calendar">(.+?)</div>' ) . findall ( OOOO ) [ 0 ]
  OoO0o = re . compile ( '<a href="(.+?)" class="passive"><span>(.+?)</span><br>(.+?)</a>' ) . findall ( IIIii1II1II )
- for iiiiiIIii , OOOooo , Oo00oo0000OO in OoO0o :
-  O00oO ( "[COLOR aqua]" + OOOooo + "  " + Oo00oo0000OO + "[/COLOR]" , iiiiiIIii , 67 , I1IiI , I1ii11iIi11i )
-  if 69 - 69: IiIi1Iii1I1 - i1 / i11iIiiIii + o000o0o00o0Oo % OoooooooOO
-  if 73 - 73: iiiI11 - i1iIIi1
-def O00oooo00o0O ( url ) :
- if 9 - 9: iiI1iIiI % iiI1iIiI % i11Ii11I1Ii1i
+ for iiiiiIIii , iIiIi1I , iiii11i in OoO0o :
+  O00oO ( "[COLOR aqua]" + iIiIi1I + "  " + iiii11i + "[/COLOR]" , iiiiiIIii , 67 , I1IiI , I1ii11iIi11i )
+  if 35 - 35: o000o0o00o0Oo * oooOOOOO - i1 % i1IIi11111i
+  if 87 - 87: Oooo0000 * i1iIIi1 . O00OoOoo00
+def O0Oo0o000oO ( url ) :
+ if 99 - 99: i1iII1I1i1i1 * i11Ii11I1Ii1i * i1iIIi1
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class="sl-box">(.+?)</div>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 1 ]
-  III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
+  III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   o0O = re . compile ( 'style="background-image:.+?\'(.+?)\'' ) . findall ( oO0Oo ) [ 0 ]
   I1ii11iIi11i = re . compile ( 'style="background-image:.+?\'(.+?)\'' ) . findall ( oO0Oo ) [ 0 ]
   O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 68 , o0O , I1ii11iIi11i )
-  if 30 - 30: IiiIII111ii + i1iIIi1 - IiiIII111ii . IiiIII111ii - i11Ii11I1Ii1i + O0
-  if 86 - 86: i1IIi
-def IIi11IIiIii1 ( url , iconimage , fanart ) :
- if 17 - 17: iiiI11 + i1iII1I1i1i1 . i1 - ooo0Oo0 * i11iIiiIii
+  if 92 - 92: ooo0Oo0
+  if 40 - 40: Oooo0000 / IiiIII111ii
+def OOOoO000 ( url , iconimage , fanart ) :
+ if 57 - 57: i11Ii11I1Ii1i
  OOOO = i11i1 ( url )
- iioOo0OoOOo0 = re . compile ( '<ul class="sd-gallery">(.+?)</li>' ) . findall ( OOOO )
- for oO0Oo in iioOo0OoOOo0 :
+ oOOOoo = re . compile ( '<ul class="sd-gallery">(.+?)</li>' ) . findall ( OOOO )
+ for oO0Oo in oOOOoo :
   fanart = re . compile ( 'data-src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
  IIIii1II1II = re . compile ( '<div class="watched">(.+?)<div class="el-item">' ) . findall ( OOOO )
  iiIiI = datetime . now ( )
@@ -1244,28 +1244,28 @@ def IIi11IIiIii1 ( url , iconimage , fanart ) :
   try :
    url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
    III1iII1I1ii = re . compile ( '<div class="name">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
-   III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
-   iII11I1Ii1 = re . compile ( '<div class="season">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
-   o0o0 = re . compile ( '<div class="episode">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
-   OOOooo = re . compile ( '<div class="date">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ] . replace ( '-' , '/' )
-   if 'Air Date' not in OOOooo :
-    OOOooo = OOOooo . strip ( )
-    OOOooo = time . strptime ( OOOooo , "%d/%m/%Y" )
-    oOo0oOIIi1IIIIi = ( "%s/%s/%s" % ( iiIiI . day , iiIiI . month , iiIiI . year ) )
-    oOo0oOIIi1IIIIi = time . strptime ( oOo0oOIIi1IIIIi , "%d/%m/%Y" )
-    if ( oOo0oOIIi1IIIIi < OOOooo ) :
+   III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
+   Ii1ii111i1 = re . compile ( '<div class="season">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
+   i1i1i1I = re . compile ( '<div class="episode">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
+   iIiIi1I = re . compile ( '<div class="date">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ] . replace ( '-' , '/' )
+   if 'Air Date' not in iIiIi1I :
+    iIiIi1I = iIiIi1I . strip ( )
+    iIiIi1I = time . strptime ( iIiIi1I , "%d/%m/%Y" )
+    oOoo000 = ( "%s/%s/%s" % ( iiIiI . day , iiIiI . month , iiIiI . year ) )
+    oOoo000 = time . strptime ( oOoo000 , "%d/%m/%Y" )
+    if ( oOoo000 < iIiIi1I ) :
      III1iII1I1ii = '[COLOR yellow]' + ( III1iII1I1ii ) + ' - Not Aired Yet' + '[/COLOR]'
-     o0o0 = '[COLOR yellow]' + ( o0o0 ) + '[/COLOR]'
-     iII11I1Ii1 = '[COLOR yellow]' + ( iII11I1Ii1 ) + '[/COLOR]'
-     if 70 - 70: i1iIIII / i11Ii11I1Ii1i - iIii1I11I1II1 - oooOOOOO
-    if not 'Season 0' in iII11I1Ii1 :
-     O00oO ( "[COLOR aqua]" + iII11I1Ii1 + " " + o0o0 + " " + III1iII1I1ii + "[/COLOR]" , url , 69 , iconimage , fanart )
+     i1i1i1I = '[COLOR yellow]' + ( i1i1i1I ) + '[/COLOR]'
+     Ii1ii111i1 = '[COLOR yellow]' + ( Ii1ii111i1 ) + '[/COLOR]'
+     if 87 - 87: OoooooooOO - i1IIi11111i / IiiIII111ii . i11iIiiIii * OoooooooOO
+    if not 'Season 0' in Ii1ii111i1 :
+     O00oO ( "[COLOR aqua]" + Ii1ii111i1 + " " + i1i1i1I + " " + III1iII1I1ii + "[/COLOR]" , url , 69 , iconimage , fanart )
   except : pass
-  if 11 - 11: iIii1I11I1II1 . OoooooooOO . i11Ii11I1Ii1i / i1IIi - O00OoOoo00
-  if 30 - 30: Oooo0000
-def Ii111 ( url , iconimage , fanart ) :
- if 67 - 67: O0
- if 52 - 52: i11Ii11I1Ii1i . IiIi1Iii1I1 / Oooo0000 / OoooooooOO . i11iIiiIii
+  if 84 - 84: Oooo0000 / O00OoOoo00 * oooOOOOO / i1iII1I1i1i1 - i11iIiiIii . ooo0Oo0
+  if 60 - 60: o000o0o00o0Oo * iiI1iIiI
+def I1iIiI11I1 ( url , iconimage , fanart ) :
+ if 27 - 27: iiiI11 . i11iIiiIii % i1iIIi1
+ if 65 - 65: i11Ii11I1Ii1i . iiI1iIiI % i1iII1I1i1i1 * i1
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class="domain">(.+?)<div class="watch"' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
@@ -1286,9 +1286,9 @@ def Ii111 ( url , iconimage , fanart ) :
              if not 'Mrfile.Me' in III1iII1I1ii :
               O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 70 , iconimage , fanart )
   except : pass
-  if 30 - 30: O00OoOoo00 / iiiI11 . IiiIII111ii . OoooooooOO - ooo0Oo0
-  if 44 - 44: O0 * OoooooooOO % IiIi1Iii1I1 + i11Ii11I1Ii1i
-def II1i1i1iII1 ( url , iconimage , fanart ) :
+  if 38 - 38: Oooo0000 / oooOOOOO % ooo0Oo0
+  if 11 - 11: oooOOOOO - i1iII1I1i1i1 + i11Ii11I1Ii1i - iIii1I11I1II1
+def I1i11ii11 ( url , iconimage , fanart ) :
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class="wb-main">(.+?)</div>' ) . findall ( OOOO )
@@ -1297,32 +1297,32 @@ def II1i1i1iII1 ( url , iconimage , fanart ) :
   import urlresolver
   try :
    if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-    oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+    ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
    elif liveresolver . isValid ( url ) == True :
-    oOo = liveresolver . resolve ( url )
-   else : oOo = url
+    ooo0OO0O0Oo = liveresolver . resolve ( url )
+   else : ooo0OO0O0Oo = url
    O0O0OOOOoo = xbmcgui . ListItem ( iconImage = 'DefaultVideo.png' , thumbnailImage = iconimage )
-   O0O0OOOOoo . setPath ( oOo )
+   O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
    xbmcplugin . setResolvedUrl ( int ( sys . argv [ 1 ] ) , True , O0O0OOOOoo )
-   xbmc . Player ( ) . play ( oOo )
-   if 68 - 68: ooo0Oo0 + i11iIiiIii
+   xbmc . Player ( ) . play ( ooo0OO0O0Oo )
+   if 81 - 81: i1iIIII - O00OoOoo00 % IiIi1Iii1I1 - i1 / ooo0Oo0
   except :
    Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR yellow]Sorry Link Is Dead, Try Another[/COLOR]' , I1IiI , 5000 )
-   if 69 - 69: iIii1I11I1II1 * iIii1I11I1II1 * i11iIiiIii + iiI1iIiI / i1iIIII % iiiI11
-def O0OO0oOoO0O0O ( ) :
- if 99 - 99: i1iII1I1i1i1
- iiiI = ''
- I1ii1 = xbmc . Keyboard ( iiiI , 'Enter Search Term' )
- I1ii1 . doModal ( )
- if I1ii1 . isConfirmed ( ) :
-  iiiI = I1ii1 . getText ( )
-  if len ( iiiI ) > 1 :
-   O00 = iiiI . lower ( )
-   O00 = O00 . replace ( ' ' , '%20' )
-   if 16 - 16: IiiIII111ii * Oooo0000 . IiIi1Iii1I1 / i1IIi . i1 - i1IIi
+   if 4 - 4: OoooooooOO - i1IIi % iiiI11 - i1iIIII * i1IIi11111i
+def Ooooo00o0OoO ( ) :
+ if 75 - 75: iiI1iIiI % i11Ii11I1Ii1i
+ i1iI1 = ''
+ i11ii1ii11i = xbmc . Keyboard ( i1iI1 , 'Enter Search Term' )
+ i11ii1ii11i . doModal ( )
+ if i11ii1ii11i . isConfirmed ( ) :
+  i1iI1 = i11ii1ii11i . getText ( )
+  if len ( i1iI1 ) > 1 :
+   ooO0OoOO = i1iI1 . lower ( )
+   ooO0OoOO = ooO0OoOO . replace ( ' ' , '%20' )
+   if 30 - 30: IiiIII111ii + i1iIIi1 - IiiIII111ii . IiiIII111ii - i11Ii11I1Ii1i + O0
   else : quit ( )
- else : O00 = urllib . unquote_plus ( iiiiiIIii ) . lower ( ) ; iiiI = urllib . unquote_plus ( iiiiiIIii )
- iiiiiIIii = base64 . b64decode ( b'aHR0cDovL3d3dy53YXRjaGVwaXNvZGVzZXJpZXMuY29tL2hvbWUvc2VhcmNoP3E9' ) + O00
+ else : ooO0OoOO = urllib . unquote_plus ( iiiiiIIii ) . lower ( ) ; i1iI1 = urllib . unquote_plus ( iiiiiIIii )
+ iiiiiIIii = base64 . b64decode ( b'aHR0cDovL3d3dy53YXRjaGVwaXNvZGVzZXJpZXMuY29tL2hvbWUvc2VhcmNoP3E9' ) + ooO0OoOO
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '"series"(.+?)"series_id"' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
@@ -1331,74 +1331,74 @@ def O0OO0oOoO0O0O ( ) :
   iiiiiIIii = 'http://www.watchepisodeseries.com/' + OOOo00oo0oO
   I1IiI = 'http://www.watchepisodeseries.com/series_images/' + OOOo00oo0oO + '.jpg'
   O00oO ( III1iII1I1ii , iiiiiIIii , 68 , I1IiI , I1ii11iIi11i , '' )
-  if 46 - 46: IiiIII111ii + iIii1I11I1II1 + i1iIIII + i1 . o000o0o00o0Oo
-def iIiIi11Ii ( ) :
- if 23 - 23: i1iII1I1i1i1 - i1iIIII + O00OoOoo00
- iiiiiIIii = 'https://watchepisodeseries.immunicity.st/home/popular-series'
+  if 86 - 86: i1IIi
+def IIi11IIiIii1 ( ) :
+ if 17 - 17: iiiI11 + i1iII1I1i1i1 . i1 - ooo0Oo0 * i11iIiiIii
+ iiiiiIIii = 'http://www.watchepisodeseries.com/home/popular-series'
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '<div class="cover-box">(.+?)<div class="cb-star">' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( '<div title="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
-  III1iII1I1ii = o0OO0o0o00o ( III1iII1I1ii )
+  III1iII1I1ii = o0Oo0oO0oOO00 ( III1iII1I1ii )
   iiiiiIIii = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   I1IiI = re . compile ( 'style="background-image: (.+?)"' ) . findall ( oO0Oo ) [ 0 ] . replace ( 'url(\'' , '' ) . replace ( '\')' , '' )
   I1ii11iIi11i = re . compile ( 'style="background-image: (.+?)"' ) . findall ( oO0Oo ) [ 0 ] . replace ( 'url(\'' , '' ) . replace ( '\')' , '' )
   O00oO ( '[COLOR aqua]' + III1iII1I1ii + '[/COLOR]' , iiiiiIIii , 68 , I1IiI , I1ii11iIi11i )
-  if 12 - 12: iiI1iIiI / IiIi1Iii1I1 % i1IIi11111i / i11iIiiIii % OoooooooOO
-  if 15 - 15: iIii1I11I1II1 % OoooooooOO - ooo0Oo0 * iiiI11 + O00OoOoo00
-def i1I1II1iIIi11 ( ) :
- if 49 - 49: OoooooooOO * O00OoOoo00 - ooo0Oo0 . i1iII1I1i1i1
+  if 20 - 20: iiI1iIiI . OoooooooOO % i1iIIII
+  if 63 - 63: iiI1iIiI % iIii1I11I1II1
+def I1ii ( ) :
+ if 73 - 73: IiiIII111ii + iiI1iIiI * ooo0Oo0 * OoooooooOO
  try :
-  O000o0 = open ( i1i1II ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-  iiiI = ''
-  I1ii1 = xbmc . Keyboard ( iiiI , '[COLOR aqua]Enter The Password You Set[/COLOR]' )
-  I1ii1 . doModal ( )
-  if I1ii1 . isConfirmed ( ) :
-   iiiI = I1ii1 . getText ( )
-   if len ( iiiI ) > 1 :
-    O00 = iiiI
+  Oo0o0O = open ( i1i1II ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  i1iI1 = ''
+  i11ii1ii11i = xbmc . Keyboard ( i1iI1 , '[COLOR aqua]Enter The Password You Set[/COLOR]' )
+  i11ii1ii11i . doModal ( )
+  if i11ii1ii11i . isConfirmed ( ) :
+   i1iI1 = i11ii1ii11i . getText ( )
+   if len ( i1iI1 ) > 1 :
+    ooO0OoOO = i1iI1
    else : quit ( )
-  if O00 == O000o0 :
-   oO0 ( )
+  if ooO0OoOO == Oo0o0O :
+   ii1iIi1II ( )
   else :
    Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR yellow]Wrong Password, I\'m Telling Mum![/COLOR]' , I1IiI , 5000 )
    quit ( )
  except :
   Iii1ii1II11i . ok ( o0OoOoOO00 , "[COLOR aqua]Enter A Password To Prevent Unauthorised Access[/COLOR]" )
-  iiiI = ''
-  I1ii1 = xbmc . Keyboard ( iiiI , 'Enter The Password You Set' )
-  I1ii1 . doModal ( )
-  if I1ii1 . isConfirmed ( ) :
-   iiiI = I1ii1 . getText ( )
-   if len ( iiiI ) > 1 :
-    O00 = iiiI
+  i1iI1 = ''
+  i11ii1ii11i = xbmc . Keyboard ( i1iI1 , 'Enter The Password You Set' )
+  i11ii1ii11i . doModal ( )
+  if i11ii1ii11i . isConfirmed ( ) :
+   i1iI1 = i11ii1ii11i . getText ( )
+   if len ( i1iI1 ) > 1 :
+    ooO0OoOO = i1iI1
    else : quit ( )
-  with open ( i1i1II , "w" ) as i1II1I1Iii1 :
-   i1II1I1Iii1 . write ( O00 )
+  with open ( i1i1II , "w" ) as iiiII :
+   iiiII . write ( ooO0OoOO )
    Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR yellow]Password Saved, Now Re Enter[/COLOR]' , I1IiI , 5000 )
    quit ( )
-   if 75 - 75: IiiIII111ii % O00OoOoo00
-   if 94 - 94: i1iII1I1i1i1 / iiI1iIiI / IiIi1Iii1I1 % i1iIIII
-   if 96 - 96: iiI1iIiI % ooo0Oo0 . o000o0o00o0Oo + i1iIIII
-def oO0 ( ) :
- if 42 - 42: i11Ii11I1Ii1i * oooOOOOO * i11iIiiIii - i1iIIII . OoooooooOO
- oo00o = 'http://streamarmy.co.uk/Main/LordJD/JAV.xml'
- oo0000Oo00o = '[COLOR aqua]Asian Special Porn[/COLOR]'
- O00oO ( oo0000Oo00o , oo00o , 1 , I1IiI , Oo , '' )
+   if 2 - 2: ooo0Oo0 + Oooo0000 - i1iIIII . iiI1iIiI - i1iIIII
+   if 67 - 67: iIii1I11I1II1 - oooOOOOO
+   if 11 - 11: iIii1I11I1II1 . OoooooooOO . i11Ii11I1Ii1i / i1IIi - O00OoOoo00
+def ii1iIi1II ( ) :
+ if 30 - 30: Oooo0000
+ Ii111 = 'http://streamarmy.co.uk/Main/LordJD/JAV.xml'
+ oO0 = '[COLOR aqua]Asian Special Porn[/COLOR]'
+ O00oO ( oO0 , Ii111 , 1 , I1IiI , Oo , '' )
  iiiiiIIii = base64 . b64decode ( b'aHR0cHM6Ly93d3cuZXBvcm5lci5jb20v' )
  OOOO = i11i1 ( iiiiiIIii )
  IIIii1II1II = re . compile ( '<li class="">(.+?)</li>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( '<strong>(.+?)</strong>' ) . findall ( oO0Oo ) [ 0 ]
-  O00oOo = re . compile ( '<div class="cllnumber">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
+  i1iI = re . compile ( '<div class="cllnumber">(.+?)</div>' ) . findall ( oO0Oo ) [ 0 ]
   OOOo00oo0oO = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   iiiiiIIii = 'https://www.eporner.com' + OOOo00oo0oO
   if not 'All' in III1iII1I1ii :
    if not 'Homemade' in III1iII1I1ii :
-    O00oO ( "[COLOR aqua]" + III1iII1I1ii + "  " + "[COLOR yellow]" + O00oOo + "[/COLOR]" , iiiiiIIii , 36 , I1IiI , Oo , '' )
-    if 26 - 26: IiiIII111ii % i1iIIi1 % i1iII1I1i1i1 % iiiI11
-def O0oo0ooOOOO ( url ) :
- if 14 - 14: iiI1iIiI / OoooooooOO % iiI1iIiI . O0
+    O00oO ( "[COLOR aqua]" + III1iII1I1ii + "  " + "[COLOR yellow]" + i1iI + "[/COLOR]" , iiiiiIIii , 36 , I1IiI , Oo , '' )
+    if 10 - 10: i11Ii11I1Ii1i . oooOOOOO
+def I1i ( url ) :
+ if 86 - 86: ooo0Oo0 / i1iII1I1i1i1 + O0 * oooOOOOO
  OOOO = i11i1 ( url )
  IIIii1II1II = re . compile ( '<div class="mbtit"(.+?)onmouseover=' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
@@ -1407,121 +1407,115 @@ def O0oo0ooOOOO ( url ) :
   I1IiI = re . compile ( 'src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   url = 'https://www.eporner.com' + OOOo00oo0oO
   O00oO ( "[COLOR skyblue]" + III1iII1I1ii + "[/COLOR]" , url , 37 , I1IiI , Oo , '' )
-  if 94 - 94: Oooo0000 - ooo0Oo0 - iiI1iIiI % i1IIi
+  if 19 - 19: i11Ii11I1Ii1i * IiiIII111ii + iiiI11
  try :
-  o000oo = re . compile ( '<a href=\"([^"]*)\" title="Next page">' ) . findall ( OOOO ) [ 0 ]
-  ooO0oOOooOo0 = 'https://www.eporner.com' + o000oo
-  o00o0 = 'http://imgur.com/3eNoY0p'
-  O00oO ( "[COLOR yellow]" + "Next Page" + "[/COLOR]" , ooO0oOOooOo0 , 36 , o00o0 , Oo , '' )
+  o0O0o = re . compile ( '<a href=\"([^"]*)\" title="Next page">' ) . findall ( OOOO ) [ 0 ]
+  ooO0oOOooOo0 = 'https://www.eporner.com' + o0O0o
+  OO0o0o00 = 'http://imgur.com/3eNoY0p'
+  O00oO ( "[COLOR yellow]" + "Next Page" + "[/COLOR]" , ooO0oOOooOo0 , 36 , OO0o0o00 , Oo , '' )
  except : pass
- if 19 - 19: i1IIi11111i
-def Iiii1I1 ( url , iconimage ) :
- if 83 - 83: i1iIIII . i1iIIi1 + i1iII1I1i1i1 - i1iIIII * i1iIIi1 / i1iIIi1
+ if 65 - 65: i1iIIII . i1iIIi1 . i1 . oooOOOOO - i1iIIII
+def ii111i ( url , iconimage ) :
+ if 93 - 93: i1
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
- I11I1 = re . compile ( '<div id="hd-porn-dload">(.+?)</div>' ) . findall ( OOOO ) [ 0 ]
- OoO0o = re . compile ( '<strong>(.+?)</strong>.+?<a href="(.+?)"' ) . findall ( I11I1 )
- for iiI1i1Iii111 , OOOO in OoO0o :
-  iiI1i1Iii111 = iiI1i1Iii111 . replace ( ':' , '' )
+ i111I = re . compile ( '<div id="hd-porn-dload">(.+?)</div>' ) . findall ( OOOO ) [ 0 ]
+ OoO0o = re . compile ( '<strong>(.+?)</strong>.+?<a href="(.+?)"' ) . findall ( i111I )
+ for OOO0oOoO0O , OOOO in OoO0o :
+  OOO0oOoO0O = OOO0oOoO0O . replace ( ':' , '' )
   url = 'https://www.eporner.com' + OOOO
-  O000oo0O ( "[COLOR red]" + "Link Quality :: " + "[COLOR silver]" + iiI1i1Iii111 + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
-  if 43 - 43: i1IIi11111i
-  if 71 - 71: i1iII1I1i1i1 % O00OoOoo00 * Oooo0000 . O0 / iiiI11 . o000o0o00o0Oo
-  if 58 - 58: ooo0Oo0 / i1iII1I1i1i1
-  if 44 - 44: i1iIIII
-  if 54 - 54: iiiI11 - O00OoOoo00 - i1iIIi1 . iIii1I11I1II1
-  if 79 - 79: iiiI11 . i1
-  if 40 - 40: i1IIi11111i + ooo0Oo0 . i1IIi11111i % IiIi1Iii1I1
-  if 15 - 15: iiiI11 * ooo0Oo0 % o000o0o00o0Oo * iIii1I11I1II1 - i11iIiiIii
-  if 60 - 60: iiI1iIiI * i1iIIi1 % i1 + i1iII1I1i1i1
-  if 52 - 52: i1IIi
-  if 84 - 84: iiiI11 / IiiIII111ii
-  if 86 - 86: Oooo0000 * i11Ii11I1Ii1i - O0 . Oooo0000 % iIii1I11I1II1 / i1iIIII
-  if 11 - 11: iiI1iIiI * i1iII1I1i1i1 + o000o0o00o0Oo / o000o0o00o0Oo
-  if 37 - 37: i11iIiiIii + i1IIi
-  if 23 - 23: oooOOOOO + O00OoOoo00 . Oooo0000 * iiI1iIiI + o000o0o00o0Oo
-  if 18 - 18: IiiIII111ii * i1IIi11111i . IiiIII111ii / O0
-  if 8 - 8: i1IIi11111i
-  if 4 - 4: o000o0o00o0Oo + o000o0o00o0Oo * IiIi1Iii1I1 - Oooo0000
-  if 78 - 78: iiiI11 / i11Ii11I1Ii1i % Oooo0000
-  if 52 - 52: i1iIIII - oooOOOOO * i1iII1I1i1i1
-  if 17 - 17: OoooooooOO + i1iIIII * O00OoOoo00 * Oooo0000
-  if 36 - 36: O0 + ooo0Oo0
-  if 5 - 5: ooo0Oo0 * Oooo0000
-  if 46 - 46: IiIi1Iii1I1
-  if 33 - 33: oooOOOOO - i11Ii11I1Ii1i * OoooooooOO - ooo0Oo0 - i1iIIII
-  if 84 - 84: i1iIIi1 + ooo0Oo0 - Oooo0000 * Oooo0000
-  if 61 - 61: OoooooooOO . i1iII1I1i1i1 . OoooooooOO / ooo0Oo0
-  if 72 - 72: i1IIi
-  if 82 - 82: Oooo0000 + OoooooooOO / i11iIiiIii * o000o0o00o0Oo . OoooooooOO
-  if 63 - 63: o000o0o00o0Oo
-  if 6 - 6: IiIi1Iii1I1 / o000o0o00o0Oo
-  if 57 - 57: O00OoOoo00
-  if 67 - 67: i1 . IiIi1Iii1I1
-  if 87 - 87: i1iII1I1i1i1 % iiiI11
-  if 83 - 83: i11Ii11I1Ii1i - O00OoOoo00
-  if 35 - 35: i1IIi - iIii1I11I1II1 + i1IIi
-  if 86 - 86: iIii1I11I1II1 + Oooo0000 . i11iIiiIii - iiiI11
-  if 51 - 51: Oooo0000
-  if 14 - 14: IiiIII111ii % i1iII1I1i1i1 % ooo0Oo0 - i11iIiiIii
-  if 53 - 53: iiiI11 % ooo0Oo0
-  if 59 - 59: i1iIIII % iIii1I11I1II1 . i1IIi + i11Ii11I1Ii1i * IiiIII111ii
-  if 41 - 41: iiiI11 % o000o0o00o0Oo
-  if 12 - 12: i1iIIII
-  if 69 - 69: OoooooooOO + i1iIIII
-  if 26 - 26: ooo0Oo0 + i1iIIII / i1 % Oooo0000 % o000o0o00o0Oo + i11Ii11I1Ii1i
-  if 31 - 31: O00OoOoo00 % i1iIIII * O00OoOoo00
-  if 45 - 45: i1IIi . iiI1iIiI + i1iIIII - OoooooooOO % IiIi1Iii1I1
-  if 1 - 1: iIii1I11I1II1
-  if 93 - 93: i1IIi . i11iIiiIii . ooo0Oo0
-  if 99 - 99: O00OoOoo00 - i1iIIi1 - i1iII1I1i1i1 % i1
-  if 21 - 21: i11Ii11I1Ii1i % o000o0o00o0Oo . i1IIi - OoooooooOO
-def iiOOOO0o ( url ) :
- if 10 - 10: i1iIIi1 % iiI1iIiI
+  O000oo0O ( "[COLOR red]" + "Link Quality :: " + "[COLOR silver]" + OOO0oOoO0O + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
+  if 84 - 84: O0 * OoooooooOO - IiiIII111ii * IiiIII111ii
+def i1ii ( url ) :
+ if 65 - 65: Oooo0000 / i1 % IiiIII111ii
+ O000oo0O ( "[COLOR yellow]Anime Catergories[/COLOR]" , url , 999 , I1IiI , Oo , '' )
+ OOOO = i11i1 ( url )
+ IIIii1II1II = re . compile ( '<ul class="nav nav-pills nav-stacked"><li>(.+?)</ul>' ) . findall ( OOOO ) [ 1 ]
+ OoO0o = re . compile ( '<a href="(.+?)" title="(.+?)">.+?</a>' ) . findall ( IIIii1II1II )
+ for url , III1iII1I1ii in OoO0o :
+  III1iII1I1ii = III1iII1I1ii . strip ( )
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 52 , I1IiI , Oo , '' )
+  if 45 - 45: Oooo0000
+def oOooOO ( url ) :
+ if 31 - 31: i1iIIII / ooo0Oo0 * i1IIi . Oooo0000
+ OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ IIIii1II1II = re . compile ( '<th class="st-sort-descent">(.+?)</table>' ) . findall ( OOOO ) [ 0 ]
+ OoO0o = re . compile ( '<a href="(.+?)".+?>(.+?)</a>' ) . findall ( IIIii1II1II )
+ for url , III1iII1I1ii in OoO0o :
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 53 , I1IiI , Oo , '' )
+  if 57 - 57: i1iIIII + iIii1I11I1II1 % i1IIi % iiI1iIiI
+def OO0oo ( url ) :
+ if 15 - 15: iIii1I11I1II1 % OoooooooOO - ooo0Oo0 * iiiI11 + O00OoOoo00
+ OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ try :
+  I1IiI = re . compile ( '''<div class=\"col-md-3\">.+?url\('(.+?)'\)''' ) . findall ( OOOO ) [ 0 ]
+ except :
+  I1IiI = o0O
+ IIIii1II1II = re . compile ( '<tbody>(.+?)</tbody>' ) . findall ( OOOO ) [ 0 ]
+ OoO0o = re . compile ( '''<a class="black" href='(.+?)'>(.+?)</a>''' ) . findall ( IIIii1II1II )
+ O000oo0O ( "[COLOR yellow]Links Can Take Up To 45 Secs To Play, Be Patient![/COLOR]" , url , 54 , I1IiI , Oo , '' )
+ for url , III1iII1I1ii in OoO0o :
+  O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , url , 54 , I1IiI , Oo , '' )
+  if 11 - 11: oooOOOOO * iiiI11 - Oooo0000
+def OOOIII1iI1iII1I ( url , iconimage ) :
+ if 39 - 39: iiiI11 * IiIi1Iii1I1 / Oooo0000 * i1 . O00OoOoo00 % i11Ii11I1Ii1i
+ OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ oOoO = re . compile ( '<source src="(.+?)"' ) . findall ( OOOO ) [ 0 ]
+ I11iI ( oo0OooOOo0 , oOoO , iconimage )
+ if 71 - 71: i1iIIi1 % i1IIi - i11Ii11I1Ii1i - i1iIIII + i1iIIII * IiIi1Iii1I1
+ if 51 - 51: iIii1I11I1II1 / Oooo0000 + i1iIIII - O00OoOoo00 + oooOOOOO
+ if 29 - 29: i1IIi11111i % iIii1I11I1II1 . OoooooooOO % OoooooooOO % i11Ii11I1Ii1i / oooOOOOO
+ if 70 - 70: i11iIiiIii % oooOOOOO
+ if 11 - 11: IiiIII111ii % o000o0o00o0Oo % iiiI11 / i11Ii11I1Ii1i % i1iIIi1 - ooo0Oo0
+ if 96 - 96: o000o0o00o0Oo / i11Ii11I1Ii1i . iiiI11 - oooOOOOO * O00OoOoo00 * i1iII1I1i1i1
+ if 76 - 76: iiiI11 - i11Ii11I1Ii1i * i1iIIII / OoooooooOO
+ if 18 - 18: i1 + iIii1I11I1II1 - i11Ii11I1Ii1i - iiI1iIiI
+def oooOOOO0oooo ( url ) :
+ if 51 - 51: O0 - i1IIi / iiI1iIiI
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  IIIii1II1II = re . compile ( '<div class="item">(.+?)</div>' ) . findall ( OOOO )
  for oO0Oo in IIIii1II1II :
   III1iII1I1ii = re . compile ( 'title="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
   url = re . compile ( '<a href="(.+?)"' ) . findall ( oO0Oo ) [ 0 ] . replace ( './' , '/' )
-  if 97 - 97: OoooooooOO - i1iIIi1
+  if 37 - 37: i1IIi11111i % IiIi1Iii1I1
   I1IiI = re . compile ( '<img src="(.+?)"' ) . findall ( oO0Oo ) [ 0 ]
-  iiI1i1Iii111 = re . compile ( '<span class="quality" >(.+?)</span>' ) . findall ( oO0Oo ) [ 0 ]
-  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[COLOR yellow] " + iiI1i1Iii111 + "[/COLOR]" , url , 43 , I1IiI , Oo , '' )
-  if 58 - 58: iIii1I11I1II1 + O0
+  OOO0oOoO0O = re . compile ( '<span class="quality" >(.+?)</span>' ) . findall ( oO0Oo ) [ 0 ]
+  O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[COLOR yellow] " + OOO0oOoO0O + "[/COLOR]" , url , 43 , I1IiI , Oo , '' )
+  if 83 - 83: i1iIIII . i1iIIi1 + i1iII1I1i1i1 - i1iIIII * i1iIIi1 / i1iIIi1
  try :
   ooO0oOOooOo0 = re . compile ( '<div class="pagination">(.+?)</div><div class="footer">' ) . findall ( OOOO ) [ 0 ]
-  o000oo = re . compile ( '<a.+?href="(.+?)"' ) . findall ( ooO0oOOooOo0 ) [ 5 ]
-  I111I11I111 = 'http://m4ufree.com' + o000oo
-  if 'genre' in I111I11I111 :
-   I111I11I111 = I111I11I111 . replace ( '.com' , '.com/' )
-  iiiiI11ii = 'https://i.imgur.com/mjCRjXT.png'
-  O00oO ( "[COLOR yellow]" + "Next Page" + "[/COLOR]" , I111I11I111 , 42 , iiiiI11ii , Oo , '' )
+  o0O0o = re . compile ( '<a.+?href="(.+?)"' ) . findall ( ooO0oOOooOo0 ) [ 5 ]
+  I11I1 = 'http://m4ufree.com' + o0O0o
+  if 'genre' in I11I1 :
+   I11I1 = I11I1 . replace ( '.com' , '.com/' )
+  iiI1i1Iii111 = 'https://i.imgur.com/mjCRjXT.png'
+  O00oO ( "[COLOR yellow]" + "Next Page" + "[/COLOR]" , I11I1 , 42 , iiI1i1Iii111 , Oo , '' )
  except : pass
- if 96 - 96: oooOOOOO . O0 / oooOOOOO % O0
-def o0o000 ( url , iconimage ) :
- if 50 - 50: IiiIII111ii % i1IIi
+ if 43 - 43: i1IIi11111i
+def OO00oOooo0O ( url , iconimage ) :
+ if 58 - 58: ooo0Oo0 / i1iII1I1i1i1
  import requests
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
- iii11II1I = re . compile ( 'data="(.+?)"' ) . findall ( OOOO ) [ 0 ]
- iI111I11i = 'http://m4ufree.com/ajax_new.php'
- I1II1i11I1 = requests . post ( iI111I11i , data = { 'm4u' : iii11II1I } )
- json = ( I1II1i11I1 . text )
- iiIiIiII = re . compile ( 'sources:(.+?)]' ) . findall ( json ) [ 0 ]
- i1I1 = re . compile ( '{(.+?)}' ) . findall ( iiIiIiII )
- iIi = 0
- for iiIiI in i1I1 :
+ iIII1I1i1i = re . compile ( 'data="(.+?)"' ) . findall ( OOOO ) [ 0 ]
+ o0OIIiI1I1 = 'http://m4ufree.com/ajax_new.php'
+ I11I1IIiiII1 = requests . post ( o0OIIiI1I1 , data = { 'm4u' : iIII1I1i1i } )
+ json = ( I11I1IIiiII1 . text )
+ IIIIIii1ii11 = re . compile ( 'sources:(.+?)]' ) . findall ( json ) [ 0 ]
+ OOOooo0OooOoO = re . compile ( '{(.+?)}' ) . findall ( IIIIIii1ii11 )
+ oOoOOOo = 0
+ for iiIiI in OOOooo0OooOoO :
   try :
-   iIi += 1
-   III1iII1I1ii = 'Link ' + str ( iIi )
-   iiI1i1Iii111 = re . compile ( '''"label":"(.+?)"''' ) . findall ( iiIiI ) [ 0 ]
+   oOoOOOo += 1
+   III1iII1I1ii = 'Link ' + str ( oOoOOOo )
+   OOO0oOoO0O = re . compile ( '''"label":"(.+?)"''' ) . findall ( iiIiI ) [ 0 ]
    url = re . compile ( '''"file":"(.+?)"''' ) . findall ( iiIiI ) [ 0 ]
-   O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + " | [COLOR yellow] " + iiI1i1Iii111 + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
+   O000oo0O ( "[COLOR aqua]" + III1iII1I1ii + " | [COLOR yellow] " + OOO0oOoO0O + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
   except IndexError :
    url = re . compile ( """file:.+?"(.+?)\"""" ) . findall ( iiIiI ) [ 0 ]
-   iiI1i1Iii111 = re . compile ( """label:.+?'(.+?)'""" ) . findall ( iiIiI ) [ 0 ]
-   O000oo0O ( "[COLOR aqua]" + "Link VIP | " + "[COLOR yellow] " + iiI1i1Iii111 + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
-   if 10 - 10: i1 / ooo0Oo0
-def I1i ( ) :
- if 50 - 50: i1IIi11111i * iiiI11 % o000o0o00o0Oo / ooo0Oo0 - O0 % oooOOOOO
+   OOO0oOoO0O = re . compile ( """label:.+?'(.+?)'""" ) . findall ( iiIiI ) [ 0 ]
+   O000oo0O ( "[COLOR aqua]" + "Link VIP | " + "[COLOR yellow] " + OOO0oOoO0O + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
+   if 43 - 43: i1IIi
+def I1i11II ( ) :
+ if 31 - 31: i1iII1I1i1i1 / IiiIII111ii * i1IIi11111i . i11Ii11I1Ii1i
  iiiiiIIii = 'http://www.livefootballol.me/streaming/english-premier-league-2017/'
  OOOO = i11i1 ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  IIIii1II1II = re . compile ( '<td>(.+?)</td>' ) . findall ( OOOO )
@@ -1530,40 +1524,40 @@ def I1i ( ) :
   OOo0oO00ooO00 = re . compile ( '<a href=".+?">(.+?)</a>' ) . findall ( oO0Oo ) [ 0 ]
   iiiiiIIii = 'http://www.livefootballol.me' + iiiiiIIii
   O00oO ( "[COLOR aqua]" + OOo0oO00ooO00 + "[/COLOR]" , iiiiiIIii , 74 , o0O , Oo , '' )
-  if 48 - 48: iiI1iIiI + o000o0o00o0Oo + i11Ii11I1Ii1i * i11iIiiIii
-def IiIIi1I1I11Ii ( url ) :
- if 64 - 64: OoooooooOO
+  if 89 - 89: O0
+def II ( url ) :
+ if 41 - 41: o000o0o00o0Oo * IiIi1Iii1I1 - iiiI11 + ooo0Oo0
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  IIIii1II1II = re . compile ( '<a href="(.+?)"' ) . findall ( OOOO )
- oO0oooooo = 0
+ IiIIIII11I = 0
  for OOOOoOoo0O0O0 in IIIii1II1II :
   if 'acestream' in OOOOoOoo0O0O0 :
    if 'http' in OOOOoOoo0O0O0 :
-    oO0oooooo += 1
-    III1iII1I1ii = '[COLOR aqua]Link :: ' + str ( oO0oooooo ) + '[/COLOR]'
+    IiIIIII11I += 1
+    III1iII1I1ii = '[COLOR aqua]Link :: ' + str ( IiIIIII11I ) + '[/COLOR]'
     O000oo0O ( III1iII1I1ii , OOOOoOoo0O0O0 , 75 , o0O , Oo , '' )
- if oO0oooooo == 0 :
+ if IiIIIII11I == 0 :
   O000oo0O ( "[COLOR yellow]No Links Yet, Try Closer To Kick Off[/COLOR]" , 'urls' , 999 , o0O , Oo , '' )
-  if 65 - 65: IiiIII111ii + ooo0Oo0
-def Ooo0O0 ( url ) :
- if 71 - 71: OoooooooOO
+  if 17 - 17: OoooooooOO + i1iIIII * O00OoOoo00 * Oooo0000
+def iiIii1I ( url ) :
+ if 47 - 47: IiIi1Iii1I1 . O00OoOoo00 / i1IIi11111i
  OOOO = i11i1 ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  url = re . compile ( '<div class="uk-text-center"><a href="(.+?)"' ) . findall ( OOOO ) [ 0 ]
  I11iI ( oo0OooOOo0 , url , o0O )
- if 11 - 11: IiiIII111ii
-def o0oooO ( url , getphp ) :
- I1iiiiI1iI = urllib2 . Request ( url )
- I1iiiiI1iI . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
- I1iiiiI1iI . add_header ( 'Cookie' , 'PHPSESSID=' + getphp )
- iIiiiii1i = urllib2 . urlopen ( I1iiiiI1iI , timeout = 10 )
- OOOO = iIiiiii1i . read ( )
- iIiiiii1i . close ( )
+ if 83 - 83: i1IIi11111i / i1iIIII / i1iIIII + i1IIi11111i * i1iIIi1 + i1IIi11111i
+def IIIIiii ( url , getphp ) :
+ iIi11iiIiI1I = urllib2 . Request ( url )
+ iIi11iiIiI1I . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
+ iIi11iiIiI1I . add_header ( 'Cookie' , 'PHPSESSID=' + getphp )
+ IiiioooOOoooo = urllib2 . urlopen ( iIi11iiIiI1I , timeout = 10 )
+ OOOO = IiiioooOOoooo . read ( )
+ IiiioooOOoooo . close ( )
  return OOOO
- if 89 - 89: i11Ii11I1Ii1i / i1iII1I1i1i1
- if 14 - 14: i1iIIII . iiI1iIiI * IiIi1Iii1I1 + i11Ii11I1Ii1i - IiIi1Iii1I1 + i1iIIII
- if 18 - 18: i1iII1I1i1i1 - i1IIi11111i - iiI1iIiI - iiI1iIiI
-def OOooo00 ( ) :
- if 35 - 35: i1iIIi1 . Oooo0000 * i11iIiiIii
+ if 65 - 65: ooo0Oo0 / O00OoOoo00
+ if 12 - 12: O00OoOoo00 % Oooo0000
+ if 48 - 48: oooOOOOO . i11iIiiIii
+def IIioo0OO ( ) :
+ if 2 - 2: i11Ii11I1Ii1i - i1 . IiiIII111ii * oooOOOOO / i1iII1I1i1i1
  iiiiiIIii = 'http://m4ufree.com/?sort=key_top&page=1&='
  OOOO = i11i1 ( iiiiiIIii ) . replace ( '\n' , '' ) . replace ( '\r' , '' )
  IIIii1II1II = re . compile ( '<div class="genre_item">(.+?)</div>' ) . findall ( OOOO )
@@ -1573,18 +1567,18 @@ def OOooo00 ( ) :
   iiiiiIIii = 'http://m4ufree.com/' + OOOo00oo0oO
   if not re . search ( '\d+' , III1iII1I1ii ) :
    O00oO ( "[COLOR aqua]" + III1iII1I1ii + "[/COLOR]" , iiiiiIIii , 42 , I1IiI , Oo )
-   if 44 - 44: i11iIiiIii / ooo0Oo0
-   if 42 - 42: OoooooooOO + ooo0Oo0 % i11Ii11I1Ii1i + i1
-   if 24 - 24: oooOOOOO * i11Ii11I1Ii1i % oooOOOOO % IiiIII111ii + OoooooooOO
-   if 29 - 29: i11Ii11I1Ii1i - OoooooooOO - i11iIiiIii . i1IIi11111i
-   if 19 - 19: i11Ii11I1Ii1i
-   if 72 - 72: OoooooooOO / iiI1iIiI + iiiI11 / Oooo0000 * iiiI11
-   if 34 - 34: O0 * O0 % OoooooooOO + oooOOOOO * iIii1I11I1II1 % iiiI11
-   if 25 - 25: O00OoOoo00 + Oooo0000 . i1IIi11111i % Oooo0000 * i1iIIII
-   if 32 - 32: i11iIiiIii - i1iIIi1
-   if 53 - 53: OoooooooOO - IiiIII111ii
-def o0OO0o0o00o ( text ) :
- if 87 - 87: i1iII1I1i1i1 . iiI1iIiI
+   if 80 - 80: i1iIIII / O00OoOoo00 / Oooo0000 + i1IIi - ooo0Oo0
+   if 11 - 11: i1IIi11111i * i1
+   if 15 - 15: Oooo0000
+   if 62 - 62: iiiI11
+   if 51 - 51: Oooo0000
+   if 14 - 14: IiiIII111ii % i1iII1I1i1i1 % ooo0Oo0 - i11iIiiIii
+   if 53 - 53: iiiI11 % ooo0Oo0
+   if 59 - 59: i1iIIII % iIii1I11I1II1 . i1IIi + i11Ii11I1Ii1i * IiiIII111ii
+   if 41 - 41: iiiI11 % o000o0o00o0Oo
+   if 12 - 12: i1iIIII
+def o0Oo0oO0oOO00 ( text ) :
+ if 69 - 69: OoooooooOO + i1iIIII
  text = str ( text )
  text = text . replace ( '\\r' , '' )
  text = text . replace ( '\\n' , '' )
@@ -1603,53 +1597,53 @@ def o0OO0o0o00o ( text ) :
  text = text . replace ( '&#8211;' , "-" )
  text = text . lstrip ( ' ' )
  text = text . lstrip ( '	' )
- if 17 - 17: iiiI11 . i11iIiiIii
+ if 26 - 26: ooo0Oo0 + i1iIIII / i1 % Oooo0000 % o000o0o00o0Oo + i11Ii11I1Ii1i
  return text
- if 5 - 5: o000o0o00o0Oo + O0 + O0 . i1iIIi1 - IiIi1Iii1I1
-def o00oo0000 ( ) :
- if 44 - 44: ooo0Oo0 % iIii1I11I1II1
- oo0ooO0 = xbmc . translatePath ( os . path . join ( 'special://home/cache' ) )
- IIiiiiIiIIii = xbmc . translatePath ( os . path . join ( 'special://profile/Thumbnails' ) )
- O0OO = xbmc . translatePath ( os . path . join ( 'special://home/addons/packages' ) )
- IIIiIiI = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/plugin.video.nemesis/downloads' ) )
- if 7 - 7: IiiIII111ii . Oooo0000 / o000o0o00o0Oo . i1iIIII * O00OoOoo00 - i11Ii11I1Ii1i
- I1ii1iI1II11ii = 0
- for ( i1i1IiIiIi1Ii , oO0ooOO , IIi1iI1 ) in os . walk ( IIiiiiIiIIii ) :
-  for file in IIi1iI1 :
-   IIi11i1II = os . path . join ( i1i1IiIiIi1Ii , file )
-   I1ii1iI1II11ii += os . path . getsize ( IIi11i1II )
- O0OOO0OOoO0O = "[COLOR aqua]Thumbnails Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( I1ii1iI1II11ii / ( 1024 * 1024.0 ) )
+ if 31 - 31: O00OoOoo00 % i1iIIII * O00OoOoo00
+def IiI ( ) :
+ if 34 - 34: O00OoOoo00 % IiIi1Iii1I1 . O0 . iIii1I11I1II1
+ ooi1II1I = xbmc . translatePath ( os . path . join ( 'special://home/cache' ) )
+ OOoO0ooOO = xbmc . translatePath ( os . path . join ( 'special://profile/Thumbnails' ) )
+ iii1IIII1iii11I = xbmc . translatePath ( os . path . join ( 'special://home/addons/packages' ) )
+ oo0OoOooo = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/plugin.video.nemesis/downloads' ) )
+ if 95 - 95: IiiIII111ii * o000o0o00o0Oo % IiIi1Iii1I1 % iiiI11 - iiiI11
+ oOoooO0 = 0
+ for ( o0Oo0 , i1i1II1i11 , o00o ) in os . walk ( OOoO0ooOO ) :
+  for file in o00o :
+   iii11II1I = os . path . join ( o0Oo0 , file )
+   oOoooO0 += os . path . getsize ( iii11II1I )
+ O0OOO0OOoO0O = "[COLOR aqua]Thumbnails Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( oOoooO0 / ( 1024 * 1024.0 ) )
  O000oo0O ( O0OOO0OOoO0O , 'url2' , 999 , I1IiI , I1ii11iIi11i )
- if 73 - 73: i1IIi11111i - iiI1iIiI * i1IIi / i11iIiiIii * i1iIIII % i11Ii11I1Ii1i
- I1ii1iI1II11ii = 0
- for ( i1i1IiIiIi1Ii , oO0ooOO , IIi1iI1 ) in os . walk ( oo0ooO0 ) :
-  for file in IIi1iI1 :
-   IIi11i1II = os . path . join ( i1i1IiIiIi1Ii , file )
-   I1ii1iI1II11ii += os . path . getsize ( IIi11i1II )
- O0OOO0OOoO0O = "[COLOR aqua]Cache Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( I1ii1iI1II11ii / ( 1024 * 1024.0 ) )
+ if 5 - 5: Oooo0000 - IiiIII111ii * IiiIII111ii
+ oOoooO0 = 0
+ for ( o0Oo0 , i1i1II1i11 , o00o ) in os . walk ( ooi1II1I ) :
+  for file in o00o :
+   iii11II1I = os . path . join ( o0Oo0 , file )
+   oOoooO0 += os . path . getsize ( iii11II1I )
+ O0OOO0OOoO0O = "[COLOR aqua]Cache Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( oOoooO0 / ( 1024 * 1024.0 ) )
  O000oo0O ( O0OOO0OOoO0O , 'url2' , 999 , I1IiI , I1ii11iIi11i )
- if 56 - 56: OoooooooOO * ooo0Oo0 . ooo0Oo0 . o000o0o00o0Oo
- I1ii1iI1II11ii = 0
- for ( i1i1IiIiIi1Ii , oO0ooOO , IIi1iI1 ) in os . walk ( O0OO ) :
-  for file in IIi1iI1 :
-   IIi11i1II = os . path . join ( i1i1IiIiIi1Ii , file )
-   I1ii1iI1II11ii += os . path . getsize ( IIi11i1II )
- O0OOO0OOoO0O = "[COLOR aqua]Packages Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( I1ii1iI1II11ii / ( 1024 * 1024.0 ) )
+ if 50 - 50: i11Ii11I1Ii1i * o000o0o00o0Oo / iiiI11 . i1IIi11111i + ooo0Oo0 - i1iIIII
+ oOoooO0 = 0
+ for ( o0Oo0 , i1i1II1i11 , o00o ) in os . walk ( iii1IIII1iii11I ) :
+  for file in o00o :
+   iii11II1I = os . path . join ( o0Oo0 , file )
+   oOoooO0 += os . path . getsize ( iii11II1I )
+ O0OOO0OOoO0O = "[COLOR aqua]Packages Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( oOoooO0 / ( 1024 * 1024.0 ) )
  O000oo0O ( O0OOO0OOoO0O , 'url2' , 999 , I1IiI , I1ii11iIi11i )
- if 24 - 24: ooo0Oo0 . O00OoOoo00 * iiiI11 % oooOOOOO / i1iIIII
- I1ii1iI1II11ii = 0
- for ( i1i1IiIiIi1Ii , oO0ooOO , IIi1iI1 ) in os . walk ( IIIiIiI ) :
-  for file in IIi1iI1 :
-   IIi11i1II = os . path . join ( i1i1IiIiIi1Ii , file )
-   I1ii1iI1II11ii += os . path . getsize ( IIi11i1II )
- O0OOO0OOoO0O = "[COLOR aqua]Download Folder Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( I1ii1iI1II11ii / ( 1024 * 1024.0 ) )
+ if 18 - 18: Oooo0000 % i11iIiiIii % o000o0o00o0Oo / i1iII1I1i1i1 / i1IIi11111i / i1IIi
+ oOoooO0 = 0
+ for ( o0Oo0 , i1i1II1i11 , o00o ) in os . walk ( oo0OoOooo ) :
+  for file in o00o :
+   iii11II1I = os . path . join ( o0Oo0 , file )
+   oOoooO0 += os . path . getsize ( iii11II1I )
+ O0OOO0OOoO0O = "[COLOR aqua]Download Folder Size =[COLOR yellow] %0.1f MB[/COLOR]" % ( oOoooO0 / ( 1024 * 1024.0 ) )
  O000oo0O ( O0OOO0OOoO0O , 'url2' , 999 , I1IiI , I1ii11iIi11i )
- if 58 - 58: iiI1iIiI - o000o0o00o0Oo % O0 . iiI1iIiI % i1 % IiiIII111ii
+ if 48 - 48: Oooo0000 + O00OoOoo00 / IiiIII111ii + i11Ii11I1Ii1i
  O000oo0O ( "[COLOR white]--------------------------[/COLOR]" , 'url2' , 999 , I1IiI , I1ii11iIi11i )
  O000oo0O ( "[COLOR yellow]Cleanup [COLOR aqua](Will Not Clear Downloads)[/COLOR]" , 'url2' , 892 , I1IiI , I1ii11iIi11i )
- if 87 - 87: i1iII1I1i1i1 - i11iIiiIii
+ if 18 - 18: o000o0o00o0Oo
 def I11iI ( name , url , iconimage ) :
- if 78 - 78: i11iIiiIii / iIii1I11I1II1 - i1IIi11111i
+ if 23 - 23: i11Ii11I1Ii1i
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR red]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
  import urlresolver
  if '.ts' in url :
@@ -1662,82 +1656,82 @@ def I11iI ( name , url , iconimage ) :
   O0O0OOOOoo . setPath ( url )
   xbmc . Player ( ) . play ( OOOo00oo0oO , O0O0OOOOoo , False )
  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-  oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+  ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
   O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = I1IiI , thumbnailImage = I1IiI )
-  O0O0OOOOoo . setPath ( oOo )
-  xbmc . Player ( ) . play ( oOo , O0O0OOOOoo , False )
+  O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
+  xbmc . Player ( ) . play ( ooo0OO0O0Oo , O0O0OOOOoo , False )
   time . sleep ( 2 )
   quit ( )
  else :
-  oOo = url
+  ooo0OO0O0Oo = url
   O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = I1IiI , thumbnailImage = I1IiI )
-  O0O0OOOOoo . setPath ( oOo )
-  xbmc . Player ( ) . play ( oOo , O0O0OOOOoo , False )
+  O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
+  xbmc . Player ( ) . play ( ooo0OO0O0Oo , O0O0OOOOoo , False )
   time . sleep ( 2 )
   quit ( )
  if not xbmc . Player ( ) . isPlaying ( ) :
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR red]Link Dead, Please try another[/COLOR]' , I1IiI , 5000 )
-  if 23 - 23: O00OoOoo00
-def iIiiIiiIi ( name , url , iconimage ) :
- if 40 - 40: i1IIi11111i
- IIII , oOO = re . findall ( '(.+?)\|regex=(.+?)$' , url ) [ 0 ]
- IIII += urllib . unquote_plus ( oOO )
+  if 24 - 24: iIii1I11I1II1 + iIii1I11I1II1 * oooOOOOO
+def i1I11iIII1i1I ( name , url , iconimage ) :
+ if 63 - 63: ooo0Oo0 + i1iIIi1 - i11Ii11I1Ii1i
+ IIII , i1iIIi1I1I11 = re . findall ( '(.+?)\|regex=(.+?)$' , url ) [ 0 ]
+ IIII += urllib . unquote_plus ( i1iIIi1I1I11 )
  url = regex . resolve ( IIII )
- if 66 - 66: O00OoOoo00 - i1IIi
+ if 39 - 39: iIii1I11I1II1 - OoooooooOO
  PLAYREGEX ( name , url , iconimage )
- if 8 - 8: i1iIIi1 / i1iIIII . iiI1iIiI + o000o0o00o0Oo / i11iIiiIii
-def I1Iii1iI1 ( url ) :
+ if 81 - 81: o000o0o00o0Oo - O0 * OoooooooOO
+def iI1111iiii ( url ) :
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR yellow]Tuning to Frequency Now[/COLOR]' , I1IiI , 10000 )
  time . sleep ( 2 )
  xbmc . Player ( ) . play ( url )
- if 86 - 86: O0
-def O0o0oOooOoOo ( heading , text ) :
- if 49 - 49: i1iIIII . o000o0o00o0Oo . i11iIiiIii - i11Ii11I1Ii1i / iiiI11
+ if 23 - 23: i11Ii11I1Ii1i / i1iII1I1i1i1
+def iII1Iii1I11i ( heading , text ) :
+ if 17 - 17: O0
  id = 10147
  xbmc . executebuiltin ( 'ActivateWindow(%d)' % id )
  xbmc . sleep ( 500 )
- ooOo0O0o0 = xbmcgui . Window ( id )
- o0oo0O = 50
- while ( o0oo0O > 0 ) :
+ OOooO0o = xbmcgui . Window ( id )
+ ii1iI1iI1 = 50
+ while ( ii1iI1iI1 > 0 ) :
   try :
    xbmc . sleep ( 10 )
-   o0oo0O -= 1
-   ooOo0O0o0 . getControl ( 1 ) . setLabel ( heading )
-   ooOo0O0o0 . getControl ( 5 ) . setText ( text )
+   ii1iI1iI1 -= 1
+   OOooO0o . getControl ( 1 ) . setLabel ( heading )
+   OOooO0o . getControl ( 5 ) . setText ( text )
    quit ( )
    return
   except : pass
-  if 19 - 19: i1iIIi1 + i1IIi . iiI1iIiI - ooo0Oo0
-  if 16 - 16: i1iII1I1i1i1 + IiIi1Iii1I1 / i1IIi11111i
+  if 55 - 55: IiIi1Iii1I1 + i1iIIII
+  if 18 - 18: i1iII1I1i1i1 - i1IIi11111i - iiI1iIiI - iiI1iIiI
 def i11i1 ( url ) :
  try :
-  I1iiiiI1iI = urllib2 . Request ( url )
-  I1iiiiI1iI . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
-  iIiiiii1i = urllib2 . urlopen ( I1iiiiI1iI , timeout = 5 )
-  OOOO = iIiiiii1i . read ( )
-  iIiiiii1i . close ( )
+  iIi11iiIiI1I = urllib2 . Request ( url )
+  iIi11iiIiI1I . add_header ( 'User-Agent' , 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36' )
+  IiiioooOOoooo = urllib2 . urlopen ( iIi11iiIiI1I , timeout = 5 )
+  OOOO = IiiioooOOoooo . read ( )
+  IiiioooOOoooo . close ( )
   OOOO = OOOO . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' ) . replace ( '<fanart></fanart>' , '<fanart>x</fanart>' ) . replace ( '<thumbnail></thumbnail>' , '<thumbnail>x</thumbnail>' ) . replace ( '<utube>' , '<link>https://www.youtube.com/watch?v=' ) . replace ( '</utube>' , '</link>' )
   return OOOO
  except : quit ( )
- if 82 - 82: IiiIII111ii * i11iIiiIii % i11Ii11I1Ii1i - OoooooooOO
+ if 54 - 54: ooo0Oo0 + iiI1iIiI / oooOOOOO . iiI1iIiI * Oooo0000
 def i1i ( url ) :
  try :
-  I1iiiiI1iI = urllib2 . Request ( url )
-  I1iiiiI1iI . add_header ( 'User-Agent' , 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' )
-  iIiiiii1i = urllib2 . urlopen ( I1iiiiI1iI , timeout = 5 )
-  OOOO = iIiiiii1i . read ( )
-  iIiiiii1i . close ( )
+  iIi11iiIiI1I = urllib2 . Request ( url )
+  iIi11iiIiI1I . add_header ( 'User-Agent' , 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30' )
+  IiiioooOOoooo = urllib2 . urlopen ( iIi11iiIiI1I , timeout = 5 )
+  OOOO = IiiioooOOoooo . read ( )
+  IiiioooOOoooo . close ( )
   OOOO = OOOO . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' ) . replace ( '<fanart></fanart>' , '<fanart>x</fanart>' ) . replace ( '<thumbnail></thumbnail>' , '<thumbnail>x</thumbnail>' ) . replace ( '<utube>' , '<link>https://www.youtube.com/watch?v=' ) . replace ( '</utube>' , '</link>' )
   return OOOO
  except : quit ( )
- if 90 - 90: ooo0Oo0 . i1iII1I1i1i1 * i1IIi - i1IIi
+ if 1 - 1: Oooo0000 * i1 . i1IIi / ooo0Oo0 . o000o0o00o0Oo + ooo0Oo0
 def O000oo0O ( name , url , mode , iconimage , fanart , description = '' ) :
  if not "http" in iconimage :
   iconimage = I1IiI
  if not "http" in fanart :
   fanart = Oo
- IiIiiI11i1Ii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
- O00Iii1111III111 = True
+ IIiIi1 = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
+ Oo00O0ooOO = True
  O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = iconimage , thumbnailImage = iconimage )
  O0O0OOOOoo . setProperty ( "fanart_Image" , fanart )
  O0O0OOOOoo . setProperty ( "icon_Image" , iconimage )
@@ -1745,33 +1739,33 @@ def O000oo0O ( name , url , mode , iconimage , fanart , description = '' ) :
  I11i = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( '889' ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
  o0OOO = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( '887' ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
  O0O0OOOOoo . addContextMenuItems ( [ ( '[COLOR aqua]Add To Nemesis Favourites[/COLOR]' , 'xbmc.RunPlugin(' + I11i + ')' ) , ( '[COLOR aqua]Download[/COLOR]' , 'xbmc.RunPlugin(' + o0OOO + ')' ) ] )
- if 28 - 28: OoooooooOO . i1iII1I1i1i1 % o000o0o00o0Oo / i1IIi / i1iIIII
- O00Iii1111III111 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IiIiiI11i1Ii , listitem = O0O0OOOOoo , isFolder = False )
- return O00Iii1111III111
- if 36 - 36: i1IIi11111i + O00OoOoo00 - IiiIII111ii + iIii1I11I1II1 + OoooooooOO
+ if 28 - 28: i11iIiiIii / i1IIi11111i . iIii1I11I1II1 / i11Ii11I1Ii1i
+ Oo00O0ooOO = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IIiIi1 , listitem = O0O0OOOOoo , isFolder = False )
+ return Oo00O0ooOO
+ if 72 - 72: OoooooooOO / iiI1iIiI + iiiI11 / Oooo0000 * iiiI11
 def iiII1i1 ( name , url , mode , iconimage , fanart , description = '' ) :
  if not "http" in iconimage :
   iconimage = I1IiI
  if not "http" in fanart :
   fanart = Oo
- IiIiiI11i1Ii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
- O00Iii1111III111 = True
+ IIiIi1 = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
+ Oo00O0ooOO = True
  O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = iconimage , thumbnailImage = iconimage )
  O0O0OOOOoo . setProperty ( "fanart_Image" , fanart )
  O0O0OOOOoo . setProperty ( "icon_Image" , iconimage )
  O0O0OOOOoo . setInfo ( 'video' , { 'Plot' : description } )
  I11i = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( '889' ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart )
- if 4 - 4: i11Ii11I1Ii1i . O00OoOoo00 + iiiI11 * i1iIIi1 . IiIi1Iii1I1
+ if 34 - 34: O0 * O0 % OoooooooOO + oooOOOOO * iIii1I11I1II1 % iiiI11
  O0O0OOOOoo . addContextMenuItems ( [ ( '[COLOR aqua]Add To Nemesis Favourites[/COLOR]' , 'xbmc.RunPlugin(' + I11i + ')' ) ] )
- if 87 - 87: Oooo0000 / i1 / i11iIiiIii
- O00Iii1111III111 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IiIiiI11i1Ii , listitem = O0O0OOOOoo , isFolder = False )
- return O00Iii1111III111
- if 74 - 74: i1iII1I1i1i1 / o000o0o00o0Oo % i1IIi11111i
-def OO0o0OO0 ( name , url , iconimage ) :
+ if 25 - 25: O00OoOoo00 + Oooo0000 . i1IIi11111i % Oooo0000 * i1iIIII
+ Oo00O0ooOO = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IIiIi1 , listitem = O0O0OOOOoo , isFolder = False )
+ return Oo00O0ooOO
+ if 32 - 32: i11iIiiIii - i1iIIi1
+def oo00ooOoo ( name , url , iconimage ) :
  Iii1ii1II11i = xbmcgui . Dialog ( )
- OooOo0OOO = [ ]
- I1Io00oOOoO0oO = [ ]
- I11iiIIII1I1 = [ ]
+ iii1IIIiiiI = [ ]
+ OoO00oo00 = [ ]
+ Oo0Oo0O = [ ]
  OOOO = i11i1 ( url )
  OOOOoOoo0O0O0 = re . compile ( '<title>' + re . escape ( name ) + '</title>(.+?)</item>' , re . DOTALL ) . findall ( OOOO ) [ 0 ]
  iconimage = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( OOOOoOoo0O0O0 ) [ 0 ]
@@ -1779,126 +1773,126 @@ def OO0o0OO0 ( name , url , iconimage ) :
  if len ( oO0Oo ) < 1 :
   oO0Oo = re . compile ( '<lordjd>(.+?)</lordjd>' ) . findall ( OOOOoOoo0O0O0 )
  iiIiI = 1
- for i1IIi1i1Ii1 in oO0Oo :
-  Iiio0Oo0oO = i1IIi1i1Ii1
-  if '(' in i1IIi1i1Ii1 :
-   i1IIi1i1Ii1 = i1IIi1i1Ii1 . split ( '(' ) [ 0 ]
-   iI = str ( Iiio0Oo0oO . split ( '(' ) [ 1 ] . replace ( ')' , '' ) )
-   OooOo0OOO . append ( i1IIi1i1Ii1 )
-   I1Io00oOOoO0oO . append ( iI )
+ for iiiI1i11Ii in oO0Oo :
+  iIiII = iiiI1i11Ii
+  if '(' in iiiI1i11Ii :
+   iiiI1i11Ii = iiiI1i11Ii . split ( '(' ) [ 0 ]
+   i1i1IIIIIIIi = str ( iIiII . split ( '(' ) [ 1 ] . replace ( ')' , '' ) )
+   iii1IIIiiiI . append ( iiiI1i11Ii )
+   OoO00oo00 . append ( i1i1IIIIIIIi )
   else :
-   OooOo0OOO . append ( i1IIi1i1Ii1 )
-   I1Io00oOOoO0oO . append ( '[COLOR aqua]Link ' + str ( iiIiI ) + '[/COLOR]' )
+   iii1IIIiiiI . append ( iiiI1i11Ii )
+   OoO00oo00 . append ( '[COLOR aqua]Link ' + str ( iiIiI ) + '[/COLOR]' )
   iiIiI = iiIiI + 1
  name = '[COLOR aqua]' + name + '[/COLOR]'
  Iii1ii1II11i = xbmcgui . Dialog ( )
- II1iiIi11 = Iii1ii1II11i . select ( name , I1Io00oOOoO0oO )
- if II1iiIi11 < 0 :
+ oo0o0oOo = Iii1ii1II11i . select ( name , OoO00oo00 )
+ if oo0o0oOo < 0 :
   quit ( )
  else :
-  url = OooOo0OOO [ II1iiIi11 ]
+  url = iii1IIIiiiI [ oo0o0oOo ]
   print url
-  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) : oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
-  elif liveresolver . isValid ( url ) == True : oOo = liveresolver . resolve ( url )
-  else : oOo = url
+  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) : ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+  elif liveresolver . isValid ( url ) == True : ooo0OO0O0Oo = liveresolver . resolve ( url )
+  else : ooo0OO0O0Oo = url
   O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = 'DefaultVideo.png' , thumbnailImage = iconimage )
-  O0O0OOOOoo . setPath ( oOo )
+  O0O0OOOOoo . setPath ( ooo0OO0O0Oo )
   xbmcplugin . setResolvedUrl ( int ( sys . argv [ 1 ] ) , True , O0O0OOOOoo )
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR red]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
   time . sleep ( 1 )
-  xbmc . Player ( ) . play ( oOo )
-  if 84 - 84: i11iIiiIii * i1
-def I1I1iII1i ( name , url , iconimage ) :
- if 30 - 30: O0 + o000o0o00o0Oo + i11Ii11I1Ii1i
- III1I = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26url='
- OooOo0OOO = [ ]
- I1Io00oOOoO0oO = [ ]
- I11iiIIII1I1 = [ ]
- I1I111iIi = [ ]
+  xbmc . Player ( ) . play ( ooo0OO0O0Oo )
+  if 58 - 58: i1IIi11111i - i11Ii11I1Ii1i % i1iII1I1i1i1 + i1iIIi1 . Oooo0000 / IiiIII111ii
+def IIo00ooo ( name , url , iconimage ) :
+ if 31 - 31: O0 * i1IIi11111i % i1IIi11111i / i1iII1I1i1i1 / O00OoOoo00 / i1
+ III1ii = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26url='
+ iii1IIIiiiI = [ ]
+ OoO00oo00 = [ ]
+ Oo0Oo0O = [ ]
+ i1IiiI1I1IIi11i1 = [ ]
  OOOO = i11i1 ( url )
  OOOOoOoo0O0O0 = re . compile ( '<title>' + re . escape ( name ) + '</title>(.+?)</item>' , re . DOTALL ) . findall ( OOOO ) [ 0 ]
  oO0Oo = re . compile ( '<sportsdevil>(.+?)</sportsdevil>' ) . findall ( OOOOoOoo0O0O0 )
  iconimage = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( OOOOoOoo0O0O0 ) [ 0 ]
  iiIiI = 1
- if 53 - 53: iIii1I11I1II1 + i1IIi11111i - Oooo0000 - i1iII1I1i1i1 / IiIi1Iii1I1 % i11iIiiIii
- for i1IIi1i1Ii1 in oO0Oo :
-  Iiio0Oo0oO = i1IIi1i1Ii1
-  if '(' in i1IIi1i1Ii1 :
-   i1IIi1i1Ii1 = i1IIi1i1Ii1 . split ( '(' ) [ 0 ]
-   iI = str ( Iiio0Oo0oO . split ( '(' ) [ 1 ] . replace ( ')' , '' ) )
-   OooOo0OOO . append ( i1IIi1i1Ii1 )
-   I1Io00oOOoO0oO . append ( iI )
-   I1I111iIi . append ( 'Stream ' + str ( iiIiI ) )
+ if 45 - 45: IiIi1Iii1I1 % i1IIi11111i - IiIi1Iii1I1
+ for iiiI1i11Ii in oO0Oo :
+  iIiII = iiiI1i11Ii
+  if '(' in iiiI1i11Ii :
+   iiiI1i11Ii = iiiI1i11Ii . split ( '(' ) [ 0 ]
+   i1i1IIIIIIIi = str ( iIiII . split ( '(' ) [ 1 ] . replace ( ')' , '' ) )
+   iii1IIIiiiI . append ( iiiI1i11Ii )
+   OoO00oo00 . append ( i1i1IIIIIIIi )
+   i1IiiI1I1IIi11i1 . append ( 'Stream ' + str ( iiIiI ) )
   else :
-   OooOo0OOO . append ( i1IIi1i1Ii1 )
-   I1Io00oOOoO0oO . append ( 'Link ' + str ( iiIiI ) )
-   if 3 - 3: oooOOOOO . IiIi1Iii1I1 % iiI1iIiI + o000o0o00o0Oo
+   iii1IIIiiiI . append ( iiiI1i11Ii )
+   OoO00oo00 . append ( 'Link ' + str ( iiIiI ) )
+   if 31 - 31: IiiIII111ii / i11iIiiIii
   iiIiI = iiIiI + 1
  name = '[COLOR red]' + name + '[/COLOR]'
  Iii1ii1II11i = xbmcgui . Dialog ( )
- II1iiIi11 = Iii1ii1II11i . select ( name , I1Io00oOOoO0oO )
- if II1iiIi11 < 0 :
+ oo0o0oOo = Iii1ii1II11i . select ( name , OoO00oo00 )
+ if oo0o0oOo < 0 :
   quit ( )
  else :
-  OOO00O = I1Io00oOOoO0oO [ II1iiIi11 ]
+  OOO00O = OoO00oo00 [ oo0o0oOo ]
   OOoOO0oo0ooO = "/"
   if not OOO00O . endswith ( OOoOO0oo0ooO ) :
    O0o0O00Oo0o0 = OOO00O + "/"
   else :
    O0o0O00Oo0o0 = OOO00O
-  url = III1I + OooOo0OOO [ II1iiIi11 ] + "%26referer=" + O0o0O00Oo0o0
+  url = III1ii + iii1IIIiiiI [ oo0o0oOo ] + "%26referer=" + O0o0O00Oo0o0
   print url
-  if 64 - 64: i1IIi
+  if 83 - 83: o000o0o00o0Oo / i1iIIi1 - i11iIiiIii . iIii1I11I1II1 + ooo0Oo0
   xbmc . Player ( ) . play ( url )
-  if 29 - 29: i1IIi11111i / i11iIiiIii / iiI1iIiI % i1iII1I1i1i1 % i11iIiiIii
+  if 59 - 59: O0 % ooo0Oo0
 def ooOOO0 ( string ) :
- i111II = ( c for c in string if 0 < ord ( c ) < 127 )
- if 63 - 63: iiI1iIiI - i1 % oooOOOOO % O00OoOoo00 / i1IIi11111i / i1IIi
- return '' . join ( i111II )
- if 69 - 69: ooo0Oo0 * i11Ii11I1Ii1i * IiIi1Iii1I1 . oooOOOOO - o000o0o00o0Oo
+ O0o00O0Oo0 = ( c for c in string if 0 < ord ( c ) < 127 )
+ if 58 - 58: O0
+ return '' . join ( O0o00O0Oo0 )
+ if 78 - 78: i1 % IiiIII111ii * i1IIi
 def O00oO ( name , url , mode , iconimage , fanart , description = '' ) :
- if 39 - 39: iiiI11 * iiI1iIiI % i1 . Oooo0000
+ if 66 - 66: iiiI11 . iiI1iIiI + i1IIi11111i . iIii1I11I1II1
  if not "http" in iconimage :
   iconimage = I1IiI
  if not "http" in fanart :
   fanart = Oo
  description = description . encode ( encoding = 'UTF-8' , errors = 'strict' )
- IiIiiI11i1Ii = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
- O00Iii1111III111 = True
+ IIiIi1 = sys . argv [ 0 ] + "?url=" + urllib . quote_plus ( url ) + "&mode=" + str ( mode ) + "&name=" + urllib . quote_plus ( name ) + "&iconimage=" + urllib . quote_plus ( iconimage ) + "&fanart=" + urllib . quote_plus ( fanart ) + "&description=" + urllib . quote_plus ( description )
+ Oo00O0ooOO = True
  O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = iconimage , thumbnailImage = iconimage , )
  O0O0OOOOoo . setProperty ( "fanart_Image" , fanart )
  O0O0OOOOoo . setProperty ( "icon_Image" , iconimage )
  O0O0OOOOoo . setInfo ( 'video' , { 'Plot' : description } )
- O00Iii1111III111 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IiIiiI11i1Ii , listitem = O0O0OOOOoo , isFolder = True )
- return O00Iii1111III111
- if 24 - 24: i1IIi * iIii1I11I1II1 / iiiI11
-def OoOOo00 ( name , url , iconimage ) :
- O00Iii1111III111 = True
+ Oo00O0ooOO = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = IIiIi1 , listitem = O0O0OOOOoo , isFolder = True )
+ return Oo00O0ooOO
+ if 51 - 51: O00OoOoo00 . ooo0Oo0
+def IiiIiiIi ( name , url , iconimage ) :
+ Oo00O0ooOO = True
  O0O0OOOOoo = xbmcgui . ListItem ( name , iconImage = "DefaultFolder.png" , thumbnailImage = iconimage ) ; O0O0OOOOoo . setInfo ( type = "Video" , infoLabels = { "Title" : name } )
- O00Iii1111III111 = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = url , listitem = O0O0OOOOoo )
+ Oo00O0ooOO = xbmcplugin . addDirectoryItem ( handle = int ( sys . argv [ 1 ] ) , url = url , listitem = O0O0OOOOoo )
  xbmc . Player ( ) . play ( url , O0O0OOOOoo , False )
- if 53 - 53: IiiIII111ii . i1iIIi1 % iIii1I11I1II1 % Oooo0000 % O00OoOoo00
-def o0OoOoOOoOo0o ( ) :
- if 20 - 20: i1 / iIii1I11I1II1
- oo0ooO0 = xbmc . translatePath ( os . path . join ( 'special://home/cache' ) )
- IIiiiiIiIIii = xbmc . translatePath ( os . path . join ( 'special://profile/Thumbnails' ) )
- O0OO = xbmc . translatePath ( os . path . join ( 'special://home/addons/packages' ) )
- if 15 - 15: i1iII1I1i1i1 . i1IIi11111i
- iiIiI = [ ( oo0ooO0 , 'Cache' ) , ( IIiiiiIiIIii , 'Thumbnails' ) , ( O0OO , 'Packages' ) ]
- if 21 - 21: iIii1I11I1II1 / i11Ii11I1Ii1i % i1IIi
- IIiI1i = xbmcgui . Dialog ( ) . yesno ( o0OoOoOO00 , '[COLOR aqua]Use this function to perform some automatic maintenance! Shall we do the housework for you?[/COLOR]' , '' , yeslabel = 'Lets Clean' , nolabel = 'No Thankyou' )
- if IIiI1i :
+ if 40 - 40: i1IIi11111i
+def oOO ( ) :
+ if 66 - 66: O00OoOoo00 - i1IIi
+ ooi1II1I = xbmc . translatePath ( os . path . join ( 'special://home/cache' ) )
+ OOoO0ooOO = xbmc . translatePath ( os . path . join ( 'special://profile/Thumbnails' ) )
+ iii1IIII1iii11I = xbmc . translatePath ( os . path . join ( 'special://home/addons/packages' ) )
+ if 8 - 8: i1iIIi1 / i1iIIII . iiI1iIiI + o000o0o00o0Oo / i11iIiiIii
+ iiIiI = [ ( ooi1II1I , 'Cache' ) , ( OOoO0ooOO , 'Thumbnails' ) , ( iii1IIII1iii11I , 'Packages' ) ]
+ if 31 - 31: IiIi1Iii1I1 - iIii1I11I1II1 + oooOOOOO . ooo0Oo0 / IiiIII111ii % iIii1I11I1II1
+ I11i1iIiiIiIi = xbmcgui . Dialog ( ) . yesno ( o0OoOoOO00 , '[COLOR aqua]Use this function to perform some automatic maintenance! Shall we do the housework for you?[/COLOR]' , '' , yeslabel = 'Lets Clean' , nolabel = 'No Thankyou' )
+ if I11i1iIiiIiIi :
   iIiiiI . create ( o0OoOoOO00 , '' , '' , '' )
   iIiiiI . update ( 0 )
   for IIII in iiIiI :
-   if 6 - 6: o000o0o00o0Oo / oooOOOOO - i1iIIII
+   if 49 - 49: i1iIIII . o000o0o00o0Oo . i11iIiiIii - i11Ii11I1Ii1i / iiiI11
    iIiiiI . update ( 50 , "[COLOR aqua]Clearing %s[/COLOR]" % IIII [ 1 ] )
    time . sleep ( 1 )
-   if 62 - 62: O00OoOoo00 % i1iIIII
-   for OOo00OO00Oo , oO0ooOO , IIi1iI1 in os . walk ( IIII [ 0 ] ) :
-    for I11II1i in IIi1iI1 :
+   if 62 - 62: i1iIIII
+   for i1I1i , i1i1II1i11 , o00o in os . walk ( IIII [ 0 ] ) :
+    for I11II1i in o00o :
      if ( I11II1i . endswith ( '.log' ) ) : continue
-     try : os . unlink ( os . path . join ( OOo00OO00Oo , I11II1i ) )
+     try : os . unlink ( os . path . join ( i1I1i , I11II1i ) )
      except : pass
    iIiiiI . update ( 100 , "[COLOR aqua]The %s have been cleared![/COLOR]" % IIII [ 1 ] )
    time . sleep ( 3 )
@@ -1906,91 +1900,91 @@ def o0OoOoOOoOo0o ( ) :
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Maintenance Completed[/COLOR]' , I1IiI , 5000 )
   xbmc . executebuiltin ( 'Container.Refresh' )
  else : quit ( )
- if 23 - 23: i1iIIi1 - i1iIIII + iiiI11 - Oooo0000 * Oooo0000 . ooo0Oo0
-def iIii11iI1II ( url , mode , name , iconimage , fanart ) :
- if 42 - 42: IiIi1Iii1I1 - iiI1iIiI + o000o0o00o0Oo % iiiI11
- with open ( I11i , "a" ) as i1II1I1Iii1 :
-  i1II1I1Iii1 . write ( '<item>\n<title>' + name + '</title>\n<url>' + url + '</url>\n<thumbnail>' + iconimage + '</thumbnail>\n<fanart>' + fanart + '</fanart>\n</item>\n\n' )
+ if 87 - 87: ooo0Oo0 / O0 * IiiIII111ii / i1IIi11111i
+def I1iiIII ( url , mode , name , iconimage , fanart ) :
+ if 16 - 16: i1iII1I1i1i1 + IiIi1Iii1I1 / i1IIi11111i
+ with open ( I11i , "a" ) as iiiII :
+  iiiII . write ( '<item>\n<title>' + name + '</title>\n<url>' + url + '</url>\n<thumbnail>' + iconimage + '</thumbnail>\n<fanart>' + fanart + '</fanart>\n</item>\n\n' )
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]' + name + ' added to favourites[/COLOR]' , I1IiI , 5000 )
-  if 44 - 44: i1IIi - O0 - o000o0o00o0Oo * o000o0o00o0Oo + Oooo0000
-def O0oo ( ) :
- if 82 - 82: Oooo0000 + O0 - IiiIII111ii % i1iII1I1i1i1 * i11iIiiIii
- with open ( I11i , "a" ) as i1II1I1Iii1 :
-  iIIi1iI1 = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/' + o0OO00 , 'favs.xml' ) )
-  I1Iii1I = open ( iIIi1iI1 ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-  IIIii1II1II = re . compile ( '<item>(.+?)</item>' ) . findall ( I1Iii1I )
+  if 82 - 82: IiiIII111ii * i11iIiiIii % i11Ii11I1Ii1i - OoooooooOO
+def OO0 ( ) :
+ if 62 - 62: i1IIi / IiIi1Iii1I1 . iiI1iIiI * i1IIi11111i
+ with open ( I11i , "a" ) as iiiII :
+  i11i1Ii1 = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/' + o0OO00 , 'favs.xml' ) )
+  o0oO0oo0000OO = open ( i11i1Ii1 ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  IIIii1II1II = re . compile ( '<item>(.+?)</item>' ) . findall ( o0oO0oo0000OO )
   O000oo0O ( '[COLOR aqua]' + "Your Favourites" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
   O000oo0O ( '[COLOR white]' + "----------------------------------------------------" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
   if len ( IIIii1II1II ) < 1 :
    O000oo0O ( '[COLOR skyblue]' + "NO FAVS ADDED YET" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
-  for iIi11I in IIIii1II1II :
-   III1iII1I1ii = re . compile ( '<title>(.+?)</title>' ) . findall ( iIi11I ) [ 0 ]
-   iiiiiIIii = re . compile ( '<url>(.+?)</url>' ) . findall ( iIi11I ) [ 0 ]
-   I1IiI = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( iIi11I ) [ 0 ]
-   I1ii11iIi11i = re . compile ( '<fanart>(.+?)</fanart>' ) . findall ( iIi11I ) [ 0 ]
+  for I1i1ii1IiIii in IIIii1II1II :
+   III1iII1I1ii = re . compile ( '<title>(.+?)</title>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   iiiiiIIii = re . compile ( '<url>(.+?)</url>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   I1IiI = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   I1ii11iIi11i = re . compile ( '<fanart>(.+?)</fanart>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
    O000oo0O ( '[COLOR skyblue]' + III1iII1I1ii + '[/COLOR]' , iiiiiIIii , 2 , I1IiI , I1ii11iIi11i )
-   if 87 - 87: O00OoOoo00 / iiI1iIiI + ooo0Oo0 + i1iIIII - OoooooooOO + ooo0Oo0
+   if 69 - 69: Oooo0000 % i1iII1I1i1i1 - O00OoOoo00
  O000oo0O ( '[COLOR aqua]' + "Delete Favourites" + '[/COLOR]' , 'url' , 891 , o0O , Oo )
- if 93 - 93: IiIi1Iii1I1 . iIii1I11I1II1 % i11iIiiIii . Oooo0000 % IiIi1Iii1I1 + O0
-def o0OOoOO ( ) :
- if 46 - 46: i1iII1I1i1i1 / oooOOOOO - i1IIi
- with open ( IiII , "a" ) as i1II1I1Iii1 :
-  iIIi1iI1 = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/' + o0OO00 , 'download.xml' ) )
-  I1Iii1I = open ( iIIi1iI1 ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
-  IIIii1II1II = re . compile ( '<item>(.+?)</item>' ) . findall ( I1Iii1I )
+ if 38 - 38: iIii1I11I1II1 + i11iIiiIii / i11iIiiIii % i1 / IiIi1Iii1I1 % iiiI11
+def I1IiIiIi1IiI1 ( ) :
+ if 60 - 60: iiiI11 * Oooo0000 - i11iIiiIii % IiIi1Iii1I1
+ with open ( IiII , "a" ) as iiiII :
+  i11i1Ii1 = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/' + o0OO00 , 'download.xml' ) )
+  o0oO0oo0000OO = open ( i11i1Ii1 ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+  IIIii1II1II = re . compile ( '<item>(.+?)</item>' ) . findall ( o0oO0oo0000OO )
   O000oo0O ( '[COLOR aqua]' + "Your Downloads" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
   O000oo0O ( '[COLOR white]' + "----------------------------------------------------" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
   if len ( IIIii1II1II ) < 1 :
    O000oo0O ( '[COLOR skyblue]' + "NO DOWNLOADS YET" + '[/COLOR]' , 'url' , '2' , o0O , Oo )
-  for iIi11I in IIIii1II1II :
-   III1iII1I1ii = re . compile ( '<title>(.+?)</title>' ) . findall ( iIi11I ) [ 0 ]
-   iiiiiIIii = re . compile ( '<link>(.+?)</link>' ) . findall ( iIi11I ) [ 0 ]
-   I1IiI = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( iIi11I ) [ 0 ]
-   I1ii11iIi11i = re . compile ( '<fanart>(.+?)</fanart>' ) . findall ( iIi11I ) [ 0 ]
+  for I1i1ii1IiIii in IIIii1II1II :
+   III1iII1I1ii = re . compile ( '<title>(.+?)</title>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   iiiiiIIii = re . compile ( '<link>(.+?)</link>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   I1IiI = re . compile ( '<thumbnail>(.+?)</thumbnail>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
+   I1ii11iIi11i = re . compile ( '<fanart>(.+?)</fanart>' ) . findall ( I1i1ii1IiIii ) [ 0 ]
    O000oo0O ( '[COLOR skyblue]' + III1iII1I1ii + '[/COLOR]' , iiiiiIIii , 2 , I1IiI , I1ii11iIi11i )
-   if 51 - 51: ooo0Oo0 - o000o0o00o0Oo * O00OoOoo00
+   if 52 - 52: o000o0o00o0Oo % i1iII1I1i1i1 - i11iIiiIii
  O000oo0O ( '[COLOR aqua]' + "Clear Downloads Folder" + '[/COLOR]' , 'url' , 885 , o0O , Oo )
- if 12 - 12: iIii1I11I1II1 % IiIi1Iii1I1 % IiIi1Iii1I1
-def o0i1iI1iiI1I ( ) :
- if 52 - 52: i1 % iiiI11 * i11Ii11I1Ii1i
- with open ( I11i , "w" ) as i1II1I1Iii1 :
-  i1II1I1Iii1 . write ( '' )
+ if 30 - 30: oooOOOOO / i1 + i1iII1I1i1i1
+def I1Io00oOOoO0oO ( ) :
+ if 26 - 26: iiiI11 * iIii1I11I1II1 % i1 . i1IIi11111i + ooo0Oo0
+ with open ( I11i , "w" ) as iiiII :
+  iiiII . write ( '' )
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Favourites has been wiped[/COLOR]' , I1IiI , 5000 )
   xbmc . executebuiltin ( 'Container.Refresh' )
-  if 4 - 4: O00OoOoo00 % O0 - OoooooooOO + IiIi1Iii1I1 . i1iII1I1i1i1 % i11Ii11I1Ii1i
-def Iiii1iiiIiI1 ( ) :
+  if 80 - 80: ooo0Oo0 * iiiI11 + o000o0o00o0Oo * i1iIIII
+def I1Ii ( ) :
  shutil . rmtree ( o0OOO )
  os . mkdir ( o0OOO )
- with open ( IiII , "w" ) as i1II1I1Iii1 :
-  i1II1I1Iii1 . write ( '' )
+ with open ( IiII , "w" ) as iiiII :
+  iiiII . write ( '' )
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Downloads Folder Cleared[/COLOR]' , I1IiI , 5000 )
  xbmc . executebuiltin ( 'Container.Refresh' )
- if 27 - 27: iiiI11 + iiI1iIiI * iIii1I11I1II1 . OoooooooOO * Oooo0000
- if 100 - 100: i1 / i1IIi - iiI1iIiI % iiiI11 - iIii1I11I1II1
- if 17 - 17: O00OoOoo00 / i1IIi11111i % ooo0Oo0
+ if 77 - 77: iIii1I11I1II1 - i1IIi . i1iII1I1i1i1
+ if 26 - 26: i1IIi11111i * IiiIII111ii . i1IIi
+ if 59 - 59: O0 + i1IIi - i1IIi11111i
 def OOO00 ( ) :
- if 71 - 71: IiiIII111ii . i1iIIi1 . i1
- Oo0O0O00Oo = open ( iI1Ii11111iIi ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ if 62 - 62: i11iIiiIii % i1iIIII . IiiIII111ii . i1iIIII
+ ooOo0O0O0oOO0 = open ( iI1Ii11111iIi ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  try :
-  I111Ii = re . compile ( '<pin>(.+?)</pin>' ) . findall ( Oo0O0O00Oo ) [ 0 ]
-  if I111Ii == 'EXPIRED' :
+  iIiIIi = re . compile ( '<pin>(.+?)</pin>' ) . findall ( ooOo0O0O0oOO0 ) [ 0 ]
+  if iIiIIi == 'EXPIRED' :
    Iii1ii1II11i . ok ( o0OoOoOO00 , "[COLOR aqua]Please visit [COLOR yellow]http://streamarmy.co.uk[COLOR aqua] to generate a Pin to access Nemesis Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR red]This is only required once every 4 hours[/COLOR]" )
-   iiiI = ''
-   I1ii1 = xbmc . Keyboard ( iiiI , '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]' )
-   I1ii1 . doModal ( )
-   if I1ii1 . isConfirmed ( ) :
-    iiiI = I1ii1 . getText ( )
-    if len ( iiiI ) > 1 :
-     O00 = iiiI . title ( )
+   i1iI1 = ''
+   i11ii1ii11i = xbmc . Keyboard ( i1iI1 , '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]' )
+   i11ii1ii11i . doModal ( )
+   if i11ii1ii11i . isConfirmed ( ) :
+    i1iI1 = i11ii1ii11i . getText ( )
+    if len ( i1iI1 ) > 1 :
+     ooO0OoOO = i1iI1 . title ( )
      with open ( iI1Ii11111iIi , "w" ) as I11II1i :
-      I11II1i . write ( "<pin>" + O00 + "</pin>" )
+      I11II1i . write ( "<pin>" + ooO0OoOO + "</pin>" )
      OOO00 ( )
     else : quit ( )
    else : quit ( )
-  if not 'EXPIRED' in I111Ii :
-   II11 = re . compile ( '<pin>(.+?)</pin>' ) . findall ( Oo0O0O00Oo ) [ 0 ]
-   iIiii = ( 'http://www.streamarmy.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % II11 )
-   OOOO = i11i1 ( iIiii )
+  if not 'EXPIRED' in iIiIIi :
+   III1I = re . compile ( '<pin>(.+?)</pin>' ) . findall ( ooOo0O0O0oOO0 ) [ 0 ]
+   I1I111iIi = ( 'http://www.streamarmy.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % III1I )
+   OOOO = i11i1 ( I1I111iIi )
    if 'Pin Verified' in OOOO :
     pass
    else :
@@ -2001,199 +1995,199 @@ def OOO00 ( ) :
   with open ( iI1Ii11111iIi , "w" ) as I11II1i :
    I11II1i . write ( "<pin>EXPIRED</pin>\n" )
   OOO00 ( )
-  if 94 - 94: IiIi1Iii1I1 * O00OoOoo00 - IiiIII111ii . iIii1I11I1II1
-  if 66 - 66: IiIi1Iii1I1 - i1iIIII * Oooo0000 / i1iII1I1i1i1 * i11Ii11I1Ii1i * i1
-  if 91 - 91: OoooooooOO / iiiI11 . iiI1iIiI + IiIi1Iii1I1 . i11Ii11I1Ii1i
-  if 45 - 45: i1iII1I1i1i1 * Oooo0000 / iIii1I11I1II1
-def o00ooOoO0 ( url , iconimage , fanart ) :
- if 15 - 15: i1iIIII * O00OoOoo00 / o000o0o00o0Oo * i1IIi11111i
+  if 53 - 53: iIii1I11I1II1 + i1IIi11111i - Oooo0000 - i1iII1I1i1i1 / IiIi1Iii1I1 % i11iIiiIii
+  if 3 - 3: oooOOOOO . IiIi1Iii1I1 % iiI1iIiI + o000o0o00o0Oo
+  if 64 - 64: i1IIi
+  if 29 - 29: i1IIi11111i / i11iIiiIii / iiI1iIiI % i1iII1I1i1i1 % i11iIiiIii
+def i111II ( url , iconimage , fanart ) :
+ if 63 - 63: iiI1iIiI - i1 % oooOOOOO % O00OoOoo00 / i1IIi11111i / i1IIi
  try :
-  iiiI = ''
-  I1ii1 = xbmc . Keyboard ( iiiI , 'Enter Name To Save File As' )
-  I1ii1 . doModal ( )
-  if I1ii1 . isConfirmed ( ) :
-   iiiI = I1ii1 . getText ( )
-   if len ( iiiI ) > 1 :
-    O00 = iiiI . title ( )
+  i1iI1 = ''
+  i11ii1ii11i = xbmc . Keyboard ( i1iI1 , 'Enter Name To Save File As' )
+  i11ii1ii11i . doModal ( )
+  if i11ii1ii11i . isConfirmed ( ) :
+   i1iI1 = i11ii1ii11i . getText ( )
+   if len ( i1iI1 ) > 1 :
+    ooO0OoOO = i1iI1 . title ( )
    else : quit ( )
   import urlresolver
   if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-   oOo = urlresolver . HostedMediaFile ( url ) . resolve ( )
-   url = oOo
-  o000Oo0 = url . split ( '/' ) [ - 1 ]
-  IiIiiI11i1Ii = urllib2 . urlopen ( url )
-  o0O0OO0o = os . path . join ( o0OOO , O00 )
-  I11II1i = open ( o0O0OO0o , 'wb' )
-  if 54 - 54: Oooo0000 . i1iII1I1i1i1 % i11iIiiIii / OoooooooOO + IiiIII111ii % i1iII1I1i1i1
-  i1ii1IIiI = IiIiiI11i1Ii . info ( )
-  II1ii1ii11I1 = int ( i1ii1IIiI . getheaders ( "Content-Length" ) [ 0 ] )
-  iIiiiI . create ( o0OoOoOO00 , "Starting Download: %s File Size: %s" % ( O00 , II1ii1ii11I1 ) )
+   ooo0OO0O0Oo = urlresolver . HostedMediaFile ( url ) . resolve ( )
+   url = ooo0OO0O0Oo
+  OO0oo0O0OOO0 = url . split ( '/' ) [ - 1 ]
+  IIiIi1 = urllib2 . urlopen ( url )
+  OoOOo = os . path . join ( o0OOO , ooO0OoOO )
+  I11II1i = open ( OoOOo , 'wb' )
+  if 46 - 46: iiI1iIiI / iiiI11 . i1iIIi1 % i11iIiiIii + i1IIi11111i + OoooooooOO
+  O0o0000o = IIiIi1 . info ( )
+  oOo00OoOoO = int ( O0o0000o . getheaders ( "Content-Length" ) [ 0 ] )
+  iIiiiI . create ( o0OoOoOO00 , "Starting Download: %s File Size: %s" % ( ooO0OoOO , oOo00OoOoO ) )
   iIiiiI . update ( 0 )
   time . sleep ( 2 )
-  if 88 - 88: o000o0o00o0Oo
-  oOOooooo0OoO0 = 0
-  ii1I111i1Ii = 8192
+  if 66 - 66: iiI1iIiI - IiiIII111ii
+  iiIii = 0
+  iIiIii1ii = 8192
   while True :
-   buffer = IiIiiI11i1Ii . read ( ii1I111i1Ii )
+   buffer = IIiIi1 . read ( iIiIii1ii )
    if not buffer :
     break
-    if 84 - 84: o000o0o00o0Oo % iIii1I11I1II1 + i1 . o000o0o00o0Oo % i1
-   oOOooooo0OoO0 += len ( buffer )
+    if 8 - 8: i1 + Oooo0000 . iIii1I11I1II1 % O0
+   iiIii += len ( buffer )
    I11II1i . write ( buffer )
-   o0OooooO0O = "[%3.2f%%]" % ( oOOooooo0OoO0 * 100. / II1ii1ii11I1 )
-   o0OooooO0O = o0OooooO0O + chr ( 8 ) * ( len ( o0OooooO0O ) + 1 )
-   iIiiiI . update ( oOOooooo0OoO0 , "[COLOR aqua]Downloaded [COLOR yellow]%s[/COLOR][COLOR aqua] Of %s[/COLOR]" % ( o0OooooO0O , O00 ) )
-   if 81 - 81: i1IIi % i1IIi11111i - i1iIIi1 + i11iIiiIii - OoooooooOO
+   iI11Ii111 = "[%3.2f%%]" % ( iiIii * 100. / oOo00OoOoO )
+   iI11Ii111 = iI11Ii111 + chr ( 8 ) * ( len ( iI11Ii111 ) + 1 )
+   iIiiiI . update ( iiIii , "[COLOR aqua]Downloaded [COLOR yellow]%s[/COLOR][COLOR aqua] Of %s[/COLOR]" % ( iI11Ii111 , ooO0OoOO ) )
+   if 54 - 54: Oooo0000 % oooOOOOO . Oooo0000 * i1iIIII + Oooo0000 % i1IIi
    if iIiiiI . iscanceled ( ) :
     iIiiiI . close ( )
     quit ( )
-  with open ( IiII , "a" ) as i1II1I1Iii1 :
-   i1II1I1Iii1 . write ( '<item>\n<title>' + O00 + '</title>\n<link>' + o0O0OO0o + '</link>\n<thumbnail>' + iconimage + '</thumbnail>\n<fanart>' + fanart + '</fanart>\n</item>\n\n' )
+  with open ( IiII , "a" ) as iiiII :
+   iiiII . write ( '<item>\n<title>' + ooO0OoOO + '</title>\n<link>' + OoOOo + '</link>\n<thumbnail>' + iconimage + '</thumbnail>\n<fanart>' + fanart + '</fanart>\n</item>\n\n' )
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Download Complete[/COLOR]' , I1IiI , 5000 )
-  if 50 - 50: iiiI11 - i11iIiiIii + iIii1I11I1II1 / O0 - iiiI11 + i1IIi11111i
+  if 23 - 23: i1iIIi1 - i1iIIII + iiiI11 - Oooo0000 * Oooo0000 . ooo0Oo0
   I11II1i . close ( )
  except :
   Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Sorry This File Couldn\'t Be Downloaded[/COLOR]' , I1IiI , 5000 )
-  if 22 - 22: i11Ii11I1Ii1i - iiiI11 / IiIi1Iii1I1 % OoooooooOO + i1iIIII
-  if 5 - 5: i1 / oooOOOOO + i11iIiiIii % O00OoOoo00
-  if 93 - 93: Oooo0000 % iIii1I11I1II1
-  if 90 - 90: iiI1iIiI - i1iIIII / iiiI11 / O0 / O00OoOoo00
-def oOO0 ( ) :
- IIi1I1i = [ ]
- Ii = sys . argv [ 2 ]
- if len ( Ii ) >= 2 :
-  oO0O = sys . argv [ 2 ]
-  Oo00o0O0O = oO0O . replace ( '?' , '' )
-  if ( oO0O [ len ( oO0O ) - 1 ] == '/' ) :
-   oO0O = oO0O [ 0 : len ( oO0O ) - 2 ]
-  o0ooO0OoOo = Oo00o0O0O . split ( '&' )
-  IIi1I1i = { }
-  for iiIiI in range ( len ( o0ooO0OoOo ) ) :
-   o0oOO00 = { }
-   o0oOO00 = o0ooO0OoOo [ iiIiI ] . split ( '=' )
-   if ( len ( o0oOO00 ) ) == 2 :
-    IIi1I1i [ o0oOO00 [ 0 ] ] = o0oOO00 [ 1 ]
- return IIi1I1i
- if 46 - 46: i11iIiiIii - O00OoOoo00
-oO0O = oOO0 ( ) ; iiiiiIIii = None ; oo0OooOOo0 = None ; oOoOo = None ; OoO00O0OOO = None ; o0O = None ; oooOo0O00o00 = None
-try : OoO00O0OOO = urllib . unquote_plus ( oO0O [ "site" ] )
+  if 47 - 47: i1iII1I1i1i1 % iIii1I11I1II1
+  if 11 - 11: iiI1iIiI % iiiI11 - i1 - i1iII1I1i1i1 + i1IIi11111i
+  if 98 - 98: oooOOOOO + iiiI11 - i1
+  if 79 - 79: i1iIIII / i1iIIi1 . Oooo0000 - o000o0o00o0Oo
+def Ii1ii11IIIi ( ) :
+ OOoooOOOo0oO = [ ]
+ oO0Ooo0OooOOo = sys . argv [ 2 ]
+ if len ( oO0Ooo0OooOOo ) >= 2 :
+  O00o0O = sys . argv [ 2 ]
+  iIIIiI = O00o0O . replace ( '?' , '' )
+  if ( O00o0O [ len ( O00o0O ) - 1 ] == '/' ) :
+   O00o0O = O00o0O [ 0 : len ( O00o0O ) - 2 ]
+  O00 = iIIIiI . split ( '&' )
+  OOoooOOOo0oO = { }
+  for iiIiI in range ( len ( O00 ) ) :
+   i1iiIII1IIiIIII = { }
+   i1iiIII1IIiIIII = O00 [ iiIiI ] . split ( '=' )
+   if ( len ( i1iiIII1IIiIIII ) ) == 2 :
+    OOoooOOOo0oO [ i1iiIII1IIiIIII [ 0 ] ] = i1iiIII1IIiIIII [ 1 ]
+ return OOoooOOOo0oO
+ if 19 - 19: oooOOOOO - i1IIi11111i / i1IIi11111i + ooo0Oo0
+O00o0O = Ii1ii11IIIi ( ) ; iiiiiIIii = None ; oo0OooOOo0 = None ; OoO0o0000O = None ; II1 = None ; o0O = None ; o0ooO0OOO = None
+try : II1 = urllib . unquote_plus ( O00o0O [ "site" ] )
 except : pass
-try : iiiiiIIii = urllib . unquote_plus ( oO0O [ "url" ] )
+try : iiiiiIIii = urllib . unquote_plus ( O00o0O [ "url" ] )
 except : pass
-try : oo0OooOOo0 = urllib . unquote_plus ( oO0O [ "name" ] )
+try : oo0OooOOo0 = urllib . unquote_plus ( O00o0O [ "name" ] )
 except : pass
-try : oOoOo = int ( oO0O [ "mode" ] )
+try : OoO0o0000O = int ( O00o0O [ "mode" ] )
 except : pass
-try : o0O = urllib . unquote_plus ( oO0O [ "iconimage" ] )
+try : o0O = urllib . unquote_plus ( O00o0O [ "iconimage" ] )
 except : pass
-try : I1ii11iIi11i = urllib . unquote_plus ( oO0O [ "fanart" ] )
+try : I1ii11iIi11i = urllib . unquote_plus ( O00o0O [ "fanart" ] )
 except : pass
-try : oooOo0O00o00 = urllib . unquote_plus ( oO0O [ "description" ] )
+try : o0ooO0OOO = urllib . unquote_plus ( O00o0O [ "description" ] )
 except : pass
-if 6 - 6: IiiIII111ii % ooo0Oo0 . ooo0Oo0 - o000o0o00o0Oo / O00OoOoo00 . i1IIi
-if oOoOo == None or iiiiiIIii == None or len ( iiiiiIIii ) < 1 : I1I ( )
-if 99 - 99: Oooo0000 . i1iIIi1
-if 59 - 59: O00OoOoo00 / ooo0Oo0 / i1iIIII / O0 / Oooo0000 + i1IIi11111i
-if 13 - 13: i1IIi11111i % i1iII1I1i1i1 / i1iIIi1 % i1iIIi1 % O0
-if 90 - 90: IiiIII111ii . IiIi1Iii1I1 / iIii1I11I1II1
-if 28 - 28: IiiIII111ii + i1iII1I1i1i1 - IiIi1Iii1I1 / iIii1I11I1II1 - iiI1iIiI
-elif oOoOo == 1 : oOOOOo0 ( oo0OooOOo0 , iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 2 : I11iI ( oo0OooOOo0 , iiiiiIIii , o0O )
-elif oOoOo == 3 : OO0o0OO0 ( oo0OooOOo0 , iiiiiIIii , o0O )
-if 45 - 45: O0 / i1IIi * i1iII1I1i1i1 * i1
-if 35 - 35: o000o0o00o0Oo / oooOOOOO % iiI1iIiI + iIii1I11I1II1
-if 79 - 79: Oooo0000 / IiIi1Iii1I1
-elif oOoOo == 4 : Iiii ( iiiiiIIii )
-elif oOoOo == 5 : O0OOO ( iiiiiIIii )
-elif oOoOo == 6 : oOo0O0Oo00oO ( )
-elif oOoOo == 7 : O00o0OO0 ( iiiiiIIii )
-elif oOoOo == 8 : O0oO ( iiiiiIIii )
-elif oOoOo == 9 : OOOOo0 ( iiiiiIIii )
-elif oOoOo == 10 : I1Iii1iI1 ( iiiiiIIii )
-elif oOoOo == 11 : SCANNER ( )
-elif oOoOo == 12 : SCANNER_STATE ( iiiiiIIii )
-elif oOoOo == 13 : SCANNER_CITY ( iiiiiIIii )
-elif oOoOo == 14 : SCANNER_PLAY ( iiiiiIIii )
-elif oOoOo == 15 : SCANNER_TOP25 ( )
-elif oOoOo == 16 : I1I1iII1i ( oo0OooOOo0 , iiiiiIIii , o0O )
-elif oOoOo == 17 : ooOOoooooo ( iiiiiIIii )
-elif oOoOo == 18 : IIi1 ( iiiiiIIii )
-elif oOoOo == 19 : Ooo00o0Oooo ( iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 20 : oOo0oO ( )
-elif oOoOo == 21 : OO ( iiiiiIIii )
-elif oOoOo == 22 : OoooO00o ( iiiiiIIii )
-elif oOoOo == 23 : oOoOOo0O ( )
-elif oOoOo == 24 : oOOoo0000O0o0 ( iiiiiIIii )
-elif oOoOo == 25 : I1 ( iiiiiIIii , o0O )
-elif oOoOo == 26 : ii ( iiiiiIIii )
-elif oOoOo == 27 : O0O0Oo00 ( iiiiiIIii , o0O )
-elif oOoOo == 28 : ii1iIi1iIiI1i ( )
-elif oOoOo == 29 : ii1III11 ( iiiiiIIii )
-elif oOoOo == 30 : ooO0o ( iiiiiIIii )
-elif oOoOo == 31 : o0O0O0ooo0oOO ( iiiiiIIii )
-elif oOoOo == 32 : Iiiiii111i1ii ( iiiiiIIii )
-elif oOoOo == 33 : Ooo00O0o ( iiiiiIIii )
-elif oOoOo == 34 : i1iIi1I1i ( iiiiiIIii )
-elif oOoOo == 35 : oO0 ( )
-elif oOoOo == 36 : O0oo0ooOOOO ( iiiiiIIii )
-elif oOoOo == 37 : Iiii1I1 ( iiiiiIIii , o0O )
-elif oOoOo == 38 : i1I1II1iIIi11 ( )
-elif oOoOo == 39 : o0o0oOoOO0O ( iiiiiIIii )
-elif oOoOo == 40 : oOo0oO ( )
-elif oOoOo == 41 : OO ( iiiiiIIii )
-elif oOoOo == 42 : iiOOOO0o ( iiiiiIIii )
-elif oOoOo == 43 : o0o000 ( iiiiiIIii , o0O )
-elif oOoOo == 44 : OOooo00 ( )
-if 77 - 77: ooo0Oo0
-elif oOoOo == 45 : OOoO000 ( )
-elif oOoOo == 46 : oooO0o0o0O0 ( iiiiiIIii )
-elif oOoOo == 47 : IIiiIIi1 ( oo0OooOOo0 , iiiiiIIii , o0O )
-elif oOoOo == 48 : O000 ( )
-elif oOoOo == 49 : oo0o0O0Oooooo ( iiiiiIIii )
-elif oOoOo == 50 : Ooo0oo0ooO ( iiiiiIIii )
-elif oOoOo == 51 : ANIME_CATS ( )
-elif oOoOo == 52 : ANIME_SHOWS ( iiiiiIIii )
-elif oOoOo == 53 : ANIME_EPI ( iiiiiIIii )
-elif oOoOo == 54 : ANIME_PLAY ( iiiiiIIii , o0O )
-if 46 - 46: i1iIIi1
-if 72 - 72: oooOOOOO * i1iIIII
-if 67 - 67: i1IIi
-elif oOoOo == 59 : iIi11iiIiI1I ( )
-elif oOoOo == 60 : O0OOO0OOooo00 ( iiiiiIIii )
-elif oOoOo == 61 : o00 ( oo0OooOOo0 , iiiiiIIii , o0O )
-if 5 - 5: i11Ii11I1Ii1i . OoooooooOO
-elif oOoOo == 66 : ii1IIIIiI11 ( )
-elif oOoOo == 67 : O00oooo00o0O ( iiiiiIIii )
-elif oOoOo == 68 : IIi11IIiIii1 ( iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 69 : Ii111 ( iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 70 : II1i1i1iII1 ( iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 71 : O0OO0oOoO0O0O ( )
-elif oOoOo == 72 : iIiIi11Ii ( )
-elif oOoOo == 73 : I1i ( )
-elif oOoOo == 74 : IiIIi1I1I11Ii ( iiiiiIIii )
-elif oOoOo == 75 : Ooo0O0 ( iiiiiIIii )
-if 57 - 57: iiI1iIiI
-if 35 - 35: OoooooooOO - i1iIIi1 / i1
-elif oOoOo == 884 : o00oo0000 ( )
-elif oOoOo == 885 : Iiii1iiiIiI1 ( )
-elif oOoOo == 886 : o0OOoOO ( )
-elif oOoOo == 887 : o00ooOoO0 ( iiiiiIIii , o0O , I1ii11iIi11i )
-elif oOoOo == 888 : i1Iii11Ii1i1 ( )
-elif oOoOo == 889 : iIii11iI1II ( iiiiiIIii , oOoOo , oo0OooOOo0 , o0O , I1ii11iIi11i )
-elif oOoOo == 890 : O0oo ( )
-elif oOoOo == 891 : o0i1iI1iiI1I ( )
-elif oOoOo == 892 : o0OoOoOOoOo0o ( )
-if 50 - 50: Oooo0000
-if oOoOo == None or iiiiiIIii == None or len ( iiiiiIIii ) < 1 : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = False )
+if 74 - 74: iiiI11 * i11iIiiIii / i1iIIi1
+if OoO0o0000O == None or iiiiiIIii == None or len ( iiiiiIIii ) < 1 : I1I ( )
+if 75 - 75: O0 - OoooooooOO + IiIi1Iii1I1 . i1iII1I1i1i1 % i11Ii11I1Ii1i
+if 9 - 9: i11Ii11I1Ii1i * i11Ii11I1Ii1i . i11iIiiIii * iIii1I11I1II1
+if 18 - 18: i1 . i11Ii11I1Ii1i % Oooo0000 % iiiI11
+if 87 - 87: iIii1I11I1II1 . OoooooooOO * Oooo0000
+if 100 - 100: i1 / i1IIi - iiI1iIiI % iiiI11 - iIii1I11I1II1
+elif OoO0o0000O == 1 : oOOOOo0 ( oo0OooOOo0 , iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 2 : I11iI ( oo0OooOOo0 , iiiiiIIii , o0O )
+elif OoO0o0000O == 3 : oo00ooOoo ( oo0OooOOo0 , iiiiiIIii , o0O )
+if 17 - 17: O00OoOoo00 / i1IIi11111i % ooo0Oo0
+if 71 - 71: IiiIII111ii . i1iIIi1 . i1
+if 68 - 68: i11iIiiIii % i1iII1I1i1i1 * i1 * IiiIII111ii * i11Ii11I1Ii1i + O0
+elif OoO0o0000O == 4 : Iiii ( iiiiiIIii )
+elif OoO0o0000O == 5 : O0OOO ( iiiiiIIii )
+elif OoO0o0000O == 6 : oOo0O0Oo00oO ( )
+elif OoO0o0000O == 7 : O00o0OO0 ( iiiiiIIii )
+elif OoO0o0000O == 8 : O0oO ( iiiiiIIii )
+elif OoO0o0000O == 9 : OOOOo0 ( iiiiiIIii )
+elif OoO0o0000O == 10 : iI1111iiii ( iiiiiIIii )
+elif OoO0o0000O == 11 : iIi1ii ( )
+elif OoO0o0000O == 12 : ooO0OO ( iiiiiIIii )
+elif OoO0o0000O == 13 : oO00oOOoooO ( iiiiiIIii )
+elif OoO0o0000O == 14 : OOOO0OoOO0o0o ( iiiiiIIii )
+elif OoO0o0000O == 15 : OooOo0ooo ( )
+elif OoO0o0000O == 16 : IIo00ooo ( oo0OooOOo0 , iiiiiIIii , o0O )
+elif OoO0o0000O == 17 : ooOOoooooo ( iiiiiIIii )
+elif OoO0o0000O == 18 : IIi1 ( iiiiiIIii )
+elif OoO0o0000O == 19 : Ooo00o0Oooo ( iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 20 : oOo0oO ( )
+elif OoO0o0000O == 21 : OO ( iiiiiIIii )
+elif OoO0o0000O == 22 : OOO ( iiiiiIIii )
+elif OoO0o0000O == 23 : o0000oO ( )
+elif OoO0o0000O == 24 : o00Oo0oooooo ( iiiiiIIii )
+elif OoO0o0000O == 25 : oo0 ( iiiiiIIii , o0O )
+elif OoO0o0000O == 26 : iI1I111I ( iiiiiIIii )
+elif OoO0o0000O == 27 : o0OOOOooo ( iiiiiIIii , o0O )
+elif OoO0o0000O == 28 : iI1IiI ( )
+elif OoO0o0000O == 29 : IIii11I1i1I ( iiiiiIIii )
+elif OoO0o0000O == 30 : iiIi1i ( iiiiiIIii )
+elif OoO0o0000O == 31 : oo0oO0 ( iiiiiIIii )
+elif OoO0o0000O == 32 : IIioOoO00oo0O ( iiiiiIIii )
+elif OoO0o0000O == 33 : IIiIi ( iiiiiIIii )
+elif OoO0o0000O == 34 : iiI11i1II ( iiiiiIIii )
+elif OoO0o0000O == 35 : ii1iIi1II ( )
+elif OoO0o0000O == 36 : I1i ( iiiiiIIii )
+elif OoO0o0000O == 37 : ii111i ( iiiiiIIii , o0O )
+elif OoO0o0000O == 38 : I1ii ( )
+elif OoO0o0000O == 39 : OOOO0O00o ( iiiiiIIii )
+elif OoO0o0000O == 40 : oOo0oO ( )
+elif OoO0o0000O == 41 : OO ( iiiiiIIii )
+elif OoO0o0000O == 42 : oooOOOO0oooo ( iiiiiIIii )
+elif OoO0o0000O == 43 : OO00oOooo0O ( iiiiiIIii , o0O )
+elif OoO0o0000O == 44 : IIioo0OO ( )
+if 66 - 66: O00OoOoo00 % o000o0o00o0Oo % OoooooooOO
+elif OoO0o0000O == 45 : iii11 ( )
+elif OoO0o0000O == 46 : Ooooooo ( iiiiiIIii )
+elif OoO0o0000O == 47 : iI1iIIIi1i ( oo0OooOOo0 , iiiiiIIii , o0O )
+elif OoO0o0000O == 48 : IIIIIo0ooOoO000oO ( )
+elif OoO0o0000O == 49 : ooo0O ( iiiiiIIii )
+elif OoO0o0000O == 50 : O0iII1 ( iiiiiIIii )
+elif OoO0o0000O == 51 : i1ii ( iiiiiIIii )
+elif OoO0o0000O == 52 : oOooOO ( iiiiiIIii )
+elif OoO0o0000O == 53 : OO0oo ( iiiiiIIii )
+elif OoO0o0000O == 54 : OOOIII1iI1iII1I ( iiiiiIIii , o0O )
+if 34 - 34: i1IIi11111i / oooOOOOO % O0 . i1 . i1IIi
+if 29 - 29: O0 . i1iIIi1
+if 66 - 66: i1iII1I1i1i1 * iIii1I11I1II1 % iIii1I11I1II1 * IiiIII111ii - IiIi1Iii1I1 - IiiIII111ii
+elif OoO0o0000O == 59 : II1111ii ( )
+elif OoO0o0000O == 60 : ii1III11 ( iiiiiIIii )
+elif OoO0o0000O == 61 : ooOOo00O00Oo ( oo0OooOOo0 , iiiiiIIii , o0O )
+if 70 - 70: i1iIIi1 + i1iII1I1i1i1
+elif OoO0o0000O == 66 : oOoOOo ( )
+elif OoO0o0000O == 67 : O0Oo0o000oO ( iiiiiIIii )
+elif OoO0o0000O == 68 : OOOoO000 ( iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 69 : I1iIiI11I1 ( iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 70 : I1i11ii11 ( iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 71 : Ooooo00o0OoO ( )
+elif OoO0o0000O == 72 : IIi11IIiIii1 ( )
+elif OoO0o0000O == 73 : I1i11II ( )
+elif OoO0o0000O == 74 : II ( iiiiiIIii )
+elif OoO0o0000O == 75 : iiIii1I ( iiiiiIIii )
+if 93 - 93: i1iIIi1 + iiiI11
+if 33 - 33: O0
+elif OoO0o0000O == 884 : IiI ( )
+elif OoO0o0000O == 885 : I1Ii ( )
+elif OoO0o0000O == 886 : I1IiIiIi1IiI1 ( )
+elif OoO0o0000O == 887 : i111II ( iiiiiIIii , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 888 : o0OoOo00o0o ( )
+elif OoO0o0000O == 889 : I1iiIII ( iiiiiIIii , OoO0o0000O , oo0OooOOo0 , o0O , I1ii11iIi11i )
+elif OoO0o0000O == 890 : OO0 ( )
+elif OoO0o0000O == 891 : I1Io00oOOoO0oO ( )
+elif OoO0o0000O == 892 : oOO ( )
+if 78 - 78: O0 / i11Ii11I1Ii1i * i1
+if OoO0o0000O == None or iiiiiIIii == None or len ( iiiiiIIii ) < 1 : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = False )
 else : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = True )
-if 33 - 33: O00OoOoo00
-if 98 - 98: Oooo0000 % i11Ii11I1Ii1i
-if 95 - 95: iIii1I11I1II1 - i1iIIi1 - i1iIIII + i1iIIi1 % o000o0o00o0Oo . iiI1iIiI
-if 41 - 41: O0 + i1iII1I1i1i1 . i1IIi - i11Ii11I1Ii1i * i1IIi11111i . i1
-if 68 - 68: i1IIi11111i
-if 20 - 20: i1iIIi1 - i1iIIi1
-if 37 - 37: IiiIII111ii
-if 37 - 37: ooo0Oo0 / IiiIII111ii * O0
-if 73 - 73: oooOOOOO * oooOOOOO / IiIi1Iii1I1
-if 43 - 43: o000o0o00o0Oo . i1IIi . IiiIII111ii + O0 * iiiI11 * O0
+if 50 - 50: OoooooooOO - iIii1I11I1II1 + i1IIi % i1iIIi1 - iIii1I11I1II1 % O0
+if 58 - 58: IiiIII111ii + iIii1I11I1II1
+if 65 - 65: i11Ii11I1Ii1i - i1iIIi1 % i1IIi11111i - Oooo0000 * oooOOOOO + iiiI11
+if 79 - 79: IiIi1Iii1I1 . Oooo0000 % i1iIIi1 - ooo0Oo0
+if 69 - 69: IiIi1Iii1I1 - i1IIi11111i . IiIi1Iii1I1
+if 9 - 9: i1iII1I1i1i1 % i11iIiiIii / ooo0Oo0
+if 20 - 20: i1iII1I1i1i1 * O0 + O00OoOoo00 - OoooooooOO . O00OoOoo00
+if 60 - 60: i1IIi11111i . i1IIi11111i / oooOOOOO
+if 45 - 45: O0 . i11iIiiIii % oooOOOOO . Oooo0000 % IiiIII111ii % iIii1I11I1II1
+if 58 - 58: iIii1I11I1II1 . Oooo0000 - i11iIiiIii * iIii1I11I1II1 % i11iIiiIii / iiI1iIiI
 # dd678faae9ac167bc83abf78e5cb2f3f0688d3a3
