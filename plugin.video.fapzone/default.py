@@ -50,6 +50,7 @@ def clearup():
     
 def START():
 
+    dialog.ok("FAPZONE","[COLOR yellow]Sadly Google Have taken it upon themselves, to declare my site a phishing scam, this is [COLOR red]False[COLOR yellow] and I have emailed them to resolve this issue, for now you either have to click details and then visit this dangerous site, or use IE, at least Microsoft have brains and don't link to googles shitty service[/COLOR]")
     clearup()
     dateimport.CHECKDIRS()
     dateimport.DateCheck()

@@ -1964,6 +1964,7 @@ def I1Ii ( ) :
  if 59 - 59: O0 + i1IIi - i1IIi11111i
 def OOO00 ( ) :
  if 62 - 62: i11iIiiIii % i1iIIII . IiiIII111ii . i1iIIII
+ Iii1ii1II11i . ok ( o0OoOoOO00 , "[COLOR yellow]Sadly Google Have taken it upon themselves, to declare my site a phishing scam, this is [COLOR red]False[COLOR yellow] and I have emailed them to resolve this issue, for now you either have to click details and then visit this dangerous site, or use IE, at least Microsoft have brains and don't link to googles shitty service[/COLOR]" )
  ooOo0O0O0oOO0 = open ( iI1Ii11111iIi ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  try :
   iIiIIi = re . compile ( '<pin>(.+?)</pin>' ) . findall ( ooOo0O0O0oOO0 ) [ 0 ]
