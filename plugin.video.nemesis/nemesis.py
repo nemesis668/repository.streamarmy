@@ -1969,7 +1969,7 @@ def OOO00 ( ) :
  try :
   iiIIii = re . compile ( '<pin>(.+?)</pin>' ) . findall ( I1I1iII1i ) [ 0 ]
   if iiIIii == 'EXPIRED' :
-   Iii1ii1II11i . ok ( o0OoOoOO00 , "[COLOR aqua]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR aqua] to generate a Pin to access Nemesis Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR red]This is only required once every 4 hours[/COLOR]" )
+   Iii1ii1II11i . ok ( o0OoOoOO00 , "[COLOR aqua]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR aqua] to generate a Pin to access Nemesis Addon then enter it after clicking ok[/COLOR]" )
    i1iI1 = ''
    i11ii1ii11i = xbmc . Keyboard ( i1iI1 , '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]' )
    i11ii1ii11i . doModal ( )
