@@ -52,7 +52,7 @@ def DateCheck():
     try:
         checkpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
         if checkpin == 'EXPIRED':
-            dialog.ok("[COLOR red]Never Walk Alone[/COLOR]","[COLOR red]Please visit [COLOR yellow]http://streamarmy.co.uk[COLOR red] to generate a Pin to access NeverWalkAlone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
+            dialog.ok("[COLOR red]Never Walk Alone[/COLOR]","[COLOR red]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR red] to generate a Pin to access NeverWalkAlone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
             string =''
             keyboard = xbmc.Keyboard(string, '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]')
             keyboard.doModal()
@@ -67,7 +67,7 @@ def DateCheck():
             else: quit()
         if not 'EXPIRED' in checkpin:
             currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
-            pinurlcheck = ('http://www.streamarmy.co.uk/service.php?code=%s&plugin=bmV2ZXJ3YWxrYWxvbmU' % currentpin)
+            pinurlcheck = ('https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % currentpin)
             link = Get_Data(pinurlcheck)
             if 'Pin Verified' in link:
                 pass

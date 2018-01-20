@@ -83,7 +83,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
     </extension>
 </addon>
 
-<addon id="plugin.video.fapzone" name="[COLOR darkgoldenrod].FapZone[/COLOR]" version="1.0.3" provider-name="@Nemzzy">
+<addon id="plugin.video.fapzone" name="[COLOR darkgoldenrod].FapZone[/COLOR]" version="1.0.4" provider-name="@Nemzzy">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" version="2.0.0" />
@@ -98,7 +98,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.kickoff" name="[COLOR blue]Kick Off[/COLOR]" version="1.2.0" provider-name="@Nemzzy668">
+<addon id="plugin.video.kickoff" name="[COLOR blue]Kick Off[/COLOR]" version="1.3.0" provider-name="@Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.addon.common" version="2.0.0" />
@@ -135,7 +135,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="1.3.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
+<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="1.4.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -155,25 +155,9 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.neverwalkalone" name="[COLOR red]You'll Never Walk Alone[/COLOR]" version="1.2.0" provider-name="@Nemzzy668">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.addon.common" version="2.0.0" />
-    <import addon="script.module.urlresolver"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">You'll Never Walk Alone, LFC Addon</summary>
-    <description lang="en">Liverpool FC Unofficial Addon</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.SportsHUB"
-       name="NetStreams [COLOR blueviolet]SportsHUB[/COLOR]"
-       version="2.0.0"
+<addon id="plugin.video.NetStreams"
+       name="Net[COLOR blueviolet]Streams[/COLOR] AIO"
+       version="3.0.0"
        provider-name="@KodinityTV">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -196,13 +180,29 @@ Addon Created By @Nemzzy668 with Simtech</description>
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">NetStreams [COLOR blueviolet]SportsHUB[/COLOR]</summary>
-    <description lang="en">Includes Live Sports Matches From Across The Globe As Well As Live Sports Channels. We Do Not Host Any Streams. Twitter = @KodinityTV</description>
+    <summary lang="en">Net[COLOR blueviolet]Streams[/COLOR] All In One Add-On</summary>
+    <description lang="en">All In One Kodi Add-On. We Do Not Host Any Streams. Twitter = @KodinityTV</description>
     <platform>all</platform>
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="7.2" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="plugin.video.neverwalkalone" name="[COLOR red]You'll Never Walk Alone[/COLOR]" version="1.3.0" provider-name="@Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0" />
+    <import addon="script.module.urlresolver"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">You'll Never Walk Alone, LFC Addon</summary>
+    <description lang="en">Liverpool FC Unofficial Addon</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="7.3" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
