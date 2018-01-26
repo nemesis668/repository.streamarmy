@@ -1,31 +1,30 @@
-<?xml version="3.0.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.NetStreams"
-       name="Net[COLOR blueviolet]Streams[/COLOR] AIO"
-       version="3.0.0"
-       provider-name="@KodinityTV">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.t0mm0.common" version="2.0.0"/>
-    <import addon="script.module.beautifulsoup" version="3.2.1"/>
-    <import addon="script.module.simple.downloader" version="0.9.4"/>
-    <import addon="script.module.beautifulsoup4" />
-    <import addon="script.module.simple.downloader" version="0.9.4"/>
-    <import addon="script.module.requests" />
-    <import addon="script.module.httplib2" />
-    <import addon="script.module.youtube.dl" optional="true"/>
-    <import addon="plugin.video.youtube" version="3.0.0"/>
-    <import addon="script.module.urlresolver" optional="true"/>
-    <import addon="script.module.simplejson" /> 
-    <import addon="script.common.plugin.cache" version="2.5.2"/>
-    <import addon="script.module.metahandler" version="2.5.1"/>
-
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Net[COLOR blueviolet]Streams[/COLOR] All In One Add-On</summary>
-    <description lang="en">All In One Kodi Add-On. We Do Not Host Any Streams. Twitter = @KodinityTV</description>
-    <platform>all</platform>
-  </extension>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.NetStreams" name="Net[COLOR blueviolet]Streams[/COLOR] AIO" version="3.1" provider-name="@KodinityTV">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0" />
+        <import addon="script.module.nanscrapers" version="0.5.5" />
+        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
+        <import addon="script.module.beautifulsoup" version="3.2.1" />
+        <import addon="script.module.requests" version="2.9.1" />
+        <import addon="script.module.addon.common" version="2.0.0" />
+        <import addon="script.module.xmltodict" version="0.9.0" />
+        <!--<import addon="script.module.web-pdb" version="1.0"/>-->
+        <import addon="script.module.urlresolver" version="1.2.0" />
+		<import addon="plugin.video.SportsDevil" version="" />
+		<import addon="plugin.video.f4mTester" version="" />
+		<import addon="plugin.video.youtube" version="" />
+		<import addon="plugin.video.bbciplayer" version="" />
+		<import addon="plugin.video.itv" version="" />
+		<import addon="plugin.video.uktvplay" version="" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en">Net[COLOR blueviolet]Streams[/COLOR] All In One Add-On</summary>
+      <description lang="en">All In One Kodi Add-On. We Do Not Host Any Streams. Twitter = @KodinityTV</description>
+      <disclaimer lang="en">The author does not host or own any content found within this Addon. The Author is not connected to or in any other way affiliated with Kodi, Team Kodi, or the XBMC Foundation.</disclaimer>
+      <platform>all</platform>
+    </extension>
 </addon>
