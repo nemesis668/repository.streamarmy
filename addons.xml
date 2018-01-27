@@ -155,7 +155,7 @@ Addon Created By @Nemzzy668 with Simtech</description>
   </extension>
 </addon>
 
-<addon id="plugin.video.NetStreams" name="Net[COLOR blueviolet]Streams[/COLOR] AIO" version="3.1" provider-name="@KodinityTV">
+<addon id="plugin.video.NetStreams" name="Net[COLOR blueviolet]Streams[/COLOR] AIO" version="3.2" provider-name="@KodinityTV">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.nanscrapers" version="0.5.5" />
@@ -166,12 +166,6 @@ Addon Created By @Nemzzy668 with Simtech</description>
         <import addon="script.module.xmltodict" version="0.9.0" />
         <!--<import addon="script.module.web-pdb" version="1.0"/>-->
         <import addon="script.module.urlresolver" version="1.2.0" />
-		<import addon="plugin.video.SportsDevil" version="" />
-		<import addon="plugin.video.f4mTester" version="" />
-		<import addon="plugin.video.youtube" version="" />
-		<import addon="plugin.video.bbciplayer" version="" />
-		<import addon="plugin.video.itv" version="" />
-		<import addon="plugin.video.uktvplay" version="" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>audio video</provides>
