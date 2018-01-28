@@ -1523,9 +1523,11 @@ def Oo00OOOOoo0oo ( url , iconimage ) :
    I1111IIi = 'Link ' + str ( oOO0OO0O )
    iIIII1i = re . compile ( '''"label":"(.+?)"''' ) . findall ( oOooOOOoOo ) [ 0 ]
    url = re . compile ( '''"file":"(.+?)"''' ) . findall ( oOooOOOoOo ) [ 0 ]
+   url = 'http://m4ufree.com/' + url
    oo0OooOOo0 ( "[COLOR aqua]" + I1111IIi + " | [COLOR yellow] " + iIIII1i + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
   except IndexError :
    url = re . compile ( """file:.+?"(.+?)\"""" ) . findall ( oOooOOOoOo ) [ 0 ]
+   url = 'http://m4ufree.com/' + url
    iIIII1i = re . compile ( """label:.+?'(.+?)'""" ) . findall ( oOooOOOoOo ) [ 0 ]
    oo0OooOOo0 ( "[COLOR aqua]" + "Link VIP | " + "[COLOR yellow] " + iIIII1i + "[/COLOR]" , url , 2 , iconimage , Oo , '' )
    if 78 - 78: iiiI11 / i11Ii11I1Ii1i % Oooo0000
