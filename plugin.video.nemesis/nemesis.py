@@ -2,12 +2,13 @@
 ############CODE BY @NEMZZY668###########
 #########################################
 if 64 - 64: i11iIiiIii
-import xbmc , xbmcaddon , xbmcgui , xbmcplugin , urllib , urllib2 , uuid , os , re , sys , base64 , json , time , shutil , urlresolver , random , liveresolver , hashlib , datetime , smtplib
+import xbmc , xbmcaddon , xbmcgui , xbmcplugin , urllib , urllib2 , uuid , os , re , sys , base64 , json , time , shutil , random , liveresolver , hashlib , datetime , smtplib
 from resources . libs . modules import cfscrape
 from resources . libs . common_addon import Addon
 from metahandler import metahandlers
 from HTMLParser import HTMLParser
 from datetime import datetime
+import resolveurl
 from resources . libs . modules import devilcheck
 from resources . libs . modules import dom_parser2
 from resources . libs . modules import regex
@@ -175,11 +176,11 @@ def iI11i1I1 ( ) :
    if 96 - 96: i11Ii11I1Ii1i % OOooO . OOoOoo00oo + OoooooooOO * OOo0o0 - Oooo0000
   i11Iiii ( "[COLOR yellow]---------------------------------------[/COLOR]" , 'url2' , 884 , I1IiI , Oo )
   try :
-   file = xbmc . translatePath ( "special://home/userdata/addon_data/script.module.urlresolver/settings.xml" )
+   file = xbmc . translatePath ( "special://home/userdata/addon_data/script.module.resolveurl/settings.xml" )
    oo0oooooO0 = open ( file ) . read ( )
    i11i1 = re . compile ( '<setting id="RealDebridResolver_token"(.+?)/' ) . findall ( oo0oooooO0 ) [ 0 ]
    i11i1 = i11i1 . strip ( )
-   Ii1I = 'plugin://script.module.urlresolver/?mode=auth_rd'
+   Ii1I = 'plugin://script.module.resolveurl/?mode=auth_rd'
    if 'value=""' in i11i1 :
     IIIii1II1II = ( '[COLOR yellow]Real Debrid Not Active Click To Pair **[/COLOR]' )
     i11Iiii ( '[COLOR yellow]** [COLOR aqua]DEBRID STATUS : ' + str ( IIIii1II1II ) + '[/COLOR]' , Ii1I , 2 , I1IiI , Oo )
@@ -489,8 +490,8 @@ def oO00o0 ( url ) :
     i1i = "Link " + str ( Iii111II ) + " :: "
     I1IiI = 'http://png-4.findicons.com/files/icons/1788/large_icons_social/512/reddit.png'
     III1iII1I1ii = 'plugin://plugin.video.SportsDevil/?mode=1&amp;item=catcher%3dstreams%26title=%26url=' + url
-    import urlresolver
-    if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
+    import resolveurl
+    if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
      i11Iiii ( "[COLOR skyblue]" + i1i + url + "[/COLOR]" , url , 2 , I1IiI , I1ii11iIi11i )
     elif any ( x in url . lower ( ) for x in oooooOoo0ooo ) :
      i11Iiii ( "[COLOR yellow]" + i1i + url + "[/COLOR]" , III1iII1I1ii , 2 , I1IiI , I1ii11iIi11i )
@@ -869,9 +870,9 @@ def OOOoOO0o ( url , iconimage ) :
       time . sleep ( 0.5 )
       iiIi11iI1iii = 5
       pass
-    import urlresolver
-    if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-     ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+    import resolveurl
+    if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
+     ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
     elif liveresolver . isValid ( url ) == True :
      ooO = liveresolver . resolve ( url )
     else : ooO = url
@@ -1158,9 +1159,9 @@ def ii1III11 ( url ) :
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR skyblue]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
  if 25 - 25: OoooooooOO + I1iiiiI1iII * o000o0o00o0Oo
  import liveresolver
- import urlresolver
- if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-  ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+ import resolveurl
+ if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
+  ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
   OO = xbmcgui . ListItem ( oOO00oOO , iconImage = OoOo , thumbnailImage = OoOo )
   OO . setPath ( ooO )
   xbmc . Player ( ) . play ( ooO , OO , False )
@@ -1304,10 +1305,10 @@ def iIiii ( url , iconimage , fanart ) :
  i1IiIiiI = re . compile ( '<div class="wb-main">(.+?)</div>' ) . findall ( iI )
  for Iii111II in i1IiIiiI :
   url = re . compile ( 'href="(.+?)"' ) . findall ( Iii111II ) [ 0 ]
-  import urlresolver
+  import resolveurl
   try :
-   if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-    ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+   if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
+    ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
    elif liveresolver . isValid ( url ) == True :
     ooO = liveresolver . resolve ( url )
    else : ooO = url
@@ -1687,7 +1688,7 @@ def oooo0OOo ( ) :
 def ii ( name , url , iconimage ) :
  if 58 - 58: iIii1I11I1II1 + O0
  Iii1ii1II11i . notification ( o0OoOoOO00 , '[COLOR red]Attempting To Resolve Link Now[/COLOR]' , I1IiI , 5000 )
- import urlresolver
+ import resolveurl
  if 30 - 30: i1Ii % OOoO00o * OOoOoo00oo - o000o0o00o0Oo * OOooO % i1Ii
  if 46 - 46: i11iIiiIii - O0 . OOo0o0
  if 100 - 100: iiI1iIiI / i1IIi11111i * OOoO00o . O0 / OOoOoo00oo
@@ -1697,8 +1698,8 @@ def ii ( name , url , iconimage ) :
   OO = xbmcgui . ListItem ( name , iconImage = iconimage , thumbnailImage = iconimage )
   OO . setPath ( url )
   xbmc . Player ( ) . play ( III1iII1I1ii , OO , False )
- if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-  ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+ if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
+  ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
   OO = xbmcgui . ListItem ( name , iconImage = I1IiI , thumbnailImage = I1IiI )
   OO . setPath ( ooO )
   xbmc . Player ( ) . play ( ooO , OO , False )
@@ -1834,7 +1835,7 @@ def IIIIIiII1 ( name , url , iconimage ) :
  else :
   url = iii11 [ II1i11i1iIi11 ]
   print url
-  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) : ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+  if resolveurl . HostedMediaFile ( url ) . valid_url ( ) : ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
   elif liveresolver . isValid ( url ) == True : ooO = liveresolver . resolve ( url )
   else : ooO = url
   OO = xbmcgui . ListItem ( name , iconImage = 'DefaultVideo.png' , thumbnailImage = iconimage )
@@ -2053,9 +2054,9 @@ def oOoO0o ( url , iconimage , fanart ) :
    if len ( iII1i1 ) > 1 :
     ooo00Ooo = iII1i1 . title ( )
    else : quit ( )
-  import urlresolver
-  if urlresolver . HostedMediaFile ( url ) . valid_url ( ) :
-   ooO = urlresolver . HostedMediaFile ( url ) . resolve ( )
+  import resolveurl
+  if resolveurl . HostedMediaFile ( url ) . valid_url ( ) :
+   ooO = resolveurl . HostedMediaFile ( url ) . resolve ( )
    url = ooO
   oOOoO0OO00OOo0 = url . split ( '/' ) [ - 1 ]
   Ii1 = urllib2 . urlopen ( url )
