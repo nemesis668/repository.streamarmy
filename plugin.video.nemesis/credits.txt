@@ -2,5 +2,5 @@ Credits ::
 
 Thank you to _PYDEV_ for helping me with the php and mysql to provide the download counter
 
-I Have removed some credits due to Dev's retiring and maybe not wanting their names mentioned :: We know who you are
+ Have removed some credits due to Dev's retiring and maybe not wanting their names mentioned :: We know who you are
 and what you provided for the community while you where here. Thank you
