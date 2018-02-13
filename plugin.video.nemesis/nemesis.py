@@ -1471,7 +1471,8 @@ def OooOOO ( url ) :
   if 62 - 62: ooo0Oo0 * Oooo0000
 def OO0 ( url ) :
  if 84 - 84: Oooo0000 % i1Ii - Oooo0000 . i1IIi11111i
- iI = o00O ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ iI = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  OOO0OOO00oo = re . compile ( '<th class="st-sort-descent">(.+?)</table>' ) . findall ( iI ) [ 0 ]
  OoO0o = re . compile ( '<a href="(.+?)".+?>(.+?)</a>' ) . findall ( OOO0OOO00oo )
  for url , i1O0OoO0o in OoO0o :
@@ -1479,20 +1480,22 @@ def OO0 ( url ) :
   if 5 - 5: Oooo0000 * oOo0 - o000o0o00o0Oo / iIii1I11I1II1 % OOo0o0 + I1iiiiI1iII
 def o00o00OoO00o0 ( url ) :
  if 87 - 87: OOo0o0 * OOo0o0 / iiI1iIiI / i1Ii % OOoOoo00oo
- iI = o00O ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ iI = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  try :
   I1IiI = re . compile ( '''<div class=\"col-md-3\">.+?url\('(.+?)'\)''' ) . findall ( iI ) [ 0 ]
  except :
   I1IiI = Ooo0OO0oOO
  OOO0OOO00oo = re . compile ( '<tbody>(.+?)</tbody>' ) . findall ( iI ) [ 0 ]
- OoO0o = re . compile ( '''<a class="black" href='(.+?)'>(.+?)</a>''' ) . findall ( OOO0OOO00oo )
+ OoO0o = re . compile ( '''<a class=".*?window.location='(.*?)'.*?>(.*?)<''' ) . findall ( OOO0OOO00oo )
  OoOo ( "[COLOR yellow]Links Can Take Up To 45 Secs To Play, Be Patient![/COLOR]" , url , 54 , I1IiI , Oo , '' )
  for url , i1O0OoO0o in OoO0o :
   OoOo ( "[COLOR aqua]" + i1O0OoO0o + "[/COLOR]" , url , 54 , I1IiI , Oo , '' )
   if 96 - 96: iiI1iIiI % ooo0Oo0 . o000o0o00o0Oo + OOoOoo00oo
 def Ii11Iii1i1ii ( url , iconimage ) :
  if 26 - 26: i11Ii11I1Ii1i % i11iIiiIii % iIii1I11I1II1 % iI1 * iI1 * o000o0o00o0Oo
- iI = o00O ( url ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ oOO0O00o0OO0O = cfscrape . create_scraper ( )
+ iI = oOO0O00o0OO0O . get ( url ) . content . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  oOoO = re . compile ( '<source src="(.+?)"' ) . findall ( iI ) [ 0 ]
  I11iI ( iiii11I , oOoO , iconimage )
  if 24 - 24: i11Ii11I1Ii1i % oOo0 - i1Ii + iiI1iIiI * o000o0o00o0Oo
