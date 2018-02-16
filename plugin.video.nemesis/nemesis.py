@@ -16,7 +16,7 @@ import webbrowser
 if 65 - 65: O0 / iIii1I11I1II1 % OoooooooOO - i1IIi
 o0OO00 = 'plugin.video.nemesis'
 oo = Addon ( o0OO00 , sys . argv )
-i1iII1IiiIiI1 = base64 . b64decode ( b'aHR0cDovL3Bhc3RlYmluLmNvbS9yYXcvMEVWUWRLeXg=' )
+i1iII1IiiIiI1 = base64 . b64decode ( b'aHR0cHM6Ly9wYXN0ZWJpbi5jb20vcmF3L0ZjcHQyNTN4' )
 iIiiiI1IiI1I1 = xbmcaddon . Addon ( id = o0OO00 )
 o0OoOoOO00 = '[COLOR aqua][B]Nemesis[/B][/COLOR]'
 I11i = xbmc . translatePath ( os . path . join ( 'special://home/userdata/addon_data/' + o0OO00 , 'favs.xml' ) )
@@ -2050,6 +2050,8 @@ def ooo ( ) :
       o00O00O0O0O . write ( "<pin>" + ooO0OoOO + "</pin>" )
      ooo ( )
     else : quit ( )
+   else :
+    quit ( )
   if not 'EXPIRED' in iIiIii1ii :
    IIiI1i = re . compile ( '<pin>(.+?)</pin>' ) . findall ( iiIii ) [ 0 ]
    iII1 = ( 'https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % IIiI1i )
