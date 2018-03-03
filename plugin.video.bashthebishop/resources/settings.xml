@@ -1,6 +1,0 @@
-<settings>
-<category label="Real Debrid">
-    <setting label="Addon Theme" type="text" id="Theme" values="inferno" default="Inferno" visible="false"/>
-    <setting id="rdapi" type="text" label="Real Debrid Api Key : " default="" visible="true"/>
-</category>
-</settings>
