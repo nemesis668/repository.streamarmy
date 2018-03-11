@@ -48,34 +48,35 @@ def CHECKDIRS():
                 
 def DateCheck():
 
-    readsettings = open(settingsxml).read().replace('\n', '').replace('\r','').replace('\t','')
-    try:
-        checkpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
-        if checkpin == 'EXPIRED':
-            dialog.ok("[COLOR red]Never Walk Alone[/COLOR]","[COLOR red]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR red] to generate a Pin to access NeverWalkAlone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
-            string =''
-            keyboard = xbmc.Keyboard(string, '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]')
-            keyboard.doModal()
-            if keyboard.isConfirmed():
-                string = keyboard.getText()
-                if len(string)>1:
-                    term = string.title()
-                    with open(settingsxml, "w") as f:
-                        f.write("<pin>" + term + "</pin>")
-                    DateCheck()
-                else: quit()
-            else: quit()
-        if not 'EXPIRED' in checkpin:
-            currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
-            pinurlcheck = ('https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % currentpin)
-            link = Get_Data(pinurlcheck)
-            if 'Pin Verified' in link:
-                pass
-            else:
-                with open(settingsxml, "w") as f:
-                    f.write ('<pin>EXPIRED</pin>')
-                    DateCheck()
-    except IndexError:
-        with open(settingsxml, "w") as f:
-            f.write("<pin>EXPIRED</pin>\n")
-        DateCheck()
+	readsettings = open(settingsxml).read().replace('\n', '').replace('\r','').replace('\t','')
+	try:
+		checkpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
+		if checkpin == 'EXPIRED':
+			dialog.ok(AddonTitle,"[COLOR pink]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR pink] to generate a Pin to access Never Walk Alone then enter it after clicking ok[/COLOR]")
+			string =''
+			keyboard = xbmc.Keyboard(string, '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]')
+			keyboard.doModal()
+			if keyboard.isConfirmed():
+				string = keyboard.getText()
+				if len(string)>1:
+					term = string.title()
+					with open(settingsxml, "w") as f:
+						f.write("<pin>" + term + "</pin>")
+					DateCheck()
+				else: quit()
+			else:
+				quit()
+		if not 'EXPIRED' in checkpin:
+			currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
+			pinurlcheck = ('https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % currentpin)
+			link = open_url(pinurlcheck)
+			if len(link) >20:
+				pass
+			else:
+				with open(settingsxml, "w") as f:
+					f.write ('<pin>EXPIRED</pin>')
+					DateCheck()
+	except IndexError:
+		with open(settingsxml, "w") as f:
+			f.write("<pin>EXPIRED</pin>\n")
+		DateCheck()

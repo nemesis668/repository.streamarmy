@@ -429,7 +429,7 @@ def I1 ( ) :
    ooOOO0 = re . compile ( '<pin>(.+?)</pin>' ) . findall ( III1IiiI ) [ 0 ]
    o0o = ( 'https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % ooOOO0 )
    o00oOO0 = oOoo ( o0o )
-   if 'Pin Verified' in o00oOO0 :
+   if len ( o00oOO0 ) > 20 :
     pass
    else :
     with open ( o0OOO , "w" ) as ooIiII1I1i1i1ii :
