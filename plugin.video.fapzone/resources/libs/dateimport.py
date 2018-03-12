@@ -48,11 +48,12 @@ def CHECKDIRS():
                 
 def DateCheck():
 
+    #platform()
     readsettings = open(settingsxml).read().replace('\n', '').replace('\r','').replace('\t','')
     try:
         checkpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
         if checkpin == 'EXPIRED':
-            dialog.ok("[COLOR gold]FapZone[/COLOR]","[COLOR red]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR red] to generate a Pin to access FapZone Addon then enter it after clicking ok, This takes less than a minute and helps pay for servers!!\n[COLOR white]This is only required once every 4 hours[/COLOR]")
+            dialog.ok(AddonTitle,"[COLOR aqua]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR aqua] to generate a Pin to access FapZone Addon then enter it after clicking ok[/COLOR]")
             string =''
             keyboard = xbmc.Keyboard(string, '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]')
             keyboard.doModal()
@@ -62,20 +63,22 @@ def DateCheck():
                     term = string.title()
                     with open(settingsxml, "w") as f:
                         f.write("<pin>" + term + "</pin>")
-                    DateCheck()
+                    RunPin()
                 else: quit()
-            else: quit()
+            else:
+                quit()
         if not 'EXPIRED' in checkpin:
             currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
             pinurlcheck = ('https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % currentpin)
-            link = Get_Data(pinurlcheck)
-            if 'Pin Verified' in link:
-                pass
-            else:
+            link = open_url(pinurlcheck)
+            if len(link) < 1 or 'Pin Expired' in link:
                 with open(settingsxml, "w") as f:
                     f.write ('<pin>EXPIRED</pin>')
-                    DateCheck()
+                RunPin()
+            else:
+                global baseurl
+                baseurl = link
     except IndexError:
         with open(settingsxml, "w") as f:
             f.write("<pin>EXPIRED</pin>\n")
-        DateCheck()
+        RunPin()

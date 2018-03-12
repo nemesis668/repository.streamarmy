@@ -407,72 +407,74 @@ def ii ( name , url , iconimage ) :
   if 91 - 91: o000o0o00o0Oo % i1IIi % iIii1I11I1II1
 def I1 ( ) :
  if 20 - 20: i1 % i1IIi11111i / i1IIi11111i + i1IIi11111i
- III1IiiI = open ( o0OOO ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
+ if 45 - 45: ooo0Oo0 - oO - OoooooooOO - Oo0ooO0oo0oO . iii1I1I / O0
+ oo0o00O = open ( o0OOO ) . read ( ) . replace ( '\n' , '' ) . replace ( '\r' , '' ) . replace ( '\t' , '' )
  try :
-  iI = re . compile ( '<pin>(.+?)</pin>' ) . findall ( III1IiiI ) [ 0 ]
-  if iI == 'EXPIRED' :
-   iI111iI . ok ( iIiiiI1IiI1I1 , "[COLOR pink]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR pink] to generate a Pin to access Bash The Bishop then enter it after clicking ok[/COLOR]" )
-   i1IIIII11I1IiI = ''
-   i1I = xbmc . Keyboard ( i1IIIII11I1IiI , '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]' )
-   i1I . doModal ( )
-   if i1I . isConfirmed ( ) :
-    i1IIIII11I1IiI = i1I . getText ( )
-    if len ( i1IIIII11I1IiI ) > 1 :
-     OoOO = i1IIIII11I1IiI . title ( )
+  o00O0OoO = re . compile ( '<pin>(.+?)</pin>' ) . findall ( oo0o00O ) [ 0 ]
+  if o00O0OoO == 'EXPIRED' :
+   iI111iI . ok ( iIiiiI1IiI1I1 , "[COLOR aqua]Please visit [COLOR yellow]https://pinsystem.co.uk[COLOR aqua] to generate a Pin to access Bash The Bishop Addon then enter it after clicking ok[/COLOR]" )
+   i1I = ''
+   OoOO = xbmc . Keyboard ( i1I , '[COLOR red]Please Enter Pin Generated From Website(Case Sensitive)[/COLOR]' )
+   OoOO . doModal ( )
+   if OoOO . isConfirmed ( ) :
+    i1I = OoOO . getText ( )
+    if len ( i1I ) > 1 :
+     ooOOO0 = i1I . title ( )
      with open ( o0OOO , "w" ) as ooIiII1I1i1i1ii :
-      ooIiII1I1i1i1ii . write ( "<pin>" + OoOO + "</pin>" )
+      ooIiII1I1i1i1ii . write ( "<pin>" + ooOOO0 + "</pin>" )
      I1 ( )
     else : quit ( )
    else :
     quit ( )
-  if not 'EXPIRED' in iI :
-   ooOOO0 = re . compile ( '<pin>(.+?)</pin>' ) . findall ( III1IiiI ) [ 0 ]
-   o0o = ( 'https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % ooOOO0 )
-   o00oOO0 = oOoo ( o0o )
-   if len ( o00oOO0 ) > 20 :
-    pass
-   else :
+  if not 'EXPIRED' in o00O0OoO :
+   o0o = re . compile ( '<pin>(.+?)</pin>' ) . findall ( oo0o00O ) [ 0 ]
+   O0OOoO00OO0o = ( 'https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % o0o )
+   o00oOO0 = oOoo ( O0OOoO00OO0o )
+   if len ( o00oOO0 ) < 1 or 'Pin Expired' in o00oOO0 :
     with open ( o0OOO , "w" ) as ooIiII1I1i1i1ii :
      ooIiII1I1i1i1ii . write ( '<pin>EXPIRED</pin>' )
-     I1 ( )
+    I1 ( )
+   else :
+    global baseurl
+    baseurl = o00oOO0
  except IndexError :
   with open ( o0OOO , "w" ) as ooIiII1I1i1i1ii :
    ooIiII1I1i1i1ii . write ( "<pin>EXPIRED</pin>\n" )
   I1 ( )
-  if 73 - 73: oO * iiI1iIiI + O00oOoOoO0o0O . oooOOOOO
-def o0oO00000 ( ) :
- if 69 - 69: Oo0ooO0oo0oO - O0oo0OO0 + i1IIi / IiiIIiiI11
+  if 38 - 38: i1 % Oooo0000 % II % Oo0ooO0oo0oO - O0oo0OO0
+def i1Ii ( ) :
+ if 14 - 14: o000o0o00o0Oo
  xbmc . executebuiltin ( "XBMC.Container.Update(path,replace)" )
  xbmc . executebuiltin ( "XBMC.ActivateWindow(Home)" )
- if 49 - 49: O0 . o000o0o00o0Oo
-def IIIIIooooooO0oo ( ) :
  if 11 - 11: oO * O00oOoOoO0o0O . iIii1I11I1II1 % OoooooooOO + o000o0o00o0Oo
- OOO = xbmc . getInfoLabel ( "System.BuildVersion" )
- oo0OOo0 = float ( OOO [ : 4 ] )
- if oo0OOo0 >= 11.0 and oo0OOo0 <= 11.9 :
-  I11IiI = 'Eden'
- elif oo0OOo0 >= 12.0 and oo0OOo0 <= 12.9 :
-  I11IiI = 'Frodo'
- elif oo0OOo0 >= 13.0 and oo0OOo0 <= 13.9 :
-  I11IiI = 'Gotham'
- elif oo0OOo0 >= 14.0 and oo0OOo0 <= 14.9 :
-  I11IiI = 'Helix'
- elif oo0OOo0 >= 15.0 and oo0OOo0 <= 15.9 :
-  I11IiI = 'Isengard'
- elif oo0OOo0 >= 16.0 and oo0OOo0 <= 16.9 :
-  I11IiI = 'Jarvis'
- elif oo0OOo0 >= 17.0 and oo0OOo0 <= 17.9 :
-  I11IiI = 'Krypton'
- else : I11IiI = "Decline"
- if 53 - 53: o000o0o00o0Oo % iii1I1I . oO - iIii1I11I1II1 - oO * iii1I1I
- if I11IiI == "Jarvis" :
+def IIIIIooooooO0oo ( ) :
+ if 78 - 78: Oo0ooO0oo0oO . i1 + Oo0ooO0oo0oO / Oooo0000 / Oo0ooO0oo0oO
+ oO0O00OoOO0 = xbmc . getInfoLabel ( "System.BuildVersion" )
+ OoO = float ( oO0O00OoOO0 [ : 4 ] )
+ if OoO >= 11.0 and OoO <= 11.9 :
+  O00 = 'Eden'
+ elif OoO >= 12.0 and OoO <= 12.9 :
+  O00 = 'Frodo'
+ elif OoO >= 13.0 and OoO <= 13.9 :
+  O00 = 'Gotham'
+ elif OoO >= 14.0 and OoO <= 14.9 :
+  O00 = 'Helix'
+ elif OoO >= 15.0 and OoO <= 15.9 :
+  O00 = 'Isengard'
+ elif OoO >= 16.0 and OoO <= 16.9 :
+  O00 = 'Jarvis'
+ elif OoO >= 17.0 and OoO <= 17.9 :
+  O00 = 'Krypton'
+ else : O00 = "Decline"
+ if 29 - 29: IiiIIiiI11 / Oo0ooO0oo0oO . i1IIi * O00oOoOoO0o0O + i11iIiiIii
+ if O00 == "Jarvis" :
   xbmc . executebuiltin ( 'Container.SetViewMode(50)' )
- elif I11IiI == "Krypton" :
+ elif O00 == "Krypton" :
   xbmc . executebuiltin ( 'Container.SetViewMode(55)' )
  else : xbmc . executebuiltin ( 'Container.SetViewMode(55)' )
- if 77 - 77: iIii1I11I1II1 * Oo0ooO0oo0oO
+ if 6 - 6: oooOOOOO / i11iIiiIii + o000o0o00o0Oo * ooo0Oo0
 def iiii11I ( text ) :
- if 95 - 95: O00oOoOoO0o0O + i11iIiiIii
+ if 80 - 80: iii1I1I
  text = str ( text )
  text = text . replace ( '\\r' , '' )
  text = text . replace ( '\\n' , '' )
@@ -498,44 +500,44 @@ def iiii11I ( text ) :
  text = text . lstrip ( '	' )
  text = I111IIIiIii ( text )
  return text
- if 6 - 6: oooOOOOO / i11iIiiIii + o000o0o00o0Oo * ooo0Oo0
- if 80 - 80: iii1I1I
-def O0Oi1I1I ( ) :
- if 12 - 12: i11iIiiIii / Oo0ooO0oo0oO
- o0O = [ ]
- IiII = sys . argv [ 2 ]
- if len ( IiII ) >= 2 :
-  ii1iII1II = sys . argv [ 2 ]
-  Iii1I1I11iiI1 = ii1iII1II . replace ( '?' , '' )
-  if ( ii1iII1II [ len ( ii1iII1II ) - 1 ] == '/' ) :
-   ii1iII1II = ii1iII1II [ 0 : len ( ii1iII1II ) - 2 ]
-  I1I1i1I = Iii1I1I11iiI1 . split ( '&' )
-  o0O = { }
-  for ii1I in range ( len ( I1I1i1I ) ) :
-   O0oO0 = { }
-   O0oO0 = I1I1i1I [ ii1I ] . split ( '=' )
-   if ( len ( O0oO0 ) ) == 2 :
-    o0O [ O0oO0 [ 0 ] ] = O0oO0 [ 1 ]
- return o0O
- if 87 - 87: O0oo0OO0 . oO
-ii1iII1II = O0Oi1I1I ( ) ; II11iiii1Ii = None ; O0OO0O = None ; OO = None ; OoOoO = None ; iIii1 = None ; Ii1I1i = None
-try : OoOoO = urllib . unquote_plus ( ii1iII1II [ "site" ] )
+ if 83 - 83: Oooo0000 . i11iIiiIii + iii1I1I . II * Oooo0000
+ if 53 - 53: iii1I1I
+def i1Ii1Ii ( ) :
+ if 52 - 52: Oo0ooO0oo0oO . ooo0Oo0
+ ii1iII1II = [ ]
+ Iii1I1I11iiI1 = sys . argv [ 2 ]
+ if len ( Iii1I1I11iiI1 ) >= 2 :
+  I1I1i1I = sys . argv [ 2 ]
+  ii1I = I1I1i1I . replace ( '?' , '' )
+  if ( I1I1i1I [ len ( I1I1i1I ) - 1 ] == '/' ) :
+   I1I1i1I = I1I1i1I [ 0 : len ( I1I1i1I ) - 2 ]
+  O0oO0 = ii1I . split ( '&' )
+  ii1iII1II = { }
+  for oO0 in range ( len ( O0oO0 ) ) :
+   O0OO0O = { }
+   O0OO0O = O0oO0 [ oO0 ] . split ( '=' )
+   if ( len ( O0OO0O ) ) == 2 :
+    ii1iII1II [ O0OO0O [ 0 ] ] = O0OO0O [ 1 ]
+ return ii1iII1II
+ if 81 - 81: ooo0Oo0 . II % O0 / O00oOoOoO0o0O - ooo0Oo0
+I1I1i1I = i1Ii1Ii ( ) ; II11iiii1Ii = None ; Ii1I1i = None ; OO = None ; I1iI1ii1II = None ; iIii1 = None ; O0O0OOOOoo = None
+try : I1iI1ii1II = urllib . unquote_plus ( I1I1i1I [ "site" ] )
 except : pass
-try : II11iiii1Ii = urllib . unquote_plus ( ii1iII1II [ "url" ] )
+try : II11iiii1Ii = urllib . unquote_plus ( I1I1i1I [ "url" ] )
 except : pass
-try : O0OO0O = urllib . unquote_plus ( ii1iII1II [ "name" ] )
+try : Ii1I1i = urllib . unquote_plus ( I1I1i1I [ "name" ] )
 except : pass
-try : OO = int ( ii1iII1II [ "mode" ] )
+try : OO = int ( I1I1i1I [ "mode" ] )
 except : pass
-try : iIii1 = urllib . unquote_plus ( ii1iII1II [ "iconimage" ] )
+try : iIii1 = urllib . unquote_plus ( I1I1i1I [ "iconimage" ] )
 except : pass
-try : O0O = urllib . unquote_plus ( ii1iII1II [ "fanart" ] )
+try : O0O = urllib . unquote_plus ( I1I1i1I [ "fanart" ] )
 except : pass
-try : Ii1I1i = urllib . unquote_plus ( ii1iII1II [ "description" ] )
+try : O0O0OOOOoo = urllib . unquote_plus ( I1I1i1I [ "description" ] )
 except : pass
-if 99 - 99: ooo0Oo0 . o000o0o00o0Oo + oooOOOOO % ooo0Oo0 . i11iIiiIii % O0
+if 74 - 74: iiI1iIiI + iii1I1I / Oo0ooO0oo0oO
 if OO == None or II11iiii1Ii == None or len ( II11iiii1Ii ) < 1 : o0o0oOOOo0oo ( )
-if 78 - 78: iiI1iIiI + i1 - IiiIIiiI11
+if 100 - 100: I1i1iI1i * iIii1I11I1II1
 elif OO == 1 : I1i1I1II ( II11iiii1Ii )
 elif OO == 2 : i1I1iI ( II11iiii1Ii )
 elif OO == 3 : Oo0O0O0ooO0O ( II11iiii1Ii )
@@ -543,26 +545,26 @@ elif OO == 4 : O0OOO0OOoO0O ( II11iiii1Ii )
 elif OO == 5 : oOOOoO0O00o0 ( II11iiii1Ii )
 elif OO == 6 : Ii1iIiii1 ( II11iiii1Ii )
 elif OO == 7 : iII1 ( II11iiii1Ii )
-if 38 - 38: II - ooo0Oo0 + iIii1I11I1II1 / I1i1iI1i % O0oo0OO0
-if 57 - 57: Oo0ooO0oo0oO / oooOOOOO
-if 29 - 29: iIii1I11I1II1 + I1i1iI1i * Oo0ooO0oo0oO * i1 . O00oOoOoO0o0O * O00oOoOoO0o0O
-if 7 - 7: oO * IiiIIiiI11 % i1IIi11111i - II
-elif OO == 98 : O0o0O00Oo0o0 ( O0OO0O , II11iiii1Ii , iIii1 , Ii1I1i )
-elif OO == 99 : ii ( O0OO0O , II11iiii1Ii , iIii1 )
-elif OO == 889 : oOO ( II11iiii1Ii , OO , O0OO0O , iIii1 , O0O )
+if 86 - 86: Oo0ooO0oo0oO * i1 . o000o0o00o0Oo
+if 32 - 32: II . oO * Oooo0000
+if 93 - 93: II % i1IIi . i1IIi11111i . i11iIiiIii
+if 56 - 56: iiI1iIiI % O0 - O00oOoOoO0o0O
+elif OO == 98 : O0o0O00Oo0o0 ( Ii1I1i , II11iiii1Ii , iIii1 , O0O0OOOOoo )
+elif OO == 99 : ii ( Ii1I1i , II11iiii1Ii , iIii1 )
+elif OO == 889 : oOO ( II11iiii1Ii , OO , Ii1I1i , iIii1 , O0O )
 elif OO == 890 : oo0Ooo0 ( )
-elif OO == 891 : REMFAVS ( O0OO0O , II11iiii1Ii , iIii1 )
+elif OO == 891 : REMFAVS ( Ii1I1i , II11iiii1Ii , iIii1 )
 elif OO == 892 : OPEN_SETTINGS ( )
 elif OO == 893 : O0o0Oo ( )
-elif OO == 911 : o0oO00000 ( )
-if 13 - 13: i1IIi11111i . i11iIiiIii
-if 56 - 56: iiI1iIiI % O0 - O00oOoOoO0o0O
-if OO == None or II11iiii1Ii == None or len ( II11iiii1Ii ) < 1 : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = False )
-else : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = True )
+elif OO == 911 : i1Ii ( )
 if 100 - 100: i1IIi11111i - O0 % ooo0Oo0 * i1 + O00oOoOoO0o0O
 if 88 - 88: OoooooooOO - Oo0ooO0oo0oO * O0 * OoooooooOO . OoooooooOO
+if OO == None or II11iiii1Ii == None or len ( II11iiii1Ii ) < 1 : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = False )
+else : xbmcplugin . endOfDirectory ( int ( sys . argv [ 1 ] ) , cacheToDisc = True )
 if 33 - 33: IiiIIiiI11 + o000o0o00o0Oo * ooo0Oo0 / iIii1I11I1II1 - O00oOoOoO0o0O
 if 54 - 54: IiiIIiiI11 / i1 . ooo0Oo0 % o000o0o00o0Oo
 if 57 - 57: i11iIiiIii . iiI1iIiI - i1IIi11111i - ooo0Oo0 + I1i1iI1i
 if 63 - 63: I1i1iI1i * o000o0o00o0Oo
+if 69 - 69: O0 . Oo0ooO0oo0oO
+if 49 - 49: O00oOoOoO0o0O - Oooo0000
 # dd678faae9ac167bc83abf78e5cb2f3f0688d3a3

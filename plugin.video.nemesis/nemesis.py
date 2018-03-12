@@ -2060,7 +2060,7 @@ def ooo ( ) :
    I11Ii111I = re . compile ( '<pin>(.+?)</pin>' ) . findall ( iiIIi ) [ 0 ]
    Oo00OO0 = ( 'https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % I11Ii111I )
    iI = o00O ( Oo00OO0 )
-   if len ( iI ) < 1 :
+   if len ( iI ) < 1 or 'Pin Expired' in iI :
     with open ( iI1Ii11111iIi , "w" ) as o00O00O0O0O :
      o00O00O0O0O . write ( '<pin>EXPIRED</pin>' )
     ooo ( )
