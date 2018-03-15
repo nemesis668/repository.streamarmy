@@ -17,6 +17,7 @@ import Main
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
+from resources.libs import dateimport
 
 dialog = xbmcgui.Dialog()
 
@@ -147,6 +148,8 @@ def List_Selected(self):
 
     global Media_Link
     if 'PLAY:' in Media_Link:
+        dateimport.CHECKDIRS()
+        dateimport.DateCheck()
         Media_Link = Media_Link.replace('PLAY:','')
         Show_List  =  xbmcgui.ListItem(Media_Title)
         xbmc.Player ().play(Media_Link, Show_List, False)

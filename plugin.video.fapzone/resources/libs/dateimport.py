@@ -18,6 +18,7 @@ import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 
 dialog = xbmcgui.Dialog()
+AddonTitle = "[COLOR darkgoldenrod]FapZone[/COLOR]"
 addon_id = 'plugin.video.fapzone'
 makefolder = xbmc.translatePath(os.path.join('special://home/userdata/addon_data/plugin.video.fapzone/settings/'))
 settingsxml  = xbmc.translatePath(os.path.join('special://home/userdata/addon_data/' + addon_id, 'settings.xml'))
@@ -63,22 +64,20 @@ def DateCheck():
                     term = string.title()
                     with open(settingsxml, "w") as f:
                         f.write("<pin>" + term + "</pin>")
-                    RunPin()
+                    DateCheck()
                 else: quit()
             else:
                 quit()
         if not 'EXPIRED' in checkpin:
             currentpin = re.compile ('<pin>(.+?)</pin>').findall(readsettings)[0]
             pinurlcheck = ('https://pinsystem.co.uk/service.php?code=%s&plugin=RnVja1lvdSE' % currentpin)
-            link = open_url(pinurlcheck)
-            if len(link) < 1 or 'Pin Expired' in link:
+            link = Get_Data(pinurlcheck)
+            if len(link) <5 or 'Pin Expired' in link:
                 with open(settingsxml, "w") as f:
                     f.write ('<pin>EXPIRED</pin>')
-                RunPin()
-            else:
-                global baseurl
-                baseurl = link
+                DateCheck()
+            else: return
     except IndexError:
         with open(settingsxml, "w") as f:
             f.write("<pin>EXPIRED</pin>\n")
-        RunPin()
+        DateCheck()

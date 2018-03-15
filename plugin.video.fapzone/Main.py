@@ -17,7 +17,7 @@ import videos
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
-
+from resources.libs import dateimport
 
 dialog = xbmcgui.Dialog()
 
@@ -50,7 +50,6 @@ def MainWindow():
     
     global data
     global List
-    
     window = Main('fapzone')
     window.doModal()
     del window
