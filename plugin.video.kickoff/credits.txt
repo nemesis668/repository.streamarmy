@@ -1,0 +1,2 @@
+Huge Thank you for Dev Kong, He provided the template for the addon and helped Nemzzy with learning pyx.
+without his tutorial this wouldn't have been possible
