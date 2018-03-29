@@ -144,7 +144,25 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="9.5" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="plugin.video.peakyblinders" name="[COLOR yellow][B]Peaky Blinders[/B][/COLOR]" version="1.0.0" provider-name="@Nemzzy668 // @_Manc_">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.resolveurl" />
+    <import addon="script.common.plugin.cache"/>
+    <import addon="script.module.metahandler"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="peaky.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Peaky Blinders Addon</summary>
+    <description lang="en">Peaky Blinders is a British television crime drama set in 1920s Birmingham, England in the aftermath of World War I. The series, which was created by Steven Knight and produced by Caryn Mandabach Productions, Screen Yorkshire and Tiger Aspect Productions, follows the exploits of the Shelby crime family. It was the first production to benefit from investment through Screen Yorkshire's Yorkshire Content Fund, ensuring the bulk of the production was filmed in Yorkshire.[1] Cillian Murphy plays Tommy Shelby, the gang's leader, and Sam Neill as Chester Campbell is a commissioned detective who is tasked with suppressing the gang.[2] The series creators have reused the name of Peaky Blinders, a 19th century urban youth gang who were active in the city until the 1890s and were believed to sew razor blades into their caps.
+	The first series aired on BBC Two on 13 September 2013 and ran for six episodes. The second series premiered on 2 October 2014. The third series premiered on 5 May 2016. On 26 May 2016, the BBC announced they had ordered a fourth and fifth series of the show.The fourth series premiered on 15 November 2017; after the series finale broadcast on 20 December 2017, it was announced that the fifth series will be broadcast in 2019</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="9.6" provider-name="@Nemzzy668 / @_Manc_">
     <extension point="xbmc.addon.repository" name="Stream Army">
         <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
