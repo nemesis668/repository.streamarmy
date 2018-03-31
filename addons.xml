@@ -108,7 +108,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.0.9" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
+<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.1.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -158,6 +158,31 @@
     <summary lang="en">Peaky Blinders Addon</summary>
     <description lang="en">Peaky Blinders is a British television crime drama set in 1920s Birmingham, England in the aftermath of World War I. The series, which was created by Steven Knight and produced by Caryn Mandabach Productions, Screen Yorkshire and Tiger Aspect Productions, follows the exploits of the Shelby crime family. It was the first production to benefit from investment through Screen Yorkshire's Yorkshire Content Fund, ensuring the bulk of the production was filmed in Yorkshire.[1] Cillian Murphy plays Tommy Shelby, the gang's leader, and Sam Neill as Chester Campbell is a commissioned detective who is tasked with suppressing the gang.[2] The series creators have reused the name of Peaky Blinders, a 19th century urban youth gang who were active in the city until the 1890s and were believed to sew razor blades into their caps.
 	The first series aired on BBC Two on 13 September 2013 and ran for six episodes. The second series premiered on 2 October 2014. The third series premiered on 5 May 2016. On 26 May 2016, the BBC announced they had ordered a fourth and fifth series of the show.The fourth series premiered on 15 November 2017; after the series finale broadcast on 20 December 2017, it was announced that the fifth series will be broadcast in 2019</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="program.plexus"
+       name="Plexus"
+       version="0.1.7"
+       provider-name="enen92, TVAddons, RonnieHD">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.requests" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>executable</provides>
+  </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary>SopCast and AceStream for Kodi</summary>
+    <description lang="en">Plexus - Any complex structure containing an intricate network of parts. Plexus brings native peer-to-peer support (AceStream and SopCast) for Kodi Entertainment Center for several platforms.[CR][CR]Documentation: (missing)</description>
+    <description lang="pt">Plexus - Uma estrutura complexa constituída por uma rede de partes. O Plexus adiciona suporte peer-to-peer nativo (AceStream e Sopcast) ao Kodi Entertainment Center para várias plataformas.[CR][CR]Documentação: (em falta)</description>
+    <description lang="es">Plexus - Una estructura compleja conteniendo una intrincada red de partes. Plexus añade soporte nativo peer-to-peer (AceStream y SopCast) al Centro de Entretenimiento Kodi para varias plataformas.[CR][CR]Documentacion: (falta)</description>
+	<disclaimer lang="en">The author does not host nor distribute any of the content you may watch using this addon. The author has no part in the development of any included technologies. When seeking help in Kodi's forum please respect rules (http://kodi.wiki/view/Forum_rules).</disclaimer>
+    <disclaimer lang="pt">Os autores não alojam nem distribuem nenhum do conteúdo que poderá ser reproduzido a partir deste addon. Os autores não têm qualquer parte no desenvolvimento de qualquer uma das tecnologias. Se procurar ajuda no fórum oficial do Kodi por favor respeite as regras do fórum (http://kodi.wiki/view/Forum_rules).</disclaimer>
+   	<disclaimer lang="es">El autor no aloja ni distribuye cualquier contenido que ud. pudiera reproducir usando este addon. El autor no tiene participacion en el desarrollo de cualquier tecnologia incluida. Cuando requiera ayuda en el foro de Kodi por favor respete las reglas (http://kodi.wiki/view/Forum_rules).</disclaimer>
     <platform>all</platform>
   </extension>
 </addon>
