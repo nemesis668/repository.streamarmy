@@ -39,6 +39,23 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.entertainmenttime" name="[COLOR yellow][B]Entertainment [COLOR aqua]Time[/B][/COLOR]" version="1.0.0" provider-name="@Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.resolveurl" />
+    <import addon="script.common.plugin.cache"/>
+    <import addon="script.module.metahandler"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="entertainment.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Entertainment Time By @Nemzzy668</summary>
+    <description lang="en">Entertainment Time, None Of The Links In This Add-on are hosted by the Developer and all are freely available to find on the internet</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
 <addon id="plugin.video.f4mTester" version="2.7.1" name="f4mTester" provider-name="Shani">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -108,7 +125,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.1.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
+<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.2.0" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -187,7 +204,7 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="9.6" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="9.7" provider-name="@Nemzzy668 / @_Manc_">
     <extension point="xbmc.addon.repository" name="Stream Army">
         <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
