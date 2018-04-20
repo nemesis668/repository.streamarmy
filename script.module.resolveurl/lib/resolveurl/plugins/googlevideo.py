@@ -56,6 +56,7 @@ class GoogleResolver(ResolveUrl):
         if xbmc.getCondVisibility('System.HasAddon(plugin.video.gdrive)') and self.get_setting('use_gdrive'):
             doc_id = re.search('[-\w]{25,}', web_url)
             if doc_id:
+                common.kodi.notify(header=None, msg='Resolving with GDRIVE', duration=3000)
                 video = 'plugin://plugin.video.gdrive/?mode=video&amp;instance=gdrive1&amp;filename=%s&amp;content_type=video' % doc_id.group(1)
 
         if not video:

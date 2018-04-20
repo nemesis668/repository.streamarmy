@@ -238,6 +238,16 @@ class HostedMediaFile:
         common.logger.log_debug('Setting Headers on UrlOpen: %s' % (headers))
 
         try:
+            import ssl
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            opener = urllib2.build_opener(urllib2.HTTPSHandler(context=ssl_context))
+            urllib2.install_opener(opener)
+        except:
+            pass
+
+        try:
             msg = ''
             request = urllib2.Request(stream_url.split('|')[0], headers=headers)
             #  set urlopen timeout to 15 seconds

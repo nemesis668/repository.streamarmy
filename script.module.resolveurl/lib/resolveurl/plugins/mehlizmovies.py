@@ -23,15 +23,15 @@ from resolveurl.resolver import ResolveUrl, ResolverError
 
 class MehlizMoviesResolver(ResolveUrl):
     name = "mehlizmovies"
-    domains = ["mehlizmovies.com", "mehlizmovies.is"]
-    pattern = '(?://|\.)(mehlizmovies\.(?:com|is))/player/embed\.php\?([^\s\"\']+)'
+    domains = ["mehlizmovies.com", "mehlizmovies.is", "mehlizmovieshd.com"]
+    pattern = '(?://|\.)(mehlizmovies(?:hd)?\.(?:com|is))/player/embed\.php\?([^\s\"\']+)'
     
     def __init__(self):
         self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        headers = {'User-Agent': common.RAND_UA, 'Referer': 'https://www.mehlizmovies.is/'}
+        headers = {'User-Agent': common.RAND_UA, 'Referer': 'https://www.mehlizmovieshd.com/'}
         html = self.net.http_GET(web_url, headers=headers).content
         
         if html:
@@ -46,4 +46,4 @@ class MehlizMoviesResolver(ResolveUrl):
         raise ResolverError('Video not found')
     
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://www.mehlizmovies.is/player/embed.php?{media_id}')
+        return self._default_get_url(host, media_id, template='https://www.mehlizmovieshd.com/player/embed.php?{media_id}')

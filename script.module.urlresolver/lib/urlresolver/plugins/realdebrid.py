@@ -15,7 +15,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
 import re
 import urllib2
 import json
@@ -30,6 +29,7 @@ logger.disable()
 CLIENT_ID = 'MUQMIQX6YWDSU'
 USER_AGENT = 'URLResolver for Kodi/%s' % (common.addon_version)
 INTERVALS = 5
+
 
 class RealDebridResolver(UrlResolver):
     name = "Real-Debrid"
@@ -158,7 +158,7 @@ class RealDebridResolver(UrlResolver):
             hosters = []
             url = 'https://api.real-debrid.com/rest/1.0/hosts/regex'
             js_result = json.loads(self.net.http_GET(url, headers=self.headers).content)
-            regexes = [regex.lstrip('/').rstrip('/').replace('\/', '/') for regex in js_result]
+            regexes = [regex.lstrip('/').rstrip('/').replace('\/', '/').rstrip('\\') for regex in js_result]
             logger.log_debug('RealDebrid hosters : %s' % (regexes))
             hosters = [re.compile(regex) for regex in regexes]
         except Exception as e:

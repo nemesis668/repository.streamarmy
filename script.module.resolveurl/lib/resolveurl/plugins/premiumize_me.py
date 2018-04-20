@@ -26,6 +26,7 @@ from resolveurl.resolver import ResolveUrl, ResolverError
 logger = common.log_utils.Logger.get_logger(__name__)
 logger.disable()
 
+
 class PremiumizeMeResolver(ResolveUrl):
     name = "Premiumize.me"
     domains = ["*"]
@@ -36,12 +37,15 @@ class PremiumizeMeResolver(ResolveUrl):
         self.patterns = []
         self.net = common.Net()
         self.scheme = 'https' if self.get_setting('use_https') == 'true' else 'http'
+        self.username = self.get_setting('username')
+        self.password = self.get_setting('password')
 
     def get_media_url(self, host, media_id):
-        username = self.get_setting('username')
-        password = self.get_setting('password')
-        url = '%s://api.premiumize.me/pm-api/v1.php?' % (self.scheme)
-        query = urllib.urlencode({'method': 'directdownloadlink', 'params[login]': username, 'params[pass]': password, 'params[link]': media_id})
+        cached = self.__check_cache(media_id)
+        if cached:
+            logger.log_debug('Premiumize.me: %s is readily available to stream' % media_id)
+        url = '%s://api.premiumize.me/pm-api/v1.php?' % self.scheme
+        query = urllib.urlencode({'method': 'directdownloadlink', 'params[login]': self.username, 'params[pass]': self.password, 'params[link]': media_id})
         url = url + query
         response = self.net.http_GET(url).content
         response = json.loads(response)
@@ -65,10 +69,8 @@ class PremiumizeMeResolver(ResolveUrl):
     @common.cache.cache_method(cache_limit=8)
     def get_all_hosters(self):
         try:
-            username = self.get_setting('username')
-            password = self.get_setting('password')
-            url = '%s://api.premiumize.me/pm-api/v1.php' % (self.scheme)
-            query = urllib.urlencode({'method': 'hosterlist', 'params[login]': username, 'params[pass]': password})
+            url = '%s://api.premiumize.me/pm-api/v1.php' % self.scheme
+            query = urllib.urlencode({'method': 'hosterlist', 'params[login]': self.username, 'params[pass]': self.password})
             url = url + '?' + query
             response = self.net.http_GET(url).content
             response = json.loads(response)
@@ -79,7 +81,7 @@ class PremiumizeMeResolver(ResolveUrl):
             for regex in patterns:
                 try: regex_list.append(re.compile(regex))
                 except:
-                    common.logger.log_warning('Throwing out bad Premiumize regex: %s' % (regex))
+                    common.logger.log_warning('Throwing out bad Premiumize regex: %s' % regex)
             logger.log_debug('Premiumize.me patterns: %s (%d) regex: (%d) hosts: %s' % (patterns, len(patterns), len(regex_list), tldlist))
             return tldlist, regex_list
         except Exception as e:
@@ -101,6 +103,20 @@ class PremiumizeMeResolver(ResolveUrl):
                 return True
 
         return False
+
+    def __check_cache(self, item):
+        try:
+            url = '%s://www.premiumize.me/api/cache/check?customer_id=%s&pin=%s&items[]=%s' % (self.scheme, self.username, self.password, item)
+            result = self.net.http_GET(url).content
+            result = json.loads(result)
+            if 'status' in result:
+                if result.get('status') == 'success':
+                    response = result.get('response', False)
+                    if isinstance(response, list):
+                        return response[0]
+            return False
+        except:
+            return False
 
     @classmethod
     def get_settings_xml(cls):

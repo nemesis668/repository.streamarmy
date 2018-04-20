@@ -18,10 +18,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 from __generic_resolver__ import GenericResolver
 
+
 class RapidVideoResolver(GenericResolver):
     name = "rapidvideo.com"
-    domains = ["rapidvideo.com", "raptu.com"]
-    pattern = '(?://|\.)((?:rapidvideo|raptu)\.com)/(?:[ev]/|embed/|\?v=)?([0-9A-Za-z]+)'
+    domains = ["rapidvideo.com", "raptu.com", "bitporno.com"]
+    pattern = '(?://|\.)((?:rapidvideo|raptu|bitporno)\.com)/(?:[ev]/|embed/|\?v=)?([0-9A-Za-z]+)'
 
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id, template='https://{host}/embed/{media_id}')

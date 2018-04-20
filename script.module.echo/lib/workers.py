@@ -1,6 +1,8 @@
-"""
-    urlresolver XBMC Addon
-    Copyright (C) 2011 t0mm0
+# -*- coding: utf-8 -*-
+
+'''
+    Exodus Add-on
+    Copyright (C) 2016 lambda
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,10 +16,17 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""
-from __generic_resolver__ import GenericResolver
+'''
 
-class Mp4EngineResolver(GenericResolver):
-    name = "mp4engine"
-    domains = ["mp4engine.com"]
-    pattern = '(?://|\.)(mp4engine\.com)/(?:embed-)?([0-9a-zA-Z]+)(?:-[0-9]x[0-9].html)?'
+
+import threading
+
+
+class Thread(threading.Thread):
+    def __init__(self, target, *args):
+        self._target = target
+        self._args = args
+        threading.Thread.__init__(self)
+    def run(self):
+        self._target(*self._args)
+

@@ -27,7 +27,7 @@ url_dispatcher = URL_Dispatcher()
 def __enum(**enums):
     return type('Enum', (), enums)
 
-MODES = __enum(AUTH_RD='auth_rd', RESET_RD='reset_rd', RESET_CACHE='reset_cache')
+MODES = __enum(AUTH_RD='auth_rd', RESET_RD='reset_rd', RESET_CACHE='reset_cache', AUTH_AD='auth_ad', RESET_AD='reset_ad')
 
 @url_dispatcher.register(MODES.AUTH_RD)
 def auth_rd():
@@ -45,6 +45,23 @@ def reset_rd():
     rd = realdebrid.RealDebridResolver()
     rd.reset_authorization()
     kodi.notify(msg=kodi.i18n('rd_auth_reset'), duration=5000)
+
+@url_dispatcher.register(MODES.AUTH_AD)
+def auth_ad():
+    kodi.close_all()
+    kodi.sleep(500)  # sleep or authorize won't work for some reason
+    from urlresolver.plugins import alldebrid
+    if alldebrid.AllDebridResolver().authorize_resolver():
+        kodi.notify(msg=kodi.i18n('ad_authorized'), duration=5000)
+
+@url_dispatcher.register(MODES.RESET_AD)
+def reset_ad():
+    kodi.close_all()
+    kodi.sleep(500)  # sleep or reset won't work for some reason
+    from urlresolver.plugins import alldebrid
+    ad = alldebrid.AllDebridResolver()
+    ad.reset_authorization()
+    kodi.notify(msg=kodi.i18n('ad_auth_reset'), duration=5000)
     
 @url_dispatcher.register(MODES.RESET_CACHE)
 def reset_cache():

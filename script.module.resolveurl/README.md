@@ -25,4 +25,4 @@ Include my repo with your repo to always have the latest updates from me
 	        <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
 	</dir>
 
-I am in no way responsible for the urls being resolved by 3rd parties. This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual file host and not me. This script in no way searches for any content whatsoever.
+I am in no way responsible for the urls being resolved by 3rd parties. This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual website or developer linking to such content and not me. This script in no way searches for any content whatsoever.

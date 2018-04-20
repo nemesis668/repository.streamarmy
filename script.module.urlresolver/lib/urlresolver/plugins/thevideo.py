@@ -25,8 +25,8 @@ from urlresolver.resolver import UrlResolver, ResolverError
 
 class TheVideoResolver(UrlResolver):
     name = "thevideo"
-    domains = ["thevideo.me", "tvad.me"]
-    pattern = '(?://|\.)((?:thevideo|tvad)\.me)/(?:embed-|download/)?([0-9a-zA-Z]+)'
+    domains = ["thevideo.me", "tvad.me", "thevideo.cc", "thevideo.us"]
+    pattern = '(?://|\.)((?:thevideo\.(?:me|cc|us))|tvad\.me)/(?:embed-|download/)?([0-9a-zA-Z]+)'
 
     def __init__(self):
         self.net = common.Net()

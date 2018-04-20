@@ -25,7 +25,6 @@ import urllib2
 import socket
 import time
 import kodi
-import platform
 
 # Set Global timeout - Useful for slow connections and Putlocker.
 socket.setdefaulttimeout(10)
@@ -171,7 +170,13 @@ class Net:
         if self._proxy:
             handlers += [urllib2.ProxyHandler({'http': self._proxy})]
 
-        if not self._ssl_verify or platform.uname()[1] == 'XboxOne':
+        try:
+            import platform
+            node = platform.node().lower()
+        except:
+            node = ''
+
+        if not self._ssl_verify or node == 'xboxone':
             try:
                 import ssl
                 ctx = ssl.create_default_context()

@@ -35,7 +35,7 @@ class TunePkResolver(ResolveUrl):
         headers = {'User-Agent': common.FF_USER_AGENT}
         response = self.net.http_GET(web_url, headers=headers)
         html = response.content
-        if 'Not Found' in html:
+        if 'video has been deactivated' in html:
             raise ResolverError('File Removed')
 
         headers.update({'Referer': web_url})

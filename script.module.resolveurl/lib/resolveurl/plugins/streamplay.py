@@ -61,21 +61,21 @@ class S:
 
         var = var.replace('\\x', '').split(",")
         var = [x.replace("'", '').replace('"', '').replace(' ', '').decode("hex") for x in var]
-        for x in range(0x1f0, 0, -1):
+        for x in range(0xd3, 0, -1):
             var.append(var.pop(0))
 
         self.var = var
 
         self.t(
-            self.decode_index('0x22', '!UJH') +
-            self.decode_index('0x23', 'NpE)') +
-            self.decode_index('0x24', '4uT2') +
-            self.decode_index('0x23', 'NpE)'),
-            self.decode_index('0x25', '@ZC2')
+            self.decode_index('0xc') +
+            self.decode_index('0d') +
+            self.decode_index('0xe') +
+            self.decode_index('0xf'),
+            self.decode_index('0x10')
         )
 
-    def decode_index(self, index, key):
-        b64_data = self.var[int(index, 16)];
+    def decode_index(self, index, key=None):
+        b64_data = self.var[int(index, 16)]
         result = ''
         _0xb99338 = 0x0
         _0x25e3f4 = 0x0
@@ -83,25 +83,28 @@ class S:
         data = base64.b64decode(b64_data)
         data = urllib.unquote(data).decode('utf8')
 
-        _0x5da081 = [x for x in range(0x100)]
+        if key:
+            _0x5da081 = [x for x in range(0x100)]
 
-        for x in range(0x100):
-            _0xb99338 = (_0xb99338 + _0x5da081[x] + ord(key[x % len(key)])) % 0x100
-            _0x139847 = _0x5da081[x]
-            _0x5da081[x] = _0x5da081[_0xb99338]
-            _0x5da081[_0xb99338] = _0x139847
+            for x in range(0x100):
+                _0xb99338 = (_0xb99338 + _0x5da081[x] + ord(key[x % len(key)])) % 0x100
+                _0x139847 = _0x5da081[x]
+                _0x5da081[x] = _0x5da081[_0xb99338]
+                _0x5da081[_0xb99338] = _0x139847
 
-        _0xb99338 = 0x0
+            _0xb99338 = 0x0
 
-        for _0x11ebc5 in range(len(data)):
-            _0x25e3f4 = (_0x25e3f4 + 0x1) % 0x100
-            _0xb99338 = (_0xb99338 + _0x5da081[_0x25e3f4]) % 0x100
-            _0x139847 = _0x5da081[_0x25e3f4]
-            _0x5da081[_0x25e3f4] = _0x5da081[_0xb99338]
-            _0x5da081[_0xb99338] = _0x139847
-            result += chr(ord(data[_0x11ebc5]) ^ _0x5da081[(_0x5da081[_0x25e3f4] + _0x5da081[_0xb99338]) % 0x100])
+            for _0x11ebc5 in range(len(data)):
+                _0x25e3f4 = (_0x25e3f4 + 0x1) % 0x100
+                _0xb99338 = (_0xb99338 + _0x5da081[_0x25e3f4]) % 0x100
+                _0x139847 = _0x5da081[_0x25e3f4]
+                _0x5da081[_0x25e3f4] = _0x5da081[_0xb99338]
+                _0x5da081[_0xb99338] = _0x139847
+                result += chr(ord(data[_0x11ebc5]) ^ _0x5da081[(_0x5da081[_0x25e3f4] + _0x5da081[_0xb99338]) % 0x100])
 
-        return result
+            return result
+        else:
+            return data
 
     def decode(self, url):
         _hash = re.compile('[A-z0-9_-]{40,}', re.DOTALL).findall(url)[0]

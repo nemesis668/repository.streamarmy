@@ -18,17 +18,32 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import re
 from lib import helpers
+from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
 
 class VidZellaResolver(UrlResolver):
     name = "vidzella"
     domains = ['vidzella.me', 'dl.vidzella.me']
-    pattern = '(?://|\.)(vidzella.me)/(?:play/?#|stream\.php\?stream=)([0-9a-zA-Z]+)'
+    pattern = '(?://|\.)(vidzella.me)/(?:e/|play/?#|stream\.php\?stream=)([0-9a-zA-Z]+)'
+
+    def __init__(self):
+        self.net = common.Net()
     
     def get_media_url(self, host, media_id):
-        return helpers.get_media_url(self.get_url(host, media_id), result_blacklist=['intro_black']).replace(' ', '%20')
+        web_url = self.get_url(host, media_id)
+        headers = {'User-Agent': common.RAND_UA}
+        html = self.net.http_GET(web_url, headers=headers).content
+
+        if html:
+            source = re.search("""<source\s+src\s*=\s*["']([^"']+)""", html)
+            if source:
+                headers.update({'Referer': web_url})
+                return self.net.http_GET(source.group(1), headers=headers).get_url() + helpers.append_headers(headers)
+
+        raise ResolverError('File Not Found')
     
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://dl.vidzella.me/stream.php?stream={media_id}')
-        
+        return self._default_get_url(host, media_id, template='https://{host}/e/{media_id}')

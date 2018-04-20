@@ -21,7 +21,7 @@ from resolveurl.resolver import ResolveUrl
 class UsersCloudResolver(ResolveUrl):
     name = "userscloud"
     domains = ["userscloud.com"]
-    pattern = '(?://|\.)(userscloud\.com)/(?:embed-)?([0-9a-zA-Z/]+)'
+    pattern = '(?://|\.)(userscloud\.com)/(?:embed-|embed/)?([0-9a-zA-Z/]+)'
 
     def get_media_url(self, host, media_id):
         return helpers.get_media_url(self.get_url(host, media_id), patterns=["""file:\s*['"](?P<url>[^'"]+)"""]).replace(' ', '%20')
