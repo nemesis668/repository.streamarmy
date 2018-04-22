@@ -181,7 +181,7 @@
 
 <addon id="plugin.video.xxx-o-dus"
 	     name="XXX-O-DUS"
-	     version="4.00.000"
+	     version="4.00.001"
 	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>
@@ -492,7 +492,7 @@
   </extension>
 </addon>
 
-<addon id="script.xxxodus.artwork" version="1.00.019" name="XXXODUS Artwork" provider-name="Echo Coder">
+<addon id="script.xxxodus.artwork" version="2.00.000" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
 	</requires>
@@ -504,7 +504,7 @@
 	</extension>
 </addon>
 
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="1.00.026" provider-name="Echo Coder">
+<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="2.00.000" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0" />
 	</requires>

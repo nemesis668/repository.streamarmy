@@ -81,7 +81,9 @@ class streamer:
 
             elif 'chaturbate.com' in url: u = self.chaturbate(url)                      
 
-            elif 'nxgx.com' in url: u = self.nxgx(url)                      
+            elif 'nxgx.com' in url: u = self.nxgx(url)
+
+            elif 'hqporner.com' in url: u = self.hqporner(url)
 
             else: u = self.generic(url, pattern=None)
 
@@ -565,4 +567,21 @@ class streamer:
             u = re.findall(pattern,r)[0]
             return u
         except: 
+            return
+
+    def hqporner(self, url):
+        try:
+            r = client.request(url)
+            pattern = r"""iframe\s*width=['"]\d+['"]\s*height=['"]\d+['"]\s*src=['"]([^'"]+)"""
+            url = re.findall(pattern,r)[0]
+            url = url if url.startswith('http') else 'https:' + url
+            r = client.request(url)
+            pattern = r"""\s*file:\s*['"]([^'"]+)['"]\,\s*label:\s*['"]([^;"]+)"""
+            urls = re.findall(pattern,r)
+            links = []
+            for i in urls:
+                if i[0] not in str(links): links.append((i[0], i[1]))
+            links = [(i[1], i[0] if i[0].startswith('http') else 'http:' + i[0]) for i in links]
+            return links
+        except:
             return

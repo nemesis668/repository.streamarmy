@@ -34,26 +34,28 @@ def resolve_url(url, name=None, iconimage=None, pattern=None):
         name = name.split('- [')[0]
 
     u = None
+    url2 = url
     log_utils.log('Sending %s to XXX Resolver' % (url), log_utils.LOGNOTICE)
     if resolveurl.HostedMediaFile(url).valid_url(): 
         log_utils.log('%s is a valid SMU resolvable URL. Attempting to resolve.' % (url), log_utils.LOGNOTICE)
         try:
             u = resolveurl.HostedMediaFile(url).resolve()
+            if u == None: u = adultresolver.resolve(url2)
         except Exception as e:
             log_utils.log('Error getting valid link from SMU :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
-            kodi.idle()
-            kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
-            quit()
+            try:
+                u = adultresolver.resolve(url2)
+            except:
+                kodi.idle()
+                kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
+                quit()
         log_utils.log('Link returned by XXX Resolver :: %s' % (u), log_utils.LOGNOTICE)
     else:
         log_utils.log('%s is not a valid SMU resolvable link. Attempting to resolve by XXXODUS backup resolver.' % (url), log_utils.LOGNOTICE)
         try:
             u = adultresolver.resolve(url)
-            if u:
-                if resolveurl.HostedMediaFile(u).valid_url(): 
-                    u = resolveurl.HostedMediaFile(u).resolve()            
         except Exception as e:
-            log_utils.log('Error getting valid link from SMU :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
+            log_utils.log('Error getting valid link from XXXODUS backup resolver. :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
             kodi.idle()
             kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
             quit()

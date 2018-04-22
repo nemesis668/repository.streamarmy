@@ -22,48 +22,52 @@ search_base  = urlparse.urljoin(base_domain,'search/%s-1.html')
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
     
-    scraper_updater.check(filename)
-    
-    try:
-        url = urlparse.urljoin(base_domain,'tags')
-        c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'ul', {'class': 'tags'})
-        r = dom_parser2.parse_dom(r, 'li')
-        r = [(dom_parser2.parse_dom(i, 'a', req='href'), \
-            dom_parser2.parse_dom(i, 'span')) \
-            for i in r]
-        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href'].replace(' ','%20')), i[0][0].content, i[1][0].content.replace('(','').replace(')','')) for i in r]
-        if ( not r ):
-            log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-            kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-            quit()
-    except Exception as e:
-        log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-        kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-        quit()
+	scraper_updater.check(filename)
 
-    dirlst = []
-    
-    for i in r:
-        try:
-            name = kodi.sortX(i[1].encode('utf-8'))
-            name = name.title() + ' - [ %s ]' % i[2]
-            icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % filename))
-            fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': i[0], 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
-        except Exception as e:
-            log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-    
-    if dirlst: buildDirectory(dirlst)    
-    else:
-        kodi.notify(msg='No Menu Items Found')
-        quit()
+	try:
+		headers = {'User-Agent': 'Google Chrome Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
+		url = urlparse.urljoin(base_domain,'tags')
+		c = client.request(url, headers=headers)
+		r = dom_parser2.parse_dom(c, 'li')
+		r = [i.content for i in r if 'href' in i.content and 'span' in i.content]
+
+		r = [(dom_parser2.parse_dom(i, 'a', req='href'), \
+			dom_parser2.parse_dom(i, 'span')) \
+			for i in r]
+		r = [(i[0][0].attrs['href'].replace(' ','%20'), re.sub('<.+?>','',i[0][0].content), i[1][0].content.replace('(','').replace(')','')) for i in r]
+		r = [(i[0], i[1], i[2]) for i in r if i[2].isdigit()]
+		if ( not r ):
+			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
+			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
+			quit()
+	except Exception as e:
+		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
+		quit()
+
+	dirlst = []
+
+	for i in r:
+		try:
+			name = kodi.sortX(i[1].encode('utf-8'))
+			name = name.title() + ' - [ %s ]' % i[2]
+			icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % filename))
+			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
+			dirlst.append({'name': name, 'url': i[0], 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+		except Exception as e:
+			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+
+	if dirlst: buildDirectory(dirlst)    
+	else:
+		kodi.notify(msg='No Menu Items Found')
+		quit()
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
 
     try:
-        c = client.request(url)
+        headers = {'User-Agent': 'Google Chrome Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
+        c = client.request(url, headers=headers)
         r = dom_parser2.parse_dom(c, 'div', {'class': 'video-item'})
         r = [(dom_parser2.parse_dom(i, 'div', {'class': 'video-title'}), \
             dom_parser2.parse_dom(i, 'span', {'class': 'time'}), \

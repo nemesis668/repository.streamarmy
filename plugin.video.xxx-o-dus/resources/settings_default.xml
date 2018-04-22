@@ -1,0 +1,18 @@
+<settings version="2">
+    <setting id="chaturbate_band" default="true">0</setting>
+    <setting id="chaturbate_start">true</setting>
+    <setting id="chaturbate_subject">true</setting>
+    <setting id="chaturbate_subject_refresh">60</setting>
+    <setting id="chaturbate_view" default="true">0</setting>
+    <setting id="dev_debug" default="true">false</setting>
+    <setting id="dev_scrapers" default="true">false</setting>
+    <setting id="download_location" default="true">special://home\userdata\addon_data\plugin.video.xxx-o-dus\Downloads\</setting>
+    <setting id="history_setting">true</setting>
+    <setting id="list_view" default="true">0</setting>
+    <setting id="picture_view" default="true">0</setting>
+    <setting id="pin" default="true">EXPIRED</setting>
+    <setting id="search_setting">true</setting>
+    <setting id="search_view" default="true">0</setting>
+    <setting id="session_time">30</setting>
+    <setting id="thumb_view" default="true">0</setting>
+</settings>

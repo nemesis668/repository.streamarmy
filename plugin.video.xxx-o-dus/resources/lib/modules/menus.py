@@ -44,7 +44,7 @@ def mainMenu():
     c = []
     c += [
          (kodi.giveColor('Welcome to XXX-O-DUS Version %s' % kodi.get_version() ,'blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Original Code by EchoCoder, Please Report All issues to @Nemzzy668',False), \
-         #(kodi.giveColor(kodi.countGitHubIssues('https://github.com/Colossal1/plugin.video.xxx-o-dus/issues'),'blue',True) + kodi.giveColor(' | Click To View Issues','white',True),None,34,'report','All issues must be reported at https://github.com/Colossal1/plugin.video.xxx-o-dus/issues or I will not know the issues exist. I will not provide support at any other location as one central place for everyone to see and discuss issues benefits everyone.',False), \
+         (kodi.giveColor('Official Version Now Maintained By [COLOR yellow]@Nemzzy668[/COLOR]','blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Please Report any issues to @Nemzzy668 On Twitter',False), \
          ('Search...',None,29,'search','Search XXX-O-DUS',True), \
          ('Live Cams',None,37,'webcams','Live Cams',True), \
          ('Tubes',None,4,'tubes','Videos',True), \
@@ -52,7 +52,7 @@ def mainMenu():
          ('Movies',None,43,'movies','XXX Movies',True), \
          ('Virtual Reality',None,42,'vr','XXX Virtual Reality',True), \
          ('Hentai',None,39,'hentai','Hentai',True), \
-         ('Vintage',None,270,'vintage','Vintage',True), \
+         #('Vintage',None,270,'vintage','Vintage',True), \
          ('Fetish',None,40,'fetish','Fetish',True), \
          ('Pictures',None,35,'pics','Pictures',True), \
          #('Comics',None,41,'comics','Comics',True), \
