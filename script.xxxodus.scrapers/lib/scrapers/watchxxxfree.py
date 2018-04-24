@@ -25,7 +25,7 @@ def menu():
     scraper_updater.check(filename)
     
     try:
-        url = urlparse.urljoin(base_domain,'categories')
+        url = urlparse.urljoin(base_domain,'all-categories')
         c = client.request(url)
         r = dom_parser2.parse_dom(c, 'ul', {'class': 'listing-cat'})
         r = dom_parser2.parse_dom(r, 'li', {'class': re.compile('border-radius-\d*\s*box-shadow')})

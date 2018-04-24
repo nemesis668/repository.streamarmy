@@ -24,7 +24,7 @@ search_base  = urlparse.urljoin(base_domain,'?s=%s')
 def menu(url, searched=False):
 
     try:
-        if not url: url = 'http://streamingporn.xyz/category/movies/'
+        if not url: url = 'http://streamingporn.xyz/category/stream/'
         c = client.request(url)
         r = dom_parser2.parse_dom(c, 'article', {'id': re.compile('post-\d+')})
         log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(r)), log_utils.LOGERROR)

@@ -20,7 +20,7 @@ player_mode  = 810
 def content(url):
 
     try:
-        if not url: url = 'http://streamingporn.xyz/movies/'
+        if not url: url = 'http://streamingporn.xyz/category/movies/'
         c = client.request(url)
         r = dom_parser2.parse_dom(c, 'article', {'id': re.compile('post-\d+')})
         r = [(dom_parser2.parse_dom(i, 'a', req='href'), \

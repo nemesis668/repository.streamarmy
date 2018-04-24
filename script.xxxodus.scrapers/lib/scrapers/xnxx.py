@@ -62,8 +62,8 @@ def content(url,searched=False):
     try:
         c = client.request(url)
         r = dom_parser2.parse_dom(c, 'div', {'id': re.compile('video_\d+')})
-        r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']),dom_parser2.parse_dom(i, 'img', req=['src'])) for i in r if i]
-        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href']),i[0][0].attrs['title'],i[1][0].attrs['src']) for i in r if i]
+        r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']),dom_parser2.parse_dom(i, 'img', req=['data-src'])) for i in r if i]
+        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href']),i[0][0].attrs['title'],i[1][0].attrs['data-src']) for i in r if i]
         if ( not r ) and ( not searched ):
             log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
             kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)

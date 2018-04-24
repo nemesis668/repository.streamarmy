@@ -10,7 +10,7 @@ from resources.lib.modules import linkfinder
 buildDirectory = utils.buildDir
 
 filename     = 'xtheatre'
-base_domain  = 'https://xtheatre.net'
+base_domain  = 'https://xxxmoviestream.com'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'movies'
 menu_mode    = 291
@@ -20,15 +20,15 @@ player_mode  = 810
 def content(url):
 
     try:
-        if not url: url = 'https://xtheatre.net/?filtre=date&cat=0'
+        if not url: url = 'https://xxxmoviestream.com/?filtre=date&cat=0'
         c = client.request(url)
         r = dom_parser2.parse_dom(c, 'li', {'class': ['border-radius-5','box-shadow']})
         r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']), \
               dom_parser2.parse_dom(i, 'p'), \
-              dom_parser2.parse_dom(i, 'img', req='data-lazy-src')) \
+              dom_parser2.parse_dom(i, 'img', req='src')) \
               for i in r if i]
         r = [(i[0][0].attrs['href'], i[0][0].attrs['title'], i[1][0].content, \
-              i[2][0].attrs['data-lazy-src']) for i in r]
+              i[2][0].attrs['src']) for i in r]
         if ( not r ):
             log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
             kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)

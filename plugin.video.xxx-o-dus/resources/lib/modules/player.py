@@ -6,12 +6,13 @@ import xbmcaddon, os
 import client
 import utils
 import history
+import blacklist
 import log_utils
 import downloader
 import resolveurl, xbmcvfs
 xxx_plugins_path = 'special://home/addons/script.module.resolveurl.xxx/resources/plugins/'
 if xbmcvfs.exists(xxx_plugins_path): resolveurl.add_plugin_dirs(xbmc.translatePath(xxx_plugins_path))
-
+dialog = xbmcgui.Dialog()
 @utils.url_dispatcher.register('801', ['url'], ['name', 'iconimage', 'pattern']) 
 def resolve_url(url, name=None, iconimage=None, pattern=None):
 
@@ -36,6 +37,7 @@ def resolve_url(url, name=None, iconimage=None, pattern=None):
     u = None
     url2 = url
     log_utils.log('Sending %s to XXX Resolver' % (url), log_utils.LOGNOTICE)
+    blacklist.Blacklistcheck(url)
     if resolveurl.HostedMediaFile(url).valid_url(): 
         log_utils.log('%s is a valid SMU resolvable URL. Attempting to resolve.' % (url), log_utils.LOGNOTICE)
         try:
