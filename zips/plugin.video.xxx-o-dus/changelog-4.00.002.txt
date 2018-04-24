@@ -1,3 +1,24 @@
+Version: 4.00.002
+
+Fixed Broken Resolvers by bypassing XXX Module and self resolving
+
+FIXED ::
+
+XTheatre
+StreamingPorn
+3Movs
+faquer
+Hclips
+Nxgx
+Porn.com
+PornDig
+Pornilly
+RedTube
+Youporn
+XHamster
+XnXX
+Youjizz
+-------------------------------------------------------------------
 Version: 4.00.001
 
 Fixed ::
@@ -16,12 +37,3 @@ Removed ::
 --- Tubepornclasic - Videos No Longer Available
 --- Sexix - Website No Longer Available
 --- Virtual pornstars - Website No Longer Available
-
------------------------------------------
-
-Version: 4.00.000
-
---- Fixed Multiple Scrapers.
---- Revived XXX O Dus orginal addon by @EchoCoder
-
------------------------------------------
