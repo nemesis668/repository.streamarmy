@@ -9,7 +9,7 @@ from resources.lib.modules import helper
 buildDirectory = utils.buildDir
 
 filename     = os.path.basename(__file__).split('.')[0]
-base_domain  = 'https://xhamster.com'
+base_domain  = 'https://m.xhamster.com'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'video'
 menu_mode    = 236
@@ -27,7 +27,9 @@ def menu():
 	try:
 		url = urlparse.urljoin(base_domain,'categories')
 		c = client.request(url)
-		r = re.findall('<div class="item">(.*?)</div>',c, flags=re.DOTALL)
+		r = re.findall('<ul class="allcats page clearfix">(.*?)</ul>',c, flags=re.DOTALL)[0]
+		pattern = r""".+?<a\s*href=['"]([^'"]+).+?>([^'"]+)<"""
+		r = re.findall(pattern,r, flags=re.DOTALL)
 		if ( not r ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -39,10 +41,8 @@ def menu():
 
 	dirlst = []
 
-	for i in r:
+	for url,name in r:
 		try:
-			name = re.findall('<a href=".*?" >(.*?)</a>',i, flags=re.DOTALL)[0]
-			url  = re.findall('<a href="(.*?)"',i, flags=re.DOTALL)[0]
 			if not base_domain in url: url = base_domain + url
 			icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % filename))
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
@@ -57,52 +57,44 @@ def menu():
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
 
-    try:
-        c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'div', {'class': ['thumb-list__item','video-thumb']})
-        r = [(dom_parser2.parse_dom(i, 'a', req='href'), \
-            dom_parser2.parse_dom(i, 'div', {'class': 'thumb-image-container__duration'}), \
-            dom_parser2.parse_dom(i, 'img', req='src')) \
-            for i in r if i]
-        r = [(i[0][-1].attrs['href'], i[0][-1].content, i[1][0].content, i[2][0].attrs['src']) for i in r]
-        if ( not r ) and ( not searched ):
-            log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-            kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-    except Exception as e:
-        if ( not searched ):
-            log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-            kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-            quit()    
-        else: pass
-    
-    import xbmc
-    xbmc.log('ITEMS %s' % r)
-    dirlst = []
-        
-    for i in r:
-        try:
-            name = '%s - [ %s ]' % (kodi.sortX(i[1].encode('utf-8')).title(),kodi.sortX(i[2].encode('utf-8')))
-            if searched: description = 'Result provided by %s' % base_name.title()
-            else: description = name
-            content_url = i[0] + '|SPLIT|%s' % base_name
-            fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': i[3], 'fanart': fanarts, 'description': description, 'folder': False})
-        except Exception as e:
-            log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-    
-    if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
-    else:
-        if (not searched):
-            kodi.notify(msg='No Content Found')
-            quit()
-        
-    if searched: return str(len(r))
-    
-    if not searched:
-        
-        try:
-            search_pattern = '''\<link\s*rel\=['"]next['"]\s*href\=['"]([^'"]+)'''
-            parse = base_domain        
-            helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
-        except Exception as e: 
-            log_utils.log('Error getting next page for %s :: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+	try:
+		c = client.request(url)
+		r = re.findall('<div class="item-container">(.*?)</a>',c, flags=re.DOTALL)
+		if ( not r ) and ( not searched ):
+			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
+			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
+	except Exception as e:
+		if ( not searched ):
+			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+			kodi.notify(msg='Fatal Error', duration=4000, sound=True)
+			quit()    
+		else: pass
+	dirlst = []
+		
+	for i in r:
+		try:
+			name = re.findall('<div\s+class="item_name">(.*?)</div>', i, flags=re.DOTALL)[0]
+			url2 = re.findall('<a\s+href="(.*?)"', i, flags=re.DOTALL)[0]
+			icon = re.findall('<img\s+class="thumb"\s+src="(.*?)"', i, flags=re.DOTALL)[0]
+			desc = re.findall('<div\s+class="time">(.*?)</div>', i, flags=re.DOTALL)[0]
+			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
+			dirlst.append({'name': name + '[COLOR yellow] [ ' + desc + ' ] [/COLOR]', 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': desc, 'folder': False})
+		except Exception as e:
+			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+
+	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
+	else:
+		if (not searched):
+			kodi.notify(msg='No Content Found')
+			quit()
+		
+	if searched: return str(len(r))
+
+	if not searched:
+		
+		try:
+			search_pattern = '''\<link\s*rel\=['"]next['"]\s*href\=['"]([^'"]+)'''
+			parse = base_domain        
+			helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
+		except Exception as e: 
+			log_utils.log('Error getting next page for %s :: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)

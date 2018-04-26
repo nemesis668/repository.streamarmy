@@ -61,7 +61,6 @@ def menu():
 def content(url,searched=False):
 	if not base_domain in url: url = base_domain + url
 	try:
-		dialog.ok("URL",str(url))
 		c = client.request(url)
 		r = re.findall('<div class="preloadLine">(.*?)<span class="video_count">',c, flags=re.DOTALL)
 		if ( not r ) and ( not searched ):
