@@ -10,7 +10,7 @@ buildDirectory = utils.buildDir
 
 filename     = os.path.basename(__file__).split('.')[0]
 base_domain  = 'https://m.xhamster.com'
-base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
+base_name    = base_domain.replace('m.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'video'
 menu_mode    = 236
 content_mode = 237
@@ -21,7 +21,7 @@ search_base  = urlparse.urljoin(base_domain,'search.php?from=&new=&q=%s&qcat=vid
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
-    
+
 	scraper_updater.check(filename)
 
 	try:
@@ -53,7 +53,7 @@ def menu():
 	else:
 		kodi.notify(msg='No Menu Items Found')
 		quit()
-        
+
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
 
