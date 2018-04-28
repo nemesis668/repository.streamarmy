@@ -17,11 +17,13 @@
 import xbmc,xbmcplugin,os,urllib,base64
 import kodi
 import log_utils
+import xbmcgui
 import helper
 import utils
 import search
 import downloader
 import parental
+import xbmcaddon
 import history
 import favorites
 import picture_viewer
@@ -29,17 +31,18 @@ import client
 from resources.lib.pyxbmct_.github import xxxgit
 from scrapers import __all__
 from scrapers import *
-
+messagetext  = 'https://pastebin.com/raw/SgsRvwZV'
 buildDirectory = utils.buildDir
 specific_icon       = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork/resources/art/', '%s/icon.png'))
 specific_fanart     = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork/resources/art/', '%s/fanart.jpg'))
 
 @utils.url_dispatcher.register('0')
 
+
 def mainMenu():
 
     art = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork/resources/art/', 'main/%s.png'))
-
+    popup()
     dirlst = []
     c = []
     c += [
@@ -266,4 +269,40 @@ def pictures():
             dirlst.append({'name': kodi.giveColor(i[0],'white'), 'url': None, 'mode': i[1], 'icon': specific_icon % i[2], 'fanart': specific_fanart % i[2], 'folder': True})
 
     buildDirectory(dirlst)
+
+def popup():
+
+	try:
+		message = client.request(messagetext)
+		if len(message)>1:
+			path = xbmcaddon.Addon().getAddonInfo('path')
+			comparefile = os.path.join(os.path.join(path,''), 'popup.txt')
+			r = open(comparefile)
+			compfile = r.read()       
+			if compfile == message:pass
+			else:
+				showText('[B][COLOR pink]XXX-O-DUS LATEST NEWS[/B][/COLOR]', message)
+				text_file = open(comparefile, "w")
+				text_file.write(message)
+				text_file.close()
+	except: pass
+			
+def showText(heading, text):
+
+	try:
+		id = 10147
+		xbmc.executebuiltin('ActivateWindow(%d)' % id)
+		xbmc.sleep(500)
+		win = xbmcgui.Window(id)
+		retry = 50
+		while (retry > 0):
+			try:
+				xbmc.sleep(10)
+				retry -= 1
+				win.getControl(1).setLabel(heading)
+				win.getControl(5).setText(text)
+				quit()
+				return
+			except: pass
+	except: pass
 

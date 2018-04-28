@@ -6,7 +6,8 @@ import dom_parser2
 import log_utils
 import utils
 import resolveurl
-
+import xbmcgui
+dialog = xbmcgui.Dialog()
 @utils.url_dispatcher.register('810', ['url'], ['name', 'iconimage', 'pattern']) 
 def find(url, name=None, iconimage=None, pattern=None):
 
@@ -48,6 +49,14 @@ def find(url, name=None, iconimage=None, pattern=None):
 			r = [client.request(i[0].attrs['href']) for i in r if i]
 			r = [i.attrs['src'] for i in u] + [re.findall("window.location.href='([^']+)", i)[0] for i in r]
 			url = multi(r)
+			
+		elif 'watchxxxfree.tv' in url:
+			r = client.request(url)
+			pattern = r"""<iframe.+?src=['"]([^'"]+)"""
+			r = re.findall(pattern,r)
+			url = multi(r)
+		
+
 		
 	except:
 		kodi.idle()
@@ -61,20 +70,21 @@ def find(url, name=None, iconimage=None, pattern=None):
     
 def multi(r):
      
-    r = [(re.findall('(?://)(?:www.)?([^.]+).', i)[0].title(), i) for i in r if resolveurl.HostedMediaFile(i).valid_url()]
-    names = []
-    srcs  = []
+	r = [(re.findall('(?://)(?:www.)?([^.]+).', i)[0].title(), i) for i in r if resolveurl.HostedMediaFile(i).valid_url()]
+	names = []
+	srcs  = []
 
-    if len(r) > 1:
-        for i in sorted(r, reverse=True):
-            names.append(kodi.giveColor(i[0],'white',True))
-            srcs.append(i[1])
-        selected = kodi.dialog.select('Select a link.',names)
-        if selected < 0:
-            kodi.notify(msg='No option selected.')
-            kodi.idle()
-            quit()
-        else:
-            url = srcs[selected]
-            return url
-    else: return r[0][1]
+	if len(r) > 1:
+		for i in sorted(r, reverse=True):
+			names.append(kodi.giveColor(i[0],'white',True))
+			srcs.append(i[1])
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url = srcs[selected]
+			return url
+	else: return r[0][1]
+	

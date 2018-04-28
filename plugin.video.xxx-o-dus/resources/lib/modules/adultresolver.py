@@ -26,8 +26,6 @@ class streamer:
 			
 			elif 'girlfriendvideos.com' in url: u = self.girlfriendvideos(url)
 
-			elif 'watchxxxfree.com' in url: u = self.watchxxxfree(url)
-
 			elif 'porn00' in url: u = self.porn00(url)
 			
 			elif 'justporno.tv' in url: u = self.justporno(url)
@@ -91,6 +89,12 @@ class streamer:
 			elif '3movs.com' in url: u = self.threemovs(url)
 			
 			elif 'hclips.com' in url: u = self.hclips(url)
+			
+			elif 'watchxxxfree.tv' in url: u = self.watchxxxfree(url)
+			
+			elif 'youngpornvideos.com' in url: u = self.youngpornvideos(url)
+			
+			elif 'javhihi.com' in url: u = self.javhihi(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -207,24 +211,10 @@ class streamer:
 		
 		try:
 			r = client.request(url)
-			pattern = r"""data-lazy-src=['"]([^'"]+)"""
+			pattern = r"""<iframe.+?src=['"]([^'"]+)"""
 			e = re.findall(pattern,r)
-			import resolveurl
-			num = 0
-			u = []
-			a = []
-			b = []
-			c = []
-			if e:
-				for i in e:
-					if resolveurl.HostedMediaFile(i).valid_url(): 
-						num += 1
-						a.append('smu_file')
-						b.append('Link %s' % str(num))
-						c.append(i)
-						u = list(zip(b,c,a))
-			if u: return u
-			else: return
+			for links in e:
+				return links
 		except: return
 
 	def porn00(self, url):
@@ -618,3 +608,40 @@ class streamer:
 			xbmc.Player().play(url2)
 		except:
 			return
+			
+	def youngpornvideos(self,url):
+			r = client.request(url)
+			pattern = r'''file:\s+['"]([^'"]+).+?\s+label:\s+['"]([^'"]+)'''
+			r = re.findall(pattern,r)
+			names = []
+			srcs  = []
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			for url,quality in sorted(r, reverse=False):
+				names.append(kodi.giveColor(quality,'white',True))
+				srcs.append(url)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				xbmc.Player().play(url2)
+	def javhihi(self,url):
+			r = client.request(url)
+			pattern = r'''<source\s+src=['"]([^'"]+)['"]\s.+?data-res=['"]([^'"]+)'''
+			r = re.findall(pattern,r)
+			names = []
+			srcs  = []
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			for url,quality in sorted(r, reverse=True):
+				names.append(kodi.giveColor(quality,'white',True))
+				srcs.append(url)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				xbmc.Player().play(url2)
