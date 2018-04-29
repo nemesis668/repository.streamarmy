@@ -95,6 +95,10 @@ class streamer:
 			elif 'youngpornvideos.com' in url: u = self.youngpornvideos(url)
 			
 			elif 'javhihi.com' in url: u = self.javhihi(url)
+			
+			elif 'txxx.com' in url: u = self.txxx(url)
+			
+			elif 'vrsumo.com' in url: u = self.vrsumo(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -645,3 +649,25 @@ class streamer:
 			else:
 				url2 = srcs[selected]
 				xbmc.Player().play(url2)
+	def txxx(self, url):
+		try:
+			r = client.request(url)
+			pattern = r'''<a\s+href=['"]([^'"]+)['"]\s+id="download_link"'''
+			url = re.findall(pattern,r)[0]
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			xbmc.Player().play(url)
+		except:
+			return
+			
+	def vrsumo(self, url):
+		try:
+			r = client.request(url)
+			pattern = r'''iframe\s+src=['"]([^'"]+)['"]'''
+			url = re.findall(pattern,r)[1]
+			r = client.request(url)
+			pattern = r'''url:\s+['"]([^'"]+)['"]'''
+			url = re.findall(pattern,r)[0]
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			xbmc.Player().play(url)
+		except:
+			return

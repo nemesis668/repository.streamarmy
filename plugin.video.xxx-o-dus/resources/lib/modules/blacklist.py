@@ -20,6 +20,12 @@ def Blacklistcheck(url):
 	elif 'javhihi.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'txxx.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'vrsumo.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	else:
 		return url
 		
