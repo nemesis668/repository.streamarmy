@@ -99,6 +99,10 @@ class streamer:
 			elif 'txxx.com' in url: u = self.txxx(url)
 			
 			elif 'vrsumo.com' in url: u = self.vrsumo(url)
+			
+			elif 'anysex.com' in url: u = self.anysex(url)
+			
+			elif 'pandamovie.cc' in url: u = self.pandamovie(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -649,6 +653,50 @@ class streamer:
 			else:
 				url2 = srcs[selected]
 				xbmc.Player().play(url2)
+	def anysex(self,url):
+		r = client.request(url)
+		pattern = r'''video_.+?:\s+['"]([^'"]+)['"].+?video.+?text:\s+['"](.*?)['"]'''
+		r = re.findall(pattern,r)
+		names = []
+		srcs  = []
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		for url,quality in sorted(r, reverse=True):
+			names.append(kodi.giveColor(quality,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
+	def pandamovie(self,url):
+		r = client.request(url)
+		r = re.findall('<div id="pettabs">(.*?)</div>',r, flags=re.DOTALL)[0]
+		pattern = r'''href=['"]([^'"]+)['"].+?>(.*?)<'''
+		r = re.findall(pattern,r)
+		names = []
+		srcs  = []
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		for url,quality in sorted(r, reverse=True):
+			names.append(kodi.giveColor(quality,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			if resolveurl.HostedMediaFile(url2).valid_url(): 
+				stream_url = resolveurl.HostedMediaFile(url2).resolve()
+			#liz = xbmcgui.ListItem(name,iconImage=icon, thumbnailImage=icon)
+			#liz.setPath(stream_url)
+				xbmc.Player ().play(stream_url)
+			else:
+				xbmc.Player().play(url2)
+		
 	def txxx(self, url):
 		try:
 			r = client.request(url)

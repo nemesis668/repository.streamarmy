@@ -55,11 +55,12 @@ def find(url, name=None, iconimage=None, pattern=None):
 			r = re.findall(pattern,r)
 			url = multi(r)
 		
+		
 
 		
 	except:
 		kodi.idle()
-		kodi.notify(msg='Error getting link for (Link Finer) %s' % name)
+		kodi.notify(msg='Error getting link for (Link Finder) %s' % name)
 		kodi.idle()
 		quit()
 
