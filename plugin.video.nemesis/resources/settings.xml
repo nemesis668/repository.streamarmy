@@ -1,0 +1,6 @@
+<settings>
+<category label="Pin System">
+    <setting label="Current Pin" type="text" id="Pin" values="nemesis" default="Nemesis" visible="false"/>
+    <setting id="PIN" type="text" label="Current Pin : " default="EXPIRED" visible="true"/>
+</category>
+</settings>
