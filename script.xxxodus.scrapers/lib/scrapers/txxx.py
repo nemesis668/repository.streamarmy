@@ -3,7 +3,7 @@ import client
 import kodi
 import dom_parser2
 import log_utils
-import scraper_updater
+import lover
 import xbmcgui
 from resources.lib.modules import utils
 from resources.lib.modules import helper
@@ -23,7 +23,7 @@ search_base  = urlparse.urljoin(base_domain,'search/?s=%s')
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
 
-	scraper_updater.check(filename)
+	lover.checkupdates()
 
 	try:
 		url = base_domain

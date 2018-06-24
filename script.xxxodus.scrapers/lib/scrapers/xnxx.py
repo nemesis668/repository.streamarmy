@@ -3,7 +3,7 @@ import client
 import kodi
 import dom_parser2
 import log_utils
-import scraper_updater
+import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir
@@ -22,7 +22,7 @@ search_base  = urlparse.urljoin(base_domain,'?k=%s')
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
     
-    scraper_updater.check(filename)
+    lover.checkupdates()
 
     try:
         url = urlparse.urljoin(base_domain,'tags')

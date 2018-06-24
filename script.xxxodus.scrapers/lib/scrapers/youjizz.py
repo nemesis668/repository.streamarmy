@@ -3,7 +3,7 @@ import client
 import kodi
 import dom_parser2
 import log_utils
-import scraper_updater
+import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir
@@ -23,7 +23,7 @@ search_base  = urlparse.urljoin(base_domain,'search/%s-1.html')
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
     
-	scraper_updater.check(filename)
+	lover.checkupdates()
 
 	try:
 		headers = {'User-Agent': 'Google Chrome Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}

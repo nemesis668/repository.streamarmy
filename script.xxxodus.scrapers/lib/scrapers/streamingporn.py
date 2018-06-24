@@ -3,7 +3,7 @@ import client
 import kodi
 import dom_parser2
 import log_utils
-import scraper_updater
+import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 from resources.lib.modules import linkfinder
