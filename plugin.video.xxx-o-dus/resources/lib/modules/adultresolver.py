@@ -13,6 +13,28 @@ import log_utils
 import xbmcgui
 import resolveurl
 dialog	= xbmcgui.Dialog()
+
+def CLEANUP(text):
+
+    text = str(text)
+    text = text.replace('\\r','')
+    text = text.replace('\\n','')
+    text = text.replace('\\t','')
+    text = text.replace('\\','')
+    text = text.replace('<br />','\n')
+    text = text.replace('<hr />','')
+    text = text.replace('&#039;',"'")
+    text = text.replace('&#39;',"'")
+    text = text.replace('&quot;','"')
+    text = text.replace('&rsquo;',"'")
+    text = text.replace('&amp;',"&")
+    text = text.replace('&#8211;',"&")
+    text = text.replace('&#8217;',"'")
+    text = text.replace('&#038;',"&")
+    text = text.lstrip(' ')
+    text = text.lstrip('	')
+
+    return text
 class streamer:
 
 	def resolve(self, url, pattern=None):
@@ -38,7 +60,7 @@ class streamer:
 			
 			elif 'pornheel.com' in url: u = self.pornheel(url)
 			
-			elif 'pandamovie.eu' in url: u = self.pandamovie(url)
+			elif 'pandamovie.pw' in url: u = self.pandamovie(url)
 
 			elif 'winporn.com' in url: u = self.winporn(url)
 
@@ -103,6 +125,10 @@ class streamer:
 			elif 'anysex.com' in url: u = self.anysex(url)
 			
 			elif 'pandamovie.cc' in url: u = self.pandamovie(url)
+			
+			elif 'pornxs.com' in url: u = self.pornxs(url)
+			
+			elif 'http://streamingporn.xyz' in url: u = self.streamingporn(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -702,6 +728,7 @@ class streamer:
 			r = client.request(url)
 			pattern = r'''<a\s+href=['"]([^'"]+)['"]\s+id="download_link"'''
 			url = re.findall(pattern,r)[0]
+			url = CLEANUP(url)
 			xbmc.executebuiltin("Dialog.Close(busydialog)")
 			xbmc.Player().play(url)
 		except:
@@ -719,3 +746,31 @@ class streamer:
 			xbmc.Player().play(url)
 		except:
 			return
+			
+	def streamingporn(self,url):
+		r = client.request(url)
+		r = re.findall('<em>(.*?)</div>',r, flags=re.DOTALL)[0]
+		pattern = r'''<a\s+href=['"]([^'"]+)['"].+?.>(.*?)<'''
+		r = re.findall(pattern,r)
+		names = []
+		srcs  = []
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		for url,name in r:
+			name = name.replace('Download','').strip()
+			names.append(kodi.giveColor(name,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			if resolveurl.HostedMediaFile(url2).valid_url(): 
+				stream_url = resolveurl.HostedMediaFile(url2).resolve()
+			#liz = xbmcgui.ListItem(name,iconImage=icon, thumbnailImage=icon)
+			#liz.setPath(stream_url)
+				xbmc.Player ().play(stream_url)
+			else:
+				xbmc.Player().play(url2)
+			

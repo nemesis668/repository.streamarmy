@@ -1,9 +1,8 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
-[COLOR aqua]Current Version 4.000.004[/COLOR]
+[COLOR aqua]Current Version 4.000.005[/COLOR]
 
 [COLOR yellow]WHATS NEW[/COLOR]
-[COLOR white]Added :::[/COLOR]
-[COLOR white]TXXX - To Tubes Section :: VRSumo - To Virtual Reality Section :: Submityourflix - To Scenes Section[/COLOR]
+[COLOR white]Fixed Pandamovie ::: Added Anysex[/COLOR]
 
 
 [COLOR yellow]BUGS KNOWN[/COLOR]

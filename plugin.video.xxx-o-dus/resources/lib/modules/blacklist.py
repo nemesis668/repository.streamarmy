@@ -11,7 +11,7 @@ def Blacklistcheck(url):
 	elif 'hclips.com' in url:
 		adultresolver.resolve(url)
 		quit()
-	elif 'watchxxxfree.tv' in url:
+	elif 'watchxxxfree.cc' in url:
 		linkfinder.find(url)
 		quit()
 	elif 'youngpornvideos.com' in url:
@@ -29,7 +29,10 @@ def Blacklistcheck(url):
 	elif 'anysex.com' in url:
 		adultresolver.resolve(url)
 		quit()
-	elif 'pandamovie.cc' in url:
+	elif 'pandamovie.pw' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'http://streamingporn.xyz' in url:
 		adultresolver.resolve(url)
 		quit()
 	else:

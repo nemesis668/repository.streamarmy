@@ -1,4 +1,4 @@
-import xbmc,xbmcplugin,os,urlparse,re
+import xbmc,xbmcplugin,os,urlparse,re,xbmcgui
 import client
 import kodi
 import dom_parser2
@@ -7,9 +7,9 @@ import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir
-
+dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
-base_domain  = 'https://watchxxxfree.com'
+base_domain  = 'https://watchxxxfree.cc'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'scenes'
 menu_mode    = 234
@@ -21,44 +21,39 @@ search_base  = urlparse.urljoin(base_domain,'?s=%s')
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
-    
-    lover.checkupdates()
-    
-    try:
-        url = urlparse.urljoin(base_domain,'categories2018')
-        c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'ul', {'class': 'listing-cat'})
-        r = dom_parser2.parse_dom(r, 'li', {'class': re.compile('border-radius-\d*\s*box-shadow')})
-        r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']), \
-            dom_parser2.parse_dom(i, 'img', req='data-lazy-src')) \
-            for i in r if i]
-        r = [(i[0][0].attrs['href'], i[0][0].attrs['title'], i[1][0].attrs['data-lazy-src'] if i[1] else '') for i in r if i[0] and i[1]]
-        if ( not r ):
-            log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-            kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-            quit()
-    except Exception as e:
-        log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-        kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-        quit()
 
-    dirlst = []
-    
-    for i in r:
-        try:
-            name = kodi.sortX(i[1].encode('utf-8'))
-            if 'https' not in i[2]: icon = 'https:' + i[2]
-            else: icon = i[2]
-            fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': i[0], 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
-        except Exception as e:
-            log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-    
-    if dirlst: buildDirectory(dirlst)    
-    else:
-        kodi.notify(msg='No Menu Items Found')
-        quit()
-        
+	lover.checkupdates()
+
+	try:
+		url = urlparse.urljoin(base_domain,'/tube/categories/')
+		c = client.request(url)
+		r = re.findall('<li class="border-radius-5 box-shadow">(.*?)</li>',c, flags=re.DOTALL)
+		if ( not r ):
+			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
+			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
+			quit()
+	except Exception as e:
+		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
+		quit()
+
+	dirlst = []
+
+	for i in r:
+		try:
+			name = re.findall('title="(.*?)"',i,flags=re.DOTALL)[2]
+			url = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
+			icon = re.findall('data-lazy-src="(.*?)"',i,flags=re.DOTALL)[0]
+			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
+			dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+		except Exception as e:
+			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+
+	if dirlst: buildDirectory(dirlst)    
+	else:
+		kodi.notify(msg='No Menu Items Found')
+		quit()
+
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
 

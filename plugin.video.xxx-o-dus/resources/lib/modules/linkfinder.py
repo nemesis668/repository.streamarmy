@@ -49,11 +49,12 @@ def find(url, name=None, iconimage=None, pattern=None):
 			r = [client.request(i[0].attrs['href']) for i in r if i]
 			r = [i.attrs['src'] for i in u] + [re.findall("window.location.href='([^']+)", i)[0] for i in r]
 			url = multi(r)
-		elif 'watchxxxfree.tv' in url:
+		elif 'watchxxxfree.cc' in url:
 			r = client.request(url)
 			pattern = r"""<iframe.+?src=['"]([^'"]+)"""
 			r = re.findall(pattern,r)
 			url = multi(r)
+			
 		
 		
 
