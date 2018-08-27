@@ -146,6 +146,32 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.nemesisaio" name="[COLOR red][B]N[COLOR white]emesis AIO[/B][/COLOR]" version="1.00.000" provider-name="@Nemzzy668">
+	<requires>
+	<import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.simplejson"/>
+	<import addon="script.module.resolveurl" />
+	<import addon="script.module.liveresolver"/>
+	<import addon="script.module.requests"/>
+	<import addon="script.module.nemzzy"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+	<summary lang="en">Nemesis AIO</summary>
+	<description lang="en">Created By @Nemzzy668, No Content within thid add-on is hosted by us, All content is obtained using scrapers and fully available on the web</description>
+	<platform>all</platform>
+	<assets>
+	<icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>
+    <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+    <screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+</assets>
+	</extension>
+</addon>
+
 <addon id="plugin.video.neverwalkalone" name="[COLOR red]You'll Never Walk Alone[/COLOR]" version="1.4.0" provider-name="@Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -244,7 +270,7 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="9.8" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="10.0" provider-name="@Nemzzy668 / @_Manc_">
     <extension point="xbmc.addon.repository" name="Stream Army">
         <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
@@ -344,6 +370,18 @@
     <email></email>
     <source></source>
   </extension>
+</addon>
+
+<addon id="script.module.nemzzy" name="Nemzzy Libraries" version="1.00.000" provider-name="@Nemzzy668">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Moduel Addon with files used by addons made by Nemzzy</summary>
+	</extension>
 </addon>
 
 <addon id="script.module.pyxbmct"
