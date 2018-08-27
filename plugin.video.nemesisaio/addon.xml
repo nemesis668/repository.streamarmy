@@ -13,7 +13,7 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 	<summary lang="en">Nemesis AIO</summary>
-	<description lang="en">Created By @Nemzzy668, No Content within thid add-on is hosted by us, All content is obtained using scrapers and fully available on the web</description>
+	<description lang="en">Created By @Nemzzy668, No Content within this add-on is hosted by us, All content is obtained using scrapers and fully available on the web</description>
 	<platform>all</platform>
 	<assets>
 	<icon>icon.png</icon>
