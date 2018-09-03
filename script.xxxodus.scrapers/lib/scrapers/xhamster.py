@@ -56,12 +56,11 @@ def menu():
 
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-	dialog.ok("URL",str(url))
+
 	try:
 		c = client.request(url)
-		r = re.findall('<div class="items\s+clearfix">(.*?)<div\s+class="spot-container">',c, flags=re.DOTALL)[0]
-		pattern = r'''<a\s+href=['"]([^'"]+)['"].+?\s.+url\((.*?)\).+.\s+.+\s+.+\s+.+\s+.+\s+.+\s+.+.+?.\s+.+\s+.+>(.*?)<'''
-		r = re.findall(pattern,r)
+
+		r = re.findall('<div class="item-container">(.*?)</a>',c, flags=re.DOTALL)
 		if ( not r ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -73,12 +72,14 @@ def content(url,searched=False):
 		else: pass
 	dirlst = []
 		
-	for url2,icon,name in r:
+	for items in r:
 		try:
+			url2 = re.findall('<a\s+href="(.*?)"',items,flags=re.DOTALL)[0]
+			icon = re.findall('url\((.*?)\)',items,flags=re.DOTALL)[0]
+			name = re.findall('<div\sclass="item_name">(.*?)</div>',items,flags=re.DOTALL)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts,'folder': False})
-		except Exception as e:
-			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+		except: pass
 
 	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
 	else:

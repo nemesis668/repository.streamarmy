@@ -60,7 +60,7 @@ class streamer:
 			
 			elif 'pornheel.com' in url: u = self.pornheel(url)
 			
-			elif 'pandamovie.pw' in url: u = self.pandamovie(url)
+			elif 'pandamovie.biz' in url: u = self.pandamovie(url)
 
 			elif 'winporn.com' in url: u = self.winporn(url)
 
