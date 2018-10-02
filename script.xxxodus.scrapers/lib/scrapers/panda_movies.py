@@ -23,7 +23,7 @@ search_base  = urlparse.urljoin(base_domain,'search.fcgi?query=%s')
 def menu():
     
 	lover.checkupdates()
-	url = urlparse.urljoin(base_domain,'xxx/movies/')
+	url = urlparse.urljoin(base_domain,'adult/movies/')
 	content(url)
 	# try:
 		# url = urlparse.urljoin(base_domain,'xxx/movies/')

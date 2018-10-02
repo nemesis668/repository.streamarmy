@@ -31,11 +31,11 @@ def find(url, name=None, iconimage=None, pattern=None):
 			r = dom_parser2.parse_dom(c, 'li', req=['data-show','data-link'])
 			r = [(i.attrs['data-link']) for i in r]
 			url = multi(r)
-		elif 'pandamovie.co' in url:
-			c = client.request(url)
-			r = dom_parser2.parse_dom(c, 'a', req='id')
-			r = [(i.attrs['href']) for i in r]
-			url = multi(r)
+		# elif 'pandamovie.co' in url:
+			# c = client.request(url)
+			# r = dom_parser2.parse_dom(c, 'a', req='id')
+			# r = [(i.attrs['href']) for i in r]
+			# url = multi(r)
 		elif 'xxxmoviestream.com' in url:
 			c = client.request(url)
 			pattern = '''<iframe src="(.+?)" scrolling="no" frameborder="0" width="700"'''

@@ -38,7 +38,7 @@ def CLEANUP(text):
 class streamer:
 
 	def resolve(self, url, pattern=None):
-		
+
 		if pattern: 
 			u = self.generic(url, pattern)
 			
@@ -60,7 +60,7 @@ class streamer:
 			
 			elif 'pornheel.com' in url: u = self.pornheel(url)
 			
-			elif 'pandamovie.biz' in url: u = self.pandamovie(url)
+			elif 'pandamovie.com' in url: u = self.pandamovie(url)
 
 			elif 'winporn.com' in url: u = self.winporn(url)
 
