@@ -1,56 +1,55 @@
-[COLOR gold]MIGHTY RED ADDON[/COLOR] 
-
-[COLOR lime]ADDON UPDATED TO V2.0[/COLOR] GET FROM DAZZAWMS REPO ONLY ADD SOURCE http://dazzawmswizard.co.uk/repo
-
-FULL MATCH REPLAYS ADDED
-FOOTBALL HIGHLIGHTS ADDED
-ACESTREAM SUPPORT
-DEBRID LOGIN ADDED - LOGIN TO REAL DEBRID TO AVOID PAIRING LINKS
-
-Thanks To @Nemzzy668 For Help With New Features
-
-GET THE LFC BUILD BY @dazzawm From Dazzawms Wizard Complete With Maintenance Tools , REPO SOURCE ABOVE
-Every LFC Fan Needs This & Give Him A Follow On Twitter 
-
-LFC NEWS ADDED 
- 
-Welcome To The Formerly Known Everyone's Liverpool Addon
- 
-Any Issues Contact @Live_Prem_Addon For Support & Give Me A Follow On Twitter.
-
-CHANGELOG :
-
-V2.0
-Added Full Match Replays Scraper
-
-V1.9
-Fixed Bugs 
-
-V1.8
-Added Extended Highlights To Highlights Section
-
-V1.7
-Added Football Highlights Scraper
-
-v1.6
-Added LFC NEWS Scraper
-
-v1.5
-Added Real Debrid Login Icon
-No Pairing Required With Debrid 
-
-v1.4
-Added Code To Make ACESTREAM Compatible 
-Plexus Needed
-
-v1.3
-Added Anfield Index Podcast Scraper
-
-v1.2
-Scrapped Old Code
-
-v1.1
-Fixed Youtube Problem
-
-v1.0
+[COLOR gold]MIGHTY RED ADDON[/COLOR] 
+
+[COLOR lime]V2.0[/COLOR] GET FROM STREAMARMY REPO ONLY ADD SOURCE http://streamarmy.co.uk/repo
+
+Thanks to [COLOR yellow]@Nemzzy668[/COLOR] for his contribution to the base code which is essential to the addon performance , give him a follow on twitter
+
+EUROPEAN HIGHLIGHTS ADDED WITH FULL CHAMPIONS LEAGUE PROGRESS
+
+ADDED HIGHLIGHTS SECTION 
+
+GREAT MAGIC MOMENTS ADDED & GREAT EUROPEAN NIGHTS 
+
+GIVE @LoveTheRedmen A FOLLOW ON TWITTER FOR DOING THE NEW MATCH IN A MINUTE SECTION
+
+[COLOR yellow]CHANGELOG :[/COLOR]
+
+V2.0 UPDATED Removed football highlights section and replaced with new one & Removed Podcasts as Scraper Broken
+
+V2.0
+Added Full Match Replays Scraper
+*Now Broken*
+
+V1.9
+Fixed Bugs 
+
+V1.8
+Added Extended Highlights To Highlights Section
+*Now Removed*
+
+V1.7
+Added Football Highlights Scraper
+
+v1.6
+Added LFC NEWS Scraper
+
+v1.5
+Added Real Debrid Login Icon
+No Pairing Required With Debrid 
+
+v1.4
+Added Code To Make ACESTREAM Compatible 
+Plexus Needed
+
+v1.3
+Added Anfield Index Podcast Scraper
+*Now Broken*
+
+v1.2
+Scrapped Old Code
+
+v1.1
+Fixed Youtube Problem
+
+v1.0
 Initial Release

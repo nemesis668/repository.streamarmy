@@ -1,4 +1,4 @@
-import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,os,re,sys,datetime,shutil,urlresolver,random,liveresolver,time
+import xbmc,xbmcaddon,xbmcgui,xbmcplugin,urllib,urllib2,os,re,sys,datetime,shutil,resolveurl,random,liveresolver,time,requests
 from resources.libs.common_addon import Addon
 import base64
 from metahandler import metahandlers
@@ -33,7 +33,7 @@ def GetMenu():
     popup()
     xbmc.executebuiltin('Container.SetViewMode(500)')
     url = baseurl
-    addDir('[B][COLOR yellow]@Live_Prem_Addon[/COLOR][/B]',url,5,searchicon,fanarts)
+    addDir('[B][COLOR yellow]@MightRedAddon[/COLOR][/B]',url,5,searchicon,fanarts)
     link=open_url(baseurl)
     match= re.compile('<item>(.+?)</item>').findall(link)
     for item in match:
@@ -165,7 +165,7 @@ def popup():
                         text_file.close()
 
 def resolver_settings():
-    urlresolver.display_settings()
+    resolveurl.display_settings()
                         
 def GetContent(name,url,iconimage,fanart):
         url2=url
@@ -261,35 +261,30 @@ def YOUTUBE_CHANNEL(url):
 		addLink('[COLOR white]' + item["name"] + ' - on ' + item["date"] + '[/COLOR]',item["url"],7,item["iconimage"],fanart)
 
 def anfield_menu():
+	addLink('[COLOR yellow][B]LIVERPOOL FC PODCASTS[/B][/COLOR]','NULL',999,icon,fanarts)
+	addDir('[COLOR red][B]The Anfield Wrap[/B][/COLOR]','https://player.fm/series/the-anfield-wrap-podcast',10,'https://cdn1.player.fm/images/7503512/series/9FT3LJ3ojozpOfIf/256.jpg',fanarts)
+	addDir('[COLOR red][B]The Anfield Index Index Podcast[/B][/COLOR]','https://player.fm/series/the-anfield-index-podcast-99253',10,'https://cdn1.player.fm/images/905894/series/VHxXt1MDL2Yk6a3I/128.png',fanarts)
+	addDir('[COLOR red][B]The Redmen TV - Liverpool FC Podcast[/B][/COLOR]','https://player.fm/series/the-redmen-tv-liverpool-fc-podcast',10,'https://cdn1.player.fm/images/11819947/series/xCCibgKzA8Kw2UXH/128.jpg',fanarts)
+	addDir('[COLOR red][B]Talk On - Football Purists, a Liverpool podcast[/B][/COLOR]','https://player.fm/series/talk-on-football-purists-a-liverpool-podcast',10,'https://cdn1.player.fm/images/14903656/series/vsg5mpsoNz1mCaqn/128.png',fanarts)
+	addDir('[COLOR red][B]Kop On! A Liverpool FC (LFC) podcast[/B][/COLOR]','https://player.fm/series/kop-on-a-liverpool-fc-lfc-podcast',10,'https://cdn1.player.fm/images/21913163/series/ggl3ifebWV0caHD0/128.jpg',fanarts)
+	xbmc.executebuiltin('Container.SetViewMode(55)')
 
-    url = 'http://anfieldindex.com/podcasts'
-    result = open_url(url)
-    match = re.compile('<main class="container podcasts">(.+?)<main class="container">',re.DOTALL).findall(result)[0]
-    match2 = re.compile('<a(.+?)</a>',re.DOTALL).findall(match)
-    for item in match2:
-        try:
-            name = re.compile('title="(.+?)"',re.DOTALL).findall(item)[0]
-            url = re.compile('href="(.+?)"',re.DOTALL).findall(item)[0]
-            iconimage = re.compile('data-src="(.+?)"',re.DOTALL).findall(item)[0]
-            url = "http://anfieldindex.com" + url
-            addDir('[COLOR red][B]' + name + '[/B][/COLOR]',url,10,iconimage,fanarts)
-        except: pass
-    xbmc.executebuiltin('Container.SetViewMode(55)')
-        
-def anfield_index(url):
+def anfield_index(url,iconimage):
+	iconimage = icon
+	link = requests.get(url).content
+	match = re.findall('''<div class=['"]info-top['"]>(.*?)<div class=['"]shape['"]>''',link,flags=re.DOTALL)
+	for i in match:
+		try:
+			title = re.findall('href=".+?">(.*?)</a>',i,flags=re.DOTALL)[0]
+			title = CLEANUP(title)
+			url = re.findall('''href=['"](.*?)['"]''',i,flags=re.DOTALL)[1]
+			url = CLEANUP(url)
+			duration = re.findall('<span class="factoid duration shadow">(.*?)</span>',i,flags=re.DOTALL)[0]
+			name = title + ' | ' + duration
+			addLink("[COLOR yellow]" + name + "[/COLOR]",url,2,iconimage,fanarts,'')
+		except: pass
+	xbmc.executebuiltin('Container.SetViewMode(55)')
 
-    result = open_url(url)
-    match = re.compile('<article class="card podcast">(.+?)</article>',re.DOTALL).findall(result)
-    for item in match:
-        try:
-            name = re.compile('<h3 class="title primary-color">(.+?)</h3>',re.DOTALL).findall(item)[0]
-            url = re.compile('<a target="_blank" href="(.+?)">',re.DOTALL).findall(item)[0]
-            iconimage = re.compile('data-src="(.+?)"',re.DOTALL).findall(item)[0]
-            name = name.replace('&amp;','&')
-            addLink('[COLOR red][B]' + name + '[/B][/COLOR]',url,2,iconimage,fanarts)
-        except: pass
-    xbmc.executebuiltin('Container.SetViewMode(55)')
-	
 def SCRAPE_SPORTSHIGHLIGHTS_GAMES():
 
     url = 'http://www.goalsarena.org/en/'
@@ -344,10 +339,14 @@ def CLEANUP(text):
     text = text.replace('&#8211;',"&")
     text = text.replace('&#8217;',"'")
     text = text.replace('&#038;',"&")
-    text = text.replace('&nbsp;'," ")
+    text = text.replace('%3D',"=")
+    text = text.replace('%26',"&")
+    text = text.replace('%3F',"?")
+    text = text.replace('%3A',":")
+    text = text.replace('%2F',"/")
     text = text.lstrip(' ')
-    text = text.lstrip('    ')
-    
+    text = text.lstrip('	')
+
     return text
 	
 def SEARCH():
@@ -429,7 +428,7 @@ def GETMULTI(name,url,iconimage):
 	else:
 		url = streamurl[select]
 		print url
-		if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+		if resolveurl.HostedMediaFile(url).valid_url(): stream_url = resolveurl.HostedMediaFile(url).resolve()
                 elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
                 else: stream_url=url
                 liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
@@ -534,7 +533,7 @@ def PLAYLINK(name,url,iconimage):
                                     addLink(name,url,2,iconimage,fanart)
 
     
-    if urlresolver.HostedMediaFile(url).valid_url(): stream_url = urlresolver.HostedMediaFile(url).resolve()
+    if resolveurl.HostedMediaFile(url).valid_url(): stream_url = resolveurl.HostedMediaFile(url).resolve()
     elif liveresolver.isValid(url)==True: stream_url=liveresolver.resolve(url)
     else: stream_url=url
     liz = xbmcgui.ListItem(name,iconImage='DefaultVideo.png', thumbnailImage=iconimage)
@@ -547,8 +546,8 @@ def PLAYLINK(name,url,iconimage):
         elif 'acestream' in url:
             url = "plugin://program.plexus/?url=" + url + "&mode=1&name=acestream+"
             xbmc.Player ().play(url)
-        elif urlresolver.HostedMediaFile(url).valid_url():
-            url = urlresolver.HostedMediaFile(url).resolve()           
+        elif resolveurl.HostedMediaFile(url).valid_url():
+            url = resolveurl.HostedMediaFile(url).resolve()           
         elif liveresolver.isValid(url)==True:
                 url=liveresolver.resolve(url)
         liz = xbmcgui.ListItem(name, iconImage=icon, thumbnailImage=icon)
@@ -818,7 +817,7 @@ elif mode==6:YOUTUBE_CHANNEL(url)
 elif mode==7:PLAYVIDEO(url)
 elif mode==8:GETMULTI_SD(name,url,iconimage)
 elif mode==9:SHOW_PICTURE(url)
-elif mode==10:anfield_index(url)
+elif mode==10:anfield_index(url,iconimage)
 elif mode==11:anfield_menu()
 elif mode==15:SCRAPE_FULLHIGH(url)
 elif mode==16:SCRAPE_FULLHIGH_GET(url,icon,fanart)
