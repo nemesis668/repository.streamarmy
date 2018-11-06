@@ -7,8 +7,10 @@ import log_utils
 import utils
 import resolveurl
 import xbmcgui
+import xbmc
 dialog = xbmcgui.Dialog()
 @utils.url_dispatcher.register('810', ['url'], ['name', 'iconimage', 'pattern']) 
+
 def find(url, name=None, iconimage=None, pattern=None):
 
 	kodi.busy()
@@ -43,13 +45,21 @@ def find(url, name=None, iconimage=None, pattern=None):
 			url = multi(r)
 		elif 'sexkino.to' in url:   
 			c = client.request(url)
-			u = dom_parser2.parse_dom(c, 'iframe', {'class': ['metaframe','rptss']})
-			r = dom_parser2.parse_dom(c, 'tr')
-			r = [dom_parser2.parse_dom(i, 'a', req='href') for i in r]
-			r = [client.request(i[0].attrs['href']) for i in r if i]
-			r = [i.attrs['src'] for i in u] + [re.findall("window.location.href='([^']+)", i)[0] for i in r]
-			url = multi(r)
-		elif 'watchxxxfree.cc' in url:
+			pattern = '''<iframe class="metaframe rptss" src="(.*?)"'''
+			r = re.findall(pattern,c)[0]
+			if 'xdrive.cc' in r:
+				icon = 'https://lh5.ggpht.com/t6GgBV3lVq1uCb8qpTNjlilauVztXouZ2Eg1iN-HGAQQ1jtI19wTeEiGO77tysnN5KjZ=w300'
+				dialog.notification('[COLOR yellow]Nemzzy[/COLOR]', '[COLOR yellow]Using Xdrive Resolver By Nemzzy[/COLOR]', icon, 5000)
+				c = client.request(r)
+				findid = re.findall('''video_id=(.*?)\'''',c,flags=re.DOTALL)[0]
+				requesturl = 'https://xdrive.cc/secure_link?ip=81.12.123.22&video_id='+findid
+				c = client.request(requesturl)
+				r = re.findall('''\["(.*?)",''',c,flags=re.DOTALL)[0].replace('\\','')
+				xbmc.Player().play(r)
+			else:
+				r = re.findall(pattern,c)
+				url = multi(r)
+		elif 'watchxxxfreeinhd.com' in url:
 			r = client.request(url)
 			pattern = r"""<iframe.+?src=['"]([^'"]+)"""
 			r = re.findall(pattern,r)

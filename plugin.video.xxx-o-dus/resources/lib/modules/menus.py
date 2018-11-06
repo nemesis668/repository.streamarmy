@@ -48,6 +48,7 @@ def mainMenu():
     c += [
          (kodi.giveColor('Welcome to XXX-O-DUS Version %s' % kodi.get_version() ,'blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Original Code by EchoCoder, Please Report All issues to @Nemzzy668',False), \
          (kodi.giveColor('Official Version Now Maintained By [COLOR yellow]@Nemzzy668[/COLOR]','blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Please Report any issues to @Nemzzy668 On Twitter',False), \
+         ('[COLOR yellow]View Changelog[/COLOR]',xbmc.translatePath(os.path.join(kodi.addonfolder, 'changelog.txt')),17,'changelog','View XXX-O-DUS Changelog.',False), \
          ('Search...',None,29,'search','Search XXX-O-DUS',True), \
          ('Live Cams',None,37,'webcams','Live Cams',True), \
          ('Tubes',None,4,'tubes','Videos',True), \
@@ -66,7 +67,6 @@ def mainMenu():
          ('Your Settings',None,19,'settings','View/Change Addon Settings.',False), \
          ('View Disclaimer',xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/disclaimer.txt')),17,'disclaimer','View XXX-O-DUS Disclaimer.',False), \
          ('View Addon Information',xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'addon_info','View XXX-O-DUS Information.',False), \
-         ('View Changelog',xbmc.translatePath(os.path.join(kodi.addonfolder, 'changelog.txt')),17,'changelog','View XXX-O-DUS Changelog.',False), \
          ('Debug Versions',None,45,'addon_info','View the versions of XXXODUS and its dependencies for debugging.',True), \
          ('RESET XXX-O-DUS',None,18,'reset','Reset XXX-O-DUS to Factory Settings.',False), \
          #(kodi.giveColor('Report Issues @ https://github.com/Colossal1/plugin.video.xxx-o-dus/issues','violet',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'report','All issues must be reported at https://github.com/Colossal1/plugin.video.xxx-o-dus/issues or I will not know the issues exist. I will not provide support at any other location as one central place for everyone to see and discuss issues benefits everyone.',False), \

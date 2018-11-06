@@ -41,10 +41,10 @@ def menu():
 			url = re.findall('<a href="(.*?)"', items, flags=re.DOTALL)[0]
 			icon = re.findall('<img src="(.*?)"', items, flags=re.DOTALL)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			desc = re.findall('<p>(.*?)</p>', items, flags=re.DOTALL)[0]
+			#desc = re.findall('<p>(.*?)</p>', items, flags=re.DOTALL)[0]
 			if not 'https:' in url: url = 'https://hqporner.com/' + url
-			if not 'https:' in icon: icon = 'https://hqporner.com/' + icon
-			dirlst.append({'name': name, 'url': url, 'description': desc, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+			if not 'https:' in icon: icon = 'https:' + icon
+			dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
 		except Exception as e:
 			log_utils.log('Error adding menu item. %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 

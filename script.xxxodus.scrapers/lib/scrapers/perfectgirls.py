@@ -63,14 +63,7 @@ def content(url,searched=False):
     try:
         url = client.request(url, output='geturl')
         c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'div', {'class': 'list__item'})
-        r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']), \
-            dom_parser2.parse_dom(i, 'time'), \
-            dom_parser2.parse_dom(i, 'img', req='data-original')) for i in r if i]
-        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href']), \
-            i[0][0].attrs['title'], \
-            i[1][0].content, \
-            i[2][0].attrs['data-original']) for i in r if i]
+        r = re.findall('<div class="list__item">(.*?)</div>',c,flags=re.DOTALL)
         if ( not r ) and ( not searched ):
             log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
             kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -85,12 +78,15 @@ def content(url,searched=False):
     
     for i in r:
         try:
-            name = '%s - [ %s ]' % (kodi.sortX(i[1].encode('utf-8')).title(),kodi.sortX(i[2].encode('utf-8')))
+            name = re.findall('title="(.*?)"',i,flags=re.DOTALL)[0]
             if searched: description = 'Result provided by %s' % base_name.title()
             else: description = name
-            content_url = i[0] + '|SPLIT|%s' % base_name
+            content_url = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
+            if not base_domain in content_url: content_url = base_domain + content_url
+            icon = re.findall('data-altsrc="(.*?)"',i,flags=re.DOTALL)[0]
+            if not 'https' in icon: icon = 'https:' + icon
             fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': i[3], 'fanart': fanarts, 'description': description, 'folder': False})
+            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
         except Exception as e:
             log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
     

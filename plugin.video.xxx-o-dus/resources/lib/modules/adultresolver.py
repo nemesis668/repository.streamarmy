@@ -129,6 +129,12 @@ class streamer:
 			elif 'pornxs.com' in url: u = self.pornxs(url)
 			
 			elif 'http://streamingporn.xyz' in url: u = self.streamingporn(url)
+			
+			elif '3movs.com' in url: u = self.threemovs(url)
+			
+			elif 'watchmygf.me' in url: u = self.watchmygf(url)
+			
+			elif 'vrsmash.com' in url: u = self.vrsmash(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -681,8 +687,8 @@ class streamer:
 				xbmc.Player().play(url2)
 	def anysex(self,url):
 		r = client.request(url)
-		pattern = r'''video_.+?:\s+['"]([^'"]+)['"].+?video.+?text:\s+['"](.*?)['"]'''
-		r = re.findall(pattern,r)
+		pattern = r'''<source\s+id=['"]video_source.+?src=['"]([^'"]+)['"].+?title=['"](.*?)['"]'''
+		r = re.findall(pattern,r,flags=re.DOTALL)
 		names = []
 		srcs  = []
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
@@ -725,8 +731,9 @@ class streamer:
 		
 	def txxx(self, url):
 		try:
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
 			r = client.request(url)
-			pattern = r'''<a\s+href=['"]([^'"]+)['"]\s+id="download_link"'''
+			pattern = r'''<div class="download__link".+?<a href="(.*?)"'''
 			url = re.findall(pattern,r)[0]
 			url = CLEANUP(url)
 			xbmc.executebuiltin("Dialog.Close(busydialog)")
@@ -773,4 +780,21 @@ class streamer:
 				xbmc.Player ().play(stream_url)
 			else:
 				xbmc.Player().play(url2)
+				
+	def threemovs(self,url):
+		link = client.request(url)
+		play = re.findall('<div class="dropdown_submenu">.+?href="(.*?)"',link,flags=re.DOTALL)[0]
+		xbmc.Player().play(play)
+		
+	def watchmygf(self,url):
+		link = client.request(url)
+		play = re.findall('''video_url.+?/0/(.*?)['"]''',link,flags=re.DOTALL)[0]
+		play = play + '?rnd=1541459153704'
+		xbmc.Player().play(play)
+		
+	def vrsmash(self,url):
+		link = client.request(url)
+		play = re.findall('''"contentUrl":\s+"(.*?)"''',link,flags=re.DOTALL)[0]
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		xbmc.Player().play(play)
 			

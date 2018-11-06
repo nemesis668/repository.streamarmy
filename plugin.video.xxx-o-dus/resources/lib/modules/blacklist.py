@@ -5,13 +5,10 @@ adultresolver = adultresolver.streamer()
 dialog = xbmcgui.Dialog()
 def Blacklistcheck(url):
 
-	if '3movs.com' in url:
+	if 'hclips.com' in url:
 		adultresolver.resolve(url)
 		quit()
-	elif 'hclips.com' in url:
-		adultresolver.resolve(url)
-		quit()
-	elif 'watchxxxfree.cc' in url:
+	elif 'watchxxxfreeinhd.com' in url:
 		linkfinder.find(url)
 		quit()
 	elif 'youngpornvideos.com' in url:
@@ -33,6 +30,15 @@ def Blacklistcheck(url):
 		adultresolver.resolve(url)
 		quit()
 	elif 'http://streamingporn.xyz' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif '3movs.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'watchmygf.me' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'vrsmash.com' in url:
 		adultresolver.resolve(url)
 		quit()
 	else:

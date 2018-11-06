@@ -79,10 +79,10 @@ def content(url,searched=False):
 			name = re.findall('alt="(.*?)"',i, flags=re.DOTALL)[0]
 			url2  = re.findall('<a.+?href="(.*?)"',i, flags=re.DOTALL)[0]
 			if not base_domain in url2: url2 = base_domain + url2
-			icon = re.findall('data-thumb_url\s* =\s*"(.*?)"',i, flags=re.DOTALL)[0]
-			desc = re.findall('<span class="duration">(.*?)</span>',i, flags=re.DOTALL)[0].strip()
+			icon = re.findall('data-thumb_url="(.*?)"',i, flags=re.DOTALL)[0]
+			#desc = re.findall('<span class="duration">(.*?)</span>',i, flags=re.DOTALL)[0].strip()
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': desc, 'folder': False})
+			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
 			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
 

@@ -1,8 +1,8 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
-[COLOR aqua]Current Version 4.000.007[/COLOR]
+[COLOR aqua]Current Version 4.000.008[/COLOR]
 
 [COLOR yellow]WHATS NEW[/COLOR]
-[COLOR white]Fixed Pandamovie ::: Fixed XHamster[/COLOR]
+[COLOR white]Fixed Pandamovie AGAIN[/COLOR]
 
 
 [COLOR yellow]BUGS KNOWN[/COLOR]

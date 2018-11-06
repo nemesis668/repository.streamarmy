@@ -9,7 +9,7 @@ from resources.lib.modules import helper
 buildDirectory = utils.buildDir
 dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
-base_domain  = 'https://watchxxxfree.cc'
+base_domain  = 'https://watchxxxfreeinhd.com/'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'scenes'
 menu_mode    = 234
@@ -25,7 +25,7 @@ def menu():
 	lover.checkupdates()
 
 	try:
-		url = urlparse.urljoin(base_domain,'/tube/categories/')
+		url = urlparse.urljoin(base_domain,'/categories/')
 		c = client.request(url)
 		r = re.findall('<li class="border-radius-5 box-shadow">(.*?)</li>',c, flags=re.DOTALL)
 		if ( not r ):

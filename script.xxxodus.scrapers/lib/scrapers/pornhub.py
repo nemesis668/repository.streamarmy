@@ -60,16 +60,12 @@ def menu():
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-
+    import xbmcgui
+    dialog	= xbmcgui.Dialog()
     try:
         c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'li', {'class': re.compile('js-pop\s*videoblock\s*videoBox')})
-        r = [(dom_parser2.parse_dom(i, 'a', req=['href','title']), \
-            dom_parser2.parse_dom(i, 'var', {'class': 'duration'}), \
-            dom_parser2.parse_dom(i, 'img', req='data-image'), \
-            dom_parser2.parse_dom(i, 'img', req='data-mediumthumb')) \
-            for i in r if i]
-        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href']), i[0][0].attrs['title'], i[1][0].content, i[2][0].attrs['data-image'] if i[2] else i[3][0].attrs['data-mediumthumb']) for i in r]
+        r = re.findall('<ul id="videoCategory"(.*?)</ul>',c,flags=re.DOTALL)[0]
+        b = re.findall('<div class="img fade fadeUp videoPreviewBg">(.*?)</div>',r,flags=re.DOTALL)
         if ( not r ) and ( not searched ):
             log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
             kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -82,14 +78,16 @@ def content(url,searched=False):
     
     dirlst = []
         
-    for i in r:
+    for i in b:
         try:
-            name = '%s - [ %s ]' % (kodi.sortX(i[1].encode('utf-8')).title(),kodi.sortX(i[2].encode('utf-8')))
+            name = re.findall('title="(.*?)"',i,flags=re.DOTALL)[0]
             if searched: description = 'Result provided by %s' % base_name.title()
             else: description = name
-            content_url = i[0] + '|SPLIT|%s' % base_name
+            content_url = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
+            if not base_domain in content_url: content_url = base_domain + content_url
+            icon = re.findall('data-thumb_url\s+=\s+"(.*?)"',i,flags=re.DOTALL)[0]
             fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': i[3], 'fanart': fanarts, 'description': description, 'folder': False})
+            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
         except Exception as e:
             log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
     
