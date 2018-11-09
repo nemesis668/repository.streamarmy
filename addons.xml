@@ -126,28 +126,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.3.9" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.simplejson"/>
-    <import addon="script.module.liveresolver"/>
-    <import addon="script.common.plugin.cache"/>
-    <import addon="script.module.metahandler"/>
-    <import addon="script.module.resolveurl" />
-    <import addon="script.module.requests" />
-    <import addon="plugin.video.youtube" optional="false" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="nemesis.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">[COLOR aqua]Nemesis Addon[/COLOR]</summary>
-    <description lang="en">[COLOR aqua]Nemesis Addon, We Do not host any streams or content, all information available in this addon is obtained using scrappers[/COLOR]</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.nemesisaio" name="[COLOR red][B]N[COLOR white]emesis AIO[/B][/COLOR]" version="1.00.003" provider-name="@Nemzzy668">
+<addon id="plugin.video.nemesisaio" name="[COLOR red][B]N[COLOR white]emesis AIO[/B][/COLOR]" version="1.00.004" provider-name="@Nemzzy668">
 	<requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.simplejson"/>
