@@ -57,7 +57,7 @@ def content(url,searched=False):
 
 	try:
 		c = client.request(url)
-		r = re.findall('<header class="entry-header">(.*?)</h3>',c, flags=re.DOTALL)
+		r = re.findall('<span class="overlay-img">(.*?)</h3>',c, flags=re.DOTALL)
 	except Exception as e:
 		if ( not searched ):
 			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -69,7 +69,8 @@ def content(url,searched=False):
 		try:
 			name = re.findall('rel="bookmark">(.*?)</a>',i,flags=re.DOTALL)[0]
 			url2 = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
-			icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % base_name))
+			#icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % base_name))
+			icon = re.findall('<img src="(.*?)"',i,flags=re.DOTALL)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
