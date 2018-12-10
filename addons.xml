@@ -39,6 +39,41 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.EntertainMe" name="[COLOR red][B]E[COLOR yellow]nterTain Me[/B][/COLOR]" version="1.00.000" provider-name="@Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.addon.common" version="2.0.0" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.resolveurl" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">EnterTain Me, Built Off of SeeHD</summary>
+    <description lang="en">Find All the latest releases of Movies and Tv Shows in the best Qualitys Available, all content is obtained using scrapers and it is the users discretion how they choose to use this addon.
+
+
+Credits ::
+DevKong - For Starting Me Off In Pyxbmct
+Jsergio - For ResolveUrl
+EchoCoder - For Starting Me Off On Learning Python
+NjmSoccer - For Introducing Me To Kodi In The First Place, And Getting Me Into The Scence
+
+For Support Follow @Nemzzy668 On Twitter
+</description>
+    <platform>all</platform>
+  <assets>
+   <icon>icon.png</icon>
+   <fanart>fanart.jpg</fanart>
+   <screenshot>resources/screenshots/screenshot001.jpg</screenshot>
+   <screenshot>resources/screenshots/screenshot002.jpg</screenshot>
+   <screenshot>resources/screenshots/screenshot003.jpg</screenshot>
+  </assets>
+  </extension>
+
+</addon>
+
 <addon id="plugin.video.entertainmenttime" name="[COLOR yellow][B]Entertainment [COLOR aqua]Time[/B][/COLOR]" version="1.0.1" provider-name="@Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

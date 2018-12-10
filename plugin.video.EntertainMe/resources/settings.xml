@@ -1,0 +1,5 @@
+<settings>
+<category label="Settings">
+    <setting label="Addon Theme" type="text" id="Theme" values="EntertainMe" default="EntertainMe" visible="false"/>
+</category>
+</settings>
