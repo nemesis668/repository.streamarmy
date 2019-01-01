@@ -388,7 +388,10 @@ class Root:
 
 class Link:
     def __init__(self):
-        self.yify_base = 'https://yts.am'
+        if getSetting('use_proxy') == 'true':
+            self.yify_base = 'https://ytss.unblocked.si'
+        else:
+            self.yify_base = 'https://yts.am'
         self.yify_title = '%s/api/v2/list_movies.json?sort_by=title' % self.yify_base
         self.yify_release = '%s/api/v2/list_movies.json?sort_by=year' % self.yify_base
         self.yify_added = '%s/api/v2/list_movies.json?sort_by=date_added' % self.yify_base

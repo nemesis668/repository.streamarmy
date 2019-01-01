@@ -260,7 +260,7 @@ For Support Follow @Nemzzy668 On Twitter
   </extension>
 </addon>
 
-<addon id="plugin.video.yifymovies.hd" name="Yify Movies HD" version="3.0.4" provider-name="RickSanchez137">
+<addon id="plugin.video.yifymovies.hd" name="Yify Movies HD" version="3.0.5" provider-name="RickSanchez137">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.resolveurl" version="5.0.22"/>
