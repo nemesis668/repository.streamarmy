@@ -124,7 +124,7 @@ class streamer:
 			
 			elif 'anysex.com' in url: u = self.anysex(url)
 			
-			elif 'pandamovie.cc' in url: u = self.pandamovie(url)
+			elif '123pandamovie.me' in url: u = self.pandamovie(url)
 			
 			elif 'pornxs.com' in url: u = self.pornxs(url)
 			
@@ -384,14 +384,14 @@ class streamer:
 		except:
 			return 
 
-	def pandamovie(self, url):
-		try:
-			u = client.request(url)
-			e = re.findall('<li>.+?on ([^"]*).+?f="([^"]*)', u)
-			e = [(i[0],i[1]) for i in e if 'pandamovie' not in i[1]]
-			return e
-		except:
-			return
+	# def pandamovie(self, url):
+		# try:
+			# u = client.request(url)
+			# e = re.findall('<li>.+?on ([^"]*).+?f="([^"]*)', u)
+			# e = [(i[0],i[1]) for i in e if 'pandamovie' not in i[1]]
+			# return e
+		# except:
+			# return
 
 
 	def winporn(self, url):
@@ -704,6 +704,7 @@ class streamer:
 			url2 = srcs[selected]
 			xbmc.Player().play(url2)
 	def pandamovie(self,url):
+		dialog.ok("HERE","HERE")
 		r = client.request(url)
 		r = re.findall('<div id="pettabs">(.*?)</div>',r, flags=re.DOTALL)[0]
 		pattern = r'''href=['"]([^'"]+)['"].+?>(.*?)<'''

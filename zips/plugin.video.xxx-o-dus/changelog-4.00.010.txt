@@ -1,0 +1,26 @@
+Version 4.00.009 Released 06/11/2018
+
+Fixed ::
+
+Fixed Bug Where Addon Wouldn't Load
+
+3 Movs ||| Links Now Fixed And Play
+AnySex ||| Wasn't Finding Links, Now Fixed And Play
+Hq Porner ||| Wasn't Working, Now Fully Fixed
+Justporno ||| Links Wasn't Playing, Now Fixed And Play
+Perfect Girls ||| No Thumbnails Showing, Now Fixed
+PornHub ||| Wasn't Finding Content After Cats, Now Fixed
+Pornilly ||| Video Titles Wasn't Showing, Now Fixed
+RedTube ||| Wasn't Finding Content After Cats, Now Fixed
+TXXX - ||| No Catergories Showing, Now Fixed
+WatchMyGf ||| Links Wasn't Playing, Now Fixed And Play
+YouPorn ||| No Catergories Showing, Now Fixed
+SubmitYourFlix ||| Wasn't Finding Content After Cats, Now Fixed
+WatchXXXFree ||| Wasn't Finding Links, Now Fixed And Play
+SexKino ||| Wasn't Finding Links, Now Fixed And Play ,also added a New XDrive Resolver
+StreamingPorn ||| No Thumbnails Showing, Now Fixed
+VrSmash ||| Links Weren't Playing, Now Fixed And Play
+
+Removed ::
+Xhamster ||| Removed This Due To It Constantly Breaking
+Javihihi ||| Removed This Due To Player Encryption, Seeking New Source, If You Know Of One Contact @Nemzzy668
