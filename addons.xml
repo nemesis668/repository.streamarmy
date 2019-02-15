@@ -123,7 +123,7 @@ For Support Follow @Nemzzy668 On Twitter
   </extension>
 </addon>
 
-<addon id="plugin.video.FightClub" name="[COLOR gold][B]F[COLOR silver]ight Club[/B][/COLOR]" version="1.00.000" provider-name="Nemzzy">
+<addon id="plugin.video.FightClub" name="[COLOR gold][B]F[COLOR silver]ight Club[/B][/COLOR]" version="1.00.001" provider-name="Nemzzy">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
