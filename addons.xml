@@ -601,9 +601,10 @@ For Support Follow @Nemzzy668 On Twitter
 	</extension>
 </addon>
 
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="2.00.014" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.000" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0" />
+		<import addon="script.module.requests" />
 	</requires>
 	<extension point="xbmc.python.module" library="lib" />
 	<extension point="xbmc.addon.metadata">

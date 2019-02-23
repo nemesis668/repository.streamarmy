@@ -7,7 +7,7 @@ import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 from resources.lib.modules import player
-buildDirectory = utils.buildDir
+buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 
 filename     = os.path.basename(__file__).split('.')[0]
 base_domain  = 'http://chaturbate.com'
