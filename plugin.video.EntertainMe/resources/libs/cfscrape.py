@@ -1,13 +1,7 @@
 import logging
 import random
 import re
-'''''''''
-Disables InsecureRequestWarning: Unverified HTTPS request is being made warnings.
-'''''''''
 import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-''''''
 from requests.sessions import Session
 from copy import deepcopy
 from time import sleep
@@ -29,10 +23,6 @@ DEFAULT_USER_AGENTS = [
 
 DEFAULT_USER_AGENT = random.choice(DEFAULT_USER_AGENTS)
 
-BUG_REPORT = ("Cloudflare may have changed their technique, or there may be a bug in the script.\n\nPlease read " "https://github.com/Anorov/cloudflare-scrape#updates, then file a "
-"bug report at https://github.com/Anorov/cloudflare-scrape/issues.")
-
-
 class CloudflareScraper(Session):
     def __init__(self, *args, **kwargs):
         super(CloudflareScraper, self).__init__(*args, **kwargs)
@@ -45,11 +35,11 @@ class CloudflareScraper(Session):
         resp = super(CloudflareScraper, self).request(method, url, *args, **kwargs)
 
         # Check if Cloudflare anti-bot is on
-        if ( resp.status_code == 503
-             and resp.headers.get("Server", "").startswith("cloudflare")
-             and b"jschl_vc" in resp.content
-             and b"jschl_answer" in resp.content
-        ):
+        if (resp.status_code == 503
+            and resp.headers.get("Server", "").startswith("cloudflare")
+            and b"jschl_vc" in resp.content
+            and b"jschl_answer" in resp.content
+           ):
             return self.solve_cf_challenge(resp, **kwargs)
 
         # Otherwise, no Cloudflare anti-bot detected
@@ -69,22 +59,24 @@ class CloudflareScraper(Session):
         headers["Referer"] = resp.url
         
         try:
-            params["jschl_vc"] = re.search(r'name="jschl_vc" value="(\w+)"', body).group(1)
-            params["pass"] = re.search(r'name="pass" value="(.+?)"', body).group(1)
+            params["s"] = re.search(r'name="s"\s*value="([^"]+)', body).group(1)
+            params["jschl_vc"] = re.search(r'name="jschl_vc"\s*value="([^"]+)', body).group(1)
+            params["pass"] = re.search(r'name="pass"\s*value="([^"]+)', body).group(1)
 
             # Extract the arithmetic operation
-            init = re.findall('setTimeout\(function\(\){\s*var.*?.*:(.*?)}', body)[-1]
-            builder = re.findall(r"challenge-form\'\);\s*(.*)a.v", body)[0]
+            init = re.findall(r'setTimeout\(function\(\){\s*.*?.*:(.*?)};', body)[-1]
+            builder = re.findall(r"challenge-form\'\);\s*;*([^^]+);a\.value", body)[0]
+            
             if '/' in init:
                 init = init.split('/')
                 decryptVal = self.parseJSString(init[0]) / float(self.parseJSString(init[1]))
             else:
                 decryptVal = self.parseJSString(init)
-            lines = builder.split(';')
 
+            lines = builder.split(';')
             for line in lines:
-                if len(line)>0 and '=' in line:
-                    sections=line.split('=')
+                if '=' in line:
+                    sections = line.split('=')
                     if '/' in sections[1]:
                         subsecs = sections[1].split('/')
                         line_val = self.parseJSString(subsecs[0]) / float(self.parseJSString(subsecs[1]))
@@ -95,19 +87,19 @@ class CloudflareScraper(Session):
             answer = float('%.10f'%decryptVal) + len(domain)
 
 
-        except Exception as e:
+        except Exception:
             # Something is wrong with the page.
             # This may indicate Cloudflare has changed their anti-bot
             # technique. If you see this and are running the latest version,
             # please open a GitHub issue so I can update the code accordingly.
-            logging.error("[!] %s Unable to parse Cloudflare anti-bots page. "
+            logging.error("[!] Unable to parse Cloudflare anti-bots page. "
                           "Try upgrading cloudflare-scrape, or submit a bug report "
                           "if you are running the latest version. Please read "
                           "https://github.com/Anorov/cloudflare-scrape#updates "
-                          "before submitting a bug report." % e)
+                          "before submitting a bug report.")
             raise
 
-        try: params["jschl_answer"] = str(answer) #str(int(jsunfuck.cfunfuck(js)) + len(domain))
+        try: params["jschl_answer"] = str(answer)
         except: pass
 
         # Requests transforms any request into a GET after a redirect,

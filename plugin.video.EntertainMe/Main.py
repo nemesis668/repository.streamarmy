@@ -65,7 +65,9 @@ trendingurl = []
 trending = re.findall('<h4>Trending(.*?)</div>',link,flags=re.DOTALL)[0]
 pattern = r'''<a href="(.*?)">.+?src="(.*?)"'''
 grabthem = re.findall(pattern,trending,flags=re.DOTALL)
+cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
 for url,img in grabthem:
+	img = img+'|Cookie='+cj[0]+'&User-Agent='+cj[1]
 	logos.append(img)
 	trendingurl.append(url)
 
