@@ -1,6 +1,0 @@
-<settings>
-<category label="Settings">
-    <setting label="Addon Theme" type="text" id="Theme" values="nemzzy" default="nemzzy" visible="false"/>
-	<setting id="Username" type="text" label="Profile Name : " default="" visible="true"/>	    <category label="favourites">	<setting id="FavsEnabled" type="enum" lvalues="ENABLED|DISABLED" label="ENABLE FAVOURITES" default="0"/>	</category>	
-</category>
-</settings>
