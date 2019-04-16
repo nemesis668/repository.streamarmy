@@ -113,30 +113,30 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesisaio" name="[COLOR red][B]N[COLOR white]emesis AIO[/B][/COLOR]" version="1.00.017" provider-name="@Nemzzy668">
-	<requires>
-	<import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.simplejson"/>
-	<import addon="script.module.resolveurl" />
-	<import addon="script.module.liveresolver"/>
-	<import addon="script.module.requests"/>
-	<import addon="script.module.nemzzy"/>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="default.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-	<summary lang="en">Nemesis AIO</summary>
-	<description lang="en">Created By @Nemzzy668, No Content within this add-on is hosted by us, All content is obtained using scrapers and fully available on the web</description>
-	<platform>all</platform>
+<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="2.00.000" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson"/>
+    <import addon="script.common.plugin.cache"/>
+    <import addon="script.module.resolveurl" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.html5lib" />
+
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="nemesis.py">
+        <provides>video</provides>
+        <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">[COLOR yellow]NemesisAio Addon[/COLOR]</summary>
+    <description lang="en">[COLOR yellow]NemesisAio Addon, We Do not host any streams or content, all information available in this addon is obtained using scrappers[/COLOR]</description>
+    <platform>all</platform>
 	<assets>
-	<icon>icon.png</icon>
-    <fanart>fanart.jpg</fanart>
-    <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
-    <screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
-    <screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
-</assets>
-	</extension>
+        <icon>icon.gif</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
 </addon>
 
 <addon id="plugin.video.xxx-o-dus"
