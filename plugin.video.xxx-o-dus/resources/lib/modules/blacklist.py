@@ -14,6 +14,9 @@ def Blacklistcheck(url):
 	elif 'youngpornvideos.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'adult-channels.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	elif 'javhihi.com' in url:
 		adultresolver.resolve(url)
 		quit()
@@ -26,7 +29,7 @@ def Blacklistcheck(url):
 	elif 'anysex.com' in url:
 		adultresolver.resolve(url)
 		quit()
-	elif 'pandamovie.com' in url:
+	elif 'pandamovie.info' in url:
 		adultresolver.resolve(url)
 		quit()
 	elif 'http://streamingporn.xyz' in url:
@@ -39,6 +42,15 @@ def Blacklistcheck(url):
 		adultresolver.resolve(url)
 		quit()
 	elif 'vrsmash.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif '4tube.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'justporno.tv' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'spankbang.com' in url:
 		adultresolver.resolve(url)
 		quit()
 	else:

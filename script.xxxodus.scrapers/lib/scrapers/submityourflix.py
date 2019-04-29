@@ -27,7 +27,7 @@ def menu():
 	try:
 		url = base_domain
 		c = client.request(url)
-		r = re.findall('<div class="item-block item-normal col" >(.+?)</div>',c,flags=re.DOTALL)
+		r = re.findall('<div class="item-block item-normal col"(.+?)</div>',c,flags=re.DOTALL)
 	except Exception as e:
 		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
@@ -39,7 +39,7 @@ def menu():
 		try:
 			url2 = re.findall('<a href="(.*?)"',i, flags=re.DOTALL)[0]
 			name = re.findall('title="(.*?)"',i, flags=re.DOTALL)[0]
-			icon = re.findall('<img src="(.*?)"',i, flags=re.DOTALL)[0]
+			icon = re.findall('<img.*?data-src="(.*?)"',i, flags=re.DOTALL)[0]
 			if not base_domain in url2: url2 = base_domain + url2
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % base_name))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})

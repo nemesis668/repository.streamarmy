@@ -7,6 +7,7 @@ import lover
 import xbmcgui
 from resources.lib.modules import utils
 from resources.lib.modules import helper
+from bs4 import BeautifulSoup
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
@@ -28,7 +29,8 @@ def menu():
 	try:
 		url = base_domain + '/categories'
 		c = client.request(url)
-		r = re.findall('<div class="c-thumb">(.*?)</div>',c,flags=re.DOTALL)
+		soup = BeautifulSoup(c, 'html5lib')
+		r = soup.find_all('div', class_={'categories-list__right'})
 	except Exception as e:
 		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
@@ -38,13 +40,12 @@ def menu():
 
 	for i in r:
 		try:
-			name = re.findall('title="(.*?)"',i,flags=re.DOTALL)[0]
-			url = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
-			#if not base_domain in url: url = base_domain + url
-			#number = re.findall('<span>(.*?)</span>',i,flags=re.DOTALL)[0]
-			icon = re.findall('<img src="(.*?)"',i,flags=re.DOTALL)[0]
+			title = i.find('a').span['data-title'].title()
+			url2 = i.a['href']
+			if not base_domain in url2: url2=base_domain+url2
+			icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % filename))
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % base_name))
-			dirlst.append({'name': name, 'url': url,'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+			dirlst.append({'name': title, 'url': url2,'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
 		except Exception as e:
 			log_utils.log('Error adding menu item. %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 
@@ -58,7 +59,8 @@ def content(url,searched=False):
 	if base_domain not in url: url = base_domain + url
 	try:
 		c = client.request(url)
-		r = re.findall('<div class="un-grid--thumb--content">(.*?)<div class="un-grid--thumb--info">',c,flags=re.DOTALL)
+		soup = BeautifulSoup(c, 'html5lib')
+		r = soup.find_all('div', class_={'un-grid--thumb item'})
 	except Exception as e:
 		if ( not searched ):
 			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -68,14 +70,12 @@ def content(url,searched=False):
 	dirlst = []
 	for i in r:
 		try:
-			name = re.findall('alt="(.*?)"',i,flags=re.DOTALL)[0]
-			url2 = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
-			icon = re.findall('<img src="(.*?)"',i,flags=re.DOTALL)[0]
-			#time = re.findall('<div class="thumb__duration">(.*?)</div>',i,flags=re.DOTALL)[0]
-			#if not base_domain in url2: url2 = base_domain + url2
-			if not 'https' in icon: icon = 'https:' + icon
+			title = i.find('a', class_={'thumb__title'}).text
+			url2 = i.a['href']
+			icon = i.find('div', class_={'thumb__inner'})['style']
+			icon = re.findall('''['"](.*?)['"]''',icon)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': name , 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
+			dirlst.append({'name': title , 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
 			log_utils.log('Error adding menu item. %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)

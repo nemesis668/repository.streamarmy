@@ -45,7 +45,7 @@ def menu():
 			name = re.findall('<strong>(.*?)</strong>',i, flags = re.DOTALL)[0].strip()
 			url  = re.findall('<a href="(.*?)"',i, flags = re.DOTALL)[0]
 			if not base_domain in url: url = base_domain + url
-			icon  = re.findall('data-thumb_url="(.*?)"',i, flags = re.DOTALL)[0]
+			icon  = re.findall('data-src="(.*?)"',i, flags = re.DOTALL)[0]
 			desc  = re.findall('<span class="category_count">(.*?)</span>',i, flags = re.DOTALL)[0].strip()
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts,'description': desc, 'folder': True})
@@ -97,7 +97,7 @@ def content(url,searched=False):
 	if not searched:
 		
 		try:
-			search_pattern = '''<li id="wp_navNext".+?\s*<a\s*href=['"]([^'"]+)['"]\s*>'''
+			search_pattern = '''<link rel="next"\s+href=['"]([^'"]+)['"]'''
 			parse = base_domain       
 			helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
 		except Exception as e: 

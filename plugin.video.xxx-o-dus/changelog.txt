@@ -1,26 +1,40 @@
-Version 4.00.009 Released 06/11/2018
+Version 4.00.011 Released 29th April 2019
 
-Fixed ::
+XXX-O-DUS FIXES
 
-Fixed Bug Where Addon Wouldn't Load
+Tubes ::::
 
-3 Movs ||| Links Now Fixed And Play
-AnySex ||| Wasn't Finding Links, Now Fixed And Play
-Hq Porner ||| Wasn't Working, Now Fully Fixed
-Justporno ||| Links Wasn't Playing, Now Fixed And Play
-Perfect Girls ||| No Thumbnails Showing, Now Fixed
-PornHub ||| Wasn't Finding Content After Cats, Now Fixed
-Pornilly ||| Video Titles Wasn't Showing, Now Fixed
-RedTube ||| Wasn't Finding Content After Cats, Now Fixed
-TXXX - ||| No Catergories Showing, Now Fixed
-WatchMyGf ||| Links Wasn't Playing, Now Fixed And Play
-YouPorn ||| No Catergories Showing, Now Fixed
-SubmitYourFlix ||| Wasn't Finding Content After Cats, Now Fixed
-WatchXXXFree ||| Wasn't Finding Links, Now Fixed And Play
-SexKino ||| Wasn't Finding Links, Now Fixed And Play ,also added a New XDrive Resolver
-StreamingPorn ||| No Thumbnails Showing, Now Fixed
-VrSmash ||| Links Weren't Playing, Now Fixed And Play
+4Tube - No Playable Links -- FIXED
+DrTuber - No Cats -- FIXED
+EPorner - No Cats -- FIXED
+JustPorno - Failed To Get Playable Link -- FIXED
+Porn - No Cats -- FIXED
+RedTube - No Cats -- FIXED
+SpankBang - No Playable Links -- FIXED
+Tube8 - Pulling same videos only 5 -- FIXED
+Txxx - No Cats -- FIXED
+WatchMyGf - No Cats -- FIXED
+XNXX - No Cats -- FIXED
+YouPorn - No COntent -- FIXED
 
-Removed ::
-Xhamster ||| Removed This Due To It Constantly Breaking
-Javihihi ||| Removed This Due To Player Encryption, Seeking New Source, If You Know Of One Contact @Nemzzy668
+Scenes :::
+
+SubmitYourFlix - No Content -- FIXED
+Watchxxfreeinhd - Some Videos Links Not Being Found -- FIXED
+
+Movies :::
+
+123Panamovie - No Content -- FIXED Waiting On Resolver For New Host
+
+ADDED :::
+
+Adult-Channels.com
+
+REMOVED ::::
+
+PornNilly - No Cats -- REMOVED SITES GONE PAID SUB
+Porn00 - No Playbale Links -- REMOVED
+SexKino - Removed - Site Dead
+xxxmoviestream - Removed - Site Dead
+Hentaiheaven - Removed Site Close
+Heavy-R - Removed - Site Unstable

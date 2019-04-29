@@ -12,6 +12,8 @@ import xbmc
 import log_utils
 import xbmcgui
 import resolveurl
+import requests
+from bs4 import BeautifulSoup
 dialog	= xbmcgui.Dialog()
 
 def CLEANUP(text):
@@ -60,7 +62,7 @@ class streamer:
 			
 			elif 'pornheel.com' in url: u = self.pornheel(url)
 			
-			elif 'pandamovie.com' in url: u = self.pandamovie(url)
+			elif 'pandamovie.info' in url: u = self.pandamovie(url)
 
 			elif 'winporn.com' in url: u = self.winporn(url)
 
@@ -71,6 +73,7 @@ class streamer:
 			elif 'boobsandtits.co.uk' in url: u = self.boobntit(url)
 			
 			elif 'sexmax.co' in url: u = self.sexmax(url)
+			elif 'adult-channels.com' in url: u = self.adultchannels(url)
 
 			elif 'drtube' in url: u = self.drtube(url)
 			
@@ -108,7 +111,7 @@ class streamer:
 
 			elif 'hqporner.com' in url: u = self.hqporner(url)
 
-			elif '3movs.com' in url: u = self.threemovs(url)
+			#elif '3movs.com' in url: u = self.threemovs(url)
 			
 			elif 'hclips.com' in url: u = self.hclips(url)
 			
@@ -135,6 +138,8 @@ class streamer:
 			elif 'watchmygf.me' in url: u = self.watchmygf(url)
 			
 			elif 'vrsmash.com' in url: u = self.vrsmash(url)
+			
+			elif 'spankbang.com' in url: u = self.spankbang(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -276,61 +281,98 @@ class streamer:
 	def justporno(self, url):
 		try:        
 			r = client.request(url)
-			s = re.findall('''source\s*src=['"]+([^'"]+)''', r)
-			
-			self.u = []
-			def request(i):
-				try:
-					c = client.request(i, output='headers')
-					checks = ['video','mpegurl']
-					if any(f for f in checks if f in c['Content-Type']): self.u.append((i, int(c['Content-Length'])))
-				except:
-					pass
-			threads = []
-			for i in s: threads.append(workers.Thread(request, i))
-			[i.start() for i in threads] ; [i.join() for i in threads]
+			s = re.findall('''source\s*src=['"]+([^'"]+)''', r)[0]
+			ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+			headers = {'User-Agent': ua}
+			response = requests.get(s, headers=headers, stream=True)
+			play = response.url
+			xbmc.Player().play(play)
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
+		except:
+			return
 
-			u = sorted(self.u, key=lambda x: x[1])[::-1]
-			u = client.request(u[0][0], output='geturl')
-			return u
+	def adultchannels(self, url):
+		try:        
+			ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+			headers = {'User-Agent': ua}
+			c = requests.get(url, headers=headers).content
+			soup = BeautifulSoup(c, 'html5lib')
+			r = soup.find('meta', itemprop={'embedURL'})
+			play = r['content']
+			u = resolveurl.HostedMediaFile(play).resolve()
+			xbmc.Player().play(u)
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
 		except:
 			return
 			
 	def fourtube(self, url):
-		try:        
-			fourtube_ref = url
-			self.fourtube_base   = 'https://www.4tube.com'
-			self.fourtube_embed  = '/embed/%s'
-			self.fourtube_player = '/js/player/embed/%s'
-			self.fourtube_post   = 'https://tkn.kodicdn.com/%s/desktop/%s'
-			id = re.findall('\/([0-9]+)',url)[0]
-			r = client.request(urlparse.urljoin(self.fourtube_base,self.fourtube_embed % id))
-			js = re.findall('\/player\/embed\/([^"]+)',r)[0]
-			url = urlparse.urljoin(self.fourtube_base,self.fourtube_player % js)
-			r = client.request(url)
-			url_id,qual = re.compile('ajax\(url,opts\);}}\)\(([\d]+),[\d]+,\[([\d,]+)\]\);').findall(r)[0]
-			qual = qual.replace(',','+')
-			r = client.request(self.fourtube_post % (url_id,qual), post='', headers={'Origin': self.fourtube_base}, referer=fourtube_ref)
-			s = re.compile('token\":\"([^"]+)').findall(r)
+		ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+		headers = {'User-Agent': ua}
+		link = requests.get(url, headers=headers).content
+		soup = BeautifulSoup(link, 'html5lib')
+		content = soup.find('div', class_={'links-list'})
+		names = []
+		srcs  = []
+		for i in content.find_all('button'):
+			IDS = i['data-id']
+			quality = i['data-quality']
+			names.append(quality)
+			srcs.append(IDS)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			token = srcs[selected]
+			qual = names[selected]
+			apiurl = ('https://token.4tube.com/%s/desktop/%s' % (token,qual))
+			ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+			headers = {'User-Agent': ua,
+						'Referer' : url,
+						'Origin' : 'https://www.4tube.com'}
+			link = requests.post(apiurl, headers=headers).content
+			data = json.loads(link)
+			play = data[qual]['token']
+			xbmc.Player().play(play)
+			xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
 			
-			self.u = []
-			def request(i):
-				try:
-					c = client.request(i, output='headers')
-					checks = ['video','mpegurl']
-					if any(f for f in checks if f in c['Content-Type']): self.u.append((i, int(c['Content-Length'])))
-				except:
-					pass
-			threads = []
-			for i in s: threads.append(workers.Thread(request, i))
-			[i.start() for i in threads] ; [i.join() for i in threads]
-
-			u = sorted(self.u, key=lambda x: x[1])[::-1]
-			u = client.request(u[0][0], output='geturl', referer=url)
-			return u
-		except:
-			return
-			
+	def spankbang(self, url):
+		ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+		headers = {'User-Agent': ua}
+		link = requests.get(url, headers=headers).content
+		soup = BeautifulSoup(link, 'html5lib')
+		content = soup.find('div', id={'video'})['data-streamkey']
+		apiurl = 'https://spankbang.com/api/videos/stream'
+		ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+		headers = {'User-Agent': ua,
+					'Referer' : url,
+					'X-Requested-With': 'XMLHttpRequest'}
+		post_data = {'id': content}
+		link = requests.post(apiurl, data=post_data, headers=headers).content
+		pattern = r'''['"](http.*?)['"]'''
+		getlinks = re.findall(pattern,link,flags=re.DOTALL)
+		names = [] ; srcs  = []
+		for links in getlinks:
+			if '2160p' in links: title = '4K'
+			elif '1080p' in links: title = '1080'
+			elif '720p' in links: title = '720'
+			elif '480p' in links: title = '480'
+			else: title = 'SD'
+			names.append(title)
+			srcs.append(links)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			play = srcs[selected]
+			xbmc.Player().play(play)
+			xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
+			xbmc.executebuiltin('Dialog.Close(busydialog)')
 	def freeones(self, url):
 		try:        
 			u = client.request(url)
@@ -625,15 +667,14 @@ class streamer:
 		except:
 			return
 			
-	def threemovs(self, url):
-		try:
-			r = client.request(url)
-			pattern = r"""video_url:.+?'(.+?)'"""
-			url = re.findall(pattern,r)[0]
-			xbmc.executebuiltin("Dialog.Close(busydialog)")
-			xbmc.Player().play(url)
-		except:
-			return
+	# def threemovs(self, url):
+		# try:
+			# r = client.request(url)
+			# pattern = r"""video_url:.+?'(.+?)'"""
+			# url = re.findall(pattern,r)[0]
+			# xbmc.Player().play(url)
+		# except:
+			# return
 			
 	def hclips(self, url):
 		try:
@@ -703,8 +744,9 @@ class streamer:
 		else:
 			url2 = srcs[selected]
 			xbmc.Player().play(url2)
+
 	def pandamovie(self,url):
-		dialog.ok("HERE","HERE")
+		
 		r = client.request(url)
 		r = re.findall('<div id="pettabs">(.*?)</div>',r, flags=re.DOTALL)[0]
 		pattern = r'''href=['"]([^'"]+)['"].+?>(.*?)<'''
@@ -786,11 +828,13 @@ class streamer:
 		link = client.request(url)
 		play = re.findall('<div class="dropdown_submenu">.+?href="(.*?)"',link,flags=re.DOTALL)[0]
 		xbmc.Player().play(play)
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
 		
 	def watchmygf(self,url):
 		link = client.request(url)
 		play = re.findall('''video_url.+?/0/(.*?)['"]''',link,flags=re.DOTALL)[0]
-		play = play + '?rnd=1541459153704'
+		play = play + '?rnd=1556547788367'
 		xbmc.Player().play(play)
 		
 	def vrsmash(self,url):
@@ -798,4 +842,3 @@ class streamer:
 		play = re.findall('''"contentUrl":\s+"(.*?)"''',link,flags=re.DOTALL)[0]
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
 		xbmc.Player().play(play)
-			

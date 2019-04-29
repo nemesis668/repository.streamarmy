@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.000" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.001" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0" />
 		<import addon="script.module.requests" />
+		<import addon="script.module.beautifulsoup4" />
+		<import addon="script.module.html5lib" />
 	</requires>
 	<extension point="xbmc.python.module" library="lib" />
 	<extension point="xbmc.addon.metadata">

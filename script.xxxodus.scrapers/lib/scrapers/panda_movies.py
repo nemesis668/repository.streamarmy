@@ -9,7 +9,7 @@ from resources.lib.modules import helper
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 
 filename     = 'pandamovie'
-base_domain  = 'https://123pandamovie.me'
+base_domain  = 'https://pandamovie.info/'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
 type         = 'movies'
 menu_mode    = 297
@@ -23,7 +23,7 @@ search_base  = urlparse.urljoin(base_domain,'search.fcgi?query=%s')
 def menu():
     
 	lover.checkupdates()
-	url = urlparse.urljoin(base_domain,'adult/genre/featured-movies/')
+	url = urlparse.urljoin(base_domain,'movies/')
 	content(url)
 	# try:
 		# url = urlparse.urljoin(base_domain,'xxx/movies/')
