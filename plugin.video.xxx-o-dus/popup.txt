@@ -1,15 +1,9 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
-[COLOR aqua]Current Version 4.000.010[/COLOR]
+[COLOR aqua]Current Version 4.000.011[/COLOR]
 
 [COLOR yellow]WHATS NEW[/COLOR]
-[COLOR white]Various Fixes, Report Anything Broken To @Nemzzy668 On Twitter[/COLOR]
+[COLOR white]Massive Fixes and Changes, Report Anything Broken To @Nemzzy668 On Twitter[/COLOR]
 
 
 [COLOR yellow]BUGS KNOWN[/COLOR]
-[COLOR red]No Known Issues At The Moment, If Any Report to [COLOR pink]@Nemzzy668 on Twitter[/COLOR]
-
-[COLOR yellow]IMPORTANT MESSAGE FROM @NEMZZY668[/COLOR]
-[COLOR white]Guys I work hard to keep this addon going, We know the Pin is a Pain but I have removed 90% of the pop ups from it now, so hopefully it's a lot better for you to generate a pin[/COLOR]
-
-[COLOR aqua]Don't Forget to check out [COLOR yellow]https://pinsystem.co.uk [COLOR aqua], it's not just for pins it is full of information and how to guides, as well as tech reviews and lots of other content[/COLOR]
-[COLOR pink]Enjoy XXX-O-DUS, [COLOR white]Hit Back To Exit This Message[/COLOR]
+[COLOR red]No Known Issues At The Moment, If Any Report to [COLOR pink]@Nemzzy668 on Twitter[/COLOR]

@@ -28,10 +28,17 @@ import history
 import favorites
 import picture_viewer
 import client
+import requests,re
+dialog = xbmcgui.Dialog()
 from resources.lib.pyxbmct_.github import xxxgit
 from scrapers import __all__
 from scrapers import *
 messagetext  = 'https://pastebin.com/raw/SgsRvwZV'
+AddonTitle   = '[COLOR pink][B]XXX-O-DUS[/B][/COLOR]'
+addon_id     = 'plugin.video.xxx-o-dus'
+scraper_id   = 'script.xxxodus.scrapers'
+artwork_id   = 'script.xxxodus.artwork'
+GitUrl       = 'https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml'
 buildDirectory = utils.buildDir
 specific_icon       = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork/resources/art/', '%s/icon.png'))
 specific_fanart     = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork/resources/art/', '%s/fanart.jpg'))
@@ -49,6 +56,7 @@ def mainMenu():
          (kodi.giveColor('Welcome to XXX-O-DUS Version %s' % kodi.get_version() ,'blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Original Code by EchoCoder, Please Report All issues to @Nemzzy668',False), \
          (kodi.giveColor('Official Version Now Maintained By [COLOR yellow]@Nemzzy668[/COLOR]','blue',True),xbmc.translatePath(os.path.join(kodi.addonfolder, 'resources/files/information.txt')),17,'icon','Please Report any issues to @Nemzzy668 On Twitter',False), \
          ('[COLOR yellow]View Changelog[/COLOR]',xbmc.translatePath(os.path.join(kodi.addonfolder, 'changelog.txt')),17,'changelog','View XXX-O-DUS Changelog.',False), \
+         ('[COLOR orange]Check XXX-O-DUS Health',None,46,'icon','Versions',True), \
          ('Search...',None,29,'search','Search XXX-O-DUS',True), \
          ('[COLOR pink]Live Cams',None,37,'webcams','Live Cams',True), \
          ('[COLOR pink]Tubes',None,4,'tubes','Videos',True), \
@@ -269,6 +277,49 @@ def pictures():
             dirlst.append({'name': kodi.giveColor(i[0],'white'), 'url': None, 'mode': i[1], 'icon': specific_icon % i[2], 'fanart': specific_fanart % i[2], 'folder': True})
 
     buildDirectory(dirlst)
+	
+@utils.url_dispatcher.register('46')
+def versioncheck():
+	checkxxx    = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'addon.xml'))
+	checkscraper    = xbmc.translatePath(os.path.join('special://home/addons/' + scraper_id, 'addon.xml'))
+	checkartwork    = xbmc.translatePath(os.path.join('special://home/addons/' + artwork_id, 'addon.xml'))
+	a = open(checkxxx, 'r').read()
+	b = re.findall('<addon\s+id=.+?version="(.*?)"',a,flags=re.DOTALL)[0]
+	
+	c = open(checkscraper, 'r').read()
+	d = re.findall('<addon\s+id=.+?version="(.*?)"',c,flags=re.DOTALL)[0]
+	
+	e = open(checkartwork, 'r').read()
+	f = re.findall('<addon\s+id=.+?version="(.*?)"',e,flags=re.DOTALL)[0]
+	
+	currentversions = requests.get(GitUrl).content
+	checkcurrentaddon = re.findall('<addon\s+id="plugin.video.xxx-o-dus".+?version="(.*?)"',currentversions,flags=re.DOTALL)[0]
+	checkcurrentscraper = re.findall('<addon\s+id="script.xxxodus.scrapers".+?version="(.*?)"',currentversions,flags=re.DOTALL)[0]
+	checkcurrentartwork = re.findall('<addon\s+id="script.xxxodus.artwork".+?version="(.*?)"',currentversions,flags=re.DOTALL)[0]
+	
+	messagestring = ''
+	if b == checkcurrentaddon:
+		string = ('[COLOR lime]XXX-O-DUS Current : %s | Your Version : %s | All Up To Date[/COLOR]\n' % (checkcurrentaddon,b))
+	elif b < checkcurrentaddon:
+		string = ('[COLOR orange]XXX-O-DUS Current : %s | Your Version : %s | Addon Out Of Date[/COLOR]\n' % (checkcurrentaddon,b))
+	elif b > checkcurrentaddon:
+		string = ('[COLOR red][B]XXX-O-DUS Current : %s | Your Version : %s | Malicous Version Detected - Recommended You Un-install[/B][/COLOR]\n' % (checkcurrentaddon,b))
+	
+	if d == checkcurrentscraper:
+		string = string + ('[COLOR lime]Scraper MODULE Current : %s | Your Version : %s | All Up To Date[/COLOR]\n' % (checkcurrentscraper,d))
+	elif d < checkcurrentscraper:
+		string = string + ('[COLOR orange]Scraper MODULE : %s | Your Version : %s | Module Out Of Date[/COLOR]\n' % (checkcurrentscraper,d))
+	elif d > checkcurrentscraper:
+		string = string + ('[COLOR red][B]Scraper MODULE : %s | Your Version : %s | Malicous Version Detected - Recommended You Un-install[/B][/COLOR]\n' % (checkcurrentscraper,d))
+		
+	if f == checkcurrentartwork:
+		string = string + ('[COLOR lime]Artwork MODULE Current : %s | Your Version : %s | All Up To Date[/COLOR]\n' % (checkcurrentartwork,f))
+	elif f < checkcurrentartwork:
+		string = string + ('[COLOR orange]Artwork MODULE : %s | Your Version : %s | Module Out Of Date[/COLOR]\n' % (checkcurrentartwork,f))
+	elif f > checkcurrentartwork:
+		string = string + ('[COLOR red][B]Artwork MODULE : %s | Your Version : %s | Malicous Version Detected - Recommended You Un-install[/B][/COLOR]\n' % (checkcurrentartwork,f))
+		
+	showText(AddonTitle,string)
 
 def popup():
 
