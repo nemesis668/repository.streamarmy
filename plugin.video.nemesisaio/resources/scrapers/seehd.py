@@ -22,7 +22,6 @@ class Scraper:
 		except IndexError: quality = 'Unkown'
 		pattern = r'''<iframe.+?src=['"](.*?)['"]'''
 		sources = re.findall(pattern,link,flags=re.DOTALL)
-		dialog.ok("SOURCES",str(sources))
 		if not sources:
 			return False
 		for source in sources:
