@@ -13,6 +13,8 @@ import urllib2
 import urlparse
 import base64
 import videos
+import requests
+from bs4 import BeautifulSoup
 
 
 import pyxbmct.addonwindow as pyxbmct
@@ -26,7 +28,9 @@ dialog = xbmcgui.Dialog()
 #################### SET ADDON ID ###########################
 _addon_id_	= 'plugin.video.fapzone'
 _self_			= xbmcaddon.Addon(id=_addon_id_)
-
+base_domain  = 'https://eporner.com'
+ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+headers = {'User-Agent': ua}
 #############################################################
 #################### SET ADDON THEME DIRECTORY ##############
 _theme_			= _self_.getSetting('Theme')
@@ -68,43 +72,44 @@ def Get_Data(url):
 
 def passed(self, title):
 
-    self.List.reset()
-    self.List.setVisible(True)
-    global Item_Title
-    global Item_Link
-    global Item_Desc
-    global Item_Icon
-    
-    Item_Title =  []
-    Item_Link  =  []
-    Item_Desc  =  []
-    Item_Icon  =  []
-    
-    title = title.upper()
-    Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
-    Item_Link.append('')
-    Item_Desc.append('Welcome To FapZone, Grab The Wipes')
-    Item_Icon.append(Addon_Image)
-    self.List.addItem('[COLOR yellow]Main Catergory List[/COLOR]')
-    self.textbox.setText('Welcome To FapZone By @Nemzzy668 and @_Manc_ We Are Not Resposible For Any Injuries Caused While Using This Add on')
-    self.Show_Logo.setImage(Addon_Image)
-    
-    url = base64.b64decode(b'aHR0cHM6Ly93d3cuZXBvcm5lci5jb20v')
-    link = Get_Data(url)
-    match = re.compile ('<li class="">(.+?)</li>').findall(link)
-    for links in match:
-        title = re.compile ('<strong>(.+?)</strong>').findall(links)[0]
-        number = re.compile ('<div class="cllnumber">(.+?)</div>').findall(links)[0]
-        url1 = re.compile ('<a href="(.+?)"').findall(links)[0]
-        url = 'https://www.eporner.com' + url1
-        if not 'All'in title:
-            if not 'Homemade' in title:
-                Item_Title.append(title)
-                Item_Link.append(url)
-                Item_Icon.append(Addon_Image)
-                self.List.addItem(title)
-                Item_Desc.append(title)
-                
+	self.List.reset()
+	self.List.setVisible(True)
+	global Item_Title
+	global Item_Link
+	global Item_Desc
+	global Item_Icon
+
+	Item_Title =  []
+	Item_Link  =  []
+	Item_Desc  =  []
+	Item_Icon  =  []
+
+	title = title.upper()
+	Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
+	Item_Link.append('')
+	Item_Desc.append('Welcome To FapZone, Grab The Wipes')
+	Item_Icon.append(Addon_Image)
+	self.List.addItem('[COLOR yellow]Main Catergory List[/COLOR]')
+	self.textbox.setText('Welcome To FapZone By @Nemzzy668 and @_Manc_ We Are Not Resposible For Any Injuries Caused While Using This Add on')
+	self.Show_Logo.setImage(Addon_Image)
+
+	url = 'https://www.eporner.com/categories/'
+	c = requests.get(url,headers=headers).content
+	soup = BeautifulSoup(c, 'html5lib')
+	content = soup.find_all('div', class_={'ctbinner'})
+	for i in content:
+		try:
+			title = i.a['title']
+			url = i.a['href']
+			icon = i.img['src']
+			if not base_domain in url: url = base_domain+url
+			Item_Title.append(title)
+			Item_Link.append(url)
+			Item_Icon.append(icon)
+			self.List.addItem(title)
+			Item_Desc.append(title)
+		except: pass
+
 def Search(self):
 
     string =''

@@ -18,6 +18,8 @@ import Main
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 from resources.libs import dateimport
+import requests
+from bs4 import BeautifulSoup
 
 dialog = xbmcgui.Dialog()
 
@@ -29,7 +31,9 @@ source = 0
 #################### SET ADDON ID ###########################
 _addon_id_	= 'plugin.video.fapzone'
 _self_			= xbmcaddon.Addon(id=_addon_id_)
-
+base_domain  = 'https://eporner.com'
+ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+headers = {'User-Agent': ua}
 #############################################################
 #################### SET ADDON THEME DIRECTORY ##############
 _theme_			= _self_.getSetting('Theme')
@@ -94,147 +98,152 @@ def Get_Data(url):
 
 def passed(self, title):
 
-    global Media_Title
-    global Media_Link
-    global Item_Title
-    global Item_Link
-    global Item_Desc
-    global Item_Icon
-    
-    Item_Title =  []
-    Item_Link  =  []
-    Item_Desc  =  []
-    Item_Icon  =  []
-    
-    title = title.upper()
-    Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
-    Item_Link.append('')
-    Item_Desc.append('')
-    Item_Icon.append(Addon_Image)
-    self.List.addItem('[COLOR yellow]' + title + ' List[/COLOR]')
-    self.textbox.setText('')
-    self.Show_Logo.setImage(Addon_Image)
-    
-    link = Get_Data(data)
-    match = re.compile('<div class="mbtit"(.+?)onmouseover=').findall(link)
-    for links in match:
-        title = re.compile ('title="(.+?)"').findall(links)[0]
-        url1 = re.compile ('<a href="(.+?)"').findall(links)[0]
-        icon = re.compile ('src="(.+?)"').findall(links)[0]
-        url = 'https://www.eporner.com' + url1
-        Item_Title.append(title)
-        Item_Link.append(url)
-        Item_Icon.append(icon)
-        self.List.addItem(title)
-        Item_Desc.append('')
-        
-    try:
-        try:
-            np = re.compile ('<a href=\"([^"]*)\" title="Next page">').findall(link)[0]
-        except IndexError:
-            np = re.compile ("<a href=\'([^']*)\' title='Next page'>").findall(link)[0]
-        nextpage = 'NEXT:https://www.eporner.com' + np
-        npicon = 'http://imgur.com/3eNoY0p'
-        nptitle = '[COLOR red]Next Page[/COLOR]'
-        Item_Title.append(nptitle)
-        Item_Link.append(nextpage)
-        Item_Icon.append(npicon)
-        self.List.addItem(nptitle)
-        Item_Desc.append('')
-    except:pass
+	global Media_Title
+	global Media_Link
+	global Item_Title
+	global Item_Link
+	global Item_Desc
+	global Item_Icon
+
+	Item_Title =  []
+	Item_Link  =  []
+	Item_Desc  =  []
+	Item_Icon  =  []
+
+	title = title.upper()
+	Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
+	Item_Link.append('')
+	Item_Desc.append('')
+	Item_Icon.append(Addon_Image)
+	self.List.addItem('[COLOR yellow]' + title + ' List[/COLOR]')
+	self.textbox.setText('')
+	self.Show_Logo.setImage(Addon_Image)
+
+	c = requests.get(data,headers=headers).content
+	soup = BeautifulSoup(c, 'html5lib')
+	content = soup.find('div', id={'vidresults'})
+	for a in content.find_all('a'):
+		try:
+			title = a['title']
+			url = a['href']
+			if not base_domain in url: url = base_domain+url
+			try: icon = a.img['src']
+			except: icon = a.img['data-src']
+			Item_Title.append(title)
+			Item_Link.append(url)
+			Item_Icon.append(icon)
+			self.List.addItem(title)
+			Item_Desc.append('')
+		except: pass
+		
+	try:
+		np = re.compile ('''<link\s+rel=['"]next['"]\s+href=['"](.*?)['"]''').findall(c)[0]
+		nextpage = 'NEXT:' + np
+		npicon = 'https://i.imgur.com/3eNoY0p.png'
+		nptitle = '[COLOR red]Next Page[/COLOR]'
+		Item_Title.append(nptitle)
+		Item_Link.append(nextpage)
+		Item_Icon.append(npicon)
+		self.List.addItem(nptitle)
+		Item_Desc.append('')
+	except:pass
         
 def List_Selected(self):
     #dialog.ok("Link",str(Media_Link))
 
-    global Media_Link
-    if 'PLAY:' in Media_Link:
-        dateimport.CHECKDIRS()
-        dateimport.DateCheck()
-        Media_Link = Media_Link.replace('PLAY:','')
-        Show_List  =  xbmcgui.ListItem(Media_Title)
-        xbmc.Player ().play(Media_Link, Show_List, False)
-        
-    elif 'NEXT' in Media_Link:
-        Media_Link = Media_Link.replace('NEXT:','')
+	global Media_Link
+	if 'PLAY:' in Media_Link:
+		dateimport.CHECKDIRS()
+		dateimport.DateCheck()
+		Media_Link = Media_Link.replace('PLAY:','')
+		Show_List  =  xbmcgui.ListItem(Media_Title)
+		xbmc.Player ().play(Media_Link, Show_List, False)
+		
+	elif 'NEXT' in Media_Link:
+		Media_Link = Media_Link.replace('NEXT:','')
 
-        global Media_Title
-        global Media_Link
-        global Item_Title
-        global Item_Link
-        global Item_Desc
-        global Item_Icon
-        
-        Item_Title =  []
-        Item_Link  =  []
-        Item_Desc  =  []
-        Item_Icon  =  []
-        
-        self.List.reset()
-        self.List.setVisible(True)
-        title = 'FapZone'
-        title = title.upper()
-        Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
-        Item_Link.append('')
-        Item_Desc.append('')
-        Item_Icon.append(Addon_Image)
-        self.List.addItem('[COLOR yellow]' + title + ' List[/COLOR]')
-        self.textbox.setText('')
-        self.Show_Logo.setImage(Addon_Image)
-        
-        link = Get_Data(Media_Link)
-        match = re.compile('<div class="mbtit"(.+?)onmouseover=').findall(link)
-        for links in match:
-            title = re.compile ('title="(.+?)"').findall(links)[0]
-            url1 = re.compile ('<a href="(.+?)"').findall(links)[0]
-            icon = re.compile ('src="(.+?)"').findall(links)[0]
-            url = 'https://www.eporner.com' + url1
-            Item_Title.append(title)
-            Item_Link.append(url)
-            Item_Icon.append(icon)
-            self.List.addItem(title)
-            Item_Desc.append('')
-            
-        try:
-            np = re.compile ('<a href=\"([^"]*)\" title="Next page">').findall(link)[0]
-            nextpage = 'NEXT:https://www.eporner.com' + np
-            npicon = 'http://imgur.com/3eNoY0p'
-            nptitle = '[COLOR red]Next Page[/COLOR]'
-            Item_Title.append(nptitle)
-            Item_Link.append(nextpage)
-            Item_Icon.append(npicon)
-            self.List.addItem(nptitle)
-            Item_Desc.append('')
-        except:pass
-        
-        
-        
-    else:
-        global Media_Title
-        global Media_Link
-        global Item_Title
-        global Item_Link
-        global Item_Desc
-        global Item_Icon
-        
-        self.List.reset()
-        self.List.setVisible(True)
-        
-        Item_Title =  []
-        Item_Link  =  []
-        Item_Desc  =  []
-        Item_Icon  =  []
-        link = Get_Data(Media_Link).replace('\n', '').replace('\r','').replace('\t','')
-        play = re.compile ('<div id="hd-porn-dload">(.+?)</div>').findall(link)[0]
-        grab = re.compile ('<strong>(.+?)</strong>.+?<a href="(.+?)"').findall(play)
-        for quality,link in grab:
-            quality = quality.replace(':', '')
-            url = 'PLAY:https://www.eporner.com' + link
-            title = 'Play Video at Quality : ' + quality
-            Item_Title.append(title)
-            Item_Link.append(url)
-            Item_Icon.append(Media_Icon)
-            self.List.addItem(title)
-            Item_Desc.append('')
+		global Media_Title
+		global Media_Link
+		global Item_Title
+		global Item_Link
+		global Item_Desc
+		global Item_Icon
+		
+		Item_Title =  []
+		Item_Link  =  []
+		Item_Desc  =  []
+		Item_Icon  =  []
+		
+		self.List.reset()
+		self.List.setVisible(True)
+		title = 'FapZone'
+		title = title.upper()
+		Item_Title.append('[COLOR gold]Main ' + title + ' List[/COLOR]')
+		Item_Link.append('')
+		Item_Desc.append('')
+		Item_Icon.append(Addon_Image)
+		self.List.addItem('[COLOR yellow]' + title + ' List[/COLOR]')
+		self.textbox.setText('')
+		self.Show_Logo.setImage(Addon_Image)
+
+		c = requests.get(Media_Link,headers=headers).content
+		soup = BeautifulSoup(c, 'html5lib')
+		content = soup.find('div', id={'vidresults'})
+		for a in content.find_all('a'):
+			try:
+				title = a['title']
+				url = a['href']
+				if not base_domain in url: url = base_domain+url
+				try: icon = a.img['src']
+				except: icon = a.img['data-src']
+				Item_Title.append(title)
+				Item_Link.append(url)
+				Item_Icon.append(icon)
+				self.List.addItem(title)
+				Item_Desc.append('')
+			except: pass
+			
+		try:
+			np = re.compile ('''<link\s+rel=['"]next['"]\s+href=['"](.*?)['"]''').findall(c)[0]
+			nextpage = 'NEXT:' + np
+			npicon = 'https://i.imgur.com/3eNoY0p.png'
+			nptitle = '[COLOR red]Next Page[/COLOR]'
+			Item_Title.append(nptitle)
+			Item_Link.append(nextpage)
+			Item_Icon.append(npicon)
+			self.List.addItem(nptitle)
+			Item_Desc.append('')
+		except:pass
+		
+		
+		
+	else:
+		global Media_Title
+		global Media_Link
+		global Item_Title
+		global Item_Link
+		global Item_Desc
+		global Item_Icon
+		
+		self.List.reset()
+		self.List.setVisible(True)
+		
+		Item_Title =  []
+		Item_Link  =  []
+		Item_Desc  =  []
+		Item_Icon  =  []
+		link = Get_Data(Media_Link).replace('\n', '').replace('\r','').replace('\t','')
+		play = re.compile ('<div id="hd-porn-dload">(.+?)</div>').findall(link)[0]
+		grab = re.compile ('<strong>(.+?)</strong>.+?<a href="(.+?)"').findall(play)
+		for quality,link in grab:
+			quality = quality.replace(':', '')
+			url = 'PLAY:https://www.eporner.com' + link
+			title = 'Play Video at Quality : ' + quality
+			Item_Title.append(title)
+			Item_Link.append(url)
+			Item_Icon.append(Media_Icon)
+			self.List.addItem(title)
+			Item_Desc.append('')
     
 
 #############################################################
