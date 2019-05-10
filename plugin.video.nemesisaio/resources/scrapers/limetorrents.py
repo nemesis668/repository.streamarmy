@@ -9,7 +9,7 @@ dialog = xbmcgui.Dialog()
 scraper = cfscrape.CloudflareScraper()
 class Scraper:
 	def __init__(self):
-		self.Base = 'https://limetorrents.unblocked.krd'
+		self.Base = 'https://www.limetorrents.zone/'
 		self.Search = ('/search/all/%s/leechs/1/')
 		self.links = []
 

@@ -10,7 +10,7 @@ scraper = cfscrape.CloudflareScraper()
 class Scraper:
 	def __init__(self):
 		self.Base = 'http://www.seehd.pl/'
-		self.Search = ('/%s-watch-online/')
+		self.Search = ('%s-watch-online/')
 		self.links = []
 
 	def main(self, Term):
@@ -22,6 +22,7 @@ class Scraper:
 		except IndexError: quality = 'Unkown'
 		pattern = r'''<iframe.+?src=['"](.*?)['"]'''
 		sources = re.findall(pattern,link,flags=re.DOTALL)
+		dialog.ok("SOURCES",str(sources))
 		if not sources:
 			return False
 		for source in sources:

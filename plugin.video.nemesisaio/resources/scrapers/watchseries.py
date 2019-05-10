@@ -10,7 +10,7 @@ dialog = xbmcgui.Dialog()
 scraper = cfscrape.CloudflareScraper()
 class Scraper:
 	def __init__(self):
-		self.Base = 'https://watchepisodeseries.unblocked.krd/'
+		self.Base = 'https://watchepisodeseries.unblocked.win/'
 		self.Search = ('%s')
 		self.links = []
 
