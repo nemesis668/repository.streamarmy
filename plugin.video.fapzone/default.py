@@ -33,26 +33,10 @@ _theme_ = _self_.getSetting('Theme')
 _images_    = '/resources/' + _theme_
 Addon_Image = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'addon.png'))
 
-def clearup():
 
-    cachePath     = xbmc.translatePath(os.path.join('special://home/cache'))
-    thumbPath     = xbmc.translatePath(os.path.join('special://profile/Thumbnails'))
-    packcagesPath = xbmc.translatePath(os.path.join('special://home/addons/packages'))
-    
-    i =[(cachePath,'Cache'),(thumbPath,'Thumbnails'),(packcagesPath,'Packages')]
-    for r in i:
-        for root,dirs,files in os.walk(r[0]):
-            for f in files:
-                if (f.endswith('.log')): continue
-                try: os.unlink(os.path.join(root, f))
-                except: pass
-    xbmc.executebuiltin('Container.Refresh')
     
 def START():
 
-    clearup()
-    #dateimport.CHECKDIRS()
-    #dateimport.DateCheck()
     try:
         Main.MainWindow()
     except (RuntimeError, SystemError):
