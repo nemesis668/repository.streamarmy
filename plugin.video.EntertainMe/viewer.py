@@ -15,13 +15,13 @@ import time
 import datetime
 import player
 from resources.libs import cfscrape
-#scraper = cfscrape.Cloudflarerequests()
+scraper = cfscrape.CloudflareScraper()
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 
 dialog = xbmcgui.Dialog()
-#cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
+cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
 
 #############################################################
 #################### SET ADDON ID ###########################
@@ -77,7 +77,7 @@ def GetContent(url):
 	logos = []
 	urls = []
 	titles = []
-	link = requests.get(url).content
+	link = scraper.get(url).content
 	match = re.findall('<div class="movie big">(.*?)</div>',link,flags=re.DOTALL)
 	try:
 		nextpage = re.findall('''next\s+page.+?href=['"](.*?)['"]''',link,flags=re.DOTALL)[0]
@@ -85,7 +85,7 @@ def GetContent(url):
 	for content in match:
 		url = re.findall('<a href="(.*?)"',content,flags=re.DOTALL)[1]
 		icon = re.findall('src="(.*?)" ',content,flags=re.DOTALL)[0]
-		#icon = icon+'|Cookie='+cj[0]+'&User-Agent='+cj[1]
+		icon = icon+'|Cookie='+cj[0]+'&User-Agent='+cj[1]
 		title = re.findall('<h2 class="thumb_title">(.*?)</h2>',content,flags=re.DOTALL)[0].replace('Watch Online','')
 		title = CLEANUP(title)
 		logos.append(icon)

@@ -1,7 +1,8 @@
-import logging
-import random
-import time
-import re
+import logging, random, time, re
+
+import ssl
+
+#import xbmc
 '''''''''
 Disables InsecureRequestWarning: Unverified HTTPS request is being made warnings.
 '''''''''
@@ -10,13 +11,23 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 ''''''
 from requests.sessions import Session
-#from copy import deepcopy
-#from collections import OrderedDict
+
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.ssl_ import create_urllib3_context
 
 try:
     from urlparse import urlparse
 except ImportError:
     from urllib.parse import urlparse
+
+#Debug Mode (enable lots of log())
+DEBUG_MODE = False
+__version__ = "0.0.0"
+
+def log(txt):
+	pass
+    #xbmc.log(str(txt), xbmc.LOGNOTICE)
+
 
 DEFAULT_USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
@@ -32,38 +43,129 @@ BUG_REPORT = ("Cloudflare may have changed their technique, or there may be a bu
 "bug report at https://github.com/Anorov/cloudflare-scrape/issues.")
 
 
+class CipherSuiteAdapter(HTTPAdapter):
+
+    def __init__(self, cipherSuite=None, **kwargs):
+        self.cipherSuite = cipherSuite
+
+        if hasattr(ssl, 'PROTOCOL_TLS'):
+            self.ssl_context = create_urllib3_context(
+                ssl_version=getattr(ssl, 'PROTOCOL_TLSv1_3', ssl.PROTOCOL_TLSv1_2),
+                ciphers=self.cipherSuite
+            )
+        else:
+            self.ssl_context = create_urllib3_context(ssl_version=ssl.PROTOCOL_TLSv1)
+
+        super(CipherSuiteAdapter, self).__init__(**kwargs)
+
+    ##########################################################################################################################################################
+
+    def init_poolmanager(self, *args, **kwargs):
+        kwargs['ssl_context'] = self.ssl_context
+        return super(CipherSuiteAdapter, self).init_poolmanager(*args, **kwargs)
+
+    ##########################################################################################################################################################
+
+    def proxy_manager_for(self, *args, **kwargs):
+        kwargs['ssl_context'] = self.ssl_context
+        return super(CipherSuiteAdapter, self).proxy_manager_for(*args, **kwargs)
+
+
 class CloudflareScraper(Session):
     def __init__(self, *args, **kwargs):
         super(CloudflareScraper, self).__init__(*args, **kwargs)
+        self.cf_tries = 0
+        self.isCaptcha = False
+        self.baseUrl = ""
+        self.cipherSuite = None
 
         if "requests" in self.headers["User-Agent"]:
-            # Spoof Firefox on Linux if no custom User-Agent has been set
-            self.headers["User-Agent"] = random.choice(DEFAULT_USER_AGENTS)
+            # Spoof a desktop browser if no custom User-Agent has been set. 'Connection:keep-alive'
+            # and 'Accept-Decoding:gzip,deflate' headers are already set by the super.
+            # The captcha is trigger if :
+            #   - Connection is not equal to close
+            #   - If we use self.headers.update and not self.headers
+            self.headers= {
+                    'User-Agent': random.choice(DEFAULT_USER_AGENTS),
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.5',
+                    'Connection': 'close',
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'DNT': '1'
+                }
+        
+        self.mount('https://', CipherSuiteAdapter(self.loadCipherSuite()))
 
+    def loadCipherSuite(self):
+        if self.cipherSuite:
+            return self.cipherSuite
+
+        self.cipherSuite = ''
+
+        if hasattr(ssl, 'PROTOCOL_TLS'):
+            ciphers = [
+                'ECDHE-ECDSA-AES128-GCM-SHA256', 'ECDHE-RSA-AES128-GCM-SHA256', 'ECDHE-ECDSA-AES256-GCM-SHA384',
+                'ECDHE-RSA-AES256-GCM-SHA384', 'ECDHE-ECDSA-CHACHA20-POLY1305-SHA256', 'ECDHE-RSA-CHACHA20-POLY1305-SHA256',
+                'ECDHE-RSA-AES128-CBC-SHA', 'ECDHE-RSA-AES256-CBC-SHA', 'RSA-AES128-GCM-SHA256', 'RSA-AES256-GCM-SHA384',
+                'ECDHE-RSA-AES128-GCM-SHA256', 'RSA-AES256-SHA', '3DES-EDE-CBC'
+            ]
+
+            if hasattr(ssl, 'PROTOCOL_TLSv1_3'):
+                ciphers.insert(0, ['GREASE_3A', 'GREASE_6A', 'AES128-GCM-SHA256', 'AES256-GCM-SHA256', 'AES256-GCM-SHA384', 'CHACHA20-POLY1305-SHA256'])
+
+            ctx = ssl.SSLContext(getattr(ssl, 'PROTOCOL_TLSv1_3', ssl.PROTOCOL_TLSv1_2))
+
+            for cipher in ciphers:
+                try:
+                    ctx.set_ciphers(cipher)
+                    self.cipherSuite = '{}:{}'.format(self.cipherSuite, cipher).rstrip(':')
+                except ssl.SSLError:
+                    pass
+
+        return self.cipherSuite
 
     def request(self, method, url, *args, **kwargs):
-        self.headers = {
-                'User-Agent': self.headers['User-Agent'],
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.5',
-                'Accept-Encoding': 'gzip, deflate',
-                'Connection': 'close',
-                'Upgrade-Insecure-Requests': '1'}
-
+        #Sometime the https trigge the captcha
         resp = super(CloudflareScraper, self).request(method, url, *args, **kwargs)
 
         # Check if Cloudflare anti-bot is on
-        if ( resp.status_code == 503
-             and resp.headers.get("Server", "").startswith("cloudflare")
-             and b"jschl_answer" in resp.content
-        ):
+        if self.ifCloudflare(resp):
+            #Sometime the https triggers the captcha
+            if self.isCaptcha == True:
+                if self.baseUrl == "":
+                    self.baseUrl = resp.url
+                self.baseUrl = self.baseUrl.replace('https','http')
+                resp = super(CloudflareScraper, self).request(method, self.baseUrl, *args, **kwargs)
             return self.solve_cf_challenge(resp, **kwargs)
 
         # Otherwise, no Cloudflare anti-bot detected
+        if DEBUG_MODE == True:
+            log(resp.text)
         return resp
 
+    def ifCloudflare(self, resp):
+        if resp.headers.get('Server', '').startswith('cloudflare'):
+            if self.cf_tries >= 3:
+                raise Exception('Failed to solve Cloudflare challenge!')
+            elif b'/cdn-cgi/l/chk_captcha' in resp.content:
+                #Try without https
+                if self.isCaptcha == False:
+                    self.isCaptcha = True
+                    self.cf_tries = 0
+                    return True
+                else:
+                    raise Exception('Protect by Captcha')
+            elif resp.status_code in [429, 503] and all(s in resp.content for s in [b'jschl_vc', b'jschl_answer']):
+                return True
+        else:
+            return False
 
     def solve_cf_challenge(self, resp, **original_kwargs):
+        #Memorise the first url
+        if self.baseUrl == "":
+            self.baseUrl = resp.url
+        self.cf_tries += 1
         body = resp.text
         parsed_url = urlparse(resp.url)
         domain = parsed_url.netloc
@@ -100,13 +202,21 @@ class CloudflareScraper(Session):
             # Remove a function semicolon before splitting on semicolons, else it messes the order.
             lines = builder.replace(' return +(p)}();', '', 1).split(';')
 
+            if DEBUG_MODE == True:
+                log('s : '+params["s"])
+                log('jschl_vc : '+params["jschl_vc"])
+                log('pass : '+params["pass"])
+                log('js_answer : '+str(js_answer))
+                log('html Content : '+body)
+                log('lines : ' +str(lines))
+
             for line in lines:
                 if len(line) and '=' in line:
                     heading, expression = line.split('=', 1)
                     if 'eval(eval(' in expression:
                         # Uses the expression in an external <div>.
                         expression_value = self.cf_parse_expression(extra_div_expression)
-                    elif '(function(p' in expression:
+                    elif 'function(p' in expression:
                         # Expression + domain sampling function.
                         expression_value = self.cf_parse_expression(expression, domain)
                     else:
@@ -117,6 +227,9 @@ class CloudflareScraper(Session):
                 js_answer += len(domain) # Only older variants add the domain length.
 
             params["jschl_answer"] = '%.10f' % js_answer
+
+            if DEBUG_MODE == True:
+                log("jschl_answer : "+params["jschl_answer"])
 
         except Exception as e:
             # Something is wrong with the page.
@@ -140,17 +253,27 @@ class CloudflareScraper(Session):
         method = resp.request.method
         cloudflare_kwargs["allow_redirects"] = False
 
+        # One of these '.request()' calls below might trigger another challenge.
         redirect = self.request(method, submit_url, **cloudflare_kwargs)
 
         if 'Location' in redirect.headers:
             redirect_location = urlparse(redirect.headers["Location"])
             if not redirect_location.netloc:
                 redirect_url = "%s://%s%s" % (parsed_url.scheme, domain, redirect_location.path)
-                return self.request(method, redirect_url, **original_kwargs)
-            return self.request(method, redirect.headers["Location"], **original_kwargs)
-        else:
-            return redirect
+                response = self.request(method, redirect_url, **original_kwargs)
 
+            if not redirect.headers["Location"].startswith('http'):
+                redirect = 'https://'+domain+redirect.headers["Location"]
+            else:
+                redirect = redirect.headers["Location"]
+
+            response = self.request(method, redirect, **original_kwargs)
+        else:
+            response = redirect
+
+        # Reset the repeated-try counter when the answer passes.
+        self.cf_tries = 0
+        return response
 
     def cf_sample_domain_function(self, func_expression, domain):
         parameter_start_index = func_expression.find('}(') + 2
@@ -160,7 +283,6 @@ class CloudflareScraper(Session):
             func_expression[parameter_start_index : func_expression.rfind(')))')]
         )
         return ord(domain[int(sample_index)])
-
 
     def cf_arithmetic_op(self, op, a, b):
         if op == '+':
@@ -173,7 +295,6 @@ class CloudflareScraper(Session):
             return a - b
         else:
             raise Exception('Unknown operation')
-
 
     def cf_parse_expression(self, expression, domain=None):
 
@@ -204,7 +325,6 @@ class CloudflareScraper(Session):
         else:
             return _get_jsfuck_number(expression[2:-1])
 
-
     @classmethod
     def create_scraper(cls, sess=None, **kwargs):
         """
@@ -221,9 +341,7 @@ class CloudflareScraper(Session):
 
         return scraper
 
-
     ## Functions for integrating cloudflare-scrape with other applications and scripts
-
     @classmethod
     def get_tokens(cls, url, user_agent=None, **kwargs):
         scraper = cls.create_scraper()
@@ -254,7 +372,6 @@ class CloudflareScraper(Session):
                 scraper.headers["User-Agent"]
                )
 
-
     @classmethod
     def get_cookie_string(cls, url, user_agent=None, **kwargs):
         """
@@ -262,7 +379,6 @@ class CloudflareScraper(Session):
         """
         tokens, user_agent = cls.get_tokens(url, user_agent=user_agent, **kwargs)
         return "; ".join("=".join(pair) for pair in tokens.items()), user_agent
-
 
 create_scraper = CloudflareScraper.create_scraper
 get_tokens = CloudflareScraper.get_tokens

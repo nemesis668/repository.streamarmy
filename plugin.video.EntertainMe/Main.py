@@ -16,7 +16,7 @@ import datetime
 import display
 import viewer
 from resources.libs import cfscrape
-#scraper = cfscrape.Cloudflarerequests()
+scraper = cfscrape.CloudflareScraper()
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 
@@ -58,7 +58,7 @@ ButtonQuit = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_i
 ButtonQuitS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_quitS.gif'))
 
 url = 'http://www.seehd.pl/'
-link = requests.get(url).content
+link = scraper.get(url).content
 
 logos = []
 trendingurl = []
@@ -121,7 +121,7 @@ def openviewerTvShows(self):
 def resolvetrending(url):
 	sources = []
 	titles = []
-	link = requests.get(url).content
+	link = scraper.get(url).content
 	pattern = r'''<iframe.+?src="(.*?)"'''
 	findlinks = re.findall(pattern,link,flags=re.DOTALL)
 	found = 0

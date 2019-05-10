@@ -14,7 +14,7 @@ import json
 import time
 import datetime
 from resources.libs import cfscrape
-#scraper = cfscrape.Cloudflarerequests()
+scraper = cfscrape.CloudflareScraper()
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
@@ -69,7 +69,7 @@ def getinfo(dataurl):
 	global playtitles
 	playlinks = []
 	playtitles = []
-	link = requests.get(dataurl).content
+	link = scraper.get(dataurl).content
 	pattern = r'''<iframe.+?src="(.*?)"'''
 	findlinks = re.findall(pattern,link,flags=re.DOTALL)
 	found = 0

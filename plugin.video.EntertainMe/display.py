@@ -18,7 +18,7 @@ import json
 import time
 import datetime
 from resources.libs import cfscrape
-#scraper = cfscrape.Cloudflarerequests()
+scraper = cfscrape.CloudflareScraper()
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
@@ -93,17 +93,16 @@ def CLEANUP(text):
 	return text
 	
 #def ReleaseDates():
-try:
-	entries = []
-	url = 'http://www.seehd.pl/movies-release-dates/'
-	link = requests.get(url).content
-	content = re.findall('<ul>(.*?)</ul>',link,re.DOTALL)[0]
-	pattern = r'''<li>(.*?)</li>'''
-	find = re.findall(pattern,content)
-	for movies in find:
-		movies = CLEANUP(movies)
-		entries.append(movies)
-except: pass
+
+entries = []
+url = 'http://www.seehd.pl/movies-release-dates/'
+link = scraper.get(url).content
+content = re.findall('<ul>(.*?)</ul>',link,re.DOTALL)[0]
+pattern = r'''<li>(.*?)</li>'''
+find = re.findall(pattern,content)
+for movies in find:
+	movies = CLEANUP(movies)
+	entries.append(movies)
 
 filmlist = '\n-----------------------------------------------------------------------\n'.join(entries)
 
