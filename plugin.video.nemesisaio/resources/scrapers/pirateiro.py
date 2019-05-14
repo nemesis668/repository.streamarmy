@@ -51,7 +51,7 @@ class Scraper:
 			link = scraper.get(self.Base+self.Search %Term , headers=headers).content
 			pattern = r'''<td\s+align=left.*?<b>(.*?)</b>.*?href=['"](magnet:?.*?)&'''
 			findlinks = re.findall(pattern,link,flags=re.DOTALL)
-			dialog.ok("LINKW",str(findlinks))
+			#dialog.ok("LINKW",str(findlinks))
 			for title,magnet in findlinks:
 				title = title.replace('.',' ')
 				#if CheckMe.lower() in title.lower():
