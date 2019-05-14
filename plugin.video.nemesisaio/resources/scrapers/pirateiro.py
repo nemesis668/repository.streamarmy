@@ -51,16 +51,36 @@ class Scraper:
 			link = scraper.get(self.Base+self.Search %Term , headers=headers).content
 			pattern = r'''<td\s+align=left.*?<b>(.*?)</b>.*?href=['"](magnet:?.*?)&'''
 			findlinks = re.findall(pattern,link,flags=re.DOTALL)
+			dialog.ok("LINKW",str(findlinks))
 			for title,magnet in findlinks:
 				title = title.replace('.',' ')
-				if CheckMe.lower() in title.lower():
-					if Year in title:
-						if 'uhd' in title.lower(): sort = '0' ; qual = '4K UHD'
-						elif '2160' in title.lower(): sort = '0'; qual = '4K UHD'
-						elif '1080' in title.lower(): sort = '1'; qual = '1080'
-						elif '720' in title.lower(): sort = '2'; qual = '720'
-						else : sort = '3'; qual = 'SD'
-						title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
-						self.links.append({'title': title, 'url': magnet, 'quality' : sort})
+				#if CheckMe.lower() in title.lower():
+					#if Year in title:
+						#dialog.ok("YES","PASS")
+				if 'uhd' in title.lower():
+					sort = '0'
+					qual = '4K UHD'
+					title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
+					self.links.append({'title': title, 'url': magnet, 'quality' : sort})
+				elif '2160' in title.lower():
+					sort = '0'
+					qual = '4K UHD'
+					title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
+					self.links.append({'title': title, 'url': magnet, 'quality' : sort})
+				elif '1080' in title.lower():
+					sort = '1'
+					qual = '1080'
+					title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
+					self.links.append({'title': title, 'url': magnet, 'quality' : sort})
+				elif '720' in title.lower():
+					sort = '2'
+					qual = '720'
+					title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
+					self.links.append({'title': title, 'url': magnet, 'quality' : sort})
+				else :
+					sort = '3'
+					qual = 'SD'
+					title = 'Pirateiro ( Torrent ) | ' + qual + ' | ' + title
+					self.links.append({'title': title, 'url': magnet, 'quality' : sort})
 			return self.links
 
