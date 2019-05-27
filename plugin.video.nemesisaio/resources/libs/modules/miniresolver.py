@@ -35,7 +35,7 @@ def FilePursuit(url):
 	else: dialog.notification(AddonTitle,"[B][COLOR yellow]No Playable Link Found[/B][/COLOR]",icon,5000)
 	
 def LimeTorrent(url):
-	playable = scraper.get(url, headers={"User-Agent":ua}).content
+	playable = requests.get(url, headers={"User-Agent":ua}).content
 	play = re.findall('''href=['"](magnet:\?xt=urn:.*?)=''',playable,flags=re.DOTALL)[0]
 	if play:
 		Player(play)
