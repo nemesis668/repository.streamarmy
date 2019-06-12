@@ -29,7 +29,7 @@ class Scraper:
 				if Year in release:
 					found  += 1
 					nextphase = requests.get(link).content
-					pattern = r'''<p class="server_play">.*?href=['"](.*?)['"]'''
+					pattern = r'''<p class="server_version">.*?href=['"](.*?)['"]'''
 					findall = re.findall(pattern,nextphase,flags=re.DOTALL)
 					for links in findall: 
 						if not 'other.html' in links:
