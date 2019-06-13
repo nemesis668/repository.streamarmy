@@ -293,13 +293,14 @@ class streamer:
 			return
 
 	def adultchannels(self, url):
-		try:        
+		try:
+			#dialog.ok("HERE","HERE")
 			ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 			headers = {'User-Agent': ua}
 			c = requests.get(url, headers=headers).content
 			soup = BeautifulSoup(c, 'html5lib')
-			r = soup.find('meta', itemprop={'embedURL'})
-			play = r['content']
+			r = soup.find('div', class_={'desc'})
+			play = r.a['href']
 			u = resolveurl.HostedMediaFile(play).resolve()
 			xbmc.Player().play(u)
 			xbmc.executebuiltin("Dialog.Close(busydialog)")
