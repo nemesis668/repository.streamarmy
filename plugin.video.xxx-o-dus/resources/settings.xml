@@ -31,5 +31,6 @@
         <setting id="dev_debug" type="bool" label="[COLOR white]Developer Debug:[/COLOR]" default="false"/>
         <setting id="dev_scrapers" type="bool" label="[COLOR white]Disable Scraper Check:[/COLOR]" default="false"/>
         <setting id="pin" type="text" default="EXPIRED" visible="false" />
+		<setting id="pinused" type="text" label="Current Pin : " default="false" visible="false"/>
     </category>
 </settings>
