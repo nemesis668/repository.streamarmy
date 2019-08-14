@@ -50,7 +50,7 @@ class scraper:
 				else: buildDirectory(dirlst, isVideo=isVideo, isDownloadable=isDownloadable)
 
 	def get_next_page(self, mode, url, pattern, site='', parse=None, pictures=False):
-
+		
 		try:
 			dirlst = []
 			icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/main/next.png'))

@@ -5,8 +5,10 @@ import dom_parser2
 import log_utils
 import xbmcgui
 import lover
+from resources.lib.modules import cfscrape
 from resources.lib.modules import utils
 from resources.lib.modules import helper
+scraper = cfscrape.create_scraper()
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
@@ -56,7 +58,7 @@ def menu():
 def content(url,searched=False):
 
 	try:
-		c = client.request(url)
+		c = scraper.get(url).content
 		r = re.findall('<span class="overlay-img">(.*?)</h3>',c, flags=re.DOTALL)
 	except Exception as e:
 		if ( not searched ):

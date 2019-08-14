@@ -23,44 +23,15 @@ search_base  = urlparse.urljoin(base_domain,'search.fcgi?query=%s')
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
-    
+
 	lover.checkupdates()
-	url = urlparse.urljoin(base_domain,'adult-movies-online/')
+	url = urlparse.urljoin(base_domain,'xxx-movies-online/')
 	content(url)
-	# try:
-		# url = urlparse.urljoin(base_domain,'xxx/movies/')
-		# c = client.request(url)
-		# r = re.findall('<div\s+class="mepo">(.*?)<div\s+class="rating">',c, flags=re.DOTALL)
-		# if ( not r ):
-			# log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-			# kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-			# quit()
-	# except Exception as e:
-		# log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-		# kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-		# quit()
 
-	# dirlst = []
-
-	# for i in r:
-		# try:
-			# name = re.findall('<h3><a href=".+?">(.*?)</a>',i,flags=re.DOTALL)[0]
-			# url = re.findall('<h3><a href="(.*?)"',i,flags=re.DOTALL)[0]
-			# icon = re.findall('<img src="(.*?)"',i,flags=re.DOTALL)[0]
-			# desc = re.findall('<div class="texto">(.*?)</div>',i,flags=re.DOTALL)[0]
-			# fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			# dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'description': desc, 'fanart': fanarts ,'folder': True})
-		# except Exception as e:
-			# log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-
-	# if dirlst: buildDirectory(dirlst)    
-	# else:
-		# kodi.notify(msg='No Menu Items Found')
-		# quit()
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-
+	dialog.ok("URL",str(url))
 	try:
 		c = client.request(url)
 		soup = BeautifulSoup(c, 'html5lib')
@@ -98,7 +69,7 @@ def content(url,searched=False):
 	if not searched:
 		
 		try:
-			search_pattern = '''<link\s+rel=next\s+href=(.*?)>'''
+			search_pattern = '''<a\s*href=['"]([^'"]+)['"]>Next'''
 			helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
 		except Exception as e: 
 			log_utils.log('Error getting next page for %s :: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
