@@ -53,6 +53,10 @@ def Blacklistcheck(url):
 	elif 'spankbang.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'teenpornsite.net' in url:
+
+		adultresolver.resolve(url)
+		quit()
 	else:
 		return url
 		

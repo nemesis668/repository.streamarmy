@@ -67,6 +67,7 @@ def mainMenu():
          #('Vintage',None,270,'vintage','Vintage',True), \
          ('[COLOR pink]Fetish',None,40,'fetish','Fetish',True), \
          ('[COLOR pink]Pictures',None,35,'pics','Pictures',True), \
+         ('[COLOR pink]For Gay Men',None,47,'gaymen','Videos',True), \
          #('Comics',None,41,'comics','Comics',True), \
          ('[COLOR red]Parental Controls',None,5,'parental_controls','View/Change Parental Control Settings.',True), \
          ('[COLOR red]Your History',None,20,'history','View Your History.',True), \
@@ -118,6 +119,26 @@ def tubes():
     for i in sources:
         try:
             if eval(i + ".type") == 'video': 
+                base_name.append(eval(i + ".base_name"))
+                menu_mode.append(eval(i + ".menu_mode"))
+                art_dir.append(i)
+                video_sources = zip(base_name,menu_mode,art_dir)
+        except: pass
+
+    if video_sources:
+        dirlst = []
+        for i in sorted(video_sources):
+            dirlst.append({'name': kodi.giveColor(i[0],'white'), 'url': None, 'mode': i[1], 'icon': specific_icon % i[2], 'fanart': specific_fanart % i[2], 'folder': True})
+
+    buildDirectory(dirlst)
+@utils.url_dispatcher.register('47')
+def gaytubes():
+
+    sources = __all__ ; video_sources = []; base_name = []; menu_mode = []; art_dir = []
+    sources = [i for i in sources if i != 'chaturbate']
+    for i in sources:
+        try:
+            if eval(i + ".type") == 'gay': 
                 base_name.append(eval(i + ".base_name"))
                 menu_mode.append(eval(i + ".menu_mode"))
                 art_dir.append(i)

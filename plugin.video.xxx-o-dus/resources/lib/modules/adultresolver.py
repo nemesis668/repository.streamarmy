@@ -141,6 +141,8 @@ class streamer:
 			elif 'vrsmash.com' in url: u = self.vrsmash(url)
 			
 			elif 'spankbang.com' in url: u = self.spankbang(url)
+			
+			elif 'teenpornsite.net' in url: u = self.teenpornsite(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -821,8 +823,6 @@ class streamer:
 			url2 = srcs[selected]
 			if resolveurl.HostedMediaFile(url2).valid_url(): 
 				stream_url = resolveurl.HostedMediaFile(url2).resolve()
-			#liz = xbmcgui.ListItem(name,iconImage=icon, thumbnailImage=icon)
-			#liz.setPath(stream_url)
 				xbmc.Player ().play(stream_url)
 			else:
 				xbmc.Player().play(url2)
@@ -845,3 +845,23 @@ class streamer:
 		play = re.findall('''"contentUrl":\s+"(.*?)"''',link,flags=re.DOTALL)[0]
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
 		xbmc.Player().play(play)
+	
+	def teenpornsite(self, url):
+		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+		r = client.request(url)
+		pattern = r'''file['"]:['"]([^'"]+)['"].*?label['"]:['"](.*?)['"]'''
+		r = re.findall(pattern,r,flags=re.DOTALL)
+		names = []
+		srcs  = []
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		for url,name in r:
+			names.append(kodi.giveColor(name,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a Quality.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
