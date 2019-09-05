@@ -42,6 +42,7 @@ _images_		= '/resources/' + _theme_
 #################### SET ADDON THEME IMAGES #################
 Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bg.gif'))
 TText	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingtxt.png'))
+AddonIcon = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_, 'icon.png'))
 SText	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'searchtxt.png'))
 BannerA	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'banner.png'))
 ButtonTrending1S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingS.png'))
@@ -62,25 +63,38 @@ link = scraper.get(url).content
 
 logos = []
 trendingurl = []
-trending = re.findall('<h4>Trending(.*?)</div>',link,flags=re.DOTALL)[0]
-pattern = r'''<a href="(.*?)">.+?src="(.*?)"'''
-grabthem = re.findall(pattern,trending,flags=re.DOTALL)
+trending = re.findall('<div class="movie">(.*?)</div>',link,flags=re.DOTALL)
+#pattern = r'''<a href="(.*?)">.+?src="(.*?)"'''
+#grabthem = re.findall(pattern,trending,flags=re.DOTALL)
 cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
-for url,img in grabthem:
+#for url,img in grabthem:
+for content in trending:
+	url = re.findall('''href=['"](.*?)['"]''',content,flags=re.DOTALL)[0]
+	img = re.findall('''src=['"](.*?)['"]''',content,flags=re.DOTALL)[0]
 	img = img+'|Cookie='+cj[0]+'&User-Agent='+cj[1]
 	logos.append(img)
 	trendingurl.append(url)
 
-LOGO = logos[0]
-LOGO1 = logos[1]
-LOGO2 = logos[2]
-LOGO3 = logos[3]
-LOGO4 = logos[4]
-Trendingplay1 = trendingurl[0]
-Trendingplay2 = trendingurl[1]
-Trendingplay3 = trendingurl[2]
-Trendingplay4 = trendingurl[3]
-Trendingplay5 = trendingurl[4]
+try: LOGO = logos[0]
+except: LOGO = AddonIcon 
+try: LOGO1 = logos[1]
+except: LOGO1 = AddonIcon 
+try: LOGO2 = logos[2]
+except: LOGO2 = AddonIcon 
+try: LOGO3 = logos[3]
+except: LOGO3 = AddonIcon 
+try: LOGO4 = logos[4]
+except: LOGO4 = AddonIcon 
+try: Trendingplay1 = trendingurl[0]
+except: Trendingplay1 = ''
+try: Trendingplay2 = trendingurl[1]
+except: Trendingplay2 = ''
+try: Trendingplay3 = trendingurl[2]
+except: Trendingplay3 = ''
+try: Trendingplay4 = trendingurl[3]
+except: Trendingplay4 = ''
+try: Trendingplay5 = trendingurl[4]
+except: Trendingplay5 = ''
 
 
 #############################################################
