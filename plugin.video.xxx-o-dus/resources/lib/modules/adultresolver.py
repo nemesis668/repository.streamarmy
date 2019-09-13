@@ -804,16 +804,18 @@ class streamer:
 	def streamingporn(self,url):
 		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		r = scraper.get(url).content
-		r = re.findall('<em>(.*?)</div>',r, flags=re.DOTALL)[0]
+		r = re.findall('<div class="entry-content">(.*?)</div>',r, flags=re.DOTALL)[0]
 		pattern = r'''<a\s+href=['"]([^'"]+)['"].+?.>(.*?)<'''
 		r = re.findall(pattern,r)
 		names = []
 		srcs  = []
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
 		for url,name in r:
-			name = name.replace('Download','').strip()
-			names.append(kodi.giveColor(name,'white',True))
-			srcs.append(url)
+			if not 'image' in url:
+				if not 'severeporn' in name:
+					name = name.replace('Download','').strip()
+					names.append(kodi.giveColor(name,'white',True))
+					srcs.append(url)
 		selected = kodi.dialog.select('Select a link.',names)
 		if selected < 0:
 			kodi.notify(msg='No option selected.')

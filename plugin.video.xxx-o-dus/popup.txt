@@ -1,11 +1,23 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
-[COLOR aqua]XXXODUS : Current Version 4.00.017[/COLOR]
-[COLOR aqua]SCRAPERS : Current Version 3.00.003[/COLOR]
 
-[COLOR yellow]FIXES[/COLOR]
-[COLOR white]Scenes :: HQPorner[/COLOR]
-[COLOR white]Movies :: Adult-Channels , PandaMovie , StreamingPorn[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.018[/COLOR]
+
+[COLOR aqua]SCRAPERS : Current Version 3.00.004[/COLOR]
+
+[COLOR aqua]ARTWORK: Current Version 2.00.006[/COLOR]
+
+
+
+[COLOR yellow]ADDED[/COLOR]
+
+[COLOR white]Scenes :: TeenPornSite[/COLOR]
+
+[COLOR white]Total New Section For Gay Men[/COLOR]
+
+
+
 
 
 [COLOR yellow]BUGS KNOWN[/COLOR]
+
 [COLOR red]No Known Issues At The Moment, If Any Report to [COLOR pink]@Nemzzy668 on Twitter[/COLOR]
