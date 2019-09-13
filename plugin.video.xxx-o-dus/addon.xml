@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.xxx-o-dus" 
 	     name="XXX-O-DUS" 
-	     version="4.00.019" 
+	     version="4.00.020" 
 	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>

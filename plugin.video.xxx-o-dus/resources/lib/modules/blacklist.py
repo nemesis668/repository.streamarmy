@@ -54,7 +54,9 @@ def Blacklistcheck(url):
 		adultresolver.resolve(url)
 		quit()
 	elif 'teenpornsite.net' in url:
-
+		adultresolver.resolve(url)
+		quit()
+	elif 'watchpornfree.info' in url:
 		adultresolver.resolve(url)
 		quit()
 	else:

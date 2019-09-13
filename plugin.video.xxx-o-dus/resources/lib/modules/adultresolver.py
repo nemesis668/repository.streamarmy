@@ -143,6 +143,8 @@ class streamer:
 			elif 'spankbang.com' in url: u = self.spankbang(url)
 			
 			elif 'teenpornsite.net' in url: u = self.teenpornsite(url)
+			
+			elif 'watchpornfree.info' in url: u = self.watchpornfree(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -867,3 +869,29 @@ class streamer:
 		else:
 			url2 = srcs[selected]
 			xbmc.Player().play(url2)
+			
+	def watchpornfree(self, url):
+		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+		r = scraper.get(url).content
+		r = re.findall('<div id="pettabs">(.*?)</div>',r, flags=re.DOTALL)[0]
+		pattern = r'''href=['"]([^'"]+)['"].+?>(.*?)<'''
+		r = re.findall(pattern,r)
+		names = []
+		srcs  = []
+		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		for url,name in r:
+			if resolveurl.HostedMediaFile(url).valid_url():
+				names.append(kodi.giveColor(name,'white',True))
+				srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			if resolveurl.HostedMediaFile(url2).valid_url(): 
+				stream_url = resolveurl.HostedMediaFile(url2).resolve()
+				xbmc.Player ().play(stream_url)
+			else:
+				xbmc.Player().play(url2)
