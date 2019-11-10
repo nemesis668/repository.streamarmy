@@ -1,16 +1,20 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
 
-[COLOR aqua]XXXODUS : Current Version 4.00.019[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.020[/COLOR]
 
-[COLOR aqua]SCRAPERS : Current Version 3.00.004[/COLOR]
+[COLOR aqua]SCRAPERS : Current Version 3.00.005[/COLOR]
 
-[COLOR aqua]ARTWORK: Current Version 2.00.006[/COLOR]
+[COLOR aqua]ARTWORK: Current Version 2.00.007[/COLOR]
 
 
 
 [COLOR yellow]FIXED[/COLOR]
 
 [COLOR white]Movies :: StreamingPorn[/COLOR]
+
+[COLOR yellow]ADDED[/COLOR]
+
+[COLOR white]Movies :: WatchPornFree[/COLOR]
 
 
 

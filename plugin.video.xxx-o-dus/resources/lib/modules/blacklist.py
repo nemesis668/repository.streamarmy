@@ -8,6 +8,9 @@ def Blacklistcheck(url):
 	if 'hclips.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'chaturbate.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	elif 'watchxxxfreeinhd.com' in url:
 		linkfinder.find(url)
 		quit()

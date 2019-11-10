@@ -56,6 +56,8 @@ class streamer:
 			elif 'justporno.tv' in url: u = self.justporno(url)
 
 			elif '4tube.com' in url: u = self.fourtube(url)
+			
+			elif 'chaturbate.com' in url: u = self.charbate(url)
 
 			elif 'perfectgirls.net' in url: u = self.perfectgirls(url)
 
@@ -895,3 +897,13 @@ class streamer:
 				xbmc.Player ().play(stream_url)
 			else:
 				xbmc.Player().play(url2)
+	def charbate(self, url):
+		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Cam Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+		try:
+			Headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36' }
+			pattern = r'''hls_source.+(http.*?m3u8)'''
+			link = requests.get(url,headers=Headers).content
+			source = re.findall(pattern,link,flags=re.DOTALL)[0].replace('\u002D','-')
+			xbmc.Player ().play(source)
+		except: dialog.notification('XXX-O-DUS', '[COLOR yellow]Performer Is Offline[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+		
