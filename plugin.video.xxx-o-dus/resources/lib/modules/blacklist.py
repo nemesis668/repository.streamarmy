@@ -17,7 +17,7 @@ def Blacklistcheck(url):
 	elif 'youngpornvideos.com' in url:
 		adultresolver.resolve(url)
 		quit()
-	elif 'adult-channels.com' in url:
+	elif 'freeomovie.info' in url:
 		adultresolver.resolve(url)
 		quit()
 	elif 'javhihi.com' in url:

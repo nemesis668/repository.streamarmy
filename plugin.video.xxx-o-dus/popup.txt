@@ -1,6 +1,6 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
 
-[COLOR aqua]XXXODUS : Current Version 4.00.020[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.021[/COLOR]
 
 [COLOR aqua]SCRAPERS : Current Version 3.00.005[/COLOR]
 
@@ -10,11 +10,12 @@
 
 [COLOR yellow]FIXED[/COLOR]
 
-[COLOR white]Movies :: StreamingPorn[/COLOR]
+[COLOR white]Chaturbate Live Cams[/COLOR]
 
-[COLOR yellow]ADDED[/COLOR]
 
-[COLOR white]Movies :: WatchPornFree[/COLOR]
+[COLOR yellow]I am aware Movies Section is having issues, I am working on fixes for this as well[/COLOR]
+
+
 
 
 
