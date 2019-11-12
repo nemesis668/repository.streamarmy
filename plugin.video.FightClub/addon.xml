@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.FightClub" name="[COLOR gold][B]F[COLOR silver]ight Club[/B][/COLOR]" version="1.00.004" provider-name="Nemzzy">
+<addon id="plugin.video.FightClub" name="[COLOR gold][B]F[COLOR silver]ight Club[/B][/COLOR]" version="1.00.005" provider-name="Nemzzy">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -7,6 +7,8 @@
     <import addon="script.module.metahandler"/>
 	<import addon="script.module.requests"/>
 	<import addon="script.module.resolveurl"/>
+	<import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.html5lib" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="fc.py">
         <provides>video</provides>
