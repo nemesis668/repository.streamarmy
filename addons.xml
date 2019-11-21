@@ -209,7 +209,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="10.3.001" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="10.3.002" provider-name="@Nemzzy668 / @_Manc_">
     <extension point="xbmc.addon.repository" name="Stream Army">
         <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
@@ -238,6 +238,19 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     <summary lang="en">Common caching api for xbmc plugins.</summary>
   </extension>
   <extension library="lib" point="xbmc.python.module" />
+</addon>
+
+<addon id="script.kodi.hue.ambilight" name="Kodi Philips Hue" version="2.0" provider-name="Nemzzy :: Original Martin Polednik">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.requests"/>
+  </requires>
+  <extension point="xbmc.service" library="default.py"></extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Kodi-controlled Philips Hue lights, Fixed By Nemzzy and Silent For Kodi 18</summary>
+    <description>Let Kodi control your Philips Hue lights. Either turns the lights into a room-sized ambilight, or automatically dims and un-dims them when playback starts or stops.</description>
+    <platform>all</platform>
+  </extension>
 </addon>
 
 <addon id="script.module.echo" name="Echo Libraries" version="1.00.003" provider-name="Echo Coder">
