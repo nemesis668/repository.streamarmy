@@ -43,11 +43,11 @@ _images_		= '/resources/' + _theme_
 
 #############################################################
 #################### SET ADDON THEME IMAGES #################
-Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bgviewer.gif'))
+Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bgviewer.jpg'))
 ButtonBox1S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingS.png'))
 ButtonBox1 = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trending.png'))
-ButtonBox13S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Next-PageS.gif'))
-ButtonBox13 = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Next-Page.gif'))
+ButtonBox13S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'NextPageS.png'))
+ButtonBox13 = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'NextPage.png'))
 
 
 #############################################################

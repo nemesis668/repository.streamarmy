@@ -40,23 +40,23 @@ _images_		= '/resources/' + _theme_
 
 #############################################################
 #################### SET ADDON THEME IMAGES #################
-Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bg.gif'))
+Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bg.jpg'))
 TText	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingtxt.png'))
 AddonIcon = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_, 'icon.png'))
 SText	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'searchtxt.png'))
 BannerA	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'banner.png'))
 ButtonTrending1S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingS.png'))
 ButtonTrending1 = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trending.png'))
-ButtonMovies = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_movies.gif'))
-ButtonMoviesS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_moviesS.gif'))
-ButtonTvShows = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_tvshows.gif'))
-ButtonTvShowsS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_tvshowsS.gif'))
-ButtonRelease = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_release.gif'))
-ButtonReleaseS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_releaseS.gif'))
+ButtonMovies = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Movies_Button.png'))
+ButtonMoviesS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Movies_ButtonS.png'))
+ButtonTvShows = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Shows_Button.png'))
+ButtonTvShowsS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Shows_ButtonS.png'))
+ButtonRelease = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Upcoming_Button.png'))
+ButtonReleaseS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Upcoming_ButtonS.png'))
 ButtonSearch = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_search.png'))
 ButtonSearchS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_searchS.png'))
-ButtonQuit = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_quit.gif'))
-ButtonQuitS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'button_quitS.gif'))
+ButtonQuit = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Quit_Button.png'))
+ButtonQuitS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'Quit_ButtonS.png'))
 
 url = 'http://www.seehd.pl/'
 link = scraper.get(url).content
@@ -131,12 +131,14 @@ def openviewerMovies(self):
 	
 def openviewerTvShows(self):
 	viewer.MainWindow('http://www.seehd.pl/category/tv-shows/')
-
+def killaddon(self):
+	xbmc.executebuiltin("XBMC.Container.Update(path,replace)")
+	xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
 def resolvetrending(url):
 	sources = []
 	titles = []
 	link = scraper.get(url).content
-	pattern = r'''<iframe.+?src="(.*?)"'''
+	pattern = r'''(?i)<iframe.+?src="(.*?)"'''
 	findlinks = re.findall(pattern,link,flags=re.DOTALL)
 	found = 0
 	for links in findlinks:
@@ -150,7 +152,7 @@ def resolvetrending(url):
 	import resolveurl
 	if resolveurl.HostedMediaFile(url).valid_url():
 		try:
-			dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving With ResolveUrl[/B][/COLOR]", icon, 5000)
+			dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving With ResolveUrl, Be Patient[/B][/COLOR]", icon, 10000)
 			stream_url = resolveurl.HostedMediaFile(url).resolve()
 			liz = xbmcgui.ListItem(AddonTitle)
 			stream_url = str(stream_url)
@@ -159,8 +161,17 @@ def resolvetrending(url):
 		except:
 			dialog.notification(AddonTitle, "[COLOR yellow][B]Seems The File Has Been Deleted At Source[/B][/COLOR]", icon, 5000)
 			quit()
-	else:
-		dialog.notification(AddonTitle, "[COLOR yellow][B]Host %s Not Supported[/B][/COLOR]" %url, icon, 5000)
+	elif '24hd.be' in url:
+		dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving Directly, Be Patient[/B][/COLOR]", icon, 10000)
+		key = url.rsplit('/',1)[1]
+		ref = url
+		headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+                   'X-Requested-With' : 'XMLHttpRequest',
+                   'Referer' : ref}
+		link = requests.post('https://24hd.be/api/source/%s' % key, headers=headers).json()
+		source = link['data'][0]['file']
+		xbmc.Player ().play(source)
+	else: dialog.notification(AddonTitle, "[COLOR yellow][B]Host %s Not Supported[/B][/COLOR]" %url, icon, 5000)
 
 	
 
@@ -200,7 +211,7 @@ class Main(pyxbmct.AddonFullWindow):
 
 		self.set_navigation()
 
-		self.connect(pyxbmct.ACTION_NAV_BACK, self.close)
+		self.connect(pyxbmct.ACTION_NAV_BACK, lambda:killaddon(self))
 		tick(self)
 		self.connect(self.button1, lambda:resolvetrending(Trendingplay1))
 		self.connect(self.button2, lambda:resolvetrending(Trendingplay2))
@@ -211,7 +222,7 @@ class Main(pyxbmct.AddonFullWindow):
 		self.connect(self.button7, lambda:openviewerTvShows(self))
 		self.connect(self.button8, lambda:opendisplay(self))
 		self.connect(self.button9, lambda:search())
-		self.connect(self.button10, self.close)
+		self.connect(self.button10, lambda:killaddon(self))
 		self.setFocus(self.button6)
 		
 
@@ -240,19 +251,19 @@ class Main(pyxbmct.AddonFullWindow):
 		
 		#Selection Buttons
 		self.button6 = pyxbmct.Button('',   focusTexture=ButtonMoviesS,   noFocusTexture=ButtonMovies)
-		self.placeControl(self.button6, 10, 0,  10, 6)
+		self.placeControl(self.button6, -2, 0,  12, 13)
 		
 		self.button7 = pyxbmct.Button('',   focusTexture=ButtonTvShowsS,   noFocusTexture=ButtonTvShows)
-		self.placeControl(self.button7, 22, 0,  10, 8)
+		self.placeControl(self.button7, 10, 0,  12, 13)
 
 		self.button8 = pyxbmct.Button('',   focusTexture=ButtonReleaseS,   noFocusTexture=ButtonRelease)
-		self.placeControl(self.button8, 34, 0,  10, 10)
+		self.placeControl(self.button8, 22, 0,  12, 13)
 		
 		self.button9 = pyxbmct.Button('',   focusTexture=ButtonSearchS,   noFocusTexture=ButtonSearch)
 		self.placeControl(self.button9, 54, 45,  13, 5)
 		
 		self.button10 = pyxbmct.Button('',   focusTexture=ButtonQuitS,   noFocusTexture=ButtonQuit)
-		self.placeControl(self.button10, 46, 0,  10, 6)
+		self.placeControl(self.button10, 34, 0,  12, 13)
 
 
 	def set_navigation(self):

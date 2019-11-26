@@ -41,11 +41,13 @@ desc = ''
 
 #############################################################
 #################### SET ADDON THEME IMAGES #################
-Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bgplayer.gif'))
+Background_Image	= xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'bgplayer.jpg'))
 ButtonBox1S = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trendingS.png'))
 ButtonBox1 = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'trending.png'))
 PlayButton = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'play.png'))
 PlayButtonS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'playS.png'))
+BackButton = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'GoBack.png'))
+BackButtonS = xbmc.translatePath(os.path.join('special://home/addons/' + _addon_id_ + _images_, 'GoBackS.png'))
 #############################################################
 ########## Function To Call That Starts The Window ##########
 dataurl = ''
@@ -70,7 +72,7 @@ def getinfo(dataurl):
 	playlinks = []
 	playtitles = []
 	link = scraper.get(dataurl).content
-	pattern = r'''<iframe.+?src="(.*?)"'''
+	pattern = r'''(?i)<iframe.+?src="(.*?)"'''
 	findlinks = re.findall(pattern,link,flags=re.DOTALL)
 	found = 0
 	for links in findlinks:
@@ -106,7 +108,7 @@ def resolve():
 	import resolveurl
 	if resolveurl.HostedMediaFile(url).valid_url():
 		try:
-			dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving With ResolveUrl[/B][/COLOR]", icon, 5000)
+			dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving With ResolveUrl, Be Patient[/B][/COLOR]", icon, 10000)
 			stream_url = resolveurl.HostedMediaFile(url).resolve()
 			liz = xbmcgui.ListItem(AddonTitle)
 			stream_url = str(stream_url)
@@ -115,8 +117,17 @@ def resolve():
 		except:
 			dialog.notification(AddonTitle, "[COLOR yellow][B]Seems The File Has Been Deleted At Source[/B][/COLOR]", icon, 5000)
 			quit()
-	else:
-		dialog.notification(AddonTitle, "[COLOR yellow][B]Host %s Not Supported[/B][/COLOR]" %url, icon, 5000)
+	elif '24hd.be' in url:
+		dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving Directly, Be Patient[/B][/COLOR]", icon, 10000)
+		key = url.rsplit('/',1)[1]
+		ref = url
+		headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+                   'X-Requested-With' : 'XMLHttpRequest',
+                   'Referer' : ref}
+		link = requests.post('https://24hd.be/api/source/%s' % key, headers=headers).json()
+		source = link['data'][0]['file']
+		xbmc.Player ().play(source)
+	else: dialog.notification(AddonTitle, "[COLOR yellow][B]Host %s Not Supported[/B][/COLOR]" %url, icon, 5000)
 def tick(self):
 
     self.DATE.setLabel (str(Date))
@@ -179,6 +190,7 @@ class Main(pyxbmct.AddonFullWindow):
 		self.connect(pyxbmct.ACTION_NAV_BACK, self.close)
 		
 		self.connect(self.Button1, lambda:resolve())
+		self.connect(self.Button2, self.close)
 		self.setFocus(self.Button1)
 
 
@@ -193,7 +205,9 @@ class Main(pyxbmct.AddonFullWindow):
 
 	def set_active_controls(self):
 		self.Button1 = pyxbmct.Button('',   focusTexture=PlayButtonS,   noFocusTexture=PlayButton)
-		self.placeControl(self.Button1, 84, 40,  25, 9)
+		self.placeControl(self.Button1, 84, 30,  25, 9)
+		self.Button2 = pyxbmct.Button('',   focusTexture=BackButtonS,   noFocusTexture=BackButton)
+		self.placeControl(self.Button2, 84, 40,  25, 9)
 		
 		self.connectEventList(
 			[pyxbmct.ACTION_MOVE_DOWN,
@@ -204,7 +218,9 @@ class Main(pyxbmct.AddonFullWindow):
 			self.List_update)
 
 	def set_navigation(self):
-		pass
+		#pass
+		self.Button1.controlRight(self.Button2)
+		self.Button2.controlLeft(self.Button1)
 
 	def setAnimation(self, control):
 		control.setAnimations([('WindowOpen', 'effect=slide start=2000 end=0 time=1000',),
