@@ -26,10 +26,10 @@ def menu():
 	lover.checkupdates()
 
 	try:
-		url = urlparse.urljoin(base_domain,'categories')
+		url = base_domain
 		c = client.request(url)
 		soup = BeautifulSoup(c, 'html5lib')
-		content = soup.find_all('a', class_={'thumb'})
+		content = soup.find_all('div', class_={'list-global__item'})
 		if ( not content ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -43,12 +43,11 @@ def menu():
 
 	for i in content:
 		try:
-			title = i.img['alt']
-			url = i['href']
-			if not base_domain in url: url = base_domain+url
-			icon = i.img['src']
+			title = re.findall('''a\shref=.*?title=['"](.*?)['"]''',str(i),flags=re.DOTALL)[0]
+			icon = i.img['data-src']
+			url2 = re.findall('''a\shref=['"](.*?)['"]''',str(i),flags=re.DOTALL)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': title, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+			dirlst.append({'name': title, 'url': url2, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
 		except Exception as e:
 			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
 
@@ -64,7 +63,7 @@ def content(url,searched=False):
 		#url = url.replace('-','+')
 		c = client.request(url)
 		soup = BeautifulSoup(c, 'html5lib')
-		content = soup.find_all('div', class_={'thumb'})
+		content = soup.find_all('div', class_={'list-global__thumb'})
 		if ( not content ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -80,15 +79,16 @@ def content(url,searched=False):
 	for i in content:
 		try:
 			title = i.a['title']
-			link = i.a['href']
-			if not base_domain in link: link = base_domain+link
-			icon = i.img['src']
+			url2 = i.a['href']
+			icon = i.img['data-src']
+			if not base_domain in url2: url2 = base_domain+url2
 			if searched: description = 'Result provided by %s' % base_name.title()
 			else: description = title
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': title, 'url': link, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
+			dirlst.append({'name': title, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
 		except Exception as e:
-			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+			pass
+			#log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
 
 	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
 	else:
@@ -101,7 +101,7 @@ def content(url,searched=False):
 	if not searched:
 		
 		try:
-			search_pattern = '''<link\s*rel=['"]next['"]\s*href=['"]([^'"]+)['"]'''
+			search_pattern = '''href=['"]([^'"]+)['"].*?Next'''
 			parse = base_domain        
 			helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)
 		except Exception as e: 
