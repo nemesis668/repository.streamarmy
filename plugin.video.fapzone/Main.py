@@ -123,7 +123,10 @@ def Search(self):
             videos.videowindow(Media_Link)
         else: quit()
     
-    
+def killaddon(self):
+	xbmc.executebuiltin("XBMC.Container.Update(path,replace)")
+	xbmc.executebuiltin("XBMC.ActivateWindow(Home)")
+	self.close()
 def List_Selected(self):
 
     videos.videowindow(Media_Link)
@@ -149,7 +152,7 @@ class Main(pyxbmct.AddonFullWindow):
 
         self.set_navigation()
 
-        self.connect(pyxbmct.ACTION_NAV_BACK, self.close)
+        self.connect(pyxbmct.ACTION_NAV_BACK, lambda:killaddon(self))
         self.connect(self.List, lambda:List_Selected(self))
         self.connect(self.button1, lambda:Search(self))
         #self.setFocus(self.button1)
