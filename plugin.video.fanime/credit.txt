@@ -1,0 +1,3 @@
+Thanks To A Dev and close friend, He knows who he is for helping out with some code debugging
+Thanks To A Dev for fixing Cfscrape each update
+Thanks To Bugastsinho for pointing out a fix to one of the scrapers using cookies

@@ -54,6 +54,32 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     </extension>
 </addon>
 
+<addon id="plugin.video.fanime" name="[COLOR magenta][B]FANime[/COLOR][/B]" version="0.00.001" provider-name="@Nemzzy668">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson"/>
+    <import addon="script.common.plugin.cache"/>
+    <import addon="script.module.requests" />
+    <import addon="script.module.beautifulsoup4" />
+	<import addon="script.module.resolveurl" />
+
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="nemzzy.py">
+        <provides>video</provides>
+        <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">FANime Was Created By @Nemzzy668 ( Follow On Twitter )</summary>
+    <description lang="en">Anime (pronounced AH-nee-may ) is a term for a style of Japanese comic book and video cartoon animation in which the main characters have large doe-like eyes. Many Web sites are devoted to anime. Anime is the prevalent style in Japanese comic books or manga</description>
+        <disclaimer lang="en">If You Are Using This Addon To Watch Content You Legally Do Not Have The Rights To Then The Author Takes No Affiliation With This, You Do So At Your Own Judgement And Risk!</disclaimer>
+	<platform>all</platform>
+	<assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+
 <addon id="plugin.video.fapzone" name="[COLOR darkgoldenrod].FapZone[/COLOR]" version="2.0.6" provider-name="@Nemzzy">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -209,7 +235,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="12.0.000" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="12.0.001" provider-name="@Nemzzy668 / @_Manc_">
     <extension point="xbmc.addon.repository" name="Stream Army">
         <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
         <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
