@@ -8,7 +8,7 @@ import lover
 from resources.lib.modules import cfscrape
 from resources.lib.modules import utils
 from resources.lib.modules import helper
-scraper = cfscrape.create_scraper()
+from bs4 import BeautifulSoup
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
@@ -58,8 +58,10 @@ def menu():
 def content(url,searched=False):
 
 	try:
-		c = scraper.get(url).content
-		r = re.findall('<span class="overlay-img">(.*?)</h3>',c, flags=re.DOTALL)
+		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
+		link = client.request(url)
+		soup = BeautifulSoup(link,'html.parser')
+		r = soup.find_all("div",  class_={'entry-content'})
 	except Exception as e:
 		if ( not searched ):
 			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -69,10 +71,9 @@ def content(url,searched=False):
 	dirlst = []
 	for i in r:
 		try:
-			name = re.findall('rel="bookmark">(.*?)</a>',i,flags=re.DOTALL)[0]
-			url2 = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
-			#icon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/icon.png' % base_name))
-			icon = re.findall('<img src="(.*?)"',i,flags=re.DOTALL)[0]
+			name = i.find('a', class_={'more-link'}).text.replace('Continue reading ','')
+			url2 = i.a['href']
+			icon = i.img['src']
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
