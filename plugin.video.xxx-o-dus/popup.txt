@@ -1,27 +1,13 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.022[/COLOR]
+[COLOR aqua]SCRAPERS : Current Version 3.00.007[/COLOR]
+[COLOR aqua]ARTWORK: Current Version 2.00.008[/COLOR]
 
-[COLOR aqua]XXXODUS : Current Version 4.00.021[/COLOR]
+[COLOR yellow]NEWS[/COLOR]
+[COLOR white]Have You Tried NemesisAio? Also Available In The Stream Army Repo! Movies,Foriegn Movies, Tv Shows, 24/7 TV, Documentaries, Cartoons, Anime, Radio, Web Cams. Massive Amount Of Content
 
-[COLOR aqua]SCRAPERS : Current Version 3.00.005[/COLOR]
+EntertainMe Also In Stream Army Repo. Movies and Tv Shows! No Real Debrid Required![/COLOR]
 
-[COLOR aqua]ARTWORK: Current Version 2.00.007[/COLOR]
-
-
-
-[COLOR yellow]FIXED[/COLOR]
-
-[COLOR white]Chaturbate Live Cams[/COLOR]
-
-
-[COLOR yellow]I am aware Movies Section is having issues, I am working on fixes for this as well[/COLOR]
-
-
-
-
-
-
-
-
-[COLOR yellow]BUGS KNOWN[/COLOR]
-
+[COLOR orange]From All Us At The Stream Army Team, Wishing You Good Health During These Troubled Times[/COLOR]
+[COLOR yellow]Issues Known[/COLOR]
 [COLOR red]No Known Issues At The Moment, If Any Report to [COLOR pink]@Nemzzy668 on Twitter[/COLOR]

@@ -28,7 +28,7 @@ import history
 import favorites
 import picture_viewer
 import client
-import requests,re
+import requests,re,sys
 dialog = xbmcgui.Dialog()
 from resources.lib.pyxbmct_.github import xxxgit
 from scrapers import __all__
@@ -62,6 +62,7 @@ def mainMenu():
          ('[COLOR pink]Tubes',None,4,'tubes','Videos',True), \
          ('[COLOR pink]Scenes',None,36,'scenes','XXX Scenes',True), \
          ('[COLOR pink]Movies',None,43,'movies','XXX Movies',True), \
+         ('[COLOR pink]Films With Sex In',None,48,'sexfilms','Videos',True), \
          ('[COLOR pink]Virtual Reality',None,42,'vr','XXX Virtual Reality',True), \
          ('[COLOR pink]Hentai',None,39,'hentai','Hentai',True), \
          #('Vintage',None,270,'vintage','Vintage',True), \
@@ -151,7 +152,27 @@ def gaytubes():
             dirlst.append({'name': kodi.giveColor(i[0],'white'), 'url': None, 'mode': i[1], 'icon': specific_icon % i[2], 'fanart': specific_fanart % i[2], 'folder': True})
 
     buildDirectory(dirlst)
-    
+
+@utils.url_dispatcher.register('48')
+
+def sexfilms():
+	sources = __all__ ; video_sources = []; base_name = []; menu_mode = []; art_dir = []
+	sources = [i for i in sources if i != 'chaturbate']
+	for i in sources:
+		try:
+			if eval(i + ".type") == 'sexmovies': 
+				base_name.append(eval(i + ".base_name"))
+				menu_mode.append(eval(i + ".menu_mode"))
+				art_dir.append(i)
+				video_sources = zip(base_name,menu_mode,art_dir)
+		except: pass
+
+	if video_sources:
+		dirlst = []
+		for i in sorted(video_sources):
+			dirlst.append({'name': kodi.giveColor(i[0],'white'), 'url': None, 'mode': i[1], 'icon': specific_icon % i[2], 'fanart': specific_fanart % i[2], 'folder': True})
+
+	buildDirectory(dirlst)
 @utils.url_dispatcher.register('36')
 def scenes():
 

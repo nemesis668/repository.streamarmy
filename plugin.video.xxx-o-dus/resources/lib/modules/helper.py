@@ -61,6 +61,7 @@ class scraper:
 			else: 
 				r = client.request(url)
 				url2 = re.findall(r'%s' % pattern,r)[0]
+				#dialog.ok("NP",str(url2))
 				if parse: url2 = urlparse.urljoin(parse,url2)
 				if '&amp;' in url2: url2 = url2.replace('&amp;','&')
 				if 'mydirtyhobby' in url:

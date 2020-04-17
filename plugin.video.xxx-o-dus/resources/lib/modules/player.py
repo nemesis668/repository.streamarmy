@@ -15,65 +15,73 @@ if xbmcvfs.exists(xxx_plugins_path): resolveurl.add_plugin_dirs(xbmc.translatePa
 dialog = xbmcgui.Dialog()
 @utils.url_dispatcher.register('801', ['url'], ['name', 'iconimage', 'pattern']) 
 def resolve_url(url, name=None, iconimage=None, pattern=None):
+	import xbmcgui
+	dialog	= xbmcgui.Dialog()
 
-    kodi.busy()
-    
-    try: url,site = url.split('|SPLIT|')
-    except: 
-        site = 'Unknown'
-        log_utils.log('Error getting site information from :: %s' % (url), log_utils.LOGERROR)
-    
-    if not name: name = 'Unknown'
-    if not iconimage: iconimage = kodi.addonicon
-    name = re.sub(r'(\[.+?\])','',name); name = name.lstrip()
-    if '] - ' in name: name = name.split('] - ')[-1] 
-    if 'site=' in url: url,site = url.split('site=')
+	kodi.busy()
 
-    if '|CHAT|' in url: 
-        url,site,name = url.split('|CHAT|')
-    if '- [' in name: 
-        name = name.split('- [')[0]
+	try: url,site = url.split('|SPLIT|')
+	except: 
+		site = 'Unknown'
+		log_utils.log('Error getting site information from :: %s' % (url), log_utils.LOGERROR)
 
-    u = None
-    url2 = url
-    log_utils.log('Sending %s to XXX Resolver' % (url), log_utils.LOGNOTICE)
-    blacklist.Blacklistcheck(url)
-    if resolveurl.HostedMediaFile(url).valid_url(): 
-        log_utils.log('%s is a valid SMU resolvable URL. Attempting to resolve.' % (url), log_utils.LOGNOTICE)
-        try:
-            u = resolveurl.HostedMediaFile(url).resolve()
-            if u == None: u = adultresolver.resolve(url2)
-        except Exception as e:
-            log_utils.log('Error getting valid link from SMU :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
-            try:
-                u = adultresolver.resolve(url2)
-            except:
-                kodi.idle()
-                kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
-                quit()
-        log_utils.log('Link returned by XXX Resolver :: %s' % (u), log_utils.LOGNOTICE)
-    else:
-        log_utils.log('%s is not a valid SMU resolvable link. Attempting to resolve by XXXODUS backup resolver.' % (url), log_utils.LOGNOTICE)
-        try:
-            u = adultresolver.resolve(url)
-        except Exception as e:
-            log_utils.log('Error getting valid link from XXXODUS backup resolver. :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
-            kodi.idle()
-            kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
-            quit()
-        log_utils.log('%s returned by XXX-O-DUS backup resolver.' % (u), log_utils.LOGNOTICE)
-    if u == 'offline':
-        kodi.idle()
-        kodi.notify(msg='This performer is offline.', duration = 5000, sound = True)
-        quit()
-    if u:
-        kodi.idle()
-        play(u,name,iconimage,url,site)
-    else: 
-        kodi.idle()
-        log_utils.log('Failed to get any playable link for :: %s' % (url), log_utils.LOGERROR)
-        kodi.notify(msg='Failed to get any playable link.', duration=7500, sound=True)
-        quit()
+	if not name: name = 'Unknown'
+	if not iconimage: iconimage = kodi.addonicon
+	name = re.sub(r'(\[.+?\])','',name); name = name.lstrip()
+	if '] - ' in name: name = name.split('] - ')[-1] 
+	if 'site=' in url: url,site = url.split('site=')
+
+	if '|CHAT|' in url: 
+		url,site,name = url.split('|CHAT|')
+	if '- [' in name: 
+		name = name.split('- [')[0]
+
+	u = None
+	url2 = url
+	log_utils.log('Sending %s to XXX Resolver' % (url), log_utils.LOGNOTICE)
+	blacklist.Blacklistcheck(url)
+	if resolveurl.HostedMediaFile(url).valid_url(): 
+		log_utils.log('%s is a valid SMU resolvable URL. Attempting to resolve.' % (url), log_utils.LOGNOTICE)
+		try:
+			u = resolveurl.HostedMediaFile(url).resolve()
+			if u == None: u = adultresolver.resolve(url2)
+		except Exception as e:
+			log_utils.log('Error getting valid link from SMU :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
+			try:
+				u = adultresolver.resolve(url2)
+			except:
+				kodi.idle()
+				kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
+				quit()
+		log_utils.log('Link returned by XXX Resolver :: %s' % (u), log_utils.LOGNOTICE)
+	else:
+		log_utils.log('%s is not a valid SMU resolvable link. Attempting to resolve by XXXODUS backup resolver.' % (url), log_utils.LOGNOTICE)
+		try:
+			u = adultresolver.resolve(url)
+		except Exception as e:
+			log_utils.log('Error getting valid link from XXXODUS backup resolver. :: %s :: %s' % (url, str(e)), log_utils.LOGERROR)
+			kodi.idle()
+			kodi.notify(msg='Something went wrong!  | %s' % str(e), duration=8000, sound=True)
+			quit()
+		log_utils.log('%s returned by XXX-O-DUS backup resolver.' % (u), log_utils.LOGNOTICE)
+	if u == 'offline':
+		kodi.idle()
+		kodi.notify(msg='This performer is offline.', duration = 5000, sound = True)
+		quit()
+	if u:
+		kodi.idle()
+		play(u,name,iconimage,url,site)
+	else:
+		try:
+			liz = xbmcgui.ListItem(name, iconImage=iconimage, thumbnailImage=iconimage)
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			xbmc.Player().play(url, liz, False)
+		except:
+
+			kodi.idle()
+			log_utils.log('Failed to get any playable link for :: %s' % (url), log_utils.LOGERROR)
+			kodi.notify(msg='Failed to get any playable link.', duration=7500, sound=True)
+			quit()
 
 @utils.url_dispatcher.register('803', ['url','name'], ['iconimage','ref', 'site']) 
 def play(url, name, iconimage=None, ref=None, site=None):

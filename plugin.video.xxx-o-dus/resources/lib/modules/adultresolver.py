@@ -147,6 +147,8 @@ class streamer:
 			elif 'teenpornsite.net' in url: u = self.teenpornsite(url)
 			
 			elif 'watchpornfree.info' in url: u = self.watchpornfree(url)
+			
+			elif 'pornhd.com' in url: u = self.pornhd(url)
 
 
 			else: u = self.generic(url, pattern=None)
@@ -734,6 +736,27 @@ class streamer:
 				quit()
 			else:
 				url2 = srcs[selected]
+				xbmc.Player().play(url2)
+				
+	def pornhd(self,url):
+			r = client.request(url)
+			pattern = r'''<source\s+src=['"]([^'"]+).*?label=['"](.*?)['"]'''
+			r = re.findall(pattern,r)
+			names = []
+			srcs  = []
+			xbmc.executebuiltin("Dialog.Close(busydialog)")
+			for url2,quality in sorted(r, reverse=False):
+				names.append(kodi.giveColor(quality,'white',True))
+				url2 = ('%s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36' % url2)
+				srcs.append(url2)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				url2 ='https://cdn-ht.pornhd.com/video_720p/283/ZtuTBZBgy2/video_720p.mp4?validfrom=1581689202&validto=1581862002&burst=4096k&rate=384k&hash=EWPwvXFHEnz09e8669aO92SiPQQ%3D'
 				xbmc.Player().play(url2)
 	def javhihi(self,url):
 			r = client.request(url)
