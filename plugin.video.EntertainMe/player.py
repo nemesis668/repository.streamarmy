@@ -18,7 +18,7 @@ scraper = cfscrape.CloudflareScraper()
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
-
+import StorageServer
 dialog = xbmcgui.Dialog()
 
 #############################################################
@@ -54,6 +54,7 @@ dataurl = ''
 MainTitle=''
 playlinks = []
 playtitles = []
+cache               = StorageServer.StorageServer("entertainme", 0.2)
 def MainWindow(url,title):
 	global dataurl
 	global MainTitle
@@ -63,7 +64,24 @@ def MainWindow(url,title):
 	window = Main('Player')
 	window.doModal()
 	del window
-
+def GetTokens():
+	try:
+		dp.create (AddonTitle,("[COLOR yellow]EntertainMe[/COLOR]"))
+		dp.update(0)
+		time.sleep(1)
+		from cloudscraper2 import CloudScraper
+		dp.update (50,("[COLOR pink]Grabbing Cloudflare Token[/COLOR]"))
+		scraper = CloudScraper.create_scraper()
+		ua = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3'
+		scraper.headers.update({'User-Agent': ua})
+		cookies = scraper.get('http://www.seehd.pl/wp-content/themes/kickass-mediaspace/favicon.png').cookies.get_dict()
+		dp.update (100,("[COLOR pink]Secuirty Bypassed, Addon Opening[/COLOR]"))
+		time.sleep(1)
+		dp.close()
+		return (cookies, ua)
+	except:
+		dialog.ok(AddonTitle,"[COLOR yellow]Failed To Grab Cloudflare Token, Try Again[/COLOR]")
+		quit()
 def getinfo(dataurl):
 	global poster
 	global desc
@@ -71,7 +89,9 @@ def getinfo(dataurl):
 	global playtitles
 	playlinks = []
 	playtitles = []
-	link = scraper.get(dataurl).content
+	cookies, ua = cache.cacheFunction(GetTokens)
+	headers = {'User-Agent': ua}
+	link = requests.get(dataurl, cookies=cookies, headers=headers).text
 	pattern = r'''(?i)<iframe.+?src="(.*?)"'''
 	findlinks = re.findall(pattern,link,flags=re.DOTALL)
 	found = 0
@@ -110,7 +130,9 @@ def resolve():
 		try:
 			dialog.notification(AddonTitle, "[COLOR yellow][B]Resolving With ResolveUrl, Be Patient[/B][/COLOR]", icon, 10000)
 			stream_url = resolveurl.HostedMediaFile(url).resolve()
-			liz = xbmcgui.ListItem(AddonTitle)
+			#liz = xbmcgui.ListItem(AddonTitle)
+			liz = xbmcgui.ListItem(AddonTitle,iconImage=poster, thumbnailImage=poster)
+			liz.setInfo('video', { 'plot': desc })
 			stream_url = str(stream_url)
 			liz.setPath(stream_url)
 			xbmc.Player ().play(stream_url, liz, False)
@@ -126,7 +148,10 @@ def resolve():
                    'Referer' : ref}
 		link = requests.post('https://24hd.be/api/source/%s' % key, headers=headers).json()
 		source = link['data'][0]['file']
-		xbmc.Player ().play(source)
+		source = source+'|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+		liz = xbmcgui.ListItem(AddonTitle,iconImage=poster, thumbnailImage=poster)
+		liz.setInfo('video', { 'plot': desc })
+		xbmc.Player ().play(source, liz, False)
 	else: dialog.notification(AddonTitle, "[COLOR yellow][B]Host %s Not Supported[/B][/COLOR]" %url, icon, 5000)
 def tick(self):
 

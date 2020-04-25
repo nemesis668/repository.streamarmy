@@ -17,14 +17,13 @@ import base64
 import json
 import time
 import datetime
-from resources.libs import cfscrape
-scraper = cfscrape.CloudflareScraper()
+import StorageServer
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 
 dialog = xbmcgui.Dialog()
-
+cache               = StorageServer.StorageServer("entertainme", 0.2)
 
 #############################################################
 #################### SET ADDON ID ###########################
@@ -91,12 +90,31 @@ def CLEANUP(text):
 	text = text.lstrip('	')
 
 	return text
-	
+def GetTokens():
+	try:
+		dp.create (AddonTitle,("[COLOR yellow]EntertainMe[/COLOR]"))
+		dp.update(0)
+		time.sleep(1)
+		from cloudscraper2 import CloudScraper
+		dp.update (50,("[COLOR pink]Grabbing Cloudflare Token[/COLOR]"))
+		scraper = CloudScraper.create_scraper()
+		ua = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3'
+		scraper.headers.update({'User-Agent': ua})
+		cookies = scraper.get('http://www.seehd.pl/wp-content/themes/kickass-mediaspace/favicon.png').cookies.get_dict()
+		dp.update (100,("[COLOR pink]Secuirty Bypassed, Addon Opening[/COLOR]"))
+		time.sleep(1)
+		dp.close()
+		return (cookies, ua)
+	except:
+		dialog.ok(AddonTitle,"[COLOR yellow]Failed To Grab Cloudflare Token, Try Again[/COLOR]")
+		quit()
 #def ReleaseDates():
 
 entries = []
 url = 'http://www.seehd.pl/movies-release-dates/'
-link = scraper.get(url).content
+cookies, ua = cache.cacheFunction(GetTokens)
+headers = {'User-Agent': ua}
+link = requests.get(url, cookies=cookies, headers=headers).text
 content = re.findall('<ul>(.*?)</ul>',link,re.DOTALL)[0]
 pattern = r'''<li>(.*?)</li>'''
 find = re.findall(pattern,content)

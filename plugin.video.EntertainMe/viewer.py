@@ -14,15 +14,14 @@ import json
 import time
 import datetime
 import player
-from resources.libs import cfscrape
-scraper = cfscrape.CloudflareScraper()
+import StorageServer
 
 import pyxbmct.addonwindow as pyxbmct
 from addon.common.addon import Addon
 
 dialog = xbmcgui.Dialog()
-cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
-
+#cj = cfscrape.get_cookie_string('http://www.seehd.pl/')
+cache               = StorageServer.StorageServer("entertainme", 0.2)
 #############################################################
 #################### SET ADDON ID ###########################
 _addon_id_ = 'plugin.video.EntertainMe'
@@ -57,7 +56,24 @@ def MainWindow(type):
 	window = Main('Viewer')
 	window.doModal()
 	del window
-	
+def GetTokens():
+	try:
+		dp.create (AddonTitle,("[COLOR yellow]EntertainMe[/COLOR]"))
+		dp.update(0)
+		time.sleep(1)
+		from cloudscraper2 import CloudScraper
+		dp.update (50,("[COLOR pink]Grabbing Cloudflare Token[/COLOR]"))
+		scraper = CloudScraper.create_scraper()
+		ua = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3'
+		scraper.headers.update({'User-Agent': ua})
+		cookies = scraper.get('http://www.seehd.pl/wp-content/themes/kickass-mediaspace/favicon.png').cookies.get_dict()
+		dp.update (100,("[COLOR pink]Secuirty Bypassed, Addon Opening[/COLOR]"))
+		time.sleep(1)
+		dp.close()
+		return (cookies, ua)
+	except:
+		dialog.ok(AddonTitle,"[COLOR yellow]Failed To Grab Cloudflare Token, Try Again[/COLOR]")
+		quit()
 def GetContent(url):
 	global LOGO1
 	global LOGO2
@@ -77,7 +93,9 @@ def GetContent(url):
 	logos = []
 	urls = []
 	titles = []
-	link = scraper.get(url).content
+	cookies, ua = cache.cacheFunction(GetTokens)
+	headers = {'User-Agent': ua}
+	link = requests.get(url, cookies=cookies, headers=headers).text
 	match = re.findall('<div class="movie big">(.*?)</div>',link,flags=re.DOTALL)
 	try:
 		nextpage = re.findall('''next\s+page.+?href=['"](.*?)['"]''',link,flags=re.DOTALL)[0]
@@ -85,7 +103,7 @@ def GetContent(url):
 	for content in match:
 		url = re.findall('<a href="(.*?)"',content,flags=re.DOTALL)[1]
 		icon = re.findall('src="(.*?)" ',content,flags=re.DOTALL)[0]
-		icon = icon+'|Cookie='+cj[0]+'&User-Agent='+cj[1]
+		icon += '|Cookie=cf_clearance='+cookies['cf_clearance']+'&User-Agent='+ua
 		title = re.findall('<h2 class="thumb_title">(.*?)</h2>',content,flags=re.DOTALL)[0].replace('Watch Online','')
 		title = CLEANUP(title)
 		logos.append(icon)
