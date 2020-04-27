@@ -56,7 +56,7 @@ def content(url,searched=False):
 			description = i.find('desc').text
 			dirlst.append({'name': title, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
 		except Exception as e:
-			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+			log_utils.log('Error adding menu item %s Error: %s' % (title,str(e)), log_utils.LOGERROR)
 
 	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
 	else:
