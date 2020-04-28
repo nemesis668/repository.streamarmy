@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="1.00.003" provider-name="Addon By @Nolenation">
+<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.003" provider-name="Addon By @Nolenation">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.simplejson"/>
