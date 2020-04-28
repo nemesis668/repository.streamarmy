@@ -430,7 +430,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 	</extension>
 </addon>
 
-<addon id="script.module.nemzzyscrapers" name="Nemzzy Scrapers" version="1.00.018" provider-name="@Nemzzy668">
+<addon id="script.module.nemzzyscrapers" name="Nemzzy Scrapers" version="1.00.019" provider-name="@Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.requests" />
