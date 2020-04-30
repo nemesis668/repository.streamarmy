@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-	<category label="30000">
-        <setting id="autoplay" type="bool" label="30513" default="false" />
-        <setting id="use_proxy" type="bool" label="30086" default="false" />
-	</category>
-</settings>

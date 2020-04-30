@@ -41,7 +41,6 @@ def CLEANUP(text):
 class streamer:
 
 	def resolve(self, url, pattern=None):
-
 		if pattern: 
 			u = self.generic(url, pattern)
 			
@@ -65,6 +64,8 @@ class streamer:
 			
 			elif 'pornheel.com' in url: u = self.pornheel(url)
 			
+			elif 'porn.com' in url: u = self.generic(url)
+			
 			elif 'pandamovie.info' in url: u = self.pandamovie(url)
 
 			elif 'winporn.com' in url: u = self.winporn(url)
@@ -79,6 +80,8 @@ class streamer:
 			elif 'freeomovie.info' in url: u = self.freeomovie(url)
 
 			elif 'drtube' in url: u = self.drtube(url)
+			
+			elif 'porndig.com' in url: u = self.porndig(url)
 			
 			elif 'nuvid' in url: u = self.nuvid(url)
 			
@@ -680,31 +683,29 @@ class streamer:
 			return
 
 	def hqporner(self, url):
-		try:
+		#try:
 			r = client.request(url)
 			pattern = r"""iframe\s*width=['"]\d+['"]\s*height=['"]\d+['"]\s*src=['"]([^'"]+)"""
 			url = re.findall(pattern,r)[0]
 			url = url if url.startswith('http') else 'https:' + url
 			r = client.request(url)
-			pattern = r"""\s*file:\s*['"]([^'"]+)['"]\,\s*label:\s*['"]([^;"]+)"""
+			pattern = r"""a\s+href=['"]([^'"]+mp4)['"].*?>(.*?)<"""
 			urls = re.findall(pattern,r)
-			links = []
-			for i in urls:
-				if i[0] not in str(links): links.append((i[0], i[1]))
-			links = [(i[1], i[0] if i[0].startswith('http') else 'http:' + i[0]) for i in links]
-			return links
-		except:
-			return
-			
-	# def threemovs(self, url):
-		# try:
-			# r = client.request(url)
-			# pattern = r"""video_url:.+?'(.+?)'"""
-			# url = re.findall(pattern,r)[0]
-			# xbmc.Player().play(url)
-		# except:
-			# return
-			
+			names = []
+			srcs  = []
+			for links,qual in urls:
+				if not 'http' in links: links='http:'+links
+				names.append(kodi.giveColor(qual,'white',True))
+				srcs.append(links)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				xbmc.Player().play(url2)
+		#except: pass
 	def hclips(self, url):
 		try:
 			r = client.request(url)
@@ -737,7 +738,28 @@ class streamer:
 			else:
 				url2 = srcs[selected]
 				xbmc.Player().play(url2)
-				
+	def porndig(self,url):
+		r = client.request(url)
+		soup = BeautifulSoup(r,'html.parser')
+		iframe = soup.find('div', class_={'video_wrapper'}).iframe['src']
+		r = client.request(iframe)
+		soup = BeautifulSoup(r,'html.parser')
+		pattern = r'''['"]url['"]:.*?['"](.*?)['"].*?['"]label['"]:.*?['"](.*?)['"]'''
+		c = re.findall(pattern,r,flags=re.DOTALL)
+		names = []
+		srcs  = []
+		for url,quality in sorted(c, reverse=False):
+			url = url.replace('\\','') + '|Referer='+iframe
+			names.append(kodi.giveColor(quality,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
 	def pornhd(self,url):
 			r = client.request(url)
 			pattern = r'''<source\s+src=['"]([^'"]+).*?label=['"](.*?)['"]'''
@@ -756,7 +778,7 @@ class streamer:
 				quit()
 			else:
 				url2 = srcs[selected]
-				url2 ='https://cdn-ht.pornhd.com/video_720p/283/ZtuTBZBgy2/video_720p.mp4?validfrom=1581689202&validto=1581862002&burst=4096k&rate=384k&hash=EWPwvXFHEnz09e8669aO92SiPQQ%3D'
+				#url2 ='https://cdn-ht.pornhd.com/video_720p/283/ZtuTBZBgy2/video_720p.mp4?validfrom=1581689202&validto=1581862002&burst=4096k&rate=384k&hash=EWPwvXFHEnz09e8669aO92SiPQQ%3D'
 				xbmc.Player().play(url2)
 	def javhihi(self,url):
 			r = client.request(url)

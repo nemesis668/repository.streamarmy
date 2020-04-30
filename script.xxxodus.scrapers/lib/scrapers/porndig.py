@@ -81,7 +81,7 @@ def content(url,searched=False):
 		
 	for i in r:
 		try:
-			name = re.findall('title="(.*?)"',i)[0]
+			name = re.findall('alt="(.*?)"',i)[0]
 			url = re.findall('href="(.*?)"',i)[0]
 			if not base_domain in url: url = base_domain + url
 			icon = re.findall('<img src="(.*?)"',i)[0]

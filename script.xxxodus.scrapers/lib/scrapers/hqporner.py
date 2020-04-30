@@ -4,6 +4,7 @@ import kodi
 import dom_parser2
 import log_utils
 import lover
+from bs4 import BeautifulSoup
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
@@ -40,11 +41,12 @@ def menu():
 			name = name.title()
 			url = re.findall('<a href="(.*?)"', items, flags=re.DOTALL)[0]
 			icon = re.findall('<img src="(.*?)"', items, flags=re.DOTALL)[0]
-			if not base_domain in icon: icon = base_domain+icon
+			#if not base_domain in icon: icon = base_domain+icon
+			#if not 'http' in icon: icon = 'http:'+icon
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			#desc = re.findall('<p>(.*?)</p>', items, flags=re.DOTALL)[0]
 			if not 'https:' in url: url = 'https://hqporner.com/' + url
-			if not 'https:' in icon: icon = 'https:' + icon
+			if not 'http:' in icon: icon = 'https:' + icon+'|verifypeer=false'
 			dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
 		except Exception as e:
 			log_utils.log('Error adding menu item. %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -56,10 +58,10 @@ def menu():
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-
 	try:
 		c = client.request(url)
-		match = re.findall ('<div class="6u">(.*?)</section>', c, flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('section', class_={'box feature'})
 	except Exception as e:
 		if ( not searched ):
 			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -67,17 +69,17 @@ def content(url,searched=False):
 			quit()    
 		else: pass
 	dirlst = []
-	for items in match:
+	for i in r:
 		try:
-			name = re.findall ('alt="(.*?)"', items, flags=re.DOTALL)[0]
-			name = name.title()
-			url2 = re.findall ('<a href="(.*?)"',items, flags=re.DOTALL)[0]
-			icon = re.findall ('''<div.*?onmouseleave=.*?\(['"](.*?)['"]''',items, flags=re.DOTALL)[0]
-			length = re.findall ('<span class="icon fa-clock-o meta-data">(.*?)</span>',items, flags=re.DOTALL)[0]
+			name = i.img['alt'].title()
+			url2 = i.a['href']
+			icon = i.img['src']
+			icon =icon+'|verifypeer=false'
 			if not 'https:' in url2: url2 = 'https://hqporner.com' + url2
 			if not 'https:' in icon: icon = 'https:' + icon
-			#icon = ''
-			desc = '[COLOR yellow]Video Length :: [/COLOR]' + length
+			try: time = i.find('span', class_={'icon fa-clock-o meta-data'}).text
+			except: time = ' '
+			desc = '[COLOR yellow]Video Length :: [/COLOR]' + time
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': desc, 'folder': False})
 		except Exception as e:

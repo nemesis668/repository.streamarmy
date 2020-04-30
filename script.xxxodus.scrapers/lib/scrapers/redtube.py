@@ -4,6 +4,7 @@ import kodi
 import dom_parser2
 import log_utils
 import lover
+from bs4 import BeautifulSoup
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
@@ -28,7 +29,8 @@ def menu():
 	try:
 		url = urlparse.urljoin(base_domain,'categories')
 		c = client.request(url)
-		r = re.findall('<div class="category_item_wrapper">(.*?)</div>',c, flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find('ul', id={'categories_list_block'})
 		if ( not r ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -40,17 +42,17 @@ def menu():
 		
 	dirlst = []
 
-	for i in r:
+	for i in r.find_all('a', class_={'category_thumb_link'}):
 		try:
-			name = re.findall('<strong>(.*?)</strong>',i, flags = re.DOTALL)[0].strip()
-			url  = re.findall('<a href="(.*?)"',i, flags = re.DOTALL)[0]
-			if not base_domain in url: url = base_domain + url
-			icon  = re.findall('data-src="(.*?)"',i, flags = re.DOTALL)[0]
-			desc  = re.findall('<span class="category_count">(.*?)</span>',i, flags = re.DOTALL)[0].strip()
+			name = i.img['alt']
+			url2 = i['href']
+			icon = i.img['data-src']
+			if not base_domain in url2: url2 = base_domain + url2
+			desc  = name
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': name, 'url': url, 'mode': content_mode, 'icon': icon, 'fanart': fanarts,'description': desc, 'folder': True})
+			dirlst.append({'name': name, 'url': url2, 'mode': content_mode, 'icon': icon, 'fanart': fanarts,'description': desc, 'folder': True})
 		except Exception as e:
-			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
+			pass
 
 	if dirlst: buildDirectory(dirlst)    
 	else:
@@ -62,7 +64,8 @@ def content(url,searched=False):
 	if not base_domain in url: url = base_domain + url
 	try:
 		c = client.request(url)
-		r = re.findall('<div class="preloadLine">(.*?)<span class="video_count">',c, flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('span', class_={'video_thumb_wrap'})
 		if ( not r ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -76,11 +79,10 @@ def content(url,searched=False):
 	dirlst = []
 	for i in r:
 		try:
-			name = re.findall('alt="(.*?)"',i, flags=re.DOTALL)[0]
-			url2  = re.findall('<a.+?href="(.*?)"',i, flags=re.DOTALL)[0]
+			name = i.img['alt']
+			icon = i.img['data-src']
+			url2 = i.a['href']
 			if not base_domain in url2: url2 = base_domain + url2
-			icon = re.findall('data-thumb_url="(.*?)"',i, flags=re.DOTALL)[0]
-			#desc = re.findall('<span class="duration">(.*?)</span>',i, flags=re.DOTALL)[0].strip()
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:

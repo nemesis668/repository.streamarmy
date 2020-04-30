@@ -179,7 +179,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 
 <addon id="plugin.video.xxx-o-dus"
 	     name="XXX-O-DUS"
-	     version="4.00.023"
+	     version="4.00.024"
 	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>
@@ -216,23 +216,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
         <fanart>fanart.jpg</fanart>
     </assets>
   </extension>
-</addon>
-
-<addon id="plugin.video.yifymovies.hd" name="Yify Movies HD" version="3.0.5" provider-name="RickSanchez137">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0"/>
-		<import addon="script.module.resolveurl" version="5.0.22"/>
-		<import addon="plugin.video.youtube" />
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="default.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Stream Yify Torrent Movies</summary>
-		<description lang="en">Real-Debrid or Premiumize account required!</description>
-		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-		<platform>all</platform>
-	</extension>
 </addon>
 
 <addon id="program.plexus"
@@ -569,7 +552,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 	</extension>
 </addon>
 
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.010" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.011" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0" />
 		<import addon="script.module.requests" />

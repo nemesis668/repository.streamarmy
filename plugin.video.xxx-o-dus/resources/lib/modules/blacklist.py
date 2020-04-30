@@ -4,7 +4,7 @@ import linkfinder
 adultresolver = adultresolver.streamer()
 dialog = xbmcgui.Dialog()
 def Blacklistcheck(url):
-
+	dialog.notification('XXX-O-DUS', '[COLOR yellow]Checking For Links Now, Be Patient[/COLOR]', xbmcgui.NOTIFICATION_INFO, 2500)
 	if 'hclips.com' in url:
 		adultresolver.resolve(url)
 		quit()
@@ -63,6 +63,15 @@ def Blacklistcheck(url):
 		adultresolver.resolve(url)
 		quit()
 	elif 'pornhd.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'hqporner.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'porn.com' in url:
+		adultresolver.resolve(url)
+		quit()
+	elif 'porndig.com' in url:
 		adultresolver.resolve(url)
 		quit()
 	else:
