@@ -29,9 +29,8 @@ def menu():
 	try:
 		url = urlparse.urljoin(base_domain,'categories')
 		c = client.request(url)
-		r = re.findall('<div class="categories_list porn-categories sixteen-column action">(.*?)id="countryFlags">',c,flags=re.DOTALL)[0]
-		pattern = '''<a href="(.*?)".+?data-original="(.*?)".+?<p>(.*?)</p>'''
-		matches = re.findall(pattern,r,flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('div', class_={'categories-row'})
 		if ( not r ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -43,11 +42,14 @@ def menu():
 
 	dirlst = []
 
-	for link,icon,name in matches:
+	for i in r:
 		try:
-			if not base_domain in link: link = base_domain + link
+			name = i.p.text.strip().replace('\n',' ').encode('utf-8')
+			url2 = i.a['href']
+			icon = i.img['data-original']
+			if not base_domain in url2: url2 = base_domain + url2
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': name, 'url': link, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+			dirlst.append({'name': name, 'url': url2, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
 		except Exception as e:
 			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
 

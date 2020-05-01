@@ -19,29 +19,31 @@ dialog	= xbmcgui.Dialog()
 scraper = cfscrape.create_scraper()
 def CLEANUP(text):
 
-    text = str(text)
-    text = text.replace('\\r','')
-    text = text.replace('\\n','')
-    text = text.replace('\\t','')
-    text = text.replace('\\','')
-    text = text.replace('<br />','\n')
-    text = text.replace('<hr />','')
-    text = text.replace('&#039;',"'")
-    text = text.replace('&#39;',"'")
-    text = text.replace('&quot;','"')
-    text = text.replace('&rsquo;',"'")
-    text = text.replace('&amp;',"&")
-    text = text.replace('&#8211;',"&")
-    text = text.replace('&#8217;',"'")
-    text = text.replace('&#038;',"&")
-    text = text.lstrip(' ')
-    text = text.lstrip('	')
+	text = str(text)
+	text = text.replace('\\r','')
+	text = text.replace('\\n','')
+	text = text.replace('\\t','')
+	text = text.replace('\\','')
+	text = text.replace('<br />','\n')
+	text = text.replace('<hr />','')
+	text = text.replace('&#039;',"'")
+	text = text.replace('&#39;',"'")
+	text = text.replace('&quot;','"')
+	text = text.replace('&rsquo;',"'")
+	text = text.replace('&amp;',"&")
+	text = text.replace('&#8211;',"&")
+	text = text.replace('u0026',"&")
+	text = text.replace('&#8217;',"'")
+	text = text.replace('&#038;',"&")
+	text = text.lstrip(' ')
+	text = text.lstrip('	')
 
-    return text
+	return text
 class streamer:
 
 	def resolve(self, url, pattern=None):
 		if pattern: 
+
 			u = self.generic(url, pattern)
 			
 		else:
@@ -49,6 +51,8 @@ class streamer:
 			if 'eporner.com' in url: u = self.eporner(url)
 			
 			elif 'girlfriendvideos.com' in url: u = self.girlfriendvideos(url)
+			
+			elif 'pornrox.com' in url: u = self.pornrox(url)
 
 			elif 'porn00' in url: u = self.porn00(url)
 			
@@ -107,9 +111,7 @@ class streamer:
 
 			elif 'mixhdporn.com' in url: u = self.mixhd(url)      
 			
-			elif 'xtheatre.net' in url: u = self.xtheatre(url)                      
-			
-			elif 'youporn.com' in url: u = self.youporn(url)                      
+			elif 'xtheatre.net' in url: u = self.xtheatre(url)                                            
 
 			elif 'chaturbate.com' in url: u = self.chaturbate(url)                      
 
@@ -117,7 +119,7 @@ class streamer:
 
 			elif 'hqporner.com' in url: u = self.hqporner(url)
 
-			#elif '3movs.com' in url: u = self.threemovs(url)
+			
 			
 			elif 'hclips.com' in url: u = self.hclips(url)
 			
@@ -160,6 +162,7 @@ class streamer:
 
 	def generic(self, url, pattern=None):
 
+		if 'youporn.com' in url: u = self.youporn(url)
 		try:
 			r = client.request(url)
 			if pattern: s=re.findall(r'%s' % pattern, r)
@@ -656,13 +659,47 @@ class streamer:
 			r = client.request(url)
 			pattern = r"""quality[\'\"]\:[\'\"](\d+)[\'\"]\,[\'\"]videoUrl[\'\"]\:[\'\"]([^\'\"]+)"""
 			i = re.findall(pattern,r)
-			r = [(e[0], e[1].replace('\/','/')) for e in i]
-			log_utils.log('%s' % str(r), log_utils.LOGERROR)
-			u = sorted(r, key=lambda x: int(re.search('(\d+)', x[0]).group(1)), reverse=True)
-			return u
-		except: 
-			return 
-			
+			names = []
+			srcs  = []
+			for qual,link in i:
+				link = link.replace('\\','')
+				link = CLEANUP(link)
+				names.append(kodi.giveColor(qual,'white',True))
+				srcs.append(link)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				xbmc.Player().play(url2)
+		except: pass
+	def pornrox(self,url):
+		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
+		link = requests.get(url,headers=headers)
+		cookie = link.cookies.get_dict()
+		soup = BeautifulSoup(link.content,'html.parser')
+		r = soup.find_all('source' , {"type" : "video/mp4"})
+		names = []
+		srcs  = []
+		for i in r:
+			qual = i['label']
+			source = i['src']
+			names.append(kodi.giveColor(qual,'white',True))
+			srcs.append(source)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+						'Referer': url}
+			link2 = requests.get(url2,headers=headers,cookies=cookie,stream=True)
+			play = link2.url
+			xbmc.Player().play(play)
 	def chaturbate(self, url):
 		try:        
 			r = client.request(url)
@@ -914,10 +951,17 @@ class streamer:
 		xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
 		
 	def watchmygf(self,url):
+		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
 		link = client.request(url)
-		play = re.findall('''video_url.+?/0/(.*?)['"]''',link,flags=re.DOTALL)[0]
-		play = play + '?rnd=1556547788367'
-		xbmc.Player().play(play)
+		play = re.findall('''video_url.+?['"](.*?)['"]''',link,flags=re.DOTALL)[0]
+		rnd = re.findall(r'''rnd:\s+['"](.*?)['"]''',link,flags=re.DOTALL)[0]
+		licence = re.findall(r'''license_code:\s+['"](.*?)['"]''',link,flags=re.DOTALL)[0]
+		import fundec
+		decrypt = fundec.decryptHash(play, licence, 16)
+		follow = ('%s?rnd=%s' % (decrypt,rnd))
+		link2 = requests.get(follow,headers=headers,stream=True)
+		play2 = link2.url
+		xbmc.Player().play(play2)
 		
 	def vrsmash(self,url):
 		link = client.request(url)

@@ -1,4 +1,4 @@
-import xbmc,xbmcplugin,os,urlparse,re
+import xbmc,xbmcplugin,os,urlparse,re,xbmcgui
 import client
 import kodi
 import dom_parser2
@@ -8,7 +8,7 @@ from resources.lib.modules import utils
 from resources.lib.modules import helper
 from bs4 import BeautifulSoup
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
-
+dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
 base_domain  = 'https://www.tube8.com'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
@@ -62,7 +62,7 @@ def content(url,searched=False):
 	try:
 		c = client.request(url)
 		soup = BeautifulSoup(c, 'html5lib')
-		r = soup.find_all('div', class_={'vice-video-thumb'})
+		r = soup.find_all('div', class_={'thumb_box'})
 		if ( not r ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
