@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.003" provider-name="Addon By @Nolenation">
+<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.004" provider-name="Addon By @Nolenation">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.simplejson"/>
@@ -149,7 +149,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="2.00.016" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
+<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="2.00.017" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -160,6 +160,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     <import addon="script.module.html5lib" />
 	<import addon="script.module.nemzzyscrapers" />
 	<import addon="script.module.cloudscraper" />
+	<import addon="script.module.pyxbmct" />
 
   </requires>
   <extension point="xbmc.python.pluginsource" library="nemesis.py">
