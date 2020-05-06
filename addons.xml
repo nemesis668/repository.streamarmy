@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.004" provider-name="Addon By @Nolenation">
+<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.005" provider-name="Addon By @Nolenation">
   <requires>
 	<import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.simplejson"/>
@@ -10,6 +10,7 @@
 	<import addon="script.module.html5lib" />
 	<import addon="script.module.resolveurl" />
 	<import addon="script.module.nemzzyscrapers" />
+	<import addon="script.module.pyxbmct" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
 	<provides>video</provides>
