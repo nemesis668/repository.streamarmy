@@ -52,6 +52,8 @@ class streamer:
 			
 			elif 'girlfriendvideos.com' in url: u = self.girlfriendvideos(url)
 			
+			elif 'collectionofbestporn.com' in url: u = self.collectionofbestporn(url)
+			
 			elif 'pornrox.com' in url: u = self.pornrox(url)
 
 			elif 'porn00' in url: u = self.porn00(url)
@@ -988,7 +990,26 @@ class streamer:
 		else:
 			url2 = srcs[selected]
 			xbmc.Player().play(url2)
-			
+	def collectionofbestporn(self, url):
+		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+		c = client.request(url)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('source')
+		names = []
+		srcs  = []
+		for i in r:
+			quality = i['res']
+			url = i['src']
+			names.append(kodi.giveColor(quality,'white',True))
+			srcs.append(url)
+		selected = kodi.dialog.select('Select a Quality.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
 	def watchpornfree(self, url):
 		#dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		r = scraper.get(url).content
