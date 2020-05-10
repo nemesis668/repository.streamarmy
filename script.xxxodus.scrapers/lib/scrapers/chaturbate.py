@@ -103,7 +103,7 @@ def content(url,searched=False):
         kodi.notify(msg='No Content Found')
         quit()
         
-    search_pattern = '''<li><a\s*href=['"]([^'"]+)['"]\s*class=['"]next endless_page_link['"]>next<\/a><\/li>'''
+    search_pattern = '''<li><a\s*href=['"]([^'"]+)['"]\s*class=['"]next endless_page_link'''
     parse = base_domain
     helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)
     

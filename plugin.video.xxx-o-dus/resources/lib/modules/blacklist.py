@@ -83,6 +83,9 @@ def Blacklistcheck(url):
 	elif 'collectionofbestporn.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'ghettotube.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	else:
 		return url
 		

@@ -52,6 +52,8 @@ class streamer:
 			
 			elif 'girlfriendvideos.com' in url: u = self.girlfriendvideos(url)
 			
+			elif 'ghettotube.com' in url: u = self.ghettotube(url)
+			
 			elif 'collectionofbestporn.com' in url: u = self.collectionofbestporn(url)
 			
 			elif 'pornrox.com' in url: u = self.pornrox(url)
@@ -1002,6 +1004,24 @@ class streamer:
 			url = i['src']
 			names.append(kodi.giveColor(quality,'white',True))
 			srcs.append(url)
+		selected = kodi.dialog.select('Select a Quality.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
+	def ghettotube(self, url):
+		c = client.request(url)
+		pattern = r'''file:\s+['"](.*?)['"].*?label:\s+['"](.*?)['"]'''
+		r = re.findall(pattern,c,flags=re.DOTALL)
+		names = []
+		srcs  = []
+		for url,quality in r:
+			if 'http' in url:
+				names.append(kodi.giveColor(quality,'white',True))
+				srcs.append(url)
 		selected = kodi.dialog.select('Select a Quality.',names)
 		if selected < 0:
 			kodi.notify(msg='No option selected.')
