@@ -182,7 +182,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 
 <addon id="plugin.video.xxx-o-dus"
 	     name="XXX-O-DUS"
-	     version="4.00.037"
+	     version="4.00.038"
 	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>
@@ -542,7 +542,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="script.xxxodus.artwork" version="2.00.010" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.artwork" version="2.00.011" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
 	</requires>
@@ -554,7 +554,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 	</extension>
 </addon>
 
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.013" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.014" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0" />
 		<import addon="script.module.requests" />

@@ -52,6 +52,8 @@ class streamer:
 			
 			elif 'girlfriendvideos.com' in url: u = self.girlfriendvideos(url)
 			
+			elif 'siska.video' in url: u = self.siska(url)
+			
 			elif 'ghettotube.com' in url: u = self.ghettotube(url)
 			
 			elif 'collectionofbestporn.com' in url: u = self.collectionofbestporn(url)
@@ -1022,6 +1024,30 @@ class streamer:
 			if 'http' in url:
 				names.append(kodi.giveColor(quality,'white',True))
 				srcs.append(url)
+		selected = kodi.dialog.select('Select a Quality.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			xbmc.Player().play(url2)
+	def siska(self, url):
+		c = client.request(url)
+		pattern = r'''<iframe src=['"](.*?)['"]'''
+		r = re.findall(pattern,c,flags=re.DOTALL)
+		names = []
+		srcs  = []
+		found = 0
+		for url in r:
+			if not 'hqq.tv' in url:
+				if resolveurl.HostedMediaFile(url).valid_url():
+					u = resolveurl.HostedMediaFile(url, include_popups=False).resolve()
+					if u:
+						found += 1
+						stream = ('Link %s' % found)
+						names.append(kodi.giveColor(stream,'white',True))
+						srcs.append(u)
 		selected = kodi.dialog.select('Select a Quality.',names)
 		if selected < 0:
 			kodi.notify(msg='No option selected.')

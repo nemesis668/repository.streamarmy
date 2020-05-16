@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.xxxodus.artwork" version="2.00.010" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
+<addon id="script.xxxodus.artwork" version="2.00.011" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
 	</requires>

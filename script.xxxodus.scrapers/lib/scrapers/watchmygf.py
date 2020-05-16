@@ -110,7 +110,7 @@ def content(url,searched=False):
 		search_pattern = '''<link\s*href=['"]([^'"]+)['"]\s*rel=['"]next['"]'''
 		parse = base_domain
 		
-		helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
+		helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)
         
 """""""""
         The section below is dedicated to the picture aspect of the scraper 
