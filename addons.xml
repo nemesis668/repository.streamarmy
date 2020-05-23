@@ -151,7 +151,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="2.00.020" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
+<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="2.00.021" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson"/>
@@ -358,7 +358,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 	</extension>
 </addon>
 
-<addon id="script.module.nemzzyscrapers" name="Nemzzy Scrapers" version="1.00.026" provider-name="@Nemzzy668">
+<addon id="script.module.nemzzyscrapers" name="Nemzzy Scrapers" version="1.00.027" provider-name="@Nemzzy668">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.requests" />
