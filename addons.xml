@@ -277,7 +277,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.38" provider-name="venomous">
+<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.40" provider-name="venomous">
   <requires>
     <import addon="xbmc.python" version="2.26.0"/>
     <import addon="script.module.requests" />
