@@ -54,6 +54,6 @@ class Scraper:
 					self.links.append({'title': title, 'url': url3, 'quality': sort, 'Debrid' : False, 'Direct' : True})
 				return self.links
 			except Exception as c:
-				xbmc.log("ERROR ::: %s" %c , level=xbmc.LOGNOTICE)
+				xbmc.log("SCRAPER ERROR HDFUN  ::: %s" %c , level=xbmc.LOGNOTICE)
 		else: pass
 
