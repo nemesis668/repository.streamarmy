@@ -85,6 +85,14 @@ def content(url,searched=False):
 	if searched: return str(len(r))
 
 	if not searched:
-		search_pattern = '''<a\s*href=['"]([^'"]+)['"]\s*class="next"'''
-		parse = base_domain
-		helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)
+		#dirlst = []
+		try:
+			currentp = re.findall(r'''/([0-9]+)/''',url)[0]
+			np = int(currentp) + 1
+			nextp = url.replace(currentp,str(np))
+		except: nextp = url+'2/'
+		dialog.ok("NEXT",str(nextp))
+		npicon = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/main/next.png'))
+		dirlst.append({'name': kodi.giveColor('Next Page -->','white'), 'url': nextp, 'mode': content_mode, 'icon': npicon, 'fanart': fanarts, 'description': 'Load More......', 'folder': True})
+		if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
+	xbmcplugin.endOfDirectory(kodi.syshandle, cacheToDisc=True)

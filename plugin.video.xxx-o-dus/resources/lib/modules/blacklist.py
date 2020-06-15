@@ -89,6 +89,9 @@ def Blacklistcheck(url):
 	elif 'siska.video' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'overthumbs.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	else:
 		return url
 		

@@ -98,7 +98,7 @@ def content(url,searched=False):
     if searched: return str(len(r))
     
     if not searched:
-        search_pattern = '''href=['"]([^'"]+)"\s*class="no-page">Next'''
+        search_pattern = '''href=['"]([^'"]+)"\s*class="no-page next'''
         parse = base_domain
         
         helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)

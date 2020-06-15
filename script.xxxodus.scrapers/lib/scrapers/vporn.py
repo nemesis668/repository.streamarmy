@@ -103,7 +103,7 @@ def content(url,searched=False):
 
 	if not searched:
 		try:
-			search_pattern = '''<a\s*class=['"]next['"]\s*title=['"]Next\s*Page['"]\s*href=['"]([^'"]+)'''
+			search_pattern = '''link\srel=['"]next['"]\s+href=['"]([^'"]+)'''
 			parse = base_domain        
 			helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
 		except Exception as e: 

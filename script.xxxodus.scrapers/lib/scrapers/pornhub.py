@@ -6,6 +6,9 @@ import log_utils
 import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
+import xbmcgui
+dialog	= xbmcgui.Dialog()
+from bs4 import BeautifulSoup
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
 
 filename     = os.path.basename(__file__).split('.')[0]
@@ -60,50 +63,50 @@ def menu():
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-    import xbmcgui
-    dialog	= xbmcgui.Dialog()
-    try:
-        c = client.request(url)
-        r = re.findall('<ul id="videoCategory"(.*?)</ul>',c,flags=re.DOTALL)[0]
-        b = re.findall('<div class="img fade fadeUp videoPreviewBg">(.*?)</div>',r,flags=re.DOTALL)
-        if ( not r ) and ( not searched ):
-            log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-            kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-    except Exception as e:
-        if ( not searched ):
-            log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-            kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-            quit()    
-        else: pass
-    
-    dirlst = []
-        
-    for i in b:
-        try:
-            name = re.findall('title="(.*?)"',i,flags=re.DOTALL)[0]
-            if searched: description = 'Result provided by %s' % base_name.title()
-            else: description = name
-            content_url = re.findall('<a href="(.*?)"',i,flags=re.DOTALL)[0]
-            if not base_domain in content_url: content_url = base_domain + content_url
-            icon = re.findall('data-thumb_url\s+=\s+"(.*?)"',i,flags=re.DOTALL)[0]
-            fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
-        except Exception as e:
-            log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-    
-    if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
-    else:
-        if (not searched):
-            kodi.notify(msg='No Content Found')
-            quit()
-        
-    if searched: return str(len(r))
-    
-    if not searched:
-        
-        try:
-            search_pattern = '''\<link\s*rel\=['"]next['"]\s*href\=['"]([^'"]+)'''
-            parse = base_domain        
-            helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
-        except Exception as e: 
-            log_utils.log('Error getting next page for %s :: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+	
+	try:
+		c = client.request(url)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find('ul',id={'videoCategory'})
+		c = r.find_all('div', class_={'phimage'})
+		if ( not c ) and ( not searched ):
+			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
+			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
+	except Exception as e:
+		if ( not searched ):
+			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+			kodi.notify(msg='Fatal Error', duration=4000, sound=True)
+			quit()    
+		else: pass
+
+	dirlst = []
+		
+	for i in c:
+		try:
+			name = i.a['title']
+			icon = i.img['data-thumb_url']
+			content_url = i.a['href']
+			if searched: description = 'Result provided by %s' % base_name.title()
+			else: description = name
+			if not base_domain in content_url: content_url = base_domain + content_url
+			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
+			dirlst.append({'name': name, 'url': content_url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
+		except Exception as e:
+			log_utils.log('Error adding menu item PornHub:: Error: %s' % str(e), log_utils.LOGERROR)
+
+	if dirlst: buildDirectory(dirlst, stopend=True, isVideo = True, isDownloadable = True)
+	else:
+		if (not searched):
+			kodi.notify(msg='No Content Found')
+			quit()
+		
+	if searched: return str(len(r))
+
+	if not searched:
+		
+		try:
+			search_pattern = '''\<link\s*rel\=['"]next['"]\s*href\=['"]([^'"]+)'''
+			parse = base_domain        
+			helper.scraper().get_next_page(content_mode,url,search_pattern,filename)
+		except Exception as e: 
+			log_utils.log('Error getting next page for %s :: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)

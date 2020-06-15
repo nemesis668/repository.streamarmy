@@ -84,7 +84,7 @@ def content(url,searched=False):
 	for i in r:
 		try:
 			name = i.img['alt']
-			icon = i.img['src']
+			icon = i.img['data-src']
 			if 'video-default' in icon:
 				icon = i.img['data-src']
 			url2 = i.a['href']
