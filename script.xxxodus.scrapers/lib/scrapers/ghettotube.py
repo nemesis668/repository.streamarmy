@@ -30,7 +30,7 @@ def menu():
 		url = 'https://www.ghettotube.com/categories/'
 		c = requests.get(url,headers=headers).content
 		soup = BeautifulSoup(c,'html.parser')
-		r = soup.find_all('div', class_={'item'})
+		r = soup.find_all('div', class_={'thumb-ratio'})
 		if ( not r ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -44,7 +44,7 @@ def menu():
 
 	for i in r:
 		try:
-			name = i.a.text
+			name = i.img['title']
 			url2 = i.a['href']
 			icon = i.img['src']
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))

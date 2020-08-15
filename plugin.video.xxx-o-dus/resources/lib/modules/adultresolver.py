@@ -1021,13 +1021,16 @@ class streamer:
 			xbmc.Player().play(url2)
 	def ghettotube(self, url):
 		c = client.request(url)
-		pattern = r'''file:\s+['"](.*?)['"].*?label:\s+['"](.*?)['"]'''
+		pattern = r'''file:\s+['"](.*?)['"]'''
 		r = re.findall(pattern,c,flags=re.DOTALL)
 		names = []
 		srcs  = []
-		for url,quality in r:
-			if 'http' in url:
-				names.append(kodi.giveColor(quality,'white',True))
+		found = 0
+		for url in r:
+			if 'http' in url and 'm3u8' in url:
+				found += 1
+				title = ('Link %s' %found)
+				names.append(kodi.giveColor(title,'white',True))
 				srcs.append(url)
 		selected = kodi.dialog.select('Select a Quality.',names)
 		if selected < 0:
