@@ -25,41 +25,40 @@ search_base  = urlparse.urljoin(base_domain,'video/search?search=%s')
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
     
-    lover.checkupdates()
-    
-    try:
-        url = urlparse.urljoin(base_domain,'categories?o=al')
-        c = client.request(url)
-        r = dom_parser2.parse_dom(c, 'li', {'class': 'cat_pic'})
-        r = [(dom_parser2.parse_dom(i, 'a', req=['href','alt']), \
-            dom_parser2.parse_dom(i, 'var'), \
-            dom_parser2.parse_dom(i, 'img', req='src')) \
-            for i in r if i]
-        r = [(urlparse.urljoin(base_domain,i[0][0].attrs['href']), i[0][0].attrs['alt'], i[1][0].content, i[2][0].attrs['src']) for i in r if i]
-        if ( not r ):
-            log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
-            kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
-            quit()
-    except Exception as e:
-        log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
-        kodi.notify(msg='Fatal Error', duration=4000, sound=True)
-        quit()
+	lover.checkupdates()
 
-    dirlst = []
-    
-    for i in r:
-        try:
-            name = kodi.sortX(i[1].encode('utf-8'))
-            name = name.title() + ' - [ %s ]' % i[2].split(' ')[0]
-            fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-            dirlst.append({'name': name, 'url': i[0], 'mode': content_mode, 'icon': i[3], 'fanart': fanarts, 'folder': True})
-        except Exception as e:
-            log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
-    
-    if dirlst: buildDirectory(dirlst)    
-    else:
-        kodi.notify(msg='No Menu Items Found')
-        quit()
+	try:
+		url = urlparse.urljoin(base_domain,'categories?o=al')
+		c = client.request(url)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('div', class_={'category-wrapper'})
+		
+		if ( not r ):
+			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
+			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
+			quit()
+	except Exception as e:
+		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
+		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
+		quit()
+
+	dirlst = []
+
+	for i in r:
+		try:
+			name = i.a['data-mxptext']
+			icon = i.img['data-thumb_url']
+			url2 = i.a['href']
+			if not base_domain in url2: url2=base_domain+url2
+			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
+			dirlst.append({'name': name, 'url': url2, 'mode': content_mode, 'icon': icon, 'fanart': fanarts, 'folder': True})
+		except Exception as e:
+			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (name.title(),base_name.title(),str(e)), log_utils.LOGERROR)
+
+	if dirlst: buildDirectory(dirlst)    
+	else:
+		kodi.notify(msg='No Menu Items Found')
+		quit()
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
