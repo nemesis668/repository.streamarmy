@@ -30,7 +30,7 @@ def menu():
 		url = urlparse.urljoin(base_domain,'/category')
 		c = client.request(url)
 		soup = BeautifulSoup(c,'html.parser')
-		r = soup.find_all('article', class_={'small-thumb'})
+		r = soup.find('section', class_={'columns is-variable is-1 is-mobile is-multiline small-thumb-list lazy-load'})
 		if ( not r ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -42,13 +42,13 @@ def menu():
 
 	dirlst = []
 
-	for i in r:
+	for i in r.find_all('a'):
 		try:
 			name = i.img['alt']
 			icon = i.img['src']
 			if 'no-minithumb' in icon:
 				icon = i.img['data-src']
-			url2 = i.a['href']
+			url2 = i['href']
 			if not base_domain in url2: url2 = base_domain + url2
 			if not 'http' in icon: icon = 'http:'+icon
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
@@ -68,7 +68,7 @@ def content(url,searched=False):
 	try:
 		c = client.request(url)
 		soup = BeautifulSoup(c, 'html5lib')
-		r = soup.find_all('section', class_={'thumb-top'})
+		r = soup.find_all('div', class_={'card-image is-clipped'})
 		if ( not r ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -84,7 +84,7 @@ def content(url,searched=False):
 	for i in r:
 		try:
 			name = i.img['alt']
-			icon = i.img['data-src']
+			icon = i.img['src']
 			if 'video-default' in icon:
 				icon = i.img['data-src']
 			url2 = i.a['href']

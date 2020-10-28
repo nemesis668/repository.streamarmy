@@ -1,4 +1,4 @@
-import xbmc,xbmcplugin,os,urlparse,re
+import xbmc,xbmcplugin,os,urlparse,re,xbmcgui
 import client
 import kodi
 import dom_parser2
@@ -7,7 +7,7 @@ import lover
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
-
+dialog = xbmcgui.Dialog()
 filename     = os.path.basename(__file__).split('.')[0]
 base_domain  = 'https://www.porndig.com'
 base_name    = base_domain.replace('www.',''); base_name = re.findall('(?:\/\/|\.)([^.]+)\.',base_name)[0].title()
@@ -66,7 +66,7 @@ def content(url,searched=False):
 
 	try:
 		c = client.request(url)
-		r = re.findall('data-post_id=(.*?)<span class="pull-right">',c)
+		r = re.findall('data-post_id=(.*?)</section>',c)
 		if ( not r ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
@@ -84,10 +84,9 @@ def content(url,searched=False):
 			name = re.findall('alt="(.*?)"',i)[0]
 			url = re.findall('href="(.*?)"',i)[0]
 			if not base_domain in url: url = base_domain + url
-			icon = re.findall('<img src="(.*?)"',i)[0]
-			description = re.findall('<span class="pull-left">(.*?)</span>',i)[0]
+			icon = re.findall('<img data-src="(.*?)"',i)[0]
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
-			dirlst.append({'name': name, 'url': url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'description': description, 'folder': False})
+			dirlst.append({'name': name, 'url': url, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
 			log_utils.log('Error adding menu item %s in %s:: Error: %s' % (i[1].title(),base_name.title(),str(e)), log_utils.LOGERROR)
 

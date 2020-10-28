@@ -62,6 +62,8 @@ class streamer:
 
 			elif 'porn00' in url: u = self.porn00(url)
 			
+			elif 'fapality.com' in url: u = self.fapality(url)
+			
 			elif 'justporno.tv' in url: u = self.justporno(url)
 
 			elif '4tube.com' in url: u = self.fourtube(url)
@@ -436,11 +438,21 @@ class streamer:
 			r = client.request(url)
 			pattern = r'''source\s*src=\"([^"]+)\"\s*res=\"\d+\"\s*label="([^"]+)"'''
 			r = re.findall(pattern, r)
-			r = [(i[1],i[0]) for i in r if i]
-			u = sorted(r, key=lambda x: int(re.search('(\d+)', x[0]).group(1)), reverse=True)
-			return u
-		except:
-			return
+			names = []
+			srcs  = []
+			for link,qual in r:
+				if not 'http' in link: link='http:'+link
+				names.append(kodi.giveColor(qual,'white',True))
+				srcs.append(link)
+			selected = kodi.dialog.select('Select a link.',names)
+			if selected < 0:
+				kodi.notify(msg='No option selected.')
+				kodi.idle()
+				quit()
+			else:
+				url2 = srcs[selected]
+				return url2
+		except: return
 
 
 	def pornhub(self, url):
@@ -769,22 +781,9 @@ class streamer:
 			
 	def youngpornvideos(self,url):
 			r = client.request(url)
-			pattern = r'''file:\s+['"]([^'"]+).+?\s+label:\s+['"]([^'"]+)'''
-			r = re.findall(pattern,r)
-			names = []
-			srcs  = []
-			xbmc.executebuiltin("Dialog.Close(busydialog)")
-			for url,quality in sorted(r, reverse=False):
-				names.append(kodi.giveColor(quality,'white',True))
-				srcs.append(url)
-			selected = kodi.dialog.select('Select a link.',names)
-			if selected < 0:
-				kodi.notify(msg='No option selected.')
-				kodi.idle()
-				quit()
-			else:
-				url2 = srcs[selected]
-				xbmc.Player().play(url2)
+			pattern = r'''file:\s+['"]([^'"]+m3u8.+)['"]'''
+			r = re.findall(pattern,r)[0]
+			xbmc.Player().play(r)
 	def porndig(self,url):
 		r = client.request(url)
 		soup = BeautifulSoup(r,'html.parser')
@@ -1064,6 +1063,29 @@ class streamer:
 		else:
 			url2 = srcs[selected]
 			xbmc.Player().play(url2)
+			
+	def fapality(self, url):
+		c = client.request(url)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('source', id=re.compile("video_source_[0-9]"))
+		names = []
+		srcs  = []
+		for i in r:
+			name = i['title']
+			names.append(kodi.giveColor(name,'white',True))
+			src = i['src']
+			srcs.append(src)
+		selected = kodi.dialog.select('Select a Quality.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+			'Referer' : url}
+			link = requests.get(url2,headers=headers, stream=True)
+			xbmc.Player().play(link.url)
 	def watchpornfree(self, url):
 		#dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Links Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		r = scraper.get(url).content

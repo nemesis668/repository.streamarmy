@@ -83,7 +83,7 @@ def content(url,searched=False):
 			name = re.findall("""<a href='.+?'>(.*?)</a>""",i, flags=re.DOTALL)[0]
 			url2 = re.findall('href="(.*?)"',i, flags=re.DOTALL)[0]
 			if not base_domain in url2: url2 = base_domain + url2
-			icon = re.findall('src="(.*?)"',i, flags=re.DOTALL)[0]
+			icon = re.findall('data-original="(.*?)"',i, flags=re.DOTALL)[0]
 			if not 'https' in icon: icon = 'https:' + icon
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
