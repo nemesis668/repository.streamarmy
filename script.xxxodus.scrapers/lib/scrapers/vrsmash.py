@@ -16,8 +16,8 @@ menu_mode    = 284
 content_mode = 285
 player_mode  = 801
 
-search_tag   = 1
-search_base  = urlparse.urljoin(base_domain,'video/search?query=%s')
+search_tag   = 0
+search_base  = urlparse.urljoin(base_domain,'video/search?query=%s').replace(' ','+')
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():

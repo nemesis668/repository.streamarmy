@@ -97,6 +97,8 @@ class streamer:
 			
 			elif 'nuvid' in url: u = self.nuvid(url)
 			
+			elif 'xxxdan' in url: u = self.xxxdan(url)
+			
 			elif 'solopornoitaliani' in url: u = self.solopornoitaliani(url)
 			
 			elif 'spreadporn.org' in url: u = self.spreadporn(url)
@@ -147,7 +149,7 @@ class streamer:
 			
 			elif 'pornxs.com' in url: u = self.pornxs(url)
 			
-			elif 'http://streamingporn.xyz' in url: u = self.streamingporn(url)
+			elif 'streamingporn.xyz' in url: u = self.streamingporn(url)
 			
 			elif '3movs.com' in url: u = self.threemovs(url)
 			
@@ -331,26 +333,19 @@ class streamer:
 			sources = links['href']
 			titles = links.text
 			if resolveurl.HostedMediaFile(sources).valid_url():
-				dialog.notification('XXX-O-DUS', '[COLOR yellow]Checking For Links Now, Be Patient[/COLOR]', xbmcgui.NOTIFICATION_INFO, 13000)
-				try:
-					u = resolveurl.HostedMediaFile(sources, include_popups=False).resolve()
-					if u:
-						found += 1
-						names.append(titles)
-						srcs.append(u)
-				except: pass
-		if found >= 1:
-			selected = kodi.dialog.select('Select a link.',names)
-			if selected < 0:
-				kodi.notify(msg='No option selected.')
-				kodi.idle()
-				quit()
-			else:
-				play = srcs[selected]
-				xbmc.Player().play(play)
-				xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
-				xbmc.executebuiltin('Dialog.Close(busydialog)')
-		else: dialog.notification('XXX-O-DUS', '[COLOR yellow]No Working Links Found Sorry[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+				names.append(kodi.giveColor(titles,'white',True))
+				srcs.append(sources)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			try:
+				u = resolveurl.HostedMediaFile(url2).resolve()
+				xbmc.Player().play(u)
+			except : dialog.notification('XXX-O-DUS', '[COLOR yellow]Resolver Couldn\'t Resolve Link, Try Another[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 	def fourtube(self, url):
 		ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 		headers = {'User-Agent': ua}
@@ -874,26 +869,23 @@ class streamer:
 		srcs  = []
 		found = 0
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
+		dialog.notification('XXX-O-DUS', '[COLOR yellow]Checking For Links Now, Be Patient[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		for url,quality in sorted(r, reverse=True):
 			if resolveurl.HostedMediaFile(url).valid_url():
-				dialog.notification('XXX-O-DUS', '[COLOR yellow]Checking For Links Now, Be Patient[/COLOR]', xbmcgui.NOTIFICATION_INFO, 13000)
-				try:
-					u = resolveurl.HostedMediaFile(url, include_popups=False).resolve()
-					if u:
-						found +=1
-						names.append(kodi.giveColor(quality,'white',True))
-						srcs.append(u)
-				except: pass
-		if found >= 1:
-			selected = kodi.dialog.select('Select a link.',names)
-			if selected < 0:
-				kodi.notify(msg='No option selected.')
-				kodi.idle()
-				quit()
-			else:
-				url2 = srcs[selected]
-				xbmc.Player().play(url2)
-		else: dialog.notification('XXX-O-DUS', '[COLOR yellow]No Working Links Found Sorry[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+				names.append(kodi.giveColor(quality,'white',True))
+				srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			try:
+				u = resolveurl.HostedMediaFile(url2).resolve()
+				xbmc.Player().play(u)
+			except : dialog.notification('XXX-O-DUS', '[COLOR yellow]Resolver Couldn\'t Resolve Link, Try Another[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+	#else: dialog.notification('XXX-O-DUS', '[COLOR yellow]No Working Links Found Sorry[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		
 	def txxx(self, url):
 		try:
@@ -950,7 +942,7 @@ class streamer:
 				quit()
 			else:
 				url2 = srcs[selected]
-				xbmc.Player().play(url2)
+				return url2
 		else: dialog.notification('XXX-O-DUS', '[COLOR yellow]No Working Links Found Sorry[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 				
 	def threemovs(self,url):
@@ -1098,24 +1090,27 @@ class streamer:
 		xbmc.executebuiltin("Dialog.Close(busydialog)")
 		for url,name in r:
 			if resolveurl.HostedMediaFile(url).valid_url():
-				dialog.notification('XXX-O-DUS', '[COLOR yellow]Checking For Links Now, Be Patient[/COLOR]', xbmcgui.NOTIFICATION_INFO, 13000)
-				try:
-					found +=1
-					u = resolveurl.HostedMediaFile(url, include_popups=False).resolve()
-					if u:
-						names.append(kodi.giveColor(name,'white',True))
-						srcs.append(u)
-				except: pass
-		if found >= 1:
-			selected = kodi.dialog.select('Select a link.',names)
-			if selected < 0:
-				kodi.notify(msg='No option selected.')
-				kodi.idle()
-				quit()
-			else:
-				url2 = srcs[selected]
-				xbmc.Player().play(url2)
-		else: dialog.notification('XXX-O-DUS', '[COLOR yellow]No Working Links Found Sorry[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+				names.append(kodi.giveColor(name,'white',True))
+				srcs.append(url)
+		selected = kodi.dialog.select('Select a link.',names)
+		if selected < 0:
+			kodi.notify(msg='No option selected.')
+			kodi.idle()
+			quit()
+		else:
+			url2 = srcs[selected]
+			try:
+				u = resolveurl.HostedMediaFile(url2).resolve()
+				xbmc.Player().play(u)
+			except : dialog.notification('XXX-O-DUS', '[COLOR yellow]Resolver Couldn\'t Resolve Link, Try Another[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
+	def xxxdan(self, url):
+		try:
+			Headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36' }
+			pattern = r'''sources.+?src:['"]([^'"]+)['"]'''
+			link = requests.get(url,headers=Headers).content
+			source = re.findall(pattern,link,flags=re.DOTALL)[0]
+			xbmc.Player ().play(source)
+		except: dialog.notification('XXX-O-DUS', '[COLOR yellow]Performer Is Offline[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 	def charbate(self, url):
 		dialog.notification('XXX-O-DUS', '[COLOR yellow]Getting Cam Now[/COLOR]', xbmcgui.NOTIFICATION_INFO, 5000)
 		try:

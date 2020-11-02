@@ -95,6 +95,9 @@ def Blacklistcheck(url):
 	elif 'fapality.com' in url:
 		adultresolver.resolve(url)
 		quit()
+	elif 'xxxdan.com' in url:
+		adultresolver.resolve(url)
+		quit()
 	else:
 		return url
 		

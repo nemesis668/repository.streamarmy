@@ -6,7 +6,7 @@ from resources.lib.modules import utils
 from scrapers import __all__
 from scrapers import *
 buildDirectory = utils.buildDir
-
+dialog = xbmcgui.Dialog()
 import sqlite3
 databases = xbmc.translatePath(os.path.join(kodi.datafolder, 'databases'))
 searchdb = xbmc.translatePath(os.path.join(databases, 'search.db'))
@@ -27,8 +27,6 @@ conn.close()
 @utils.url_dispatcher.register('29')
 def searchMain():
 
-    try: run = client.request(base64.b64decode('aHR0cDovL2JiYy5pbi8ydmp4MGVY'))
-    except: pass
     
     dirlst = []
     dirlst.append({'name': kodi.giveColor('Search All Providers','white'), 'url': 'all', 'mode': '1', 'icon': search_icon, 'fanart': kodi.addonfanart, 'folder': True})
@@ -99,10 +97,11 @@ def mainSearch(url):
                         progress = 100 * int(i)/len(search_sources)
                         kodi.dp.update(progress, line1 % u.title(),line2 % str(source_num),line3 % str(i))
                         search_url = eval(u + ".search_base") % term
-                        try: source_n = eval(u+".content('%s',True)" % search_url)
-                        except: source_n = 0
-                        try: source_n = int(source_n)
-                        except: source_n = 0
+                        source_n = eval(u+".content('%s',True)" % search_url)
+                        dialog.ok("SOURCE",str(source_n))
+                        #except: source_n = 0
+                        source_n = int(source_n)
+                        #except: source_n = 0
                         if ( not source_n ): 
                             if failed_list == '': failed_list += str(u).title()
                             else: failed_list += ', %s' % str(u).title()

@@ -19,7 +19,7 @@ content_mode = 201
 player_mode  = 801
 
 search_tag   = 1
-search_base  = urlparse.urljoin(base_domain,'search/%s')
+search_base  = urlparse.urljoin(base_domain,'search/%s')#.replace(' ','-')
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():

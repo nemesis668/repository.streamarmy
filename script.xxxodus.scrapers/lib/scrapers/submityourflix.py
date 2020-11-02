@@ -5,6 +5,7 @@ import dom_parser2
 import log_utils
 import lover
 import xbmcgui
+from bs4 import BeautifulSoup
 from resources.lib.modules import utils
 from resources.lib.modules import helper
 buildDirectory = utils.buildDir #CODE BY NEMZZY AND ECHO
@@ -22,12 +23,14 @@ search_base  = urlparse.urljoin(base_domain,'search/?s=%s')
 
 @utils.url_dispatcher.register('%s' % menu_mode)
 def menu():
-
 	lover.checkupdates()
+	url = base_domain
+	content(url)
 	try:
 		url = base_domain
 		c = client.request(url)
-		r = re.findall('<div class="item-block item-normal col"(.+?)</div>',c,flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('div', class_={'item thumb'})
 	except Exception as e:
 		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
@@ -37,10 +40,9 @@ def menu():
 	searched=False
 	for i in r:
 		try:
-			url2 = re.findall('<a href="(.*?)"',i, flags=re.DOTALL)[0]
-			name = re.findall('title="(.*?)"',i, flags=re.DOTALL)[0]
-			icon = re.findall('<img.*?data-src="(.*?)"',i, flags=re.DOTALL)[0]
-			if not base_domain in url2: url2 = base_domain + url2
+			name = i.img['alt']
+			url2 = i.a['href']
+			icon = i.img['data-src']
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % base_name))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
@@ -54,7 +56,7 @@ def menu():
 	#if searched: return str(len(r))
 
 	if not searched:
-		search_pattern = '''<a\s+href=['"]([^'"]+)['"]\s+class=['"]next['"]'''
+		search_pattern = '''<a\s+href=['"]([^'"]+)['"].*?Next'''
 		parse = base_domain
 		helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)
 
@@ -63,7 +65,8 @@ def content(url,searched=False):
 
 	try:
 		c = client.request(url)
-		r = re.findall('<div class="item-block item-normal col" >(.+?)</div>',c,flags=re.DOTALL)
+		soup = BeautifulSoup(c,'html.parser')
+		r = soup.find_all('div', class_={'item thumb'})
 	except Exception as e:
 		log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
 		kodi.notify(msg='Fatal Error', duration=4000, sound=True)
@@ -73,10 +76,9 @@ def content(url,searched=False):
 	searched=False
 	for i in r:
 		try:
-			url2 = re.findall('<a href="(.*?)"',i, flags=re.DOTALL)[0]
-			name = re.findall('title="(.*?)"',i, flags=re.DOTALL)[0]
-			icon = re.findall('<img src="(.*?)"',i, flags=re.DOTALL)[0]
-			if not base_domain in url2: url2 = base_domain + url2
+			name = i.img['alt']
+			url2 = i.a['href']
+			icon = i.img['data-src']
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % base_name))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:
@@ -90,6 +92,6 @@ def content(url,searched=False):
 	#if searched: return str(len(r))
 
 	if not searched:
-		search_pattern = '''<a\s+href=['"]([^'"]+)['"]\s+class=['"]next['"]'''
+		search_pattern = '''<a\s+href=['"]([^'"]+)['"].*?Next'''
 		parse = base_domain
 		helper.scraper().get_next_page(content_mode,url,search_pattern,filename,parse)

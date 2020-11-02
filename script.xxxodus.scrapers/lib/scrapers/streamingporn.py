@@ -61,7 +61,7 @@ def content(url,searched=False):
 		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
 		link = client.request(url)
 		soup = BeautifulSoup(link,'html.parser')
-		r = soup.find_all("div",  class_={'entry-content'})
+		r = soup.find_all('div', class_={'entry-content'})
 	except Exception as e:
 		if ( not searched ):
 			log_utils.log('Fatal Error in %s:: Error: %s' % (base_name.title(),str(e)), log_utils.LOGERROR)
@@ -71,9 +71,9 @@ def content(url,searched=False):
 	dirlst = []
 	for i in r:
 		try:
-			name = i.find('a', class_={'more-link'}).text.replace('Continue reading ','')
+			name = i.a['href'].replace('https://streamingporn.xyz','').replace('/','').title().replace('-',' ')
 			url2 = i.a['href']
-			icon = i.img['src']
+			icon = i.img['data-lazy-src']
 			fanarts = xbmc.translatePath(os.path.join('special://home/addons/script.xxxodus.artwork', 'resources/art/%s/fanart.jpg' % filename))
 			dirlst.append({'name': name, 'url': url2, 'mode': player_mode, 'icon': icon, 'fanart': fanarts, 'folder': False})
 		except Exception as e:

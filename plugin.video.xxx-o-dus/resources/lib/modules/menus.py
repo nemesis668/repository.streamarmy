@@ -60,7 +60,7 @@ def mainMenu():
          ('Search...',None,29,'search','Search XXX-O-DUS',True), \
          ('[COLOR pink]Live Cams',None,37,'webcams','Live Cams',True), \
          ('[COLOR pink]Tubes',None,4,'tubes','Videos',True), \
-         ('[COLOR pink]Scenes',None,36,'scenes','XXX Scenes',True), \
+         #('[COLOR pink]Scenes',None,36,'scenes','XXX Scenes',True), \
          ('[COLOR pink]Movies',None,43,'movies','XXX Movies',True), \
          ('[COLOR pink]Films With Sex In',None,48,'sexfilms','Videos',True), \
          ('[COLOR pink]Virtual Reality',None,42,'vr','XXX Virtual Reality',True), \

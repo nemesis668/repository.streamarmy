@@ -1,15 +1,16 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
 
-[COLOR aqua]XXXODUS : Current Version 4.00.042[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.043[/COLOR]
 
-[COLOR aqua]SCRAPERS : Current Version 3.00.018[/COLOR]
+[COLOR aqua]SCRAPERS : Current Version 3.00.019[/COLOR]
 
 
 [COLOR yellow]FIXED[/COLOR]
-[COLOR white]Multiple Scrapers, All ,Tubes Now Work[/COLOR]
+[COLOR white]Search Now Works For All Scrapers[/COLOR]
+[COLOR white]Fixed and Sped Up :: PandaMovie, StreamingPorn ( Also Fixed Icons and Titles ), WatchPornFree, FreeoMovie in Movies Section[/COLOR]
 
 [COLOR yellow]Added[/COLOR]
-[COLOR white]Fapality[/COLOR]
+[COLOR white]XXXDan[/COLOR]
 
 
 [COLOR yellow]BUGS KNOWN[/COLOR]

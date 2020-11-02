@@ -62,12 +62,14 @@ def menu():
         
 @utils.url_dispatcher.register('%s' % content_mode,['url'],['searched'])
 def content(url,searched=False):
-	
 	try:
 		c = client.request(url)
 		soup = BeautifulSoup(c,'html.parser')
-		r = soup.find('ul',id={'videoCategory'})
-		c = r.find_all('div', class_={'phimage'})
+		if not 'video/search?' in url:
+			r = soup.find('ul',id={'videoCategory'})
+			c = r.find_all('div', class_={'phimage'})
+		else:
+			c = soup.find_all('div', class_={'phimage'})
 		if ( not c ) and ( not searched ):
 			log_utils.log('Scraping Error in %s:: Content of request: %s' % (base_name.title(),str(c)), log_utils.LOGERROR)
 			kodi.notify(msg='Scraping Error: Info Added To Log File', duration=6000, sound=True)
