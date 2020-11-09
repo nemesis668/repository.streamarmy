@@ -210,7 +210,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 
 <addon id="plugin.video.xxx-o-dus"
 	     name="XXX-O-DUS"
-	     version="4.00.043"
+	     version="4.00.044"
 	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>

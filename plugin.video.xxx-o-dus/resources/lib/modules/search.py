@@ -98,7 +98,7 @@ def mainSearch(url):
                         kodi.dp.update(progress, line1 % u.title(),line2 % str(source_num),line3 % str(i))
                         search_url = eval(u + ".search_base") % term
                         source_n = eval(u+".content('%s',True)" % search_url)
-                        dialog.ok("SOURCE",str(source_n))
+                        #dialog.ok("SOURCE",str(source_n))
                         #except: source_n = 0
                         source_n = int(source_n)
                         #except: source_n = 0

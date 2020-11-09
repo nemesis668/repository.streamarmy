@@ -1,14 +1,15 @@
 [COLOR pink]Welcome To XXX-O-DUS[/COLOR]
-[COLOR aqua]XXXODUS : Current Version 4.00.042[/COLOR]
-[COLOR aqua]SCRAPERS : Current Version 3.00.018[/COLOR]
-[COLOR aqua]ARTWORK: Current Version 2.00.012[/COLOR]
+[COLOR aqua]XXXODUS : Current Version 4.00.043[/COLOR]
+[COLOR aqua]SCRAPERS : Current Version 3.00.019[/COLOR]
+[COLOR aqua]ARTWORK: Current Version 2.00.013[/COLOR]
 
-[COLOR yellow]Fixed In Scraper Version 3.00.018[/COLOR]
-[COLOR white]Multiple Scrapers in tubes section, All Now Work[/COLOR]
+[COLOR yellow]FIXED[/COLOR]
+[COLOR white]Search Now Works For All Scrapers[/COLOR]
+[COLOR white]Fixed and Sped Up :: PandaMovie, StreamingPorn ( Also Fixed Icons and Titles ), WatchPornFree, FreeoMovie in Movies Section[/COLOR]
+
 [COLOR yellow]Added[/COLOR]
-[COLOR white]Fapality[/COLOR]
-[COLOR white]Have You Tried NemesisAio? Also Available In The Stream Army Repo! Movies,Foriegn Movies, Tv Shows, 24/7 TV, Documentaries, Cartoons, Anime, Radio, Web Cams. Massive Amount Of Content. Also try EntertainMe Also In Stream Army Repo. Movies and Tv Shows! No Real Debrid Required![/COLOR]
+[COLOR white]XXXDan[/COLOR]
 
-[COLOR orange]From All Us At The Stream Army Team, Wishing You Good Health During These Troubled Times[/COLOR]
+
 [COLOR yellow]Issues Known[/COLOR]
 [COLOR red]No Known Issues At The Moment, If Any Report to [COLOR pink]@Nemzzy668 on Twitter[/COLOR]
