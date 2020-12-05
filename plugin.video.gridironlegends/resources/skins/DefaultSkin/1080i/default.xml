@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <control type="image">
+                <description>Background Image</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>1920</width>
+                <height>1080</height>
+                <texture border="2">Fanart.jpg</texture>
+            </control>
+            <control type="image">
+                <description>Dialog Header image</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>1920</width>
+                <height>180</height>
+                <texture>nav.png</texture>
+            </control>
+            <control type="image">
+                <description>Missing Person Image</description>
+                <posx>1250</posx>
+                <posy>225</posy>
+                <width>600</width>
+                <height>600</height>
+                <texture border="3">http://i.imgur.com/PfTgXKO.png</texture>
+            </control>
+            <control type="label" id="100">
+                <description>header label</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>1920</width>
+                <height>50</height>
+                <font>font13</font>
+                <label></label>
+                <align>center</align>
+                <aligny>center</aligny>
+            </control>
+            <control type="textbox" id="101">
+                <left>20</left>
+                <top>200</top>
+                <width>1100</width>
+                <height>940</height>
+                <font>font50</font>
+                <align>left</align>
+                <aligny>top</aligny>
+                <pagecontrol>104</pagecontrol>
+                <onup>104</onup>
+                <ondown>104</ondown>
+                <onleft>104</onleft>
+                <onright>104</onright>
+            </control>
+            <control type="scrollbar" id="104">
+                <left>1870</left>
+                <top>60</top>
+                <width>30</width>
+                <height>940</height>
+                <subtype>text</subtype>
+                <visible>true</visible>
+                <texturesliderbackground>scrollbar-V-background.png</texturesliderbackground>
+                <texturesliderbar>scrollbar-V.png</texturesliderbar>
+                <texturesliderbarfocus colordiffuse="FF12B2E7">scrollbar-V-focus.png</texturesliderbarfocus>
+                <orientation>vertical</orientation>
+                <showonepage>true</showonepage>
+                <onup>102</onup>
+                <ondown>102</ondown>
+                <onleft>102</onleft>
+                <onright>102</onright>
+            </control>
+            
+        </control>
+        <control type="group" id="9001">
+            <control type="button" id="102">
+                <posx>1600</posx>
+                <posy>1011</posy>
+                <width>280</width>
+                <height>70</height>
+                <font>font13</font>
+                <textcolor>FFF0F0F0</textcolor>
+                <label>Close</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <onup>104</onup>
+                <ondown>104</ondown>
+                <onleft>104</onleft>
+                <onright>104</onright>
+                <texturefocus border="40" colordiffuse="FF12B2E7">dialogbutton-fo.png</texturefocus>
+                <texturenofocus border="40">dialogbutton-nofo.png</texturenofocus>
+            </control>
+        </control>
+    </controls>
+</window>
