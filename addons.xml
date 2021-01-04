@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.apocalypse720" name="[COLOR gold][B]Apocalypse 720[/COLOR][/B]" version="4.00.006" provider-name="Addon By @Nolenation">
-  <requires>
-	<import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.simplejson"/>
-	<import addon="script.common.plugin.cache"/>
-	<import addon="script.module.requests"/>
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.html5lib" />
-	<import addon="script.module.resolveurl" />
-	<import addon="script.module.nemzzyscrapers" />
-	<import addon="script.module.pyxbmct" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-	<provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-	<summary lang="en">Apocalypse 720 HD Only Movies and Shows</summary>
-	<description lang="en">Grab The Popcorn, Enjoy One Click HD Only Movies.</description>
-	<platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.video.EntertainMe" name="[COLOR red][B]E[COLOR yellow]nterTain Me[/B][/COLOR]" version="1.00.016" provider-name="@Nemzzy668">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -76,32 +54,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
         <description></description>
         <platform>all</platform>
     </extension>
-</addon>
-
-<addon id="plugin.video.fanime" name="[COLOR magenta][B]FANime[/COLOR][/B]" version="0.00.005" provider-name="@Nemzzy668">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.simplejson"/>
-    <import addon="script.common.plugin.cache"/>
-    <import addon="script.module.requests" />
-    <import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.resolveurl" />
-
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="nemzzy.py">
-        <provides>video</provides>
-        <provides>audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">FANime Was Created By @Nemzzy668 ( Follow On Twitter )</summary>
-    <description lang="en">Anime (pronounced AH-nee-may ) is a term for a style of Japanese comic book and video cartoon animation in which the main characters have large doe-like eyes. Many Web sites are devoted to anime. Anime is the prevalent style in Japanese comic books or manga</description>
-        <disclaimer lang="en">If You Are Using This Addon To Watch Content You Legally Do Not Have The Rights To Then The Author Takes No Affiliation With This, You Do So At Your Own Judgement And Risk!</disclaimer>
-	<platform>all</platform>
-	<assets>
-        <icon>icon.png</icon>
-        <fanart>fanart.jpg</fanart>
-    </assets>
-  </extension>
 </addon>
 
 <addon id="plugin.video.fapzone" name="[COLOR darkgoldenrod].FapZone[/COLOR]" version="2.0.6" provider-name="@Nemzzy">
@@ -179,56 +131,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="plugin.video.gridironlegends" name="[COLOR gold][B]Gridiron Legends[/COLOR][/B]" version="4.00.008" provider-name="Warchant">
-  <requires>
-	<import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.simplejson"/>
-	<import addon="script.common.plugin.cache"/>
-	<import addon="script.module.metahandler"/>
-	<import addon="script.module.requests"/>
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.html5lib" />
-	<import addon="script.module.resolveurl" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-	<provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-	<summary lang="en">All-Around Sports Addon</summary>
-	<description lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon.[CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</description>
-	<platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.nemesisaio" name="[COLOR yellow][B]NemesisAio[/B][/COLOR]" version="3.00.008" provider-name="[COLOR yellow]@Nemzzy668 , @_Manc_ , @LordJD , @__K__M__M__ , @NoleNation4 [/COLOR]">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.simplejson"/>
-    <import addon="script.common.plugin.cache"/>
-    <import addon="script.module.resolveurl" />
-    <import addon="script.module.requests" />
-    <import addon="script.module.beautifulsoup4" />
-    <import addon="script.module.html5lib" />
-	<import addon="script.module.nemzzyscrapers" />
-	<import addon="script.module.cloudscraper" />
-	<import addon="script.module.pyxbmct" />
-
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="nemesis.py">
-        <provides>video</provides>
-        <provides>audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">[COLOR yellow]NemesisAio Addon[/COLOR]</summary>
-    <description lang="en">[COLOR yellow]NemesisAio Addon, We Do not host any streams or content, all information available in this addon is obtained using scrappers[/COLOR]</description>
-    <platform>all</platform>
-	<assets>
-        <icon>icon.gif</icon>
-        <fanart>fanart.jpg</fanart>
-    </assets>
-  </extension>
-</addon>
-
 <addon id="plugin.video.xxx-o-dus"
 	     name="XXX-O-DUS"
 	     version="4.00.044"
@@ -295,22 +197,29 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo[/COLOR]" version="12.0.004" provider-name="@Nemzzy668 / @_Manc_">
-    <extension point="xbmc.addon.repository" name="Stream Army">
-        <info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
-        <checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
-        <datadir zip="true">http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/zips/</datadir>
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>Stream Army Repo</summary>
-        <description>Repo For Stream Army, Bought to you by @Nemzzy668 /  @_MANC_</description>
-        <platform>all</platform>
-    </extension>
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo 18 / 19 Compatible Addons[/COLOR]" version="13.0.000" provider-name="@Nemzzy668 / @_Manc_">
+	<extension point="xbmc.addon.repository" name="Stream Army">
+		<dir maxversion="18.8.9">
+			<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml</info>
+			<checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/addons.xml.md5</checksum>
+			<datadir zip="true">http://raw.githubusercontent.com/nemesis668/repository.streamarmy/master/zips/</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy18-19/master/addons.xml</info>
+			<checksum>http://raw.githubusercontent.com/nemesis668/repository.streamarmy18-19/master/addons.xml.md5</checksum>
+			<datadir zip="true">http://raw.githubusercontent.com/nemesis668/repository.streamarmy18-19/master/zips/</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Stream Army Repo</summary>
+		<description>Repo For Stream Army, Bought to you by @Nemzzy668 /  @_MANC_</description>
+		<platform>all</platform>
+	</extension>
 </addon>
 
 <addon id="script.kodi.hue.ambilight" name="Kodi Philips Hue" version="2.0" provider-name="Nemzzy :: Original Martin Polednik">
