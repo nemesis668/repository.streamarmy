@@ -56,24 +56,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     </extension>
 </addon>
 
-<addon id="plugin.video.fapzone" name="[COLOR darkgoldenrod].FapZone[/COLOR]" version="2.0.6" provider-name="@Nemzzy">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.addon.common" version="2.0.0" />
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.html5lib" />
-	<import addon="script.module.requests" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Grab The Lube and The Wipes lets Fap baby</summary>
-    <description lang="en">Please Try Not To Explode On The Screen, It Makes It Hard To Clean</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
 <addon id="plugin.video.Feel-The-Music" name="Feel The Music" version="1.7" provider-name="Manc">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
@@ -233,27 +215,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     <summary>Kodi-controlled Philips Hue lights, Fixed By Nemzzy and Silent For Kodi 18</summary>
     <description>Let Kodi control your Philips Hue lights. Either turns the lights into a room-sized ambilight, or automatically dims and un-dims them when playback starts or stops.</description>
     <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="script.module.cloudscraper" name="CloudScraper2" version="1.2.40" provider-name="venomous">
-  <requires>
-    <import addon="xbmc.python" version="2.26.0"/>
-    <import addon="script.module.requests" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.python.pluginsource" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en_gb">cloudscraper</summary>
-    <description lang="en_gb">cloudscraper</description>
-    <disclaimer lang="en_gb"></disclaimer>
-    <language></language>
-    <platform>all</platform>
-    <license></license>
-    <forum></forum>
-    <website></website>
-    <email></email>
-    <source></source>
   </extension>
 </addon>
 
