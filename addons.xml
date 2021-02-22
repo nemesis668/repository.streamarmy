@@ -112,47 +112,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="plugin.video.xxx-o-dus"
-	     name="XXX-O-DUS"
-	     version="4.00.044"
-	     provider-name="Originally By : Echo Coder :: Revived By @Nemzzy668">
-  <requires>
-    <import addon="xbmc.python" version="2.24.0"/>
-    <import addon="script.module.echo"/>
-    <import addon="script.xxxodus.artwork"/>
-    <import addon="script.xxxodus.scrapers"/>
-    <import addon="script.module.resolveurl"/>
-    <import addon="script.module.resolveurl.xxx"/>
-    <import addon="script.module.pyxbmct"/>
-	<import addon="script.module.requests" />
-	<import addon="script.module.beautifulsoup4" />
-    <import addon="script.module.html5lib" />
-    <!--<import addon="repository.colossus"/>-->
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.service" library="service.py" start="startup">
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <platform>all</platform>
-    <summary lang="en">[B]Addon Originally Created By EchoCoder, Now Maintained by @Nemzzy668 :: Massive Credit to @_PYDEV_ KingKong for the pyxbmct work to provide a stunning interface to view the dialogs in this addon and the GitHub issues! Also A huge credit to jokstergfx for the icons and fanarts in this addon and many others! Thank you![/B]</summary>
-    <description lang="en">[COLOR white]XXX-O-DUS scrapes many websites to bring you hundreds of thousands of videos. Features of the addon include, history monitoring, favourites, downloadable videos, parental controls and more![/COLOR]
-
-[COLOR white]Websites Include: Porn.com, PornHD.com, Chaturbate.com, RedTube.com, Xhamster.com, YouPorn.com, PornFun.com, Motherless.com,Porn00.org, Spankbang.com, Virtualpornstars.com, Watchxxxfree.com, Perfectgirls.net, XNXX.com and many more.[/COLOR]</description>
-    <disclaimer lang="en">The pages of this addon are designed for ADULTS only and may include pictures and materials that some viewers may find offensive. If you are under the age of 18, if such material offends you or if it is illegal to view such material in your community please exit the addon.</disclaimer>
-    <language></language>
-    <platform>all</platform>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-    <website>https://github.com/Colossal1/plugin.video.xxx-o-dus</website>
-    <forum>https://github.com/Colossal1/plugin.video.xxx-o-dus</forum>
-    <assets>
-        <icon>icon.png</icon>
-        <fanart>fanart.jpg</fanart>
-    </assets>
-  </extension>
-</addon>
-
 <addon id="program.plexus"
        name="Plexus"
        version="0.1.7"
@@ -178,7 +137,7 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo 18 / 19 Compatible Addons[/COLOR]" version="13.0.002" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo 18 / 19 Compatible Addons[/COLOR]" version="13.0.003" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy18-19/main/addons.xml</info>
@@ -215,18 +174,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
     <description>Let Kodi control your Philips Hue lights. Either turns the lights into a room-sized ambilight, or automatically dims and un-dims them when playback starts or stops.</description>
     <platform>all</platform>
   </extension>
-</addon>
-
-<addon id="script.module.echo" name="Echo Libraries" version="1.00.003" provider-name="Echo Coder">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0" />
-		<import addon="script.module.requests" />
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
-		<summary lang="en">Forked from TK Norris Shared Module. Reusable Modules used by several of Echo's addons</summary>
-	</extension>
 </addon>
 
 <addon id="script.module.f4mproxy"
@@ -289,32 +236,6 @@ Addon Runs A Little Slower Now Due To Site Using CloudFlare
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
 		<summary lang="en">Scraper Moduel Used By Addons By Nemzzy</summary>
-	</extension>
-</addon>
-
-<addon id="script.xxxodus.artwork" version="2.00.013" name="XXXODUS Artwork" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
-	<requires>
-		<import addon="xbmc.python" version="2.24.0"/>
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.addon.metadata">
-		<summary>Artwork for XXXODUS</summary>
-		<description>Artwork for XXXODUS is maintained separately to make distribution of the the addon itself easier/faster.</description>
-		<platform>all</platform>
-	</extension>
-</addon>
-
-<addon id="script.xxxodus.scrapers" name="XXXODUS Scrapers" version="3.00.021" provider-name="Original Echo Coder // Maintained NOW by @Nemzzy668">
-	<requires>
-		<import addon="xbmc.python" version="2.24.0" />
-		<import addon="script.module.requests" />
-		<import addon="script.module.beautifulsoup4" />
-		<import addon="script.module.html5lib" />
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
-		<summary lang="en">Scrapers for use in XXXODUS</summary>
 	</extension>
 </addon>
 </addons>
