@@ -1,6 +1,0 @@
-Huge Thank you for Dev Kong, He provided the template for the addon and helped Nemzzy with learning pyx.
-without his tutorial this wouldn't have been possible
-Jsergio For Resolve Url
-EchoCoder For teaching me a lot about python coding
-NJMSoccer For helping me first get into the scene
-Un-Named dev ( He Knows Who He Is ) for providing me with the fix to get images to load from cloudflare sites

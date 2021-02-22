@@ -1,5 +1,0 @@
-<settings>
-<category label="Settings">
-    <setting label="Addon Theme" type="text" id="Theme" values="EntertainMe" default="EntertainMe" visible="false"/>
-</category><category label="Pin">	<setting type="lsep" label="[COLOR dodgerblue][B]Current Pin, Pins Expire After 24 Hours[/B][/COLOR]"/>	<setting id="pin" type="text" label="Current Pin : " default="Expired" visible="true"/>	<setting id="pinused" type="text" label="Current Pin : " default="false" visible="false"/></category>
-</settings>
