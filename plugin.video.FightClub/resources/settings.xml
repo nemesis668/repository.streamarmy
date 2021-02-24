@@ -1,2 +1,0 @@
-<settings><category label="Pin">	<setting type="lsep" label="[COLOR gold][B]Current Pin, Pins Expire After 24 Hours[/B][/COLOR]"/>	<setting id="pin" type="text" label="Current Pin : " default="Expired" visible="true"/></category>
-</settings>

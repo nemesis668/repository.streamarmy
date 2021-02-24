@@ -45,34 +45,6 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.FightClub" name="[COLOR gold][B]F[COLOR silver]ight Club[/B][/COLOR]" version="1.00.016" provider-name="Nemzzy">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.simplejson"/>
-    <import addon="script.common.plugin.cache"/>
-    <import addon="script.module.metahandler"/>
-	<import addon="script.module.requests"/>
-	<import addon="script.module.resolveurl"/>
-	<import addon="script.module.beautifulsoup4" />
-    <import addon="script.module.html5lib" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="fc.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Fight Club WWE,UFC And Boxing</summary>
-    <description lang="en">First Rule Of Fight Club......All Replays And Streams Obtained using scrapers from openly available sources. Fight Club does not host any of the contained content and any copyright notices should be sent to the hosting website</description>
-    <platform>all</platform>
-	<assets>
-	<icon>icon.png</icon>
-    <fanart>fanart.jpg</fanart>
-    <screenshot>resources/screenshots/1.jpg</screenshot>
-    <screenshot>resources/screenshots/2.jpg</screenshot>
-    <screenshot>resources/screenshots/3.jpg</screenshot>
-</assets>
-  </extension>
-</addon>
-
 <addon id="program.plexus"
        name="Plexus"
        version="0.1.7"
@@ -98,7 +70,7 @@
   </extension>
 </addon>
 
-<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo 18 / 19 Compatible Addons[/COLOR]" version="13.0.004" provider-name="@Nemzzy668 / @_Manc_">
+<addon id="repository.StreamArmy" name="[COLOR crimson]S[COLOR silver]tream Army Repo 18 / 19 Compatible Addons[/COLOR]" version="13.0.005" provider-name="@Nemzzy668 / @_Manc_">
 	<extension point="xbmc.addon.repository" name="Stream Army">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/nemesis668/repository.streamarmy18-19/main/addons.xml</info>
